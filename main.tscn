@@ -95,5 +95,3 @@ layer_0/tile_data = PackedInt32Array(-1179666, 65536, 1, -1114130, 65536, 1, -10
 [node name="Tp" parent="TP_all" instance=ExtResource("4_12jmb")]
 position = Vector2(-236, -214)
 _scenePath = "main.tscn"
-
-[connection signal="body_entered" from="TP_all/Tp" to="." method="_on_tp_body_entered"]

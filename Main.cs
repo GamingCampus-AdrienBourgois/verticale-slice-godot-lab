@@ -9,7 +9,7 @@ public partial class Main : Node2D
 		GD.Print("Hello");
 		foreach (Node i in GetNode<Node>("TP_all").GetChildren())
 		{
-			i.Connect("Player_entered",new Callable(this,"_on_tp_body_entered"));
+			i.Connect("script_changed",new Callable(this,"Tp_entered"));
 			GD.Print("tp ready");
 			// GOOOD
 			
@@ -21,11 +21,14 @@ public partial class Main : Node2D
 	{
 	}
 
-	private void _on_tp_body_entered(Node2D body)
+	public void Tp_entered(string _scenePath, Node2D body)
 	{
 		if (body.IsInGroup("Player")){
-			// a
-			//GetTree().ChangeSceneToFile("main.tscn"); // Pas d'autres scenes pour l'instant
+			GD.Print("Player !");
+			GetTree().ChangeSceneToFile(_scenePath);
+		}
+		else {
+			GD.Print("Non_player collision");
 		}
 	}
 
