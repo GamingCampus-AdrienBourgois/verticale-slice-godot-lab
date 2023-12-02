@@ -11,7 +11,8 @@ public partial class Main : Node2D
 		{
 			i.Connect("Player_entered",new Callable(this,"_on_tp_body_entered"));
 			GD.Print("tp ready");
-
+			// GOOOD
+			
 		}
 	}
 
