@@ -1,6 +1,6 @@
 using Godot;
 using System;
-
+// Cool
 public partial class Main : Node2D
 {
 	// Called when the node enters the scene tree for the first time.
