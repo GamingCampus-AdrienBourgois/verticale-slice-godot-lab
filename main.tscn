@@ -5,7 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://bnmkl1gwaqahx" path="res://icon.svg" id="3_nd6b6"]
 [ext_resource type="PackedScene" uid="uid://brp75n3p58gce" path="res://Scenes/Components/tp.tscn" id="4_12jmb"]
 [ext_resource type="PackedScene" uid="uid://c2k0yl2eo71rf" path="res://Scenes/Components/box.tscn" id="5_qksr7"]
-[ext_resource type="Script" path="res://Scenes/Components/box.cs" id="6_h1q13"]
+[ext_resource type="Script" path="res://Scripts/Components/box.cs" id="6_h1q13"]
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k5006"]
 texture = ExtResource("3_nd6b6")
