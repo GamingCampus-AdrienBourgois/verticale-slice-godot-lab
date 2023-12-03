@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2k0yl2eo71rf"]
+
+[ext_resource type="Texture2D" uid="uid://bnmkl1gwaqahx" path="res://icon.svg" id="1_hmvwg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dheyk"]
+size = Vector2(30, 26)
+
+[node name="Box" type="RigidBody2D"]
+disable_mode = 2
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dheyk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.87451, 0, 0.886275, 1)
+scale = Vector2(0.234375, 0.21875)
+texture = ExtResource("1_hmvwg")

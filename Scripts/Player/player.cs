@@ -4,6 +4,7 @@ using System;
 public partial class player : CharacterBody2D
 {
 	public const float Speed = 300.0f;
+	public const int PUSH = 5;
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -31,5 +32,12 @@ public partial class player : CharacterBody2D
 		// Aussi pas en gd script vu que ça a été simplifié
 		Velocity = velocity;
 		MoveAndSlide();
+
+		for (int i = 0; i > GetSlideCollisionCount(); i++){
+			var collision = GetSlideCollision(i);
+			collision.GetCollider().ApplyCentralImpulse(-collision.GetNormal() * PUSH);
+
+		}
+
 	}
 }

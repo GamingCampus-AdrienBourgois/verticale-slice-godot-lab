@@ -20,8 +20,9 @@ public partial class tp : Area2D
 	}
 	private void _on_body_entered(Node2D body)
 	{
-		GD.Print("pb ?");
-		EmitSignal("script_changed",_scenePath,body);
+		if (body.IsInGroup("Player")){
+			EmitSignal("script_changed",_scenePath,body);
+		}
 	}
 }
 

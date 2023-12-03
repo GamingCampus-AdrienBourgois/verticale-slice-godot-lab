@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dcgfrcn3xnlda"]
+[gd_scene load_steps=9 format=3 uid="uid://dcgfrcn3xnlda"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_8aswi"]
 [ext_resource type="PackedScene" uid="uid://c767xbfu781tp" path="res://Scenes/Player/player.tscn" id="2_cxfpo"]
 [ext_resource type="Texture2D" uid="uid://bnmkl1gwaqahx" path="res://icon.svg" id="3_nd6b6"]
 [ext_resource type="PackedScene" uid="uid://brp75n3p58gce" path="res://Scenes/Components/tp.tscn" id="4_12jmb"]
+[ext_resource type="PackedScene" uid="uid://c2k0yl2eo71rf" path="res://Scenes/Components/box.tscn" id="5_qksr7"]
+[ext_resource type="Script" path="res://Scenes/Components/box.cs" id="6_h1q13"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k5006"]
 texture = ExtResource("3_nd6b6")
@@ -95,3 +97,7 @@ layer_0/tile_data = PackedInt32Array(-1179666, 65536, 1, -1114130, 65536, 1, -10
 [node name="Tp" parent="TP_all" instance=ExtResource("4_12jmb")]
 position = Vector2(-236, -214)
 _scenePath = "main.tscn"
+
+[node name="Box" parent="." instance=ExtResource("5_qksr7")]
+position = Vector2(-148, -4)
+script = ExtResource("6_h1q13")
