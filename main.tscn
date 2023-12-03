@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dcgfrcn3xnlda"]
+[gd_scene load_steps=9 format=3 uid="uid://dcgfrcn3xnlda"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_8aswi"]
 [ext_resource type="PackedScene" uid="uid://c767xbfu781tp" path="res://Scenes/Player/player.tscn" id="2_cxfpo"]
@@ -203,8 +203,12 @@ texture = ExtResource("3_nd6b6")
 7:7/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_oi64e"]
-physics_layer_0/collision_layer = 3
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_k5006")
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nrhup"]
+rough = true
+bounce = 0.5
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_8aswi")
@@ -229,3 +233,4 @@ _scenePath = "main.tscn"
 
 [node name="Ballon" parent="." instance=ExtResource("5_qksr7")]
 position = Vector2(-280, 154)
+physics_material_override = SubResource("PhysicsMaterial_nrhup")

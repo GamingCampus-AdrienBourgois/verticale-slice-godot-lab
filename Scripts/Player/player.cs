@@ -33,19 +33,19 @@ public partial class player : CharacterBody2D
 		Velocity = velocity;
 		MoveAndSlide();
 
-		for (int i = 0; i > GetSlideCollisionCount(); i++){
-			GD.Print("GOOOD collision");
-			KinematicCollision2D collision = GetSlideCollision(i);
-			GodotObject node_collision = collision.GetCollider();
-			GD.Print(node_collision.ToString());
+		// for (int i = 0; i > GetSlideCollisionCount(); i++){
+		// 	GD.Print("GOOOD collision");
+		// 	KinematicCollision2D collision = GetSlideCollision(i);
+		// 	GodotObject node_collision = collision.GetCollider();
+		// 	GD.Print(node_collision.ToString());
 
 
-			//if (collision.IsInGroup("jpgojezopf")){}
+		// 	if (collision.IsInGroup("jpgojezopf")){}
 
-			//collision.GetCollider().ApplyCentralImpulse(-collision.GetNormal() * PUSH);
+		// 	collision.GetCollider().ApplyCentralImpulse(-collision.GetNormal() * PUSH);
 			
 
-		}
+		// }
 
 		// GDscript code :
 
