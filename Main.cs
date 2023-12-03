@@ -30,9 +30,6 @@ public partial class Main : Node2D
 			GD.Print("Non_player collision");
 		}
 	}
-
-
-	
 }
 
 
