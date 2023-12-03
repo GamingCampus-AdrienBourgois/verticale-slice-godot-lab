@@ -12,7 +12,6 @@ public partial class Main : Node2D
 			i.Connect("script_changed",new Callable(this,"Tp_entered"));
 			GD.Print("tp ready");
 			// GOOOD
-			
 		}
 	}
 
