@@ -4,7 +4,7 @@ using System;
 public partial class player : CharacterBody2D
 {
 	public const float Speed = 300.0f;
-	public const int PUSH = 5;
+	public const float PUSH = 0.5f;
 
 	public override void _PhysicsProcess(double delta)
 	{
@@ -34,10 +34,25 @@ public partial class player : CharacterBody2D
 		MoveAndSlide();
 
 		for (int i = 0; i > GetSlideCollisionCount(); i++){
-			var collision = GetSlideCollision(i);
-			collision.GetCollider().ApplyCentralImpulse(-collision.GetNormal() * PUSH);
+			GD.Print("GOOOD collision");
+			KinematicCollision2D collision = GetSlideCollision(i);
+			GodotObject node_collision = collision.GetCollider();
+			GD.Print(node_collision.ToString());
+
+
+			//if (collision.IsInGroup("jpgojezopf")){}
+
+			//collision.GetCollider().ApplyCentralImpulse(-collision.GetNormal() * PUSH);
+			
 
 		}
+
+		// GDscript code :
+
+		// for i in get_slide_count():
+		//		var collision = get_slide_collision()
+		//		if collision.collider.is_in_group("object"):
+		//			collision.collider.apply_central_impule(-collision.normal * inertia)
 
 	}
 }
