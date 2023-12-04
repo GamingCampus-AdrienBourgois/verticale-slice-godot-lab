@@ -236,6 +236,10 @@ layer_0/tile_data = PackedInt32Array(-1179666, 65536, 1, -1114130, 65536, 1, -10
 position = Vector2(-236, -214)
 _scenePath = "main.tscn"
 
+[node name="Tp2" parent="TP_all" instance=ExtResource("4_12jmb")]
+position = Vector2(221, -207)
+_scenePath = "res://Platformer/scenes/platformer.tscn"
+
 [node name="Ballon" parent="." instance=ExtResource("5_qksr7")]
 position = Vector2(285, 249)
 physics_material_override = SubResource("PhysicsMaterial_nrhup")
