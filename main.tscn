@@ -263,4 +263,3 @@ position = Vector2(-289, 150)
 
 [node name="ColoredPC" parent="." groups=["ColoredPC"] instance=ExtResource("11_peyc8")]
 position = Vector2(-284, -34)
-OrangeColor = Color(1, 0.478431, 0, 1)

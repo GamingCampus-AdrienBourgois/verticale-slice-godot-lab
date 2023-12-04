@@ -9,7 +9,7 @@ public partial class colored_computer : StaticBody2D
 	[Export]
 	Color RedColor = new Color(255,0,0);
 	[Export]
-	Color OrangeColor = new Color(255,0,0);
+	Color OrangeColor = new Color(255,104,0,255);
 	[Export]
 	Color YellowColor = new Color(255,255,0);
 	[Export]
