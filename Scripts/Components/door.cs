@@ -24,7 +24,7 @@ public partial class door : StaticBody2D
 	public override void _Ready()
 	{
 		sprite = GetNode<Sprite2D>("sprite");
-		collision = GetNode<CollisionShape2D>("collision");
+		collision = GetNode<CollisionShape2D>("CollisionShape2D");
 		collision.Disabled = Opened;
 		if (collision.Disabled == true){
 			sprite.Modulate = NotOpenedColor;

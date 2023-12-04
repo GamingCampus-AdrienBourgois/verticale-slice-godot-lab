@@ -1,22 +1,26 @@
 using Godot;
 using System;
+using System.Numerics;
 
 public partial class player : CharacterBody2D
 {
 	public const float Speed = 300.0f;
 	public const float PUSH = 0.5f;
 
-	public override void _PhysicsProcess(double delta)
+	private Node2D pickedUpItem;
+	private Node2D item = null;
+
+	public override void _Process(double delta)
 	{
-		Vector2 velocity = Velocity; // En gd script y a pas ça 
+		Godot.Vector2 velocity = Velocity; // En gd script y a pas ça 
 		
 		// Prend les input
-		Vector2 input_direction = new(Input.GetActionStrength("ui_right") - Input.GetActionStrength("ui_left"), Input.GetActionStrength("ui_down") - Input.GetActionStrength("ui_up"));
+		Godot.Vector2 input_direction = new(Input.GetActionStrength("ui_right") - Input.GetActionStrength("ui_left"), Input.GetActionStrength("ui_down") - Input.GetActionStrength("ui_up"));
 
 		input_direction = input_direction.Normalized(); // Permet de pas aller plus vite en diagonale
 
 		// Si il y a des inputs
-		if (input_direction != Vector2.Zero)
+		if (input_direction != Godot.Vector2.Zero)
 		{
 			velocity= input_direction * Speed; 
 		}
@@ -29,30 +33,57 @@ public partial class player : CharacterBody2D
 			velocity.Y = Mathf.MoveToward(Velocity.Y, 0, Speed);
 		}
 
+		if (Input.IsActionJustPressed("ui_accept")){
+			if (item != null && pickedUpItem == null){
+				PickUp(item);
+			}
+			else if (pickedUpItem != null){
+				Throw();
+			}
+		}
+
 		// Aussi pas en gd script vu que ça a été simplifié
 		Velocity = velocity;
 		MoveAndSlide();
-
-		// for (int i = 0; i > GetSlideCollisionCount(); i++){
-		// 	GD.Print("GOOOD collision");
-		// 	KinematicCollision2D collision = GetSlideCollision(i);
-		// 	GodotObject node_collision = collision.GetCollider();
-		// 	GD.Print(node_collision.ToString());
-
-
-		// 	if (collision.IsInGroup("jpgojezopf")){}
-
-		// 	collision.GetCollider().ApplyCentralImpulse(-collision.GetNormal() * PUSH);
-			
-
-		// }
-
-		// GDscript code :
-
-		// for i in get_slide_count():
-		//		var collision = get_slide_collision()
-		//		if collision.collider.is_in_group("object"):
-		//			collision.collider.apply_central_impule(-collision.normal * inertia)
-
 	}
+	private void PickUp(Node2D objectToPickup){
+		GetParent().RemoveChild(objectToPickup);
+		GetNode<Marker2D>("Object").AddChild(objectToPickup);
+		objectToPickup.GetNode<CollisionShape2D>("CollisionShape2D").Disabled = true; // Marche pas aidez moi
+		objectToPickup.Position = Godot.Vector2.Zero;
+		pickedUpItem = objectToPickup;
+		item = null;
+	}
+
+	private void Throw(){
+		pickedUpItem.GetNode<CollisionShape2D>("CollisionShape2D").Disabled = false; // Marche pas aidez moi
+		pickedUpItem.Position = GetNode<Marker2D>("Object").GlobalPosition;
+		GetNode<Marker2D>("Object").RemoveChild(pickedUpItem);
+		GetParent().AddChild(pickedUpItem);
+		pickedUpItem = null;
+	}
+
+	private void _on_area_2d_body_entered(Node2D body)
+	{
+		if (item == null && pickedUpItem == null){
+			if (body.IsInGroup("Pickable")){
+				item = body;
+				GD.Print("object !");
+			}
+		}
+		
+	}
+	private void _on_area_2d_body_exited(Node2D body)
+	{
+		if (item == body){
+			if (body.IsInGroup("Pickable")){
+				item = null;
+			}
+		}
+	}
+	
+
+
+
 }
+
