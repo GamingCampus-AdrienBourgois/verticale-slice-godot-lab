@@ -9,7 +9,7 @@ size = Vector2(126, 37)
 [node name="Door" type="StaticBody2D"]
 script = ExtResource("1_hbbse")
 
-[node name="collision" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_lb2mm")
 
