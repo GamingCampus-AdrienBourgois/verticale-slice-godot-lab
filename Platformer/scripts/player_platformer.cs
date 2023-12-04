@@ -48,7 +48,7 @@ public partial class player_platformer : CharacterBody2D
 	private void _on_area_2d_body_entered(Node2D body)
 	{
 		GD.Print("Touché");
-		//GetTree().ChangeSceneToFile("res://Platformer/scenes/platformer.tscn");
+		GetTree().ChangeSceneToFile("res://Platformer/scenes/platformer.tscn");
 	}
 
 }
