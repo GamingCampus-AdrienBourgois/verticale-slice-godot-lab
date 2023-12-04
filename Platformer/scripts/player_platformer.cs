@@ -26,6 +26,12 @@ public partial class player_platformer : CharacterBody2D
 		// Get the input direction and handle the movement/deceleration.
 		// As good practice, you should replace UI actions with custom gameplay actions.
 		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
+		if (Input.IsActionJustPressed("ui_down")){
+			var newPosition = Position;
+			newPosition.Y --;
+			Position = newPosition;
+		}
+
 		if (direction != Vector2.Zero)
 		{
 			velocity.X = direction.X * Speed;
@@ -42,6 +48,7 @@ public partial class player_platformer : CharacterBody2D
 	private void _on_area_2d_body_entered(Node2D body)
 	{
 		GD.Print("Touché");
+		//GetTree().ChangeSceneToFile("res://Platformer/scenes/platformer.tscn");
 	}
 
 }
