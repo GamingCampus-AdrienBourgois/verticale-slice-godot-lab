@@ -11,12 +11,13 @@ gradient = SubResource("Gradient_afxlq")
 lifetime_randomness = 0.14
 particle_flag_disable_z = true
 emission_shape_offset = Vector3(0.5, 0, 0)
-emission_shape_scale = Vector3(4, 4, 1)
 angle_max = 360.0
 spread = 180.0
-initial_velocity_min = 10.45
-initial_velocity_max = 10.45
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
 gravity = Vector3(0, 0, 0)
+scale_min = 4.0
+scale_max = 8.0
 color = Color(0.00392157, 0.00392157, 0.00392157, 1)
 color_ramp = SubResource("GradientTexture1D_81qi4")
 

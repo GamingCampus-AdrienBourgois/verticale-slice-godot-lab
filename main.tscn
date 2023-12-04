@@ -236,7 +236,7 @@ position = Vector2(-236, -214)
 _scenePath = "main.tscn"
 
 [node name="Ballon" parent="." instance=ExtResource("5_qksr7")]
-position = Vector2(-243, 114)
+position = Vector2(285, 249)
 physics_material_override = SubResource("PhysicsMaterial_nrhup")
 
 [node name="Door" parent="." instance=ExtResource("6_e23jg")]
@@ -245,5 +245,5 @@ OpenedColor = Color(0.996078, 0.368627, 0.243137, 1)
 NotOpenedColor = Color(1, 1, 1, 1)
 
 [node name="Foot" parent="." instance=ExtResource("7_i3pto")]
-position = Vector2(-210, 110)
+position = Vector2(314, 248)
 particule_scene = ExtResource("8_ayp8k")
