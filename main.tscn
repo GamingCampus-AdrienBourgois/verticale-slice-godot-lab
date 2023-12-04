@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dcgfrcn3xnlda"]
+[gd_scene load_steps=10 format=3 uid="uid://dcgfrcn3xnlda"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_8aswi"]
 [ext_resource type="PackedScene" uid="uid://c767xbfu781tp" path="res://Scenes/Player/player.tscn" id="2_cxfpo"]
 [ext_resource type="Texture2D" uid="uid://bnmkl1gwaqahx" path="res://icon.svg" id="3_nd6b6"]
 [ext_resource type="PackedScene" uid="uid://brp75n3p58gce" path="res://Scenes/Components/tp.tscn" id="4_12jmb"]
 [ext_resource type="PackedScene" uid="uid://c2k0yl2eo71rf" path="res://Scenes/Components/ballon.tscn" id="5_qksr7"]
+[ext_resource type="PackedScene" uid="uid://dchiwu34cy6w2" path="res://Scenes/Components/door.tscn" id="6_e23jg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k5006"]
 texture = ExtResource("3_nd6b6")
@@ -214,6 +215,7 @@ bounce = 0.5
 script = ExtResource("1_8aswi")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_cxfpo")]
+z_index = 1
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
@@ -234,3 +236,8 @@ _scenePath = "main.tscn"
 [node name="Ballon" parent="." instance=ExtResource("5_qksr7")]
 position = Vector2(-280, 154)
 physics_material_override = SubResource("PhysicsMaterial_nrhup")
+
+[node name="Door" parent="." instance=ExtResource("6_e23jg")]
+position = Vector2(-109, -91)
+OpenedColor = Color(0.996078, 0.368627, 0.243137, 1)
+NotOpenedColor = Color(1, 1, 1, 1)
