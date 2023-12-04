@@ -33,6 +33,19 @@ public partial class player : CharacterBody2D
 			velocity.Y = Mathf.MoveToward(Velocity.Y, 0, Speed);
 		}
 
+		if (Input.IsActionJustPressed("interact"))
+		{
+			if(item != null)
+			{
+				if (item.IsInGroup("PC"))
+				{
+					computer temp = (computer)item;
+					InteractWith(temp);
+				}
+			}
+				
+		}
+
 		if (Input.IsActionJustPressed("ui_accept")){
 			if (item != null && pickedUpItem == null){
 				PickUp(item);
@@ -70,6 +83,10 @@ public partial class player : CharacterBody2D
 				item = body;
 				GD.Print("object !");
 			}
+			else if (body.IsInGroup("PC")){
+				item = body;
+				GD.Print("PC !");
+			}
 		}
 		
 	}
@@ -82,6 +99,17 @@ public partial class player : CharacterBody2D
 		}
 	}
 	
+	private void InteractWith(computer interactingObject)
+	{
+		if (interactingObject.IsInGroup("PC"))
+		{
+			if(interactingObject.Opened == true)
+			{
+				interactingObject.ComputerOpenedChange();
+			}
+		}
+		
+	}
 
 
 
