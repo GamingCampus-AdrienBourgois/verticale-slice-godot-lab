@@ -12,4 +12,21 @@ public partial class fix_wire : Area2D
 	public override void _Process(double delta)
 	{
 	}
+
+	private void _on_body_entered(Node2D body)
+	{
+		if (body.IsInGroup("Player"))
+		{
+			GD.Print("Player");
+		}
+	}
+
+	private void _on_body_exited(Node2D body)
+	{
+		if (body.IsInGroup("Player"))
+		{
+			GD.Print("No Player");
+		}
+
+	}
 }
