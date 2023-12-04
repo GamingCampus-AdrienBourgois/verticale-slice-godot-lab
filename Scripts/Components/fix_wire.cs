@@ -14,7 +14,6 @@ public partial class fix_wire : Area2D
 		if (fixWireHud != null)
 		{
 			fixWireHud.Visible = isShow;
-			GD.Print("OK");
 		}
 	}
 
@@ -29,12 +28,11 @@ public partial class fix_wire : Area2D
 		{
 			if (Input.IsActionJustPressed("ui_accept") && isShow == false)
 			{
-				GD.Print("Espace");
 				isShow = true;
 				fixWireHud.Visible = isShow;
 
-			} else if (Input.IsActionJustPressed("ui_left") && isShow == true){
-				GD.Print("A plus");
+			} else if (Input.IsActionJustPressed("ui_left") && isShow == true)
+			{
 				isShow = false;
 				fixWireHud.Visible = isShow;
 			}
@@ -46,7 +44,6 @@ public partial class fix_wire : Area2D
 		if (body.IsInGroup("Player"))
 		{
 			interact = true;
-			GD.Print(interact);
 		}
 	}
 
@@ -55,7 +52,6 @@ public partial class fix_wire : Area2D
 		if (body.IsInGroup("Player"))
 		{
 			interact = false;
-			GD.Print(interact);
 		}
 
 	}
