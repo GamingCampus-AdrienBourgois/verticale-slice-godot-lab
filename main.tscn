@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dcgfrcn3xnlda"]
+[gd_scene load_steps=14 format=3 uid="uid://dcgfrcn3xnlda"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_8aswi"]
 [ext_resource type="PackedScene" uid="uid://c767xbfu781tp" path="res://Scenes/Player/player.tscn" id="2_cxfpo"]
@@ -6,9 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://brp75n3p58gce" path="res://Scenes/Components/tp.tscn" id="4_12jmb"]
 [ext_resource type="PackedScene" uid="uid://c2k0yl2eo71rf" path="res://Scenes/Components/ballon.tscn" id="5_qksr7"]
 [ext_resource type="PackedScene" uid="uid://dchiwu34cy6w2" path="res://Scenes/Components/door.tscn" id="6_e23jg"]
-[ext_resource type="PackedScene" uid="uid://gfwkjgaxjncs" path="res://Scenes/Components/foot.tscn" id="7_i3pto"]
-[ext_resource type="PackedScene" uid="uid://dbei81nyrc6ty" path="res://Scenes/Components/fix_wire.tscn" id="7_jky4f"]
-[ext_resource type="PackedScene" uid="uid://ybvqyqhf23jy" path="res://Scenes/Components/particule_foot.tscn" id="8_ayp8k"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/foot.tscn" id="7_i3pto"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/fix_wire.tscn" id="7_jky4f"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/particule_foot.tscn" id="8_ayp8k"]
+[ext_resource type="PackedScene" uid="uid://bfv0qhjvvqket" path="res://Scenes/Components/computer.tscn" id="10_gflbg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k5006"]
 texture = ExtResource("3_nd6b6")
@@ -255,3 +256,8 @@ position = Vector2(-148, -266)
 [node name="Foot" parent="." instance=ExtResource("7_i3pto")]
 position = Vector2(314, 248)
 particule_scene = ExtResource("8_ayp8k")
+
+[node name="PC" parent="." instance=ExtResource("10_gflbg")]
+position = Vector2(-289, 150)
+
+[connection signal="ComputerChange" from="Player" to="PC" method="_on_player_computer_change"]

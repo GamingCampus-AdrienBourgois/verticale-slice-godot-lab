@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bfv0qhjvvqket"]
+
+[ext_resource type="Texture2D" uid="uid://bnmkl1gwaqahx" path="res://icon.svg" id="1_d0d42"]
+[ext_resource type="Script" path="res://Scripts/Components/computer.cs" id="1_hnjmo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ywko"]
+size = Vector2(30, 32)
+
+[node name="StaticBody2D" type="StaticBody2D" groups=["PC"]]
+script = ExtResource("1_hnjmo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0ywko")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 1, 1)
+texture_filter = 1
+position = Vector2(1.19209e-07, 0)
+scale = Vector2(0.234375, 0.25)
+texture = ExtResource("1_d0d42")
