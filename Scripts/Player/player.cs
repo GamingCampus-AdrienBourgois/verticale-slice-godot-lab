@@ -40,7 +40,11 @@ public partial class player : CharacterBody2D
 				if (item.IsInGroup("PC"))
 				{
 					computer temp = (computer)item;
-					InteractWith(temp);
+					InteractWithComputer(temp);
+				}
+				else if(item.IsInGroup("ColoredPC")){
+					colored_computer temp = (colored_computer)item;
+					InteractWithColoredComputer(temp);
 				}
 			}
 				
@@ -83,7 +87,7 @@ public partial class player : CharacterBody2D
 				item = body;
 				GD.Print("object !");
 			}
-			else if (body.IsInGroup("PC")){
+			else if (body.IsInGroup("PC") || body.IsInGroup("ColoredPC")){
 				item = body;
 				GD.Print("PC !");
 			}
@@ -93,25 +97,24 @@ public partial class player : CharacterBody2D
 	private void _on_area_2d_body_exited(Node2D body)
 	{
 		if (item == body){
-			if (body.IsInGroup("Pickable")){
+			if (body.IsInGroup("Pickable") || body.IsInGroup("PC") || body.IsInGroup("ColoredPC")){
 				item = null;
 			}
 		}
 	}
 	
-	private void InteractWith(computer interactingObject)
+	private void InteractWithComputer(computer interactingObject)
 	{
-		if (interactingObject.IsInGroup("PC"))
+		if(interactingObject.Opened == true)
 		{
-			if(interactingObject.Opened == true)
-			{
-				interactingObject.ComputerOpenedChange();
-			}
+			interactingObject.ComputerOpenedChange();
 		}
-		
 	}
 
-
+	private void InteractWithColoredComputer(colored_computer interactingObject)
+	{
+		interactingObject.ComputerColorChange();
+	}
 
 }
 

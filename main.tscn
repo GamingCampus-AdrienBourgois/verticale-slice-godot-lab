@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dcgfrcn3xnlda"]
+[gd_scene load_steps=15 format=3 uid="uid://dcgfrcn3xnlda"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_8aswi"]
 [ext_resource type="PackedScene" uid="uid://c767xbfu781tp" path="res://Scenes/Player/player.tscn" id="2_cxfpo"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" path="res://Scenes/Components/fix_wire.tscn" id="7_jky4f"]
 [ext_resource type="PackedScene" path="res://Scenes/Components/particule_foot.tscn" id="8_ayp8k"]
 [ext_resource type="PackedScene" uid="uid://bfv0qhjvvqket" path="res://Scenes/Components/computer.tscn" id="10_gflbg"]
+[ext_resource type="PackedScene" uid="uid://dji5f8vn6uk02" path="res://Scenes/Components/colored_pc.tscn" id="11_peyc8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k5006"]
 texture = ExtResource("3_nd6b6")
@@ -260,4 +261,6 @@ particule_scene = ExtResource("8_ayp8k")
 [node name="PC" parent="." instance=ExtResource("10_gflbg")]
 position = Vector2(-289, 150)
 
-[connection signal="ComputerChange" from="Player" to="PC" method="_on_player_computer_change"]
+[node name="ColoredPC" parent="." groups=["ColoredPC"] instance=ExtResource("11_peyc8")]
+position = Vector2(-284, -34)
+OrangeColor = Color(1, 0.478431, 0, 1)
