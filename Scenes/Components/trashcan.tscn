@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://dahbjfvejuq3m"]
+
+[ext_resource type="Script" path="res://Scripts/Components/Trashcan.cs" id="1_cjiww"]
+[ext_resource type="Texture2D" uid="uid://bnmkl1gwaqahx" path="res://icon.svg" id="1_tatsm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2oupa"]
+size = Vector2(44, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57naq"]
+size = Vector2(58, 52)
+
+[node name="Trashcan" type="StaticBody2D"]
+script = ExtResource("1_cjiww")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_2oupa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(0.835294, 0, 0, 1)
+scale = Vector2(0.351563, 0.328125)
+texture = ExtResource("1_tatsm")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_57naq")
+debug_color = Color(0, 0, 0, 0.419608)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

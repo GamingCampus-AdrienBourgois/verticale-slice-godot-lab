@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dcgfrcn3xnlda"]
+[gd_scene load_steps=17 format=3 uid="uid://dcgfrcn3xnlda"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_8aswi"]
 [ext_resource type="PackedScene" uid="uid://c767xbfu781tp" path="res://Scenes/Player/player.tscn" id="2_cxfpo"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://ybvqyqhf23jy" path="res://Scenes/Components/particule_foot.tscn" id="8_ayp8k"]
 [ext_resource type="PackedScene" uid="uid://bfv0qhjvvqket" path="res://Scenes/Components/computer.tscn" id="10_gflbg"]
 [ext_resource type="PackedScene" uid="uid://dji5f8vn6uk02" path="res://Scenes/Components/colored_pc.tscn" id="11_peyc8"]
+[ext_resource type="PackedScene" uid="uid://dsa1ygru0vvxq" path="res://Scenes/Components/banana.tscn" id="12_pv5p6"]
+[ext_resource type="PackedScene" uid="uid://dahbjfvejuq3m" path="res://Scenes/Components/trashcan.tscn" id="13_q06qq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k5006"]
 texture = ExtResource("3_nd6b6")
@@ -263,3 +265,15 @@ position = Vector2(-289, 150)
 
 [node name="ColoredPC" parent="." groups=["ColoredPC"] instance=ExtResource("11_peyc8")]
 position = Vector2(-284, -34)
+
+[node name="Banana3" parent="." groups=["Pickable"] instance=ExtResource("12_pv5p6")]
+position = Vector2(-202, 170)
+
+[node name="Banana2" parent="." groups=["Pickable"] instance=ExtResource("12_pv5p6")]
+position = Vector2(-114, 181)
+
+[node name="Banana" parent="." groups=["Pickable"] instance=ExtResource("12_pv5p6")]
+position = Vector2(-151, 122)
+
+[node name="Trashcan" parent="." instance=ExtResource("13_q06qq")]
+position = Vector2(-13, 193)
