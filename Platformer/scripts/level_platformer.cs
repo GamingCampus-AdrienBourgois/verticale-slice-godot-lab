@@ -25,6 +25,7 @@ public partial class level_platformer : Node
 		}
 		else {
 			GD.Print("Non_player collision");
+			
 		}
 	}
 }

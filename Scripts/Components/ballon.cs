@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class box : RigidBody2D
+public partial class ballon : RigidBody2D
 {
 
 
