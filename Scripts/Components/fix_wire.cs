@@ -3,14 +3,16 @@ using System;
 
 public partial class fix_wire : Area2D
 {
-
+	private Player player;
+	private CanvasLayer fixWireHud;
 	private bool interact = false;
 	private bool isShow = false;
-	private CanvasLayer fixWireHud;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		fixWireHud = GetNode<CanvasLayer>("Fix_wire_hud");
+		player = GetParent().GetNode<Player>("Player");
 		if (fixWireHud != null)
 		{
 			fixWireHud.Visible = isShow;
@@ -29,11 +31,13 @@ public partial class fix_wire : Area2D
 			if (Input.IsActionJustPressed("ui_accept") && isShow == false)
 			{
 				isShow = true;
+				player.inputOnFocus = true;
 				fixWireHud.Visible = isShow;
 
-			} else if (Input.IsActionJustPressed("ui_left") && isShow == true)
+			} else if (Input.IsActionJustPressed("ui_cancel") && isShow == true)
 			{
 				isShow = false;
+				player.inputOnFocus = false;
 				fixWireHud.Visible = isShow;
 			}
 		}

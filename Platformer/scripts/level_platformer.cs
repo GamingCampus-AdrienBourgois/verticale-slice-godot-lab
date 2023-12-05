@@ -9,7 +9,6 @@ public partial class level_platformer : Node
 		foreach (Node i in GetNode<Node>("TP_all").GetChildren())
 		{
 			i.Connect("script_changed",new Callable(this,"Tp_entered"));
-			GD.Print("tp ready");
 		}
 	}
 
@@ -22,7 +21,6 @@ public partial class level_platformer : Node
 	public void Tp_entered(string _scenePath, Node2D body)
 	{
 		if (body.IsInGroup("Player")){
-			GD.Print("Player !");
 			GetTree().ChangeSceneToFile(_scenePath);
 		}
 		else {

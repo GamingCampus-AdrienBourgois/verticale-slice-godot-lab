@@ -11,7 +11,6 @@ public partial class foot : StaticBody2D
 	{
 		if (body.IsInGroup("Ballon")){
 			score ++;
-			GD.Print("Marqué");
 			GD.Print(score);
 
 			// Instantiate the particle scene

@@ -2,13 +2,16 @@ using Godot;
 using System;
 using System.Numerics;
 
-public partial class player : CharacterBody2D
+public partial class Player : CharacterBody2D
 {
 	public const float Speed = 300.0f;
 	public const float PUSH = 0.5f;
 
 	private Node2D pickedUpItem;
 	private Node2D item = null;
+
+	[Export]
+	public bool inputOnFocus = false; // Permet de désactiver les mouvements quand le joueur est dans une interface
 
 	public override void _Process(double delta)
 	{
@@ -20,7 +23,7 @@ public partial class player : CharacterBody2D
 		input_direction = input_direction.Normalized(); // Permet de pas aller plus vite en diagonale
 
 		// Si il y a des inputs
-		if (input_direction != Godot.Vector2.Zero)
+		if (input_direction != Godot.Vector2.Zero && inputOnFocus == false)
 		{
 			velocity= input_direction * Speed; 
 		}
@@ -33,7 +36,7 @@ public partial class player : CharacterBody2D
 			velocity.Y = Mathf.MoveToward(Velocity.Y, 0, Speed);
 		}
 
-		if (Input.IsActionJustPressed("interact"))
+		if (Input.IsActionJustPressed("interact") && inputOnFocus == false)
 		{
 			if(item != null)
 			{
@@ -50,7 +53,7 @@ public partial class player : CharacterBody2D
 				
 		}
 
-		if (Input.IsActionJustPressed("ui_accept")){
+		if (Input.IsActionJustPressed("ui_accept") && inputOnFocus == false){
 			if (item != null && pickedUpItem == null){
 				PickUp(item);
 			}
@@ -85,11 +88,9 @@ public partial class player : CharacterBody2D
 		if (item == null && pickedUpItem == null){
 			if (body.IsInGroup("Pickable")){
 				item = body;
-				GD.Print("object !");
 			}
 			else if (body.IsInGroup("PC") || body.IsInGroup("ColoredPC")){
 				item = body;
-				GD.Print("PC !");
 			}
 		}
 		
