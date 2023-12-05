@@ -44,7 +44,7 @@ autostart = true
 [node name="Platforms" type="Node" parent="."]
 
 [node name="platform" parent="Platforms" instance=ExtResource("4_smelw")]
-position = Vector2(257, -47)
+position = Vector2(256, -41)
 
 [node name="platform2" parent="Platforms" instance=ExtResource("4_smelw")]
 position = Vector2(466, -52)
