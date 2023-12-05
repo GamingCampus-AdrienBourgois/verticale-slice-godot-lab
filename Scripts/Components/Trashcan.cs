@@ -7,7 +7,7 @@ public partial class Trashcan : StaticBody2D
 	private bool Full = false;
 
 	// Getters
-	private int GetTrash_collected(){ return Trash_collected; }
+	private int GetTrash_collected() { return Trash_collected; }
 	public override void _Ready()
 	{
 	}
