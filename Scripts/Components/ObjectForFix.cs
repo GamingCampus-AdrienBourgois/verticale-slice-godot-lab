@@ -11,32 +11,31 @@ public partial class ObjectForFix : Node
 	{
 		foreach (Node i in GetNode<Node>("Areas").GetChildren())
 		{
-			i.Connect("ObjectFixed",new Callable(this,"ObjectFixed"));
+			i.Connect("ON",new Callable(this,"ObjectFixed"));
+			i.Connect("OFF",new Callable(this,"ObjectDesactivated"));
 			ObjectToFix++;
 		}
 	}
 
-	public void ObjectFixed(ObjectFixArea ObjectFixedArea, Node2D body){
+	public void ObjectFixed(ObjectFixArea Area, Node2D body){
 		if (body.IsInGroup("ObjectFix")){
-			//ObjectFixedArea.FixedChange();
-			ObjectFixedArea.Call("FixedChange");
-			GD.Print(ObjectFixedArea.Fixed);
-			
-			// int ObjectFixed = 0;
-			// GD.PushError("jaioejaizoe" );
-			// foreach (Node i in GetChildren())
-			// {
-			// 	ObjectFixArea temp = (ObjectFixArea)i;
-			// 	if (temp.Fixed == true){
-			// 		ObjectFixed++;
-			// 	};
-			// }
-
+			Area.Call("FixedChange");
 			ObjectAlreadyFixed++;
+
 			if (ObjectAlreadyFixed >= ObjectToFix){
 				GD.Print("GOOOD");
 				// Changer la variable dans le global ou faire un emit au main
 			}
+		}
+	}
+
+	private void ObjectDesactivated(ObjectFixArea Area, Node2D body) 
+	{
+		if(body.IsInGroup("ObjectFix"))
+		{
+			Area.Call("FixedChange");
+			GD.Print(Area.Call("GetState"));
+			ObjectAlreadyFixed--;
 		}
 	}
 

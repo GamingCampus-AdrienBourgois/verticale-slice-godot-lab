@@ -90,16 +90,19 @@ public partial class Player : CharacterBody2D
 				Throw();
 			}
 		}
-
-		// Aussi pas en gd script vu que ça a été simplifié
+		
 		Velocity = velocity;
 		MoveAndSlide();
 	}
 	private void PickUp(Node2D objectToPickup){
 
 		pickeUpItemPath = objectToPickup.GetParent().GetPath();
-		GD.Print(objectToPickup.GetPath());
-		GD.Print(GetNode(objectToPickup.GetPath()).Name);
+		
+		// Tests
+
+		//GD.Print(objectToPickup.GetPath());
+		//GD.Print(GetNode(objectToPickup.GetPath()).Name);
+		
 		GetNode(objectToPickup.GetPath()).GetParent().RemoveChild(objectToPickup);
 		MarkerObject.AddChild(objectToPickup);
 		objectToPickup.GetNode<CollisionShape2D>("CollisionShape2D").Disabled = true; 

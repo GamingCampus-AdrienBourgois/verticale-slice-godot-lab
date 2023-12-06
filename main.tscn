@@ -228,7 +228,6 @@ script = ExtResource("1_8aswi")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_cxfpo")]
 z_index = 1
-inputOnFocus = null
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
@@ -253,9 +252,8 @@ _scenePath = "res://Platformer/scenes/platformer.tscn"
 [node name="FixWire" parent="." instance=ExtResource("7_jky4f")]
 position = Vector2(-148, -266)
 
-[node name="ColoredPc" type="Node" parent="." node_paths=PackedStringArray("computerList")]
+[node name="ColoredPc" type="Node" parent="."]
 script = ExtResource("13_6wkxx")
-computerList = [NodePath("ColoredPC1"), NodePath("ColoredPC2"), NodePath("ColoredPC3")]
 
 [node name="ColoredPC1" parent="ColoredPc" groups=["ColoredPC"] instance=ExtResource("11_peyc8")]
 position = Vector2(-284, -34)

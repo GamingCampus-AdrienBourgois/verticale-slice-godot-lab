@@ -15,3 +15,4 @@ shape = SubResource("CircleShape2D_xnawm")
 polygon = PackedVector2Array(-8, 9, 8, 9, 8, -9, -8, -9)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
