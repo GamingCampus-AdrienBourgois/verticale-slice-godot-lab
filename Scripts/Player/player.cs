@@ -16,6 +16,17 @@ public partial class Player : CharacterBody2D
 	public bool inputOnFocus = false; // Permet de désactiver les mouvements quand le joueur est dans une interface
 	[Export]
 	private ColorCode code;
+
+	private Marker2D MarkerObject = null;
+	private Marker2D MarkerArea = null;
+	public override void _Ready()
+	{
+		MarkerObject = GetNode("MarkerArea").GetNode<Marker2D>("Object");
+		MarkerArea = GetNode<Marker2D>("MarkerArea");
+	}
+
+
+
 	public override void _Process(double delta)
 	{
 		Godot.Vector2 velocity = Velocity; // En gd script y a pas ça 
@@ -24,7 +35,22 @@ public partial class Player : CharacterBody2D
 		Godot.Vector2 input_direction = new(Input.GetActionStrength("ui_right") - Input.GetActionStrength("ui_left"), Input.GetActionStrength("ui_down") - Input.GetActionStrength("ui_up"));
 
 		input_direction = input_direction.Normalized(); // Permet de pas aller plus vite en diagonale
-
+		if(Input.IsActionPressed("ui_up")){
+			MarkerArea.RotationDegrees = 270;
+			MarkerObject.RotationDegrees = 90;
+		}
+		if(Input.IsActionPressed("ui_down")){
+			MarkerArea.RotationDegrees = 90;
+			MarkerObject.RotationDegrees = 270;
+		}
+		if(Input.IsActionPressed("ui_right")){
+			MarkerArea.RotationDegrees = 0;
+			MarkerObject.RotationDegrees = 0;
+		}
+		if(Input.IsActionPressed("ui_left")){
+			MarkerArea.RotationDegrees = 180;
+			MarkerObject.RotationDegrees = 180;
+		}
 		// Si il y a des inputs
 		if (input_direction != Godot.Vector2.Zero && inputOnFocus == false)
 		{
@@ -75,7 +101,7 @@ public partial class Player : CharacterBody2D
 		GD.Print(objectToPickup.GetPath());
 		GD.Print(GetNode(objectToPickup.GetPath()).Name);
 		GetNode(objectToPickup.GetPath()).GetParent().RemoveChild(objectToPickup);
-		GetNode<Marker2D>("Object").AddChild(objectToPickup);
+		MarkerObject.AddChild(objectToPickup);
 		objectToPickup.GetNode<CollisionShape2D>("CollisionShape2D").Disabled = true; 
 		objectToPickup.Position = Godot.Vector2.Zero;
 		pickedUpItem = objectToPickup;
@@ -85,8 +111,8 @@ public partial class Player : CharacterBody2D
 
 	private void Throw(){
 		pickedUpItem.GetNode<CollisionShape2D>("CollisionShape2D").Disabled = false; 
-		pickedUpItem.Position = GetNode<Marker2D>("Object").GlobalPosition;
-		GetNode<Marker2D>("Object").RemoveChild(pickedUpItem);
+		pickedUpItem.Position = MarkerObject.GlobalPosition;
+		MarkerObject.RemoveChild(pickedUpItem);
 		GetNode(pickeUpItemPath).AddChild(pickedUpItem);
 		pickedUpItem = null;
 	}
