@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dcgfrcn3xnlda"]
+[gd_scene load_steps=22 format=3 uid="uid://dcgfrcn3xnlda"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_8aswi"]
 [ext_resource type="PackedScene" uid="uid://c767xbfu781tp" path="res://Scenes/Player/player.tscn" id="2_cxfpo"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://Scripts/Components/ObjectForFix.cs" id="15_5wljq"]
 [ext_resource type="PackedScene" uid="uid://d346r50tima2p" path="res://Scenes/Components/object_fix_area.tscn" id="16_3jsu8"]
 [ext_resource type="PackedScene" uid="uid://c4l34yx2ih016" path="res://Scenes/Components/object_to_fix.tscn" id="17_bbyt8"]
+[ext_resource type="Script" path="res://Scripts/Components/Pedestal.cs" id="18_ry15s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k5006"]
 texture = ExtResource("3_nd6b6")
@@ -227,7 +228,7 @@ script = ExtResource("1_8aswi")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_cxfpo")]
 z_index = 1
-inputOnFocus = false
+inputOnFocus = null
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
@@ -275,6 +276,7 @@ script = ExtResource("15_5wljq")
 
 [node name="ObjectFixArea" parent="ObjectForFix/Areas" instance=ExtResource("16_3jsu8")]
 position = Vector2(-31, 175)
+ColorThis = Color(1, 1, 1, 1)
 
 [node name="Objects" type="Node" parent="ObjectForFix"]
 
@@ -297,13 +299,13 @@ position = Vector2(-190, 201)
 [node name="Banana3" parent="Trashcan_fix/Bananas" groups=["Pickable"] instance=ExtResource("12_pv5p6")]
 position = Vector2(-212, 201)
 
-[node name="Foot2" type="Node" parent="."]
+[node name="FootThing" type="Node" parent="."]
 
-[node name="Foot" parent="Foot2" instance=ExtResource("7_i3pto")]
+[node name="Foot" parent="FootThing" instance=ExtResource("7_i3pto")]
 position = Vector2(314, 248)
 particule_scene = ExtResource("8_ayp8k")
 
-[node name="Ballon" parent="Foot2" instance=ExtResource("5_qksr7")]
+[node name="Ballon" parent="FootThing" instance=ExtResource("5_qksr7")]
 position = Vector2(285, 249)
 physics_material_override = SubResource("PhysicsMaterial_nrhup")
 
@@ -313,3 +315,14 @@ physics_material_override = SubResource("PhysicsMaterial_nrhup")
 position = Vector2(-109, -91)
 OpenedColor = Color(0.996078, 0.368627, 0.243137, 1)
 NotOpenedColor = Color(1, 1, 1, 1)
+
+[node name="Pedestal" type="Node" parent="."]
+script = ExtResource("18_ry15s")
+
+[node name="ObjectsPedestal" type="Node" parent="Pedestal"]
+
+[node name="AreasPedestal" type="Node" parent="Pedestal"]
+
+[node name="PressionPlate" parent="Pedestal/AreasPedestal" instance=ExtResource("16_3jsu8")]
+position = Vector2(-371, 0)
+ColorThis = Color(0.266667, 0.266667, 0.00392157, 1)
