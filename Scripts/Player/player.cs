@@ -13,7 +13,8 @@ public partial class Player : CharacterBody2D
 
 	[Export]
 	public bool inputOnFocus = false; // Permet de désactiver les mouvements quand le joueur est dans une interface
-
+	[Export]
+	private ColorCode code;
 	public override void _Process(double delta)
 	{
 		Godot.Vector2 velocity = Velocity; // En gd script y a pas ça 
@@ -55,7 +56,7 @@ public partial class Player : CharacterBody2D
 		}
 
 		if (Input.IsActionJustPressed("ui_accept") && inputOnFocus == false){
-			if (item != null && pickedUpItem == null){
+			if (item != null && pickedUpItem == null && item.IsInGroup("Pickable")){
 				PickUp(item);
 			}
 			else if (pickedUpItem != null){
@@ -133,6 +134,7 @@ public partial class Player : CharacterBody2D
 	private void InteractWithColoredComputer(colored_computer interactingObject)
 	{
 		interactingObject.ComputerColorChange();
+		code.CheckNewCode();
 	}
 
 }
