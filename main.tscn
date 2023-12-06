@@ -270,10 +270,10 @@ position = Vector2(-284, -34)
 position = Vector2(-202, 170)
 
 [node name="Banana2" parent="." groups=["Pickable"] instance=ExtResource("12_pv5p6")]
-position = Vector2(-112, 182)
+position = Vector2(-75, 199)
 
 [node name="Banana" parent="." groups=["Pickable"] instance=ExtResource("12_pv5p6")]
 position = Vector2(-52, 146)
 
 [node name="Trashcan" parent="." instance=ExtResource("13_q06qq")]
-position = Vector2(-13, 193)
+position = Vector2(-188, 249)

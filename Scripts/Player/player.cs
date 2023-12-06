@@ -87,10 +87,17 @@ public partial class Player : CharacterBody2D
 
 		//GetParent().GetNode(pickedUpItem.Name.ToString()).AddChild(pickedUpItem_collision);
 
+
+		// L'area ne détecte pas quand la collision de l'objet est disabled puis non
+
 		pickedUpItem.GetNode<CollisionShape2D>("CollisionShape2D").Disabled = false; 
 		pickedUpItem.Position = GetNode<Marker2D>("Object").GlobalPosition;
+		//pickedUpItem.ProcessMode = ProcessModeEnum.Disabled;
 		GetNode<Marker2D>("Object").RemoveChild(pickedUpItem);
+
 		GetParent().AddChild(pickedUpItem);
+		//GetParent().GetNode(pickedUpItem.Name.ToString()).ProcessMode = ProcessModeEnum.Always;
+		//GetParent().GetNode(pickedUpItem.Name.ToString()).GetNode<CollisionShape2D>("CollisionShape2D").Disabled = false;
 		pickedUpItem = null;
 	}
 
