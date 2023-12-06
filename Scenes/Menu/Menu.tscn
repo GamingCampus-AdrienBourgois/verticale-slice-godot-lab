@@ -1,0 +1,218 @@
+[gd_scene load_steps=13 format=3 uid="uid://bjvkp5u6m2w82"]
+
+[ext_resource type="TileSet" uid="uid://cnowwr0gr3n55" path="res://Platformer/scenes/tilemap_platformer.tres" id="1_pk2yg"]
+[ext_resource type="Script" path="res://Scripts/Menu/Menu.cs" id="1_usw8i"]
+[ext_resource type="Texture2D" uid="uid://jnwv8osmr4bx" path="res://Platformer/imports/monochrome_tilemap_transparent_packed.png" id="3_qsfbu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1tf2"]
+atlas = ExtResource("3_qsfbu")
+region = Rect2(0, 256, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8e0o"]
+atlas = ExtResource("3_qsfbu")
+region = Rect2(16, 256, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_psp01"]
+atlas = ExtResource("3_qsfbu")
+region = Rect2(32, 256, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnvsy"]
+atlas = ExtResource("3_qsfbu")
+region = Rect2(48, 256, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbb3b"]
+atlas = ExtResource("3_qsfbu")
+region = Rect2(64, 256, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ku0wq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1tf2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8e0o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_psp01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gnvsy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbb3b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_tao3e"]
+resource_name = "Zzzz"
+length = 7.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.7, 3.2, 4.4, 5.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(4.5, -12.5), Vector2(9, -14.5), Vector2(2, -26), Vector2(12.5, -34.5), Vector2(20.5, -39.5), Vector2(24, -49.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.6, 2.9, 5.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.4, 0.4, 0.7, 1.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6, 4.4, 5.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bkhkn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4.5, -12.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w7dbx"]
+_data = {
+"RESET": SubResource("Animation_bkhkn"),
+"Zzzz": SubResource("Animation_tao3e")
+}
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_usw8i")
+
+[node name="Container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -87.0
+offset_right = 51.0
+offset_bottom = 266.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Start
+
+"
+
+[node name="Label2" type="Label" parent="Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Options
+
+"
+
+[node name="Label3" type="Label" parent="Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "Quit
+
+"
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+tile_set = ExtResource("1_pk2yg")
+format = 2
+layer_0/name = "Ground"
+layer_0/z_index = -1
+layer_0/tile_data = PackedInt32Array(1245197, 524288, 4, 1245198, 524288, 4, 1245199, 524288, 4, 1245200, 524288, 4, 1245201, 524288, 4, 1245202, 524288, 4, 1245203, 524288, 4, 1245204, 524288, 4, 1245205, 524288, 4, 1245206, 524288, 4, 1245207, 524288, 4, 1245208, 524288, 4, 1245209, 524288, 4, 1245210, 524288, 4, 1245211, 589824, 4, 1245196, 458752, 4, 1310747, 589824, 5, 1179674, 786432, 4, 393225, 262144, 1, 458761, 262144, 2, 327690, 327680, 0, 393226, 327680, 1, 458762, 327680, 2, 393227, 393216, 1, 458763, 393216, 2, 262154, 196608, 1, 196618, 196608, 1, 131082, 196608, 1, 10, 196608, 0, 65546, 196608, 1, 1048599, 458752, 3, 1179661, 0, 11, 1179668, 1114112, 0, 1179663, 131072, 11, 1179665, 1179648, 0, 1179672, 1179648, 0, 1114139, 917504, 0, 1179675, 917504, 1, 1048594, 983040, 0, 1114130, 983040, 1, 1179666, 983040, 2, 15, 458752, 12, 65551, 458752, 12, 131087, 458752, 12, 196623, 458752, 12, 262159, 458752, 12, 327695, 458752, 12, 393231, 458752, 13, 393232, 524288, 13, 393233, 524288, 13, 393234, 524288, 13, 393235, 589824, 13, 327699, 589824, 12, 262163, 589824, 12, 196627, 589824, 12, 131091, 589824, 12, 65555, 589824, 12, 19, 589824, 12, 786432, 524288, 13, 786434, 589824, 13, 786433, 524288, 13, 720898, 589824, 12, 655362, 589824, 12, 589826, 589824, 12, 524290, 589824, 12, 458754, 589824, 12, 393218, 589824, 12, 327682, 589824, 11, 327681, 524288, 11, 327680, 524288, 11, 1048589, 0, 9, 1114125, 0, 10, 1048590, 65536, 9, 1048591, 131072, 9, 1114127, 131072, 10, 1310732, 458752, 5)
+layer_1/name = "Elements"
+layer_1/z_index = -2
+layer_1/tile_data = PackedInt32Array(1179662, 917504, 2, 327697, 1114112, 2, 589852, 262144, 3, 589853, 327680, 3, 589854, 393216, 3, 524316, 1114112, 2, 458782, 458752, 0, 393246, 327680, 8, 131100, 655360, 16, 131101, 720896, 16, 131102, 786432, 16, 196636, 196608, 805306377, 196637, 196608, 805306377, 196638, 196608, 805306377, 131103, 196608, 1342177289, 65566, 196608, 9, 65565, 196608, 9, 65564, 196608, 9, 131099, 196608, 1610612745, 655395, 983040, 13, 720931, 983040, 14, 786467, 983040, 15, 589859, 524288, 12, 6, 458752, 14, 65542, 458752, 15, 7, 524288, 14, 65543, 524288, 15, 3, 458752, 14, 65539, 458752, 15, 4, 524288, 14, 65540, 524288, 15, 0, 458752, 14, 65536, 458752, 15, 1, 524288, 14, 65537, 524288, 15)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(752, 498)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ku0wq")
+autoplay = "default"
+frame_progress = 0.396359
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(338, 201)
+scale = Vector2(3, 3)
+texture = ExtResource("3_qsfbu")
+hframes = 20
+vframes = 20
+frame = 324
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_w7dbx")
+}
+autoplay = "Zzzz"
+
+[node name="Label" type="Label" parent="Sprite2D"]
+self_modulate = Color(1, 1, 1, 0.408639)
+offset_left = 4.5
+offset_top = -12.5
+offset_right = 44.5
+offset_bottom = 10.5
+theme_override_font_sizes/font_size = 8
+text = "Zzz"
+visible_characters = 1
+visible_ratio = 0.4
