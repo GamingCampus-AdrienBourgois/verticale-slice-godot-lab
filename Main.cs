@@ -3,6 +3,10 @@ using System;
 // Cool
 public partial class Main : Node2D
 {
+
+	// L'error "audio_device_init" est normale car y a pas de carte son
+	// Pareil pour "init : WASAPI: init_output_device error
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{

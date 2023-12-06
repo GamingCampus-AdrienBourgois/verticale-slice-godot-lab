@@ -9,6 +9,7 @@ public partial class Player : CharacterBody2D
 
 	private Node2D pickedUpItem;
 	private Node2D item = null;
+	private CollisionShape2D pickedUpItem_collision = null;
 
 	[Export]
 	public bool inputOnFocus = false; // Permet de désactiver les mouvements quand le joueur est dans une interface
@@ -69,18 +70,24 @@ public partial class Player : CharacterBody2D
 	private void PickUp(Node2D objectToPickup){
 		GetParent().RemoveChild(objectToPickup);
 		GetNode<Marker2D>("Object").AddChild(objectToPickup);
-		objectToPickup.GetNode<CollisionShape2D>("CollisionShape2D").Disabled = true; // Marche pas aidez moi
+		pickedUpItem_collision = objectToPickup.GetNode<CollisionShape2D>("CollisionShape2D");
+		GD.Print(pickedUpItem_collision.Position);
+		objectToPickup.GetNode<CollisionShape2D>("CollisionShape2D").QueueFree();
+		//objectToPickup.GetNode<CollisionShape2D>("CollisionShape2D").Disabled = true; 
 		objectToPickup.Position = Godot.Vector2.Zero;
 		pickedUpItem = objectToPickup;
 		item = null;
 	}
 
 	private void Throw(){
-		pickedUpItem.GetNode<CollisionShape2D>("CollisionShape2D").Disabled = false; // Marche pas aidez moi
+		//pickedUpItem.GetNode<CollisionShape2D>("CollisionShape2D").Disabled = false; 
 		pickedUpItem.Position = GetNode<Marker2D>("Object").GlobalPosition;
+		//GetNode<Marker2D>("Object").GetNode(pickedUpItem.Name.ToString()).AddChild(pickedUpItem_collision);
 		GetNode<Marker2D>("Object").RemoveChild(pickedUpItem);
+		pickedUpItem.AddChild(pickedUpItem_collision);
 		GetParent().AddChild(pickedUpItem);
 		pickedUpItem = null;
+		pickedUpItem_collision = null;
 	}
 
 	private void _on_area_2d_body_entered(Node2D body)
