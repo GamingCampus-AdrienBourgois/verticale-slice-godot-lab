@@ -18,24 +18,16 @@ public partial class Trashcan : StaticBody2D
 	}
 	private void _on_area_2d_body_entered(Node2D body)
 	{
-		// Ne détecte absolument pas la banane (meme layer sur 2)
-		// Marche que au début mais pas quand on la met
+		// Ne détecte que si c'est un characterbody et aps un staticbody
 
-		GD.Print(body.Name);
 		if (body.IsInGroup("Trash") && Full != true){
 			GD.Print("Trash !");
 			body.QueueFree();
 			Trash_collected++;
 			if (Trash_collected >= 3){
 				Full = true;
+				GD.Print("Trashcan full !");
 			}
-		}
-	}
-
-	private void _on_area_2d_body_exited(Node2D body)
-	{
-		if (body.IsInGroup("Trash") && Full != true){
-			GD.Print("Trash ! OUT");
 		}
 	}
 
