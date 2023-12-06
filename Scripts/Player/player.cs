@@ -97,6 +97,7 @@ public partial class Player : CharacterBody2D
 	private void PickUp(Node2D objectToPickup){
 
 		pickeUpItemPath = objectToPickup.GetParent().GetPath();
+		objectToPickup.GetNode<CollisionShape2D>("CollisionShape2D").Disabled = true;
 		
 		// Tests
 
@@ -105,7 +106,6 @@ public partial class Player : CharacterBody2D
 		
 		GetNode(objectToPickup.GetPath()).GetParent().RemoveChild(objectToPickup);
 		MarkerObject.AddChild(objectToPickup);
-		objectToPickup.GetNode<CollisionShape2D>("CollisionShape2D").Disabled = true; 
 		objectToPickup.Position = Godot.Vector2.Zero;
 		pickedUpItem = objectToPickup;
 
@@ -113,10 +113,10 @@ public partial class Player : CharacterBody2D
 	}
 
 	private void Throw(){
-		pickedUpItem.GetNode<CollisionShape2D>("CollisionShape2D").Disabled = false; 
 		pickedUpItem.Position = MarkerObject.GlobalPosition;
 		MarkerObject.RemoveChild(pickedUpItem);
 		GetNode(pickeUpItemPath).AddChild(pickedUpItem);
+		pickedUpItem.GetNode<CollisionShape2D>("CollisionShape2D").Disabled = false;
 		pickedUpItem = null;
 	}
 

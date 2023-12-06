@@ -31,10 +31,10 @@ public partial class ObjectForFix : Node
 
 	private void ObjectDesactivated(ObjectFixArea Area, Node2D body) 
 	{
-		if(body.IsInGroup("ObjectFix"))
+		if(body.IsInGroup("ObjectFix")) 
 		{
 			Area.Call("FixedChange");
-			GD.Print(Area.Call("GetState"));
+			GD.Print(Area.Call("GetState")); // Le fait 3 fois jsp
 			ObjectAlreadyFixed--;
 		}
 	}
