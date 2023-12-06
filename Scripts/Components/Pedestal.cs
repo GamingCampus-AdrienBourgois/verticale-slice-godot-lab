@@ -6,7 +6,7 @@ public partial class Pedestal : Node
 
 	public override void _Ready()
 	{
-		foreach (Node i in GetNode<Node>("Areas").GetChildren())
+		foreach (Node i in GetNode<Node>("AreasPedestal").GetChildren())
 		{
 			i.Connect("ObjectFixed",new Callable(this,"PedestalActivated"));
 		}

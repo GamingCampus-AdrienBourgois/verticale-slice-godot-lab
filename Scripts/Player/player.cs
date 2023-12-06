@@ -14,7 +14,6 @@ public partial class Player : CharacterBody2D
 
 	[Export]
 	public bool inputOnFocus = false; // Permet de désactiver les mouvements quand le joueur est dans une interface
-	[Export]
 	private ColorCode code;
 
 	private Marker2D MarkerObject = null;
@@ -23,6 +22,7 @@ public partial class Player : CharacterBody2D
 	{
 		MarkerObject = GetNode("MarkerArea").GetNode<Marker2D>("Object");
 		MarkerArea = GetNode<Marker2D>("MarkerArea");
+		code = GetParent().GetNode<ColorCode>("ColoredPc");
 	}
 
 

@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://brp75n3p58gce" path="res://Scenes/Components/tp.tscn" id="4_12jmb"]
 [ext_resource type="PackedScene" uid="uid://c2k0yl2eo71rf" path="res://Scenes/Components/ballon.tscn" id="5_qksr7"]
 [ext_resource type="PackedScene" uid="uid://dchiwu34cy6w2" path="res://Scenes/Components/door.tscn" id="6_e23jg"]
-[ext_resource type="PackedScene" uid="uid://gfwkjgaxjncs" path="res://Scenes/Components/foot.tscn" id="7_i3pto"]
-[ext_resource type="PackedScene" uid="uid://dbei81nyrc6ty" path="res://Scenes/Components/fix_wire.tscn" id="7_jky4f"]
-[ext_resource type="PackedScene" uid="uid://ybvqyqhf23jy" path="res://Scenes/Components/particule_foot.tscn" id="8_ayp8k"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/foot.tscn" id="7_i3pto"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/fix_wire.tscn" id="7_jky4f"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/particule_foot.tscn" id="8_ayp8k"]
 [ext_resource type="PackedScene" uid="uid://bfv0qhjvvqket" path="res://Scenes/Components/computer.tscn" id="10_gflbg"]
 [ext_resource type="PackedScene" uid="uid://dji5f8vn6uk02" path="res://Scenes/Components/colored_pc.tscn" id="11_peyc8"]
 [ext_resource type="PackedScene" uid="uid://dsa1ygru0vvxq" path="res://Scenes/Components/banana.tscn" id="12_pv5p6"]
@@ -228,7 +228,6 @@ script = ExtResource("1_8aswi")
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_cxfpo")]
 z_index = 1
-inputOnFocus = null
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
@@ -253,9 +252,8 @@ _scenePath = "res://Platformer/scenes/platformer.tscn"
 [node name="FixWire" parent="." instance=ExtResource("7_jky4f")]
 position = Vector2(-148, -266)
 
-[node name="ColoredPc" type="Node" parent="." node_paths=PackedStringArray("computerList")]
+[node name="ColoredPc" type="Node" parent="."]
 script = ExtResource("13_6wkxx")
-computerList = [NodePath("ColoredPC1"), NodePath("ColoredPC2"), NodePath("ColoredPC3")]
 
 [node name="ColoredPC1" parent="ColoredPc" groups=["ColoredPC"] instance=ExtResource("11_peyc8")]
 position = Vector2(-284, -34)
@@ -265,9 +263,6 @@ position = Vector2(-284, -151)
 
 [node name="ColoredPC3" parent="ColoredPc" groups=["ColoredPC"] instance=ExtResource("11_peyc8")]
 position = Vector2(-285, -264)
-
-[node name="PC" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(-326, 133)
 
 [node name="ObjectForFix" type="Node" parent="."]
 script = ExtResource("15_5wljq")
@@ -326,3 +321,6 @@ script = ExtResource("18_ry15s")
 [node name="PressionPlate" parent="Pedestal/AreasPedestal" instance=ExtResource("16_3jsu8")]
 position = Vector2(-371, 0)
 ColorThis = Color(0.266667, 0.266667, 0.00392157, 1)
+
+[node name="PC" parent="." instance=ExtResource("10_gflbg")]
+position = Vector2(-326, 133)
