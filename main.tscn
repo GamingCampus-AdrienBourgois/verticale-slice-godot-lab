@@ -236,7 +236,7 @@ scale = Vector2(0.8, 0.8)
 texture = ExtResource("19_p6hmw")
 
 [node name="FixWire" parent="." instance=ExtResource("7_jky4f")]
-position = Vector2(-418, 953)
+position = Vector2(-234, 699)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_cxfpo")]
 z_index = 1
@@ -259,6 +259,237 @@ _scenePath = "main.tscn"
 [node name="Tp2" parent="TP_all" instance=ExtResource("4_12jmb")]
 position = Vector2(-179, 1160)
 _scenePath = "res://Platformer/scenes/platformer.tscn"
+
+[node name="AllPc" type="Node" parent="."]
+
+[node name="PC" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(-328, 127)
+
+[node name="PC2" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(619, 210)
+
+[node name="PC3" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(676, 209)
+Opened = false
+
+[node name="PC4" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(1181, 202)
+
+[node name="PC5" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(1245, 196)
+Opened = false
+
+[node name="PC6" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(1306, 199)
+Opened = false
+
+[node name="PC7" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(1303, 500)
+Opened = false
+
+[node name="PC8" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(1248, 504)
+Opened = false
+
+[node name="PC9" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(1202, 508)
+
+[node name="PC10" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(688, 502)
+Opened = false
+
+[node name="PC11" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(639, 501)
+
+[node name="PC12" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(609, -76)
+
+[node name="PC13" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(665, -83)
+
+[node name="PC14" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(716, -93)
+Opened = false
+
+[node name="PC15" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(1185, -76)
+Opened = false
+
+[node name="PC16" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(1244, -72)
+Opened = false
+
+[node name="PC17" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(1306, -71)
+Opened = false
+
+[node name="PC18" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(1287, -366)
+Opened = false
+
+[node name="PC19" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(1229, -362)
+Opened = false
+
+[node name="PC20" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(1171, -364)
+
+[node name="PC21" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(653, -360)
+Opened = false
+
+[node name="PC22" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(605, -354)
+
+[node name="PC23" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(121, -701)
+
+[node name="PC24" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(275, -849)
+Opened = false
+
+[node name="PC25" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(110, -999)
+Opened = false
+
+[node name="PC26" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(-24, -853)
+Opened = false
+
+[node name="PC27" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(-695, 639)
+
+[node name="PC28" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(-699, 757)
+Opened = false
+
+[node name="PC29" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(-697, 864)
+Opened = false
+
+[node name="PC30" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(-699, 1067)
+Opened = false
+
+[node name="PC31" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(-694, 1117)
+Opened = false
+
+[node name="PC32" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(-699, 1162)
+Opened = false
+
+[node name="PC33" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(-250, 1157)
+
+[node name="PC34" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(-245, 1111)
+Opened = false
+
+[node name="PC35" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(-245, 1063)
+
+[node name="PC36" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(-227, 863)
+
+[node name="PC37" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(-393, 365)
+
+[node name="PC38" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(-386, 422)
+Opened = false
+
+[node name="PC39" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(-402, 473)
+Opened = false
+
+[node name="PC40" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(652, -531)
+OpenedColor = Color(257, 0, 0, 1)
+
+[node name="PC41" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(729, -530)
+OpenedColor = Color(0, 0, 255, 1)
+
+[node name="PC42" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(829, -528)
+Opened = false
+
+[node name="PC43" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(930, -526)
+OpenedColor = Color(255, 0, 0, 1)
+
+[node name="PC44" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(1029, -526)
+OpenedColor = Color(1, 1, 0, 1)
+
+[node name="PC45" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(1125, -526)
+Opened = false
+
+[node name="PC46" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(1201, -523)
+OpenedColor = Color(0, 0, 255, 1)
+
+[node name="PC47" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(656, -256)
+Opened = false
+OpenedColor = Color(257, 0, 0, 1)
+
+[node name="PC48" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(733, -255)
+OpenedColor = Color(1, 1, 0, 1)
+
+[node name="PC49" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(833, -253)
+OpenedColor = Color(255, 0, 0, 1)
+
+[node name="PC50" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(934, -251)
+OpenedColor = Color(0, 0, 1, 1)
+
+[node name="PC51" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(1033, -251)
+Opened = false
+OpenedColor = Color(1, 1, 0, 1)
+
+[node name="PC52" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(1129, -251)
+OpenedColor = Color(1, 1, 0, 1)
+
+[node name="PC53" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(1205, -248)
+OpenedColor = Color(1, 0, 0, 1)
+
+[node name="PC54" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(660, 32)
+Opened = false
+OpenedColor = Color(257, 0, 0, 1)
+
+[node name="PC55" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(737, 33)
+OpenedColor = Color(1, 0, 0, 1)
+
+[node name="PC56" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(837, 35)
+OpenedColor = Color(0, 0, 257, 1)
+
+[node name="PC57" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(938, 37)
+Opened = false
+OpenedColor = Color(255, 0, 0, 1)
+
+[node name="PC58" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(1037, 37)
+OpenedColor = Color(1, 0, 0, 1)
+
+[node name="PC59" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(1133, 37)
+OpenedColor = Color(1, 0, 0, 1)
+
+[node name="PC60" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(1209, 40)
+OpenedColor = Color(1, 1, 0, 1)
 
 [node name="ColoredPc" type="Node" parent="."]
 script = ExtResource("13_6wkxx")
@@ -283,144 +514,6 @@ position = Vector2(1116, 386)
 
 [node name="ColoredPC7" parent="ColoredPc" groups=["ColoredPC"] instance=ExtResource("11_peyc8")]
 position = Vector2(1204, 385)
-
-[node name="PC2" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(619, 210)
-
-[node name="PC3" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(676, 209)
-Opened = false
-
-[node name="PC4" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(1181, 202)
-
-[node name="PC5" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(1245, 196)
-Opened = false
-
-[node name="PC6" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(1306, 199)
-Opened = false
-
-[node name="PC7" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(1303, 500)
-Opened = false
-
-[node name="PC8" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(1248, 504)
-Opened = false
-
-[node name="PC9" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(1202, 508)
-
-[node name="PC10" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(688, 502)
-Opened = false
-
-[node name="PC11" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(639, 501)
-
-[node name="PC23" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(121, -701)
-
-[node name="PC27" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(-695, 639)
-
-[node name="PC28" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(-699, 757)
-Opened = false
-
-[node name="PC29" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(-697, 864)
-Opened = false
-
-[node name="PC30" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(-699, 1067)
-Opened = false
-
-[node name="PC31" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(-694, 1117)
-Opened = false
-
-[node name="PC32" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(-699, 1162)
-Opened = false
-
-[node name="PC33" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(-250, 1157)
-
-[node name="PC34" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(-245, 1111)
-Opened = false
-
-[node name="PC35" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(-245, 1063)
-
-[node name="PC36" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(-227, 863)
-
-[node name="PC37" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(-393, 365)
-
-[node name="PC38" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(-386, 422)
-Opened = false
-
-[node name="PC39" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(-402, 473)
-Opened = false
-
-[node name="PC24" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(275, -849)
-Opened = false
-
-[node name="PC25" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(110, -999)
-Opened = false
-
-[node name="PC26" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(-24, -853)
-Opened = false
-
-[node name="PC12" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(609, -76)
-
-[node name="PC13" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(665, -83)
-
-[node name="PC14" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(716, -93)
-Opened = false
-
-[node name="PC15" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(1185, -76)
-Opened = false
-
-[node name="PC16" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(1244, -72)
-Opened = false
-
-[node name="PC17" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(1306, -71)
-Opened = false
-
-[node name="PC18" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(1287, -366)
-Opened = false
-
-[node name="PC19" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(1229, -362)
-Opened = false
-
-[node name="PC20" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(1171, -364)
-
-[node name="PC21" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(653, -360)
-Opened = false
-
-[node name="PC22" parent="ColoredPc" instance=ExtResource("10_gflbg")]
-position = Vector2(605, -354)
 
 [node name="ObjectForFix" type="Node" parent="."]
 script = ExtResource("15_5wljq")
@@ -516,6 +609,3 @@ ColorThis = Color(0.266667, 0.266667, 0.00392157, 1)
 [node name="PressionPlate4" parent="Pedestal/AreasPedestal" instance=ExtResource("16_3jsu8")]
 position = Vector2(-634, 299)
 ColorThis = Color(0.266667, 0.266667, 0.00392157, 1)
-
-[node name="PC" parent="." instance=ExtResource("10_gflbg")]
-position = Vector2(-326, 133)

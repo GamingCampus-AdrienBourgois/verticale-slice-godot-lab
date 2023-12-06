@@ -3,11 +3,10 @@ using System;
 
 public partial class ColorCode : Node
 {
-	//private int[] code = {1,6,5,1,2,1,4};
-	private int[] code = {1,6,5};//code test 
+	private int[] code = {1,6,5,1,2,1,4};
 	private bool codeValid = false;
 
-	private colored_computer[] computerList = new colored_computer[3];
+	private colored_computer[] computerList = new colored_computer[7];
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
