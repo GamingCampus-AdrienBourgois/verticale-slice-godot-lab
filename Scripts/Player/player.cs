@@ -8,6 +8,7 @@ public partial class Player : CharacterBody2D
 	public const float PUSH = 0.5f;
 
 	private Node2D pickedUpItem;
+	private NodePath pickeUpItemPath;
 	private Node2D item = null;
 	private CollisionShape2D pickedUpItem_collision = null;
 
@@ -69,36 +70,24 @@ public partial class Player : CharacterBody2D
 		MoveAndSlide();
 	}
 	private void PickUp(Node2D objectToPickup){
-		// S2
-		//pickedUpItem_collision = objectToPickup.GetNode<CollisionShape2D>("CollisionShape2D");
-		//GD.Print(pickedUpItem_collision.Position);
-		//objectToPickup.RemoveChild(pickedUpItem_collision);
 
-		// S1
-		GetParent().RemoveChild(objectToPickup);
+		pickeUpItemPath = objectToPickup.GetParent().GetPath();
+		GD.Print(objectToPickup.GetPath());
+		GD.Print(GetNode(objectToPickup.GetPath()).Name);
+		GetNode(objectToPickup.GetPath()).GetParent().RemoveChild(objectToPickup);
 		GetNode<Marker2D>("Object").AddChild(objectToPickup);
 		objectToPickup.GetNode<CollisionShape2D>("CollisionShape2D").Disabled = true; 
 		objectToPickup.Position = Godot.Vector2.Zero;
 		pickedUpItem = objectToPickup;
+
 		item = null;
 	}
 
 	private void Throw(){
-
-
-		//GetParent().GetNode(pickedUpItem.Name.ToString()).AddChild(pickedUpItem_collision);
-
-
-		// L'area ne détecte pas quand la collision de l'objet est disabled puis non
-
 		pickedUpItem.GetNode<CollisionShape2D>("CollisionShape2D").Disabled = false; 
 		pickedUpItem.Position = GetNode<Marker2D>("Object").GlobalPosition;
-		//pickedUpItem.ProcessMode = ProcessModeEnum.Disabled;
 		GetNode<Marker2D>("Object").RemoveChild(pickedUpItem);
-
-		GetParent().AddChild(pickedUpItem);
-		//GetParent().GetNode(pickedUpItem.Name.ToString()).ProcessMode = ProcessModeEnum.Always;
-		//GetParent().GetNode(pickedUpItem.Name.ToString()).GetNode<CollisionShape2D>("CollisionShape2D").Disabled = false;
+		GetNode(pickeUpItemPath).AddChild(pickedUpItem);
 		pickedUpItem = null;
 	}
 

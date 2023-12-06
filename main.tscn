@@ -267,21 +267,6 @@ particule_scene = ExtResource("8_ayp8k")
 [node name="PC" parent="." instance=ExtResource("10_gflbg")]
 position = Vector2(-326, 133)
 
-[node name="Banana3" parent="." groups=["Pickable"] instance=ExtResource("12_pv5p6")]
-position = Vector2(-212, 201)
-
-[node name="Banana2" parent="." groups=["Pickable"] instance=ExtResource("12_pv5p6")]
-position = Vector2(-190, 201)
-
-[node name="Banana" parent="." groups=["Pickable"] instance=ExtResource("12_pv5p6")]
-position = Vector2(-168, 201)
-
-[node name="Trashcan" parent="." instance=ExtResource("13_q06qq")]
-position = Vector2(-188, 249)
-
-[node name="ObjectToFix" parent="." instance=ExtResource("17_bbyt8")]
-position = Vector2(-62, 136)
-
 [node name="ColoredPc" type="Node" parent="." node_paths=PackedStringArray("computerList")]
 script = ExtResource("13_6wkxx")
 computerList = [NodePath("ColoredPC1"), NodePath("ColoredPC2"), NodePath("ColoredPC3")]
@@ -302,3 +287,24 @@ script = ExtResource("15_5wljq")
 
 [node name="ObjectFixArea" parent="ObjectForFix/Areas" instance=ExtResource("16_3jsu8")]
 position = Vector2(-31, 175)
+
+[node name="Objects" type="Node" parent="ObjectForFix"]
+
+[node name="ObjectToFix" parent="ObjectForFix/Objects" instance=ExtResource("17_bbyt8")]
+position = Vector2(-62, 136)
+
+[node name="Trashcan_fix" type="Node" parent="."]
+
+[node name="Trashcan" parent="Trashcan_fix" instance=ExtResource("13_q06qq")]
+position = Vector2(-188, 249)
+
+[node name="Bananas" type="Node" parent="Trashcan_fix"]
+
+[node name="Banana" parent="Trashcan_fix/Bananas" groups=["Pickable"] instance=ExtResource("12_pv5p6")]
+position = Vector2(-168, 201)
+
+[node name="Banana2" parent="Trashcan_fix/Bananas" groups=["Pickable"] instance=ExtResource("12_pv5p6")]
+position = Vector2(-190, 201)
+
+[node name="Banana3" parent="Trashcan_fix/Bananas" groups=["Pickable"] instance=ExtResource("12_pv5p6")]
+position = Vector2(-212, 201)

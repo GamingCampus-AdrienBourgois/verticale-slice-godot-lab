@@ -4,12 +4,18 @@ using System;
 public partial class Trashcan : StaticBody2D
 {
 	private int Trash_collected = 0;
+	private int TrashToCollect = 0;
 	private bool Full = false;
 
 	// Getters
 	private int GetTrash_collected() { return Trash_collected; }
 	public override void _Ready()
 	{
+		foreach (Node i in GetParent().GetNode<Node>("Bananas").GetChildren())
+		{
+			TrashToCollect++;
+		}
+		
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,7 +30,7 @@ public partial class Trashcan : StaticBody2D
 			GD.Print("Trash !");
 			body.QueueFree();
 			Trash_collected++;
-			if (Trash_collected >= 3){
+			if (Trash_collected >= TrashToCollect){
 				Full = true;
 				GD.Print("Trashcan full !");
 			}
