@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://f6hk1vq4gea"]
+
+[ext_resource type="Texture2D" uid="uid://bky4e7x50daun" path="res://assets/Components/hand_cursor.png" id="1_3gcxo"]
+[ext_resource type="Script" path="res://Scripts/Components/Menu_cursor.cs" id="2_1x4id"]
+
+[node name="Menu_cursor" type="TextureRect"]
+texture_filter = 1
+offset_right = 32.0
+offset_bottom = 32.0
+texture = ExtResource("1_3gcxo")
+script = ExtResource("2_1x4id")

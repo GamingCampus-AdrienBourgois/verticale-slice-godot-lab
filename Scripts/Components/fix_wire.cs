@@ -13,7 +13,7 @@ public partial class fix_wire : Area2D
 	{
 		fixWireHud = GetNode<CanvasLayer>("Fix_wire_hud");
 		player = GetParent().GetNode<Player>("Player");
-		if (fixWireHud != null)
+        if (fixWireHud != null)
 		{
 			fixWireHud.Visible = isShow;
 		}

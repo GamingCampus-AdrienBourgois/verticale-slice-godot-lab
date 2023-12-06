@@ -9,10 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://gfwkjgaxjncs" path="res://Scenes/Components/foot.tscn" id="7_i3pto"]
 [ext_resource type="PackedScene" uid="uid://dbei81nyrc6ty" path="res://Scenes/Components/fix_wire.tscn" id="7_jky4f"]
 [ext_resource type="PackedScene" uid="uid://ybvqyqhf23jy" path="res://Scenes/Components/particule_foot.tscn" id="8_ayp8k"]
-[ext_resource type="PackedScene" uid="uid://bfv0qhjvvqket" path="res://Scenes/Components/computer.tscn" id="10_gflbg"]
-[ext_resource type="PackedScene" uid="uid://dji5f8vn6uk02" path="res://Scenes/Components/colored_pc.tscn" id="11_peyc8"]
-[ext_resource type="PackedScene" uid="uid://dsa1ygru0vvxq" path="res://Scenes/Components/banana.tscn" id="12_pv5p6"]
-[ext_resource type="PackedScene" uid="uid://dahbjfvejuq3m" path="res://Scenes/Components/trashcan.tscn" id="13_q06qq"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/computer.tscn" id="10_gflbg"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/colored_pc.tscn" id="11_peyc8"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/banana.tscn" id="12_pv5p6"]
+[ext_resource type="PackedScene" path="res://Scenes/Components/trashcan.tscn" id="13_q06qq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k5006"]
 texture = ExtResource("3_nd6b6")

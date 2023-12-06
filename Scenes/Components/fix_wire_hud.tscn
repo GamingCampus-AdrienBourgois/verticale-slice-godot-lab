@@ -1,9 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://dsre6p0qf37th"]
 
-[ext_resource type="Texture2D" uid="uid://b835n7a45qydg" path="res://assets/Components/white-arrow-png-41970.png" id="1_mcdpb"]
-[ext_resource type="Script" path="res://Scripts/Components/Arrow_fix_wire_hud.cs" id="2_vj13o"]
+[ext_resource type="Script" path="res://Scripts/Components/Fix_wire_hud.cs" id="1_3x3ap"]
+[ext_resource type="PackedScene" uid="uid://f6hk1vq4gea" path="res://Scenes/Components/menu_cursor.tscn" id="2_horgu"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="Fix_wire_hud" type="CanvasLayer"]
+script = ExtResource("1_3x3ap")
 
 [node name="DarkFilter" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -13,8 +14,23 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.282353)
 
-[node name="Arrow" type="Sprite2D" parent="."]
-position = Vector2(200, 200)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_mcdpb")
-script = ExtResource("2_vj13o")
+[node name="Vertical_left" type="PanelContainer" parent="."]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 251.0
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Vertical_left"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Vertical_left/MarginContainer"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Vertical_left/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="Vertical_left/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Menu_cursor" parent="." instance=ExtResource("2_horgu")]
+nodePath = NodePath("../Vertical_left/MarginContainer/VBoxContainer")

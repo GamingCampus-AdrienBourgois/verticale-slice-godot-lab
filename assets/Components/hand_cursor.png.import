@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b835n7a45qydg"
-path="res://.godot/imported/white-arrow-png-41970.png-0ce4e451d0105b8c7360ad9627069a3d.ctex"
+uid="uid://bky4e7x50daun"
+path="res://.godot/imported/hand_cursor.png-caddc64bbe581e4cb8892338af9a81d8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Components/white-arrow-png-41970.png"
-dest_files=["res://.godot/imported/white-arrow-png-41970.png-0ce4e451d0105b8c7360ad9627069a3d.ctex"]
+source_file="res://assets/Components/hand_cursor.png"
+dest_files=["res://.godot/imported/hand_cursor.png-caddc64bbe581e4cb8892338af9a81d8.ctex"]
 
 [params]
 
