@@ -11,9 +11,8 @@ public partial class fix_wire : Area2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		fixWireHud = GetNode<CanvasLayer>("Fix_wire_hud");
 		player = GetParent().GetNode<Player>("Player");
-        if (fixWireHud != null)
+		if (fixWireHud != null)
 		{
 			fixWireHud.Visible = isShow;
 		}
