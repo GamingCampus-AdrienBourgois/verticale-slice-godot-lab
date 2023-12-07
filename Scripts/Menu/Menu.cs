@@ -11,9 +11,14 @@ public partial class Menu : Control
 
 	private List<NodePath> List_labels;
 
+	private Scene_transition SceneTransition = null;
+
 	public override void _Ready()
 	{
 		ChangeColor();
+			
+
+		SceneTransition = GetParent().GetNode<Scene_transition>("SceneTransition");
 
 		// Veut pas prendre ça dans une liste
 
@@ -50,7 +55,7 @@ public partial class Menu : Control
 			//Mettre un switch mais jsp la syntaxe
 			if (SelectedIndex == 0)
 			{
-				GetTree().ChangeSceneToFile("main.tscn");
+				SceneTransition.Call("changeScene","main.tscn");
 			}
 			else if(SelectedIndex == 1)
 			{
@@ -68,9 +73,15 @@ public partial class Menu : Control
 	}
 
 	private void ChangeSelecInd(int i){
-		if (SelectedIndex+i >= 0 && SelectedIndex+i <= 2)
+		SelectedIndex += i; 
+		if(SelectedIndex < 0)
 		{
-			SelectedIndex += i; 
+			SelectedIndex = 2;
+		}
+		else if (SelectedIndex > 2)
+		{
+			SelectedIndex = 0;
+			
 		}
 	}
 

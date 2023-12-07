@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=3 uid="uid://coltq3dqh0sx3"]
+
+[ext_resource type="Texture2D" uid="uid://jnwv8osmr4bx" path="res://Platformer/imports/monochrome_tilemap_transparent_packed.png" id="1_3ttow"]
+
+[sub_resource type="Animation" id="Animation_tao3e"]
+resource_name = "Zzzz"
+length = 7.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.7, 3.2, 4.4, 5.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(4.5, -12.5), Vector2(9, -14.5), Vector2(2, -26), Vector2(12.5, -34.5), Vector2(20.5, -39.5), Vector2(24, -49.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.6, 2.9, 5.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.4, 0.4, 0.7, 1.0, 1.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6, 4.4, 5.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w7dbx"]
+_data = {
+"Zzzz": SubResource("Animation_tao3e")
+}
+
+[node name="Sprite2D" type="Sprite2D"]
+texture_filter = 1
+position = Vector2(338, 201)
+scale = Vector2(3, 3)
+texture = ExtResource("1_3ttow")
+hframes = 20
+vframes = 20
+frame = 324
+
+[node name="Label" type="Label" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 4.5
+offset_top = -12.5
+offset_right = 44.5
+offset_bottom = 10.5
+theme_override_font_sizes/font_size = 8
+text = "Zzz"
+visible_characters = 1
+visible_ratio = 0.4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_w7dbx")
+}
+autoplay = "Zzzz"

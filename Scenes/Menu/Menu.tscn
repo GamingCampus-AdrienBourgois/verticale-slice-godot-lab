@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bjvkp5u6m2w82"]
+[gd_scene load_steps=11 format=3 uid="uid://bjvkp5u6m2w82"]
 
 [ext_resource type="TileSet" uid="uid://cnowwr0gr3n55" path="res://Platformer/scenes/tilemap_platformer.tres" id="1_pk2yg"]
 [ext_resource type="Script" path="res://Scripts/Menu/Menu.cs" id="1_usw8i"]
 [ext_resource type="Texture2D" uid="uid://jnwv8osmr4bx" path="res://Platformer/imports/monochrome_tilemap_transparent_packed.png" id="3_qsfbu"]
+[ext_resource type="PackedScene" uid="uid://coltq3dqh0sx3" path="res://Scenes/Menu/SleepZzz.tscn" id="4_ll0u6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i1tf2"]
 atlas = ExtResource("3_qsfbu")
@@ -191,28 +192,4 @@ sprite_frames = SubResource("SpriteFrames_ku0wq")
 autoplay = "default"
 frame_progress = 0.396359
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(338, 201)
-scale = Vector2(3, 3)
-texture = ExtResource("3_qsfbu")
-hframes = 20
-vframes = 20
-frame = 324
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
-libraries = {
-"": SubResource("AnimationLibrary_w7dbx")
-}
-autoplay = "Zzzz"
-
-[node name="Label" type="Label" parent="Sprite2D"]
-self_modulate = Color(1, 1, 1, 0.408639)
-offset_left = 4.5
-offset_top = -12.5
-offset_right = 44.5
-offset_bottom = 10.5
-theme_override_font_sizes/font_size = 8
-text = "Zzz"
-visible_characters = 1
-visible_ratio = 0.4
+[node name="Sprite2D" parent="." instance=ExtResource("4_ll0u6")]
