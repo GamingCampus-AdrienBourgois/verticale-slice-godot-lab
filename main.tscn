@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dcgfrcn3xnlda"]
+[gd_scene load_steps=25 format=3 uid="uid://dcgfrcn3xnlda"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_8aswi"]
 [ext_resource type="PackedScene" uid="uid://c767xbfu781tp" path="res://Scenes/Player/player.tscn" id="2_cxfpo"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dchiwu34cy6w2" path="res://Scenes/Components/door.tscn" id="6_e23jg"]
 [ext_resource type="PackedScene" uid="uid://gfwkjgaxjncs" path="res://Scenes/Components/foot.tscn" id="7_i3pto"]
 [ext_resource type="PackedScene" uid="uid://dbei81nyrc6ty" path="res://Scenes/Components/fix_wire.tscn" id="7_jky4f"]
+[ext_resource type="Script" path="res://Scripts/Components/AllPc.cs" id="7_nhoxv"]
 [ext_resource type="PackedScene" uid="uid://ybvqyqhf23jy" path="res://Scenes/Components/particule_foot.tscn" id="8_ayp8k"]
 [ext_resource type="PackedScene" uid="uid://bfv0qhjvvqket" path="res://Scenes/Components/computer.tscn" id="10_gflbg"]
 [ext_resource type="PackedScene" uid="uid://dji5f8vn6uk02" path="res://Scenes/Components/colored_pc.tscn" id="11_peyc8"]
@@ -265,6 +266,7 @@ position = Vector2(-179, 1160)
 _scenePath = "res://Platformer/scenes/platformer.tscn"
 
 [node name="AllPc" type="Node" parent="."]
+script = ExtResource("7_nhoxv")
 
 [node name="PC" parent="AllPc" instance=ExtResource("10_gflbg")]
 material = SubResource("CanvasItemMaterial_i67jr")

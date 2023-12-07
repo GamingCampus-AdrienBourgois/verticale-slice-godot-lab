@@ -3,6 +3,10 @@ using System;
 
 public partial class computer : StaticBody2D
 {
+
+	[Signal]
+	public delegate void ComputerChangedEventHandler();
+
 	[Export]
 	public bool Opened = true;
 
@@ -33,6 +37,7 @@ public partial class computer : StaticBody2D
 		if (Opened == true){
 			Opened = false;
 			this.Modulate = NotOpenedColor;
+			EmitSignal("ComputerChanged");
 		}
 	}
 }

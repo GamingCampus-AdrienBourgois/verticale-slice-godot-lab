@@ -14,6 +14,7 @@ public partial class Main : Node2D
 	private Trashcan trashcan = null;
 	private ObjectForFix objectForFix = null;
 	private ColorCode coloredpc = null;
+	private AllPc allpc = null;
 
 
 	public override void _Ready()
@@ -21,6 +22,7 @@ public partial class Main : Node2D
 		coloredpc = GetNode<ColorCode>("ColoredPc");
 		objectForFix = GetNode<ObjectForFix>("ObjectForFix");
 		trashcan = GetNode<Node>("Trashcan_fix").GetNode<Trashcan>("Trashcan");
+		allpc = GetNode<AllPc>("AllPc");
 
 		SceneTransition = GetParent().GetNode<Scene_transition>("SceneTransition");
 		global = GetParent().GetNode<Global>("Global");
@@ -39,7 +41,7 @@ public partial class Main : Node2D
 	{
 		if (body.IsInGroup("Player"))
 		{
-			global.Niveau_1 = true; // Faut faire le truc des pc
+			if(allpc.STATE == true){ global.Niveau_1 = true; }
 			if(coloredpc.STATE == true){ global.Niveau_2 = true; }
 			if(objectForFix.STATE == true){ global.Niveau_3 = true; }
 			if(trashcan.Full == true){ global.Niveau_4 = true; }
