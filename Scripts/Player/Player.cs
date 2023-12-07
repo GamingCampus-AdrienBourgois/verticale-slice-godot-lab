@@ -8,11 +8,24 @@ public partial class Player : CharacterBody2D
 	public const float PUSH = 0.5f;
 
 	private Node2D pickedUpItem;
+	private NodePath pickeUpItemPath;
 	private Node2D item = null;
 	private CollisionShape2D pickedUpItem_collision = null;
 
 	[Export]
 	public bool inputOnFocus = false; // Permet de désactiver les mouvements quand le joueur est dans une interface
+	private ColorCode code;
+
+	private Marker2D MarkerObject = null;
+	private Marker2D MarkerArea = null;
+	public override void _Ready()
+	{
+		MarkerObject = GetNode("MarkerArea").GetNode<Marker2D>("Object");
+		MarkerArea = GetNode<Marker2D>("MarkerArea");
+		code = GetParent().GetNode<ColorCode>("ColoredPc");
+	}
+
+
 
 	public override void _Process(double delta)
 	{
@@ -22,7 +35,22 @@ public partial class Player : CharacterBody2D
 		Godot.Vector2 input_direction = new(Input.GetActionStrength("ui_right") - Input.GetActionStrength("ui_left"), Input.GetActionStrength("ui_down") - Input.GetActionStrength("ui_up"));
 
 		input_direction = input_direction.Normalized(); // Permet de pas aller plus vite en diagonale
-
+		if(Input.IsActionPressed("ui_up")){
+			MarkerArea.RotationDegrees = 270;
+			MarkerObject.RotationDegrees = 90;
+		}
+		if(Input.IsActionPressed("ui_down")){
+			MarkerArea.RotationDegrees = 90;
+			MarkerObject.RotationDegrees = 270;
+		}
+		if(Input.IsActionPressed("ui_right")){
+			MarkerArea.RotationDegrees = 0;
+			MarkerObject.RotationDegrees = 0;
+		}
+		if(Input.IsActionPressed("ui_left")){
+			MarkerArea.RotationDegrees = 180;
+			MarkerObject.RotationDegrees = 180;
+		}
 		// Si il y a des inputs
 		if (input_direction != Godot.Vector2.Zero && inputOnFocus == false)
 		{
@@ -55,42 +83,40 @@ public partial class Player : CharacterBody2D
 		}
 
 		if (Input.IsActionJustPressed("ui_accept") && inputOnFocus == false){
-			if (item != null && pickedUpItem == null){
+			if (item != null && pickedUpItem == null && item.IsInGroup("Pickable")){
 				PickUp(item);
 			}
 			else if (pickedUpItem != null){
 				Throw();
 			}
 		}
-
-		// Aussi pas en gd script vu que ça a été simplifié
+		
 		Velocity = velocity;
 		MoveAndSlide();
 	}
 	private void PickUp(Node2D objectToPickup){
-		// S2
-		//pickedUpItem_collision = objectToPickup.GetNode<CollisionShape2D>("CollisionShape2D");
-		//GD.Print(pickedUpItem_collision.Position);
-		//objectToPickup.RemoveChild(pickedUpItem_collision);
 
-		// S1
-		GetParent().RemoveChild(objectToPickup);
-		GetNode<Marker2D>("Object").AddChild(objectToPickup);
-		objectToPickup.GetNode<CollisionShape2D>("CollisionShape2D").Disabled = true; 
+		pickeUpItemPath = objectToPickup.GetParent().GetPath();
+		objectToPickup.GetNode<CollisionShape2D>("CollisionShape2D").Disabled = true;
+		
+		// Tests
+
+		//GD.Print(objectToPickup.GetPath());
+		//GD.Print(GetNode(objectToPickup.GetPath()).Name);
+		
+		GetNode(objectToPickup.GetPath()).GetParent().RemoveChild(objectToPickup);
+		MarkerObject.AddChild(objectToPickup);
 		objectToPickup.Position = Godot.Vector2.Zero;
 		pickedUpItem = objectToPickup;
+
 		item = null;
 	}
 
 	private void Throw(){
-
-
-		//GetParent().GetNode(pickedUpItem.Name.ToString()).AddChild(pickedUpItem_collision);
-
-		pickedUpItem.GetNode<CollisionShape2D>("CollisionShape2D").Disabled = false; 
-		pickedUpItem.Position = GetNode<Marker2D>("Object").GlobalPosition;
-		GetNode<Marker2D>("Object").RemoveChild(pickedUpItem);
-		GetParent().AddChild(pickedUpItem);
+		pickedUpItem.Position = MarkerObject.GlobalPosition;
+		MarkerObject.RemoveChild(pickedUpItem);
+		GetNode(pickeUpItemPath).AddChild(pickedUpItem);
+		pickedUpItem.GetNode<CollisionShape2D>("CollisionShape2D").Disabled = false;
 		pickedUpItem = null;
 	}
 
@@ -126,6 +152,7 @@ public partial class Player : CharacterBody2D
 	private void InteractWithColoredComputer(colored_computer interactingObject)
 	{
 		interactingObject.ComputerColorChange();
+		code.CheckNewCode();
 	}
 
 }

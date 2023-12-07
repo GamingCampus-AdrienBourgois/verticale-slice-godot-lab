@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4l34yx2ih016"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6p58k"]
+size = Vector2(22, 24)
+
+[node name="ObjectToFix" type="CharacterBody2D" groups=["ObjectFix", "Pickable"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_6p58k")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(1, 0)
+color = Color(0.380392, 0.380392, 0.380392, 1)
+polygon = PackedVector2Array(-7, 10, -2, 10, -2, 1, 5, 1, 5, 10, 10, 10, 10, -10, 4, -10, 4, -3, -7, -3)
