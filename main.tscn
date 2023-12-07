@@ -1,10 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://dcgfrcn3xnlda"]
+[gd_scene load_steps=24 format=3 uid="uid://dcgfrcn3xnlda"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_8aswi"]
 [ext_resource type="PackedScene" uid="uid://c767xbfu781tp" path="res://Scenes/Player/player.tscn" id="2_cxfpo"]
 [ext_resource type="Texture2D" uid="uid://bnmkl1gwaqahx" path="res://icon.svg" id="3_nd6b6"]
 [ext_resource type="PackedScene" uid="uid://brp75n3p58gce" path="res://Scenes/Components/tp.tscn" id="4_12jmb"]
-[ext_resource type="Texture2D" uid="uid://bofybbehxto5o" path="res://assets/Components/light.png" id="5_0fk6w"]
 [ext_resource type="PackedScene" uid="uid://c2k0yl2eo71rf" path="res://Scenes/Components/ballon.tscn" id="5_qksr7"]
 [ext_resource type="PackedScene" uid="uid://dchiwu34cy6w2" path="res://Scenes/Components/door.tscn" id="6_e23jg"]
 [ext_resource type="PackedScene" path="res://Scenes/Components/foot.tscn" id="7_i3pto"]
@@ -20,9 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://c4l34yx2ih016" path="res://Scenes/Components/object_to_fix.tscn" id="17_bbyt8"]
 [ext_resource type="Script" path="res://Scripts/Components/Pedestal.cs" id="18_ry15s"]
 [ext_resource type="Texture2D" uid="uid://lwvdi3qnh4ju" path="res://assets/Level_design_Loop_out (2).JPG" id="19_p6hmw"]
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_2qmb3"]
-polygon = PackedVector2Array(449, -44, 449, 269, 145, 272, 449, 271)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k5006"]
 texture = ExtResource("3_nd6b6")
@@ -234,9 +230,6 @@ bounce = 0.5
 [node name="Main" type="Node2D"]
 script = ExtResource("1_8aswi")
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-occluder = SubResource("OccluderPolygon2D_2qmb3")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.231373)
 show_behind_parent = true
@@ -250,16 +243,10 @@ position = Vector2(-234, 699)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_cxfpo")]
 z_index = 1
+position = Vector2(101, 189)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
-
-[node name="PointLight2D" type="PointLight2D" parent="Player"]
-energy = 0.93
-blend_mode = 2
-shadow_enabled = true
-texture = ExtResource("5_0fk6w")
-texture_scale = 2.9
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_oi64e")
@@ -281,7 +268,7 @@ _scenePath = "res://Platformer/scenes/platformer.tscn"
 
 [node name="PC" parent="AllPc" instance=ExtResource("10_gflbg")]
 material = SubResource("CanvasItemMaterial_i67jr")
-position = Vector2(215, 312)
+position = Vector2(230, 294)
 OpenedColor = Color(1, 0, 1, 1)
 
 [node name="PC2" parent="AllPc" instance=ExtResource("10_gflbg")]
@@ -628,6 +615,3 @@ ColorThis = Color(0.266667, 0.266667, 0.00392157, 1)
 [node name="PressionPlate4" parent="Pedestal/AreasPedestal" instance=ExtResource("16_3jsu8")]
 position = Vector2(-634, 299)
 ColorThis = Color(0.266667, 0.266667, 0.00392157, 1)
-
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0, 0, 0, 1)
