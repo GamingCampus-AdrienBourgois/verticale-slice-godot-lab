@@ -8,14 +8,15 @@ public partial class Menu_cursor : TextureRect
 	[Export]
 	public Vector2 cursorOffset;
 
-	private CanvasLayer fixWireHud;
+	private Fix_wire_hud fixWireHud;
 
 	int cursorIndex = 0;
 	Node menu_parent;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		menu_parent = GetNode(nodePath) as Node;
+		menu_parent = GetNode(nodePath) as GridContainer;
+		fixWireHud = (Fix_wire_hud)GetParent();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,18 +26,24 @@ public partial class Menu_cursor : TextureRect
 
 		if (Input.IsActionJustPressed("ui_up"))
 		{
-			GD.Print("Poutre");
 			input.Y -= 1;
 		}
 		if (Input.IsActionJustPressed("ui_down"))
 		{
 			input.Y += 1;
 		}
-
-		if (menu_parent is VBoxContainer)
+		if (Input.IsActionJustPressed("ui_left")) 
 		{
-			SetCursorFromIndex(cursorIndex + (int)input.Y);
-			GD.Print(cursorIndex);
+			input.X -= 1;
+		}
+		if (Input.IsActionJustPressed("ui_right"))
+		{
+			input.X += 1;
+		}
+
+		if (menu_parent is GridContainer)
+		{
+			SetCursorFromIndex(cursorIndex + (int)input.X + (int)input.Y * menu_parent.Columns);
 		}
 	}
 
