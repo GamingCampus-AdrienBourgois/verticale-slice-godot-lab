@@ -39,13 +39,10 @@ public partial class Main : Node2D
 	{
 		if (body.IsInGroup("Player"))
 		{
-			global.Niveau_1 = true;
-			//if(coloredpc.STATE == true){ global.Niveau_2 = true; }
-			//if(objectForFix.STATE == true){ global.Niveau_3 = true; }
-			//if(trashcan.Full == true){ global.Niveau_4 = true; }
-			global.Niveau_2 = true;
-			global.Niveau_3 = true;
-			global.Niveau_4 = true;
+			global.Niveau_1 = true; // Faut faire le truc des pc
+			if(coloredpc.STATE == true){ global.Niveau_2 = true; }
+			if(objectForFix.STATE == true){ global.Niveau_3 = true; }
+			if(trashcan.Full == true){ global.Niveau_4 = true; }
 			SceneTransition.Call("changeScene",_scenePath); 
 		}
 		else {
