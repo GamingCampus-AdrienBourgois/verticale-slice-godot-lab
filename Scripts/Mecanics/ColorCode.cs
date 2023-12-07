@@ -3,6 +3,8 @@ using System;
 
 public partial class ColorCode : Node
 {
+
+	public bool STATE = false;
 	private int[] code = {1,6,5,1,2,1,4};
 	private bool codeValid = false;
 
@@ -41,6 +43,10 @@ public partial class ColorCode : Node
 		if(codeValid)
 		{
 			GD.Print("code bon");
+			STATE = true;
+		}
+		else {
+			STATE = false;
 		}
 	}
 }

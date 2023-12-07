@@ -3,7 +3,7 @@ using System;
 
 public partial class ObjectForFix : Node
 {
-
+	public bool STATE = false;
 	public int ObjectToFix = 0;
 	public int ObjectAlreadyFixed = 0;
 
@@ -25,6 +25,10 @@ public partial class ObjectForFix : Node
 			if (ObjectAlreadyFixed >= ObjectToFix){
 				GD.Print("GOOOD");
 				// Changer la variable dans le global ou faire un emit au main
+				STATE = true;
+			}
+			else{
+				STATE = false;
 			}
 		}
 	}
@@ -36,6 +40,7 @@ public partial class ObjectForFix : Node
 			Area.Call("FixedChange");
 			GD.Print(Area.Call("GetState")); // Le fait 3 fois jsp
 			ObjectAlreadyFixed--;
+			STATE = false;
 		}
 	}
 

@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtvbej5lhu0ji"]
+
+[ext_resource type="Script" path="res://Scripts/Mecanics/Console.cs" id="1_7taur"]
+
+[node name="Console" type="Node2D"]
+script = ExtResource("1_7taur")
+
+[node name="Console_UI" type="Control" parent="."]
+custom_minimum_size = Vector2(100, 600)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ColorRect" type="ColorRect" parent="Console_UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Console_UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 274.0
+offset_right = -295.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Console_UI/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32

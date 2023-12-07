@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SceneTransition="*res://Scenes/Transitions/Scene_transition.tscn"
+Global="*res://Scripts/Global.cs"
 
 [dotnet]
 
