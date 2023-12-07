@@ -14,6 +14,7 @@ public partial class Main : Node2D
 		SceneTransition = GetParent().GetNode<Scene_transition>("SceneTransition");
 		foreach (Node i in GetNode<Node>("TP_all").GetChildren())
 		{
+			
 			i.Connect("script_changed",new Callable(this,"Tp_entered"));
 		}
 	}
