@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bjvkp5u6m2w82"]
+[gd_scene load_steps=11 format=3 uid="uid://bjvkp5u6m2w82"]
 
 [ext_resource type="TileSet" uid="uid://cnowwr0gr3n55" path="res://Platformer/scenes/tilemap_platformer.tres" id="1_pk2yg"]
 [ext_resource type="Script" path="res://Scripts/Menu/Menu.cs" id="1_usw8i"]
 [ext_resource type="Texture2D" uid="uid://jnwv8osmr4bx" path="res://Platformer/imports/monochrome_tilemap_transparent_packed.png" id="3_qsfbu"]
+[ext_resource type="PackedScene" uid="uid://coltq3dqh0sx3" path="res://Scenes/Menu/SleepZzz.tscn" id="4_ll0u6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i1tf2"]
 atlas = ExtResource("3_qsfbu")
@@ -46,68 +47,6 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
-
-[sub_resource type="Animation" id="Animation_tao3e"]
-resource_name = "Zzzz"
-length = 7.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1.7, 3.2, 4.4, 5.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(4.5, -12.5), Vector2(9, -14.5), Vector2(2, -26), Vector2(12.5, -34.5), Vector2(20.5, -39.5), Vector2(24, -49.5)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Label:visible_ratio")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6, 1.6, 2.9, 5.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.4, 0.4, 0.7, 1.0, 1.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Label:self_modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.6, 4.4, 5.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_bkhkn"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Label:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(4.5, -12.5)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_w7dbx"]
-_data = {
-"RESET": SubResource("Animation_bkhkn"),
-"Zzzz": SubResource("Animation_tao3e")
-}
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -191,28 +130,4 @@ sprite_frames = SubResource("SpriteFrames_ku0wq")
 autoplay = "default"
 frame_progress = 0.396359
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(338, 201)
-scale = Vector2(3, 3)
-texture = ExtResource("3_qsfbu")
-hframes = 20
-vframes = 20
-frame = 324
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
-libraries = {
-"": SubResource("AnimationLibrary_w7dbx")
-}
-autoplay = "Zzzz"
-
-[node name="Label" type="Label" parent="Sprite2D"]
-self_modulate = Color(1, 1, 1, 0.408639)
-offset_left = 4.5
-offset_top = -12.5
-offset_right = 44.5
-offset_bottom = 10.5
-theme_override_font_sizes/font_size = 8
-text = "Zzz"
-visible_characters = 1
-visible_ratio = 0.4
+[node name="Sprite2D" parent="." instance=ExtResource("4_ll0u6")]
