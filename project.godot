@@ -16,6 +16,11 @@ config/features=PackedStringArray("4.2", "C#", "GL Compatibility")
 boot_splash/show_image=false
 config/icon="res://icon.svg"
 
+[autoload]
+
+SceneTransition="*res://Scenes/Transitions/Scene_transition.tscn"
+Global="*res://Scripts/Global.cs"
+
 [dotnet]
 
 project/assembly_name="Loop_Out"

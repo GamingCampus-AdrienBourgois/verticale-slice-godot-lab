@@ -5,7 +5,7 @@ public partial class Trashcan : StaticBody2D
 {
 	private int Trash_collected = 0;
 	private int TrashToCollect = 0;
-	private bool Full = false;
+	public bool Full = false;
 
 	// Getters
 	private int GetTrash_collected() { return Trash_collected; }

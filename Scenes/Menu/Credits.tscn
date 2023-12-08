@@ -4,6 +4,21 @@
 [ext_resource type="Texture2D" uid="uid://jnwv8osmr4bx" path="res://Platformer/imports/monochrome_tilemap_transparent_packed.png" id="2_vhs7s"]
 [ext_resource type="PackedScene" uid="uid://coltq3dqh0sx3" path="res://Scenes/Menu/SleepZzz.tscn" id="3_yme7h"]
 
+[sub_resource type="Animation" id="Animation_bul7m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(843.445, 591)]
+}
+
 [sub_resource type="Animation" id="Animation_k3uio"]
 resource_name = "credits"
 length = 7.0
@@ -54,21 +69,6 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_bul7m"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(843.445, 591)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ru7vp"]

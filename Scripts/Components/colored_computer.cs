@@ -5,21 +5,21 @@ public partial class colored_computer : StaticBody2D
 {
 	[Export]
 	public int colorStatus = 0;
-
+	
 	[Export]
-	Color RedColor = new Color(255,0,0);
+	Color RedColor = Color.Color8(255,0,0);
 	[Export]
-	Color OrangeColor = new Color(255,104,0,255);
+	Color OrangeColor = Color.Color8(255,104,0,255);
 	[Export]
-	Color YellowColor = new Color(255,255,0);
+	Color YellowColor = Color.Color8(255,255,0);
 	[Export]
-	Color GreenColor = new Color(0,255,0);
+	Color GreenColor = Color.Color8(0,255,0);
 	[Export]
-	Color BlueColor = new Color(0,0,255);
+	Color BlueColor = Color.Color8(0,0,255);
 	[Export]
-	Color PurpleColor = new Color(122,0,255);
+	Color PurpleColor = Color.Color8(122,0,255);
 	[Export]
-	Color NoColor = new Color(0,0,0);
+	Color NoColor = Color.Color8(0,0,0);
 
 	// Get la node collision de Computer
 	CollisionShape2D collision = null;
