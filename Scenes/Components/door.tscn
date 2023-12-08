@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dchiwu34cy6w2"]
+[gd_scene load_steps=5 format=3 uid="uid://dchiwu34cy6w2"]
 
 [ext_resource type="Script" path="res://Scripts/Components/door.cs" id="1_hbbse"]
 [ext_resource type="Texture2D" path="res://icon.svg" id="1_skpnu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lb2mm"]
 size = Vector2(126, 37)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_b7y2r"]
+light_mode = 2
 
 [node name="Door" type="StaticBody2D"]
 script = ExtResource("1_hbbse")
@@ -15,5 +18,6 @@ shape = SubResource("RectangleShape2D_lb2mm")
 
 [node name="sprite" type="Sprite2D" parent="."]
 modulate = Color(0.552941, 0.368627, 0, 1)
+material = SubResource("CanvasItemMaterial_b7y2r")
 scale = Vector2(1, 0.3125)
 texture = ExtResource("1_skpnu")
