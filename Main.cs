@@ -41,6 +41,8 @@ public partial class Main : Node2D
 	{
 		if (body.IsInGroup("Player"))
 		{
+			Player temp = (Player)body;
+			temp.Speed = 0;
 			if(allpc.STATE == true){ global.Niveau_1 = true; }
 			if(coloredpc.STATE == true){ global.Niveau_2 = true; }
 			if(objectForFix.STATE == true){ global.Niveau_3 = true; }
