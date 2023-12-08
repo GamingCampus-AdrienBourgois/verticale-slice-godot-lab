@@ -28,12 +28,12 @@ public partial class Menu_cursor : TextureRect
 
 	private void DeferredInitialization()
 	{
-    	// Le reste de votre initialisation...
-    	line = new Line2D();
-    	GetParent().AddChild(line);
+		// Le reste de votre initialisation...
+		line = new Line2D();
+		GetParent().AddChild(line);
 
-    	line.DefaultColor = new Color(1, 1, 1);
-    	line.Width = 2.0f;
+		line.DefaultColor = new Color(1, 1, 1);
+		line.Width = 2.0f;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -109,9 +109,9 @@ public partial class Menu_cursor : TextureRect
 		var itemRight = GetMenuItemAtIndex((int)wire.Y) as ColorRect;
 
 		if (itemLeft == null || itemRight == null)
-        {
-            return false;
-        }
+		{
+			return false;
+		}
 
 		if (itemLeft.Color == itemRight.Color) 
 		{
@@ -127,22 +127,22 @@ public partial class Menu_cursor : TextureRect
 	private void UpdateLine() 
 	{
 		var startMenuItem = GetMenuItemAtIndex((int)wireSelected.X);
-    	var endMenuItem = GetMenuItemAtIndex((int)wireSelected.Y);
+		var endMenuItem = GetMenuItemAtIndex((int)wireSelected.Y);
 
-    	if (startMenuItem == null || endMenuItem == null)
-    	{
-        	return;
-    	}
+		if (startMenuItem == null || endMenuItem == null)
+		{
+			return;
+		}
 
 		var startPos = -startMenuItem.GlobalPosition + startMenuItem.Size / 2.0f;
-    	var endPos = -endMenuItem.GlobalPosition + endMenuItem.Size / 2.0f;
+		var endPos = -endMenuItem.GlobalPosition + endMenuItem.Size / 2.0f;
 		GD.Print(startMenuItem.GlobalPosition + " " + endMenuItem.GlobalPosition);
 
 		// Effacez tous les points actuels de la ligne
-    	line.ClearPoints();
+		line.ClearPoints();
 
-    	// Ajoutez les deux points à la ligne
-    	line.AddPoint(startPos);
-    	line.AddPoint(endPos);
+		// Ajoutez les deux points à la ligne
+		line.AddPoint(startPos);
+		line.AddPoint(endPos);
 	}
 }
