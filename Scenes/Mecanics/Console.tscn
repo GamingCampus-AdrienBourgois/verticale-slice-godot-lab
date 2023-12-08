@@ -1,6 +1,50 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtvbej5lhu0ji"]
+[gd_scene load_steps=7 format=3 uid="uid://dtvbej5lhu0ji"]
 
 [ext_resource type="Script" path="res://Scripts/Mecanics/Console.cs" id="1_7taur"]
+[ext_resource type="FontFile" uid="uid://dox4m0tdho7s7" path="res://assets/Components/monogram-extended.ttf" id="2_aiwq3"]
+
+[sub_resource type="Animation" id="Animation_3wxv3"]
+resource_name = "appear"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.6, 1.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h7g32"]
+_data = {
+"appear": SubResource("Animation_3wxv3")
+}
+
+[sub_resource type="Animation" id="Animation_guegp"]
+resource_name = "appear"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.5, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ghxcd"]
+_data = {
+"appear": SubResource("Animation_guegp")
+}
 
 [node name="Console" type="Node2D"]
 script = ExtResource("1_7taur")
@@ -23,16 +67,51 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Console_UI"]
+[node name="VBoxContainer" type="HBoxContainer" parent="Console_UI"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 274.0
-offset_right = -295.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -483.0
+offset_top = -26.0
+offset_right = 483.0
+offset_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="Label2" type="Label" parent="Console_UI/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_aiwq3")
+theme_override_font_sizes/font_size = 64
+text = ".\\"
+horizontal_alignment = 1
+visible_characters = 1
+visible_ratio = 0.6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Console_UI/VBoxContainer/Label2"]
+libraries = {
+"": SubResource("AnimationLibrary_h7g32")
+}
+autoplay = "appear"
 
 [node name="Label" type="Label" parent="Console_UI/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_aiwq3")
+theme_override_font_sizes/font_size = 64
+autowrap_mode = 2
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Console_UI/VBoxContainer/Label"]
+libraries = {
+"": SubResource("AnimationLibrary_ghxcd")
+}
+autoplay = "appear"

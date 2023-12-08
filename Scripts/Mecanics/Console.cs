@@ -33,7 +33,7 @@ public partial class Console : Node2D
 			{
 				if (count == 1){	label.Text = "Some people don't turn off their pc...";	}
 				else if (count == 2){	label.Text = "Colors means something together... Right ?";	}
-				else if (count == 3){	label.Text = "Hmmm... Maybe sometime things aren't were they're supposed to be.";	}
+				else if (count == 3){	label.Text = "Hmmm... Sometimes things aren't were they're supposed to be.";	}
 				else if (count == 4){	label.Text = "Detritus on the floor... Not the best for the company.";	}
 				break;
 			}

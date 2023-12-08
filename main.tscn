@@ -596,7 +596,6 @@ bounce = 0.5
 script = ExtResource("1_8aswi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
 modulate = Color(1, 1, 1, 0.490196)
 show_behind_parent = true
 position = Vector2(1, 4)
