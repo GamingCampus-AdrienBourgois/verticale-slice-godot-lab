@@ -4,13 +4,14 @@ using System.Numerics;
 
 public partial class Player : CharacterBody2D
 {
-	public const float Speed = 300.0f;
+	public const float Speed = 200.0f;
 	public const float PUSH = 0.5f;
 
 	private Node2D pickedUpItem;
 	private NodePath pickeUpItemPath;
 	private Node2D item = null;
 	private CollisionShape2D pickedUpItem_collision = null;
+	private AnimatedSprite2D animatedSprite = null;
 
 	[Export]
 	public bool inputOnFocus = false; // Permet de désactiver les mouvements quand le joueur est dans une interface
@@ -20,6 +21,7 @@ public partial class Player : CharacterBody2D
 	private Marker2D MarkerArea = null;
 	public override void _Ready()
 	{
+		animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		MarkerObject = GetNode("MarkerArea").GetNode<Marker2D>("Object");
 		MarkerArea = GetNode<Marker2D>("MarkerArea");
 		code = GetParent().GetNode<ColorCode>("ColoredPc");
@@ -38,18 +40,51 @@ public partial class Player : CharacterBody2D
 		if(Input.IsActionPressed("ui_up")){
 			MarkerArea.RotationDegrees = 270;
 			MarkerObject.RotationDegrees = 90;
+			if(pickedUpItem != null) 
+			{
+				animatedSprite.Play("Up_Arm");
+			}
+			else 
+			{
+				animatedSprite.Play("Up");
+			}
 		}
 		if(Input.IsActionPressed("ui_down")){
 			MarkerArea.RotationDegrees = 90;
 			MarkerObject.RotationDegrees = 270;
+			if(pickedUpItem != null) 
+			{
+				animatedSprite.Play("Down_Arm");
+			}
+			else 
+			{
+				animatedSprite.Play("Down");
+			}
 		}
 		if(Input.IsActionPressed("ui_right")){
 			MarkerArea.RotationDegrees = 0;
 			MarkerObject.RotationDegrees = 0;
+			if(pickedUpItem != null) 
+			{
+				animatedSprite.Play("Right_Arm");
+			}
+			else 
+			{
+				animatedSprite.Play("Right");
+			}
 		}
 		if(Input.IsActionPressed("ui_left")){
 			MarkerArea.RotationDegrees = 180;
 			MarkerObject.RotationDegrees = 180;
+			if(pickedUpItem != null) 
+			{
+				animatedSprite.Play("Left_Arm");
+			}
+			else 
+			{
+				animatedSprite.Play("Left");
+			}
+
 		}
 		// Si il y a des inputs
 		if (input_direction != Godot.Vector2.Zero && inputOnFocus == false)

@@ -1,10 +1,110 @@
-[gd_scene load_steps=5 format=3 uid="uid://c767xbfu781tp"]
+[gd_scene load_steps=15 format=3 uid="uid://c767xbfu781tp"]
 
-[ext_resource type="Texture2D" uid="uid://bnmkl1gwaqahx" path="res://icon.svg" id="1_rcknm"]
+[ext_resource type="Texture2D" path="res://icon.svg" id="1_rcknm"]
 [ext_resource type="Script" path="res://Scripts/Player/Player.cs" id="1_u3eu4"]
+[ext_resource type="Texture2D" uid="uid://dul0k1jbm4pci" path="res://assets/player_animations.png" id="3_mamx2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwxg3"]
+atlas = ExtResource("3_mamx2")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tqas"]
+atlas = ExtResource("3_mamx2")
+region = Rect2(128, 63, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3atqw"]
+atlas = ExtResource("3_mamx2")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eguyi"]
+atlas = ExtResource("3_mamx2")
+region = Rect2(192, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qifcp"]
+atlas = ExtResource("3_mamx2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxb1k"]
+atlas = ExtResource("3_mamx2")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_grm61"]
+atlas = ExtResource("3_mamx2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gp0ws"]
+atlas = ExtResource("3_mamx2")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bue6y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwxg3")
+}],
+"loop": false,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6tqas")
+}],
+"loop": false,
+"name": &"Down_Arm",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3atqw")
+}],
+"loop": false,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eguyi")
+}],
+"loop": false,
+"name": &"Left_Arm",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qifcp")
+}],
+"loop": false,
+"name": &"Right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxb1k")
+}],
+"loop": false,
+"name": &"Right_Arm",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_grm61")
+}],
+"loop": false,
+"name": &"Up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gp0ws")
+}],
+"loop": false,
+"name": &"Up_Arm",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e4ssr"]
-size = Vector2(61, 61)
+size = Vector2(33, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rfhdx"]
 size = Vector2(49, 32)
@@ -13,12 +113,20 @@ size = Vector2(49, 32)
 position = Vector2(0, -3)
 script = ExtResource("1_u3eu4")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(1.1, 1.1)
+sprite_frames = SubResource("SpriteFrames_bue6y")
+animation = &"Right"
+
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0.5)
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_e4ssr")
 
 [node name="Sprite" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
+visible = false
+position = Vector2(-7.62939e-06, 3.8147e-06)
+scale = Vector2(0.265625, 0.257813)
 texture = ExtResource("1_rcknm")
 
 [node name="MarkerArea" type="Marker2D" parent="."]
@@ -28,11 +136,11 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MarkerArea/Area2D"]
-position = Vector2(57, 0)
+position = Vector2(42, 0)
 shape = SubResource("RectangleShape2D_rfhdx")
 
 [node name="Object" type="Marker2D" parent="MarkerArea"]
-position = Vector2(56, 0)
+position = Vector2(23, 0)
 
 [connection signal="body_entered" from="MarkerArea/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="MarkerArea/Area2D" to="." method="_on_area_2d_body_exited"]
