@@ -33,11 +33,13 @@ columns = 2
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+color = Color(0, 0, 1, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="VBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 8
+color = Color(1, 0, 0, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="VBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
@@ -48,21 +50,25 @@ size_flags_horizontal = 8
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 8
+color = Color(0, 0, 1, 1)
 
 [node name="ColorRect5" type="ColorRect" parent="VBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 8
+color = Color(1, 0, 0, 1)
 
 [node name="ColorRect6" type="ColorRect" parent="VBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 8
+color = Color(0, 1, 0, 1)
 
 [node name="ColorRect7" type="ColorRect" parent="VBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 8
+color = Color(0, 1, 0, 1)
 
 [node name="ColorRect8" type="ColorRect" parent="VBoxContainer"]
 custom_minimum_size = Vector2(50, 50)

@@ -10,13 +10,24 @@ public partial class Menu_cursor : TextureRect
 
 	private Fix_wire_hud fixWireHud;
 
-	int cursorIndex = 0;
-	Node menu_parent;
+	private Line2D line;
+
+	private int cursorIndex = 0;
+	private bool isWireSelected = false;
+	private bool colorMatched;
+	private Vector2 wireSelected = Vector2.Zero;
+	GridContainer menu_parent;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		menu_parent = GetNode(nodePath) as GridContainer;
 		fixWireHud = (Fix_wire_hud)GetParent();
+
+		line = new Line2D();
+		AddChild(line);
+
+		line.DefaultColor = new Color(1, 1, 1);
+		line.Width = 2.0f;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -32,18 +43,24 @@ public partial class Menu_cursor : TextureRect
 		{
 			input.Y += 1;
 		}
-		if (Input.IsActionJustPressed("ui_left")) 
-		{
-			input.X -= 1;
-		}
-		if (Input.IsActionJustPressed("ui_right"))
-		{
-			input.X += 1;
-		}
 
 		if (menu_parent is GridContainer)
 		{
-			SetCursorFromIndex(cursorIndex + (int)input.X + (int)input.Y * menu_parent.Columns);
+			SetCursorFromIndex(cursorIndex + (int)input.Y * menu_parent.Columns);
+		}
+
+		if (Input.IsActionJustPressed("ui_accept") && isWireSelected == false) 
+		{
+			wireSelected.X = cursorIndex;
+			SetCursorFromIndex(cursorIndex + 1);
+			isWireSelected = true;
+		}
+		else if (Input.IsActionJustPressed("ui_accept") && isWireSelected == true)
+		{
+			wireSelected.Y = cursorIndex;
+			colorMatched = CheckWiresColor(wireSelected);
+
+			UpdateLine();
 		}
 	}
 
@@ -78,5 +95,50 @@ public partial class Menu_cursor : TextureRect
 
 		cursorIndex = index;
 
+	}
+
+	private bool CheckWiresColor(Vector2 wire) 
+	{
+		var itemLeft = GetMenuItemAtIndex((int)wire.X) as ColorRect;
+		var itemRight = GetMenuItemAtIndex((int)wire.Y) as ColorRect;
+
+		if (itemLeft == null || itemRight == null)
+        {
+            return false;
+        }
+
+		if (itemLeft.Color == itemRight.Color) 
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+
+	}
+
+	private void UpdateLine() 
+	{
+		var startMenuItem = GetMenuItemAtIndex((int)wireSelected.X);
+    	var endMenuItem = GetMenuItemAtIndex((int)wireSelected.Y);
+
+    	if (startMenuItem == null || endMenuItem == null)
+    	{
+        	GD.Print("Menu item is null.");
+        	return;
+    	}
+
+		var startPos = startMenuItem.GlobalPosition + startMenuItem.Size / 2.0f;
+    	var endPos = endMenuItem.GlobalPosition + endMenuItem.Size / 2.0f;
+		GD.Print(startMenuItem.GlobalPosition + " " + endMenuItem.GlobalPosition);
+
+
+		// Effacez tous les points actuels de la ligne
+    	line.ClearPoints();
+
+    	// Ajoutez les deux points à la ligne
+    	line.AddPoint(startPos);
+    	line.AddPoint(endPos);
 	}
 }
