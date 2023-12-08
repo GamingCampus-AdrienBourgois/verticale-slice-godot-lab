@@ -4,7 +4,7 @@ using System.Numerics;
 
 public partial class Player : CharacterBody2D
 {
-	public const float Speed = 600.0f;
+	public const float Speed = 300.0f;
 	public const float PUSH = 0.5f;
 
 	private Node2D pickedUpItem;
