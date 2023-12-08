@@ -11,10 +11,12 @@ config_version=5
 [application]
 
 config/name="Loop_Out"
-run/main_scene="res://main.tscn"
+config/description="Loop_Out game"
+run/main_scene="res://Scenes/Menu/Menu.tscn"
 config/features=PackedStringArray("4.2", "C#", "GL Compatibility")
 boot_splash/show_image=false
-config/icon="res://icon.svg"
+config/icon="res://assets/loopoutlogo-removebg-preview.png"
+config/windows_native_icon="res://assets/loopoutico.ico"
 
 [autoload]
 
