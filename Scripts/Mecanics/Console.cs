@@ -13,6 +13,8 @@ public partial class Console : Node2D
 
 	private bool GameFinished = false;
 
+	// Pour l'anim, mettre des nombres entre 0 et 1 aléatoire et ça les rajoute dans le text
+
 	public override void _Ready()
 	{
 		SceneTransition = GetParent().GetNode<Scene_transition>("SceneTransition");
