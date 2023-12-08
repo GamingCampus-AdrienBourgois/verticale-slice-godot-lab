@@ -23,11 +23,17 @@ public partial class Menu_cursor : TextureRect
 		menu_parent = GetNode(nodePath) as GridContainer;
 		fixWireHud = (Fix_wire_hud)GetParent();
 
-		line = new Line2D();
-		AddChild(line);
+		CallDeferred("DeferredInitialization");
+	}
 
-		line.DefaultColor = new Color(1, 1, 1);
-		line.Width = 2.0f;
+	private void DeferredInitialization()
+	{
+    	// Le reste de votre initialisation...
+    	line = new Line2D();
+    	GetParent().AddChild(line);
+
+    	line.DefaultColor = new Color(1, 1, 1);
+    	line.Width = 2.0f;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -125,14 +131,12 @@ public partial class Menu_cursor : TextureRect
 
     	if (startMenuItem == null || endMenuItem == null)
     	{
-        	GD.Print("Menu item is null.");
         	return;
     	}
 
-		var startPos = startMenuItem.GlobalPosition + startMenuItem.Size / 2.0f;
-    	var endPos = endMenuItem.GlobalPosition + endMenuItem.Size / 2.0f;
+		var startPos = -startMenuItem.GlobalPosition + startMenuItem.Size / 2.0f;
+    	var endPos = -endMenuItem.GlobalPosition + endMenuItem.Size / 2.0f;
 		GD.Print(startMenuItem.GlobalPosition + " " + endMenuItem.GlobalPosition);
-
 
 		// Effacez tous les points actuels de la ligne
     	line.ClearPoints();
