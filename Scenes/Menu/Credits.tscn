@@ -21,7 +21,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_k3uio"]
 resource_name = "credits"
-length = 7.0
+length = 16.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true

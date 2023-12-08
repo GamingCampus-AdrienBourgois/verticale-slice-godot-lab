@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://c767xbfu781tp"]
 
-[ext_resource type="Texture2D" path="res://icon.svg" id="1_rcknm"]
+[ext_resource type="Texture2D" uid="uid://bnmkl1gwaqahx" path="res://icon.svg" id="1_rcknm"]
 [ext_resource type="Script" path="res://Scripts/Player/Player.cs" id="1_u3eu4"]
 [ext_resource type="Texture2D" uid="uid://dul0k1jbm4pci" path="res://assets/player_animations.png" id="3_mamx2"]
 [ext_resource type="Texture2D" uid="uid://bofybbehxto5o" path="res://assets/Components/light.png" id="4_bujv8"]
@@ -145,6 +145,7 @@ shape = SubResource("RectangleShape2D_rfhdx")
 position = Vector2(23, 0)
 
 [node name="Light2D" type="PointLight2D" parent="."]
+visible = false
 blend_mode = 2
 range_item_cull_mask = 2
 shadow_enabled = true
@@ -152,6 +153,7 @@ shadow_item_cull_mask = 2
 texture = ExtResource("4_bujv8")
 
 [node name="Light2D2" type="PointLight2D" parent="."]
+visible = false
 blend_mode = 2
 shadow_enabled = true
 texture = ExtResource("4_lkp12")
