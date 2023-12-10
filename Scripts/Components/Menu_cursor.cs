@@ -9,6 +9,7 @@ public partial class Menu_cursor : TextureRect
 	public Vector2 cursorOffset;
 
 	private Fix_wire_hud fixWireHud;
+	private GridContainer menu_parent;
 
 	private Line2D line;
 
@@ -16,25 +17,15 @@ public partial class Menu_cursor : TextureRect
 	private bool isWireSelected = false;
 	private bool colorMatched;
 	private Vector2 wireSelected = Vector2.Zero;
-	GridContainer menu_parent;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		menu_parent = GetNode(nodePath) as GridContainer;
 		fixWireHud = (Fix_wire_hud)GetParent();
 
-		CallDeferred("DeferredInitialization");
 	}
 
-	private void DeferredInitialization()
-	{
-		// Le reste de votre initialisation...
-		line = new Line2D();
-		GetParent().AddChild(line);
-
-		line.DefaultColor = new Color(1, 1, 1);
-		line.Width = 2.0f;
-	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
@@ -60,14 +51,37 @@ public partial class Menu_cursor : TextureRect
 			wireSelected.X = cursorIndex;
 			SetCursorFromIndex(cursorIndex + 1);
 			isWireSelected = true;
+
 		}
 		else if (Input.IsActionJustPressed("ui_accept") && isWireSelected == true)
 		{
 			wireSelected.Y = cursorIndex;
 			colorMatched = CheckWiresColor(wireSelected);
 
-			UpdateLine();
 		}
+
+		if (colorMatched == true)
+		{
+			SetNewLine(wireSelected);
+		}
+	}
+
+	public void SetNewLine(Vector2 wire)
+	{
+		ColorRect ItemLeft = GetMenuItemAtIndex((int)wire.X) as ColorRect;
+		ColorRect ItemRight = GetMenuItemAtIndex((int)wire.Y) as ColorRect;
+
+		Godot.Vector2 startPos = ItemLeft.GlobalPosition;
+		Vector2 endPos = ItemRight.GlobalPosition;
+
+		line = new Line2D();
+
+		line.Points = startPos;
+		line.Points = endPos;
+		line.Width = 2.0f;
+		line.DefaultColor = ItemLeft.Color;
+
+		GetParent().AddChild(line);
 	}
 
 	public Control GetMenuItemAtIndex(int index)
@@ -123,26 +137,5 @@ public partial class Menu_cursor : TextureRect
 		}
 
 	}
-
-	private void UpdateLine() 
-	{
-		var startMenuItem = GetMenuItemAtIndex((int)wireSelected.X);
-		var endMenuItem = GetMenuItemAtIndex((int)wireSelected.Y);
-
-		if (startMenuItem == null || endMenuItem == null)
-		{
-			return;
-		}
-
-		var startPos = -startMenuItem.GlobalPosition + startMenuItem.Size / 2.0f;
-		var endPos = -endMenuItem.GlobalPosition + endMenuItem.Size / 2.0f;
-		GD.Print(startMenuItem.GlobalPosition + " " + endMenuItem.GlobalPosition);
-
-		// Effacez tous les points actuels de la ligne
-		line.ClearPoints();
-
-		// Ajoutez les deux points à la ligne
-		line.AddPoint(startPos);
-		line.AddPoint(endPos);
-	}
+	
 }
