@@ -59,7 +59,7 @@ public partial class Menu : Control
 			}
 			else if(SelectedIndex == 1)
 			{
-				// GetTree().ChangeSceneToFile("Scenes/Menu/Options.tscn")
+				SceneTransition.Call("changeScene","Scenes/Menu/Input_settings.tscn");
 			}
 			else if(SelectedIndex == 2)
 			{

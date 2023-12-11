@@ -1,6 +1,5 @@
-[gd_scene load_steps=18 format=3 uid="uid://c767xbfu781tp"]
+[gd_scene load_steps=17 format=3 uid="uid://c767xbfu781tp"]
 
-[ext_resource type="Texture2D" uid="uid://bnmkl1gwaqahx" path="res://icon.svg" id="1_rcknm"]
 [ext_resource type="Script" path="res://Scripts/Player/Player.cs" id="1_u3eu4"]
 [ext_resource type="Texture2D" uid="uid://dul0k1jbm4pci" path="res://assets/player_animations.png" id="3_mamx2"]
 [ext_resource type="Texture2D" uid="uid://bofybbehxto5o" path="res://assets/Components/light.png" id="4_bujv8"]
@@ -126,12 +125,6 @@ animation = &"Right"
 position = Vector2(0, 0.75)
 shape = SubResource("RectangleShape2D_e4ssr")
 
-[node name="Sprite" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(-7.62939e-06, 3.8147e-06)
-scale = Vector2(0.265625, 0.257813)
-texture = ExtResource("1_rcknm")
-
 [node name="MarkerArea" type="Marker2D" parent="."]
 
 [node name="Area2D" type="Area2D" parent="MarkerArea"]
@@ -151,13 +144,13 @@ blend_mode = 2
 range_item_cull_mask = 2
 shadow_enabled = true
 shadow_item_cull_mask = 2
-texture = ExtResource("4_bujv8")
+texture = ExtResource("4_lkp12")
 
 [node name="Light2D2" type="PointLight2D" parent="."]
 visible = false
 blend_mode = 2
 shadow_enabled = true
-texture = ExtResource("4_lkp12")
+texture = ExtResource("4_bujv8")
 
 [node name="UI" parent="." instance=ExtResource("6_ofaw7")]
 offset_left = -104.0
