@@ -23,7 +23,7 @@ public partial class ObjectForFix : Node
 			ObjectAlreadyFixed++;
 
 			if (ObjectAlreadyFixed >= ObjectToFix){
-				GD.Print("GOOOD");
+				GD.Print("Objectfix finished");
 				// Changer la variable dans le global ou faire un emit au main
 				STATE = true;
 			}

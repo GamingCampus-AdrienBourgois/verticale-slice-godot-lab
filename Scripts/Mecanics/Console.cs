@@ -13,6 +13,8 @@ public partial class Console : Node2D
 
 	private bool GameFinished = false;
 
+	// Pour l'anim, mettre des nombres entre 0 et 1 aléatoire et ça les rajoute dans le text
+
 	public override void _Ready()
 	{
 		SceneTransition = GetParent().GetNode<Scene_transition>("SceneTransition");
@@ -24,6 +26,7 @@ public partial class Console : Node2D
 		List_levels.Add(global.Niveau_2);
 		List_levels.Add(global.Niveau_3);
 		List_levels.Add(global.Niveau_4);
+		List_levels.Add(global.Niveau_5);
 
 		int count = 0;
 		// Refaire ça pour que ça prenne le text lié au niveau -> Dictionnaire à faire
@@ -35,6 +38,7 @@ public partial class Console : Node2D
 				else if (count == 2){	label.Text = "Colors means something together... Right ?";	}
 				else if (count == 3){	label.Text = "Hmmm... Sometimes things aren't were they're supposed to be.";	}
 				else if (count == 4){	label.Text = "Detritus on the floor... Not the best for the company.";	}
+				else if (count == 5){	label.Text = "Someone left some crates somewhere...";	}
 				break;
 			}
 			if(count == List_levels.Count)
@@ -45,8 +49,6 @@ public partial class Console : Node2D
 		}
 
 	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 	}

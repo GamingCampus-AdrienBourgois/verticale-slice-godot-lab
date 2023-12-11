@@ -6,6 +6,7 @@ public partial class Pedestal : Node
 	// Meme script que objectToFix donc les réunir ? 
 	private int PedestalsActives = 0;
 	private int PedestalsToActive = 0;
+	public bool STATE = false;
 
 	public override void _Ready()
 	{
@@ -31,6 +32,7 @@ public partial class Pedestal : Node
 			
 			if (PedestalsActives >= PedestalsToActive){
 				GD.Print("Pedestal activated");
+				STATE = true;
 				// Changer la variable dans le global ou faire un emit au main
 			}
 		}
@@ -43,6 +45,7 @@ public partial class Pedestal : Node
 			Area.Call("FixedChange");
 			GD.Print();
 			PedestalsActives--;
+			STATE = false;
 		}
 	}
 }

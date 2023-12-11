@@ -1,6 +1,6 @@
 using Godot;
 using System;
-// Cool
+
 public partial class Main : Node2D
 {
 
@@ -9,13 +9,12 @@ public partial class Main : Node2D
 	// L'error "audio_device_init" est normale car y a pas de carte son
 	// Pareil pour "init : WASAPI: init_output_device error
 
-	// Called when the node enters the scene tree for the first time.
 
 	private Trashcan trashcan = null;
 	private ObjectForFix objectForFix = null;
 	private ColorCode coloredpc = null;
 	private AllPc allpc = null;
-
+	private Pedestal pedestal = null;
 
 	public override void _Ready()
 	{
@@ -23,6 +22,7 @@ public partial class Main : Node2D
 		objectForFix = GetNode<ObjectForFix>("ObjectForFix");
 		trashcan = GetNode<Node>("Trashcan_fix").GetNode<Trashcan>("Trashcan");
 		allpc = GetNode<AllPc>("AllPc");
+		pedestal = GetNode<Pedestal>("Pedestal");
 
 		SceneTransition = GetParent().GetNode<Scene_transition>("SceneTransition");
 		global = GetParent().GetNode<Global>("Global");
@@ -32,7 +32,6 @@ public partial class Main : Node2D
 		}
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
 	}
@@ -43,10 +42,14 @@ public partial class Main : Node2D
 		{
 			Player temp = (Player)body;
 			temp.Speed = 0;
+
+			// Mettre tout ça dans une node et checker chaque enfant ptet (ptet pas possible vu que faut cast du bon type, ou tous meme class pour le state)
 			if(allpc.STATE == true){ global.Niveau_1 = true; }
 			if(coloredpc.STATE == true){ global.Niveau_2 = true; }
 			if(objectForFix.STATE == true){ global.Niveau_3 = true; }
 			if(trashcan.Full == true){ global.Niveau_4 = true; }
+			if(pedestal.STATE == true) { global.Niveau_5 = true; }
+			
 			SceneTransition.Call("changeScene",_scenePath); 
 		}
 		else {

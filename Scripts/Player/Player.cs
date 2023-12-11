@@ -17,12 +17,21 @@ public partial class Player : CharacterBody2D
 
 	private Marker2D MarkerObject = null;
 	private Marker2D MarkerArea = null;
+	private Control ui = null;
+	private HBoxContainer ui_box = null;
+	private Label to_label = null;
+	private AnimationPlayer ui_animations = null;
 	public override void _Ready()
 	{
 		animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		MarkerObject = GetNode("MarkerArea").GetNode<Marker2D>("Object");
 		MarkerArea = GetNode<Marker2D>("MarkerArea");
 		code = GetParent().GetNode<ColorCode>("ColoredPc");
+
+		ui = GetNode<Control>("UI");
+		ui_box = ui.GetNode<HBoxContainer>("Box");
+		to_label = ui_box.GetNode<Label>("To");
+		ui_animations = ui.GetNode<AnimationPlayer>("Animations");
 	}
 
 
@@ -35,6 +44,9 @@ public partial class Player : CharacterBody2D
 		Godot.Vector2 input_direction = new(Input.GetActionStrength("ui_right") - Input.GetActionStrength("ui_left"), Input.GetActionStrength("ui_down") - Input.GetActionStrength("ui_up"));
 
 		input_direction = input_direction.Normalized(); // Permet de pas aller plus vite en diagonale
+
+		// Faire une seule fonction avec 5 params
+
 		if(Input.IsActionPressed("ui_up")){
 			MarkerArea.RotationDegrees = 270;
 			MarkerObject.RotationDegrees = 90;
@@ -106,6 +118,8 @@ public partial class Player : CharacterBody2D
 				{
 					computer temp = (computer)item;
 					InteractWithComputer(temp);
+					_on_area_2d_body_exited(item);
+					//item.RemoveFromGroup("PC");
 				}
 				else if(item.IsInGroup("ColoredPC")){
 					colored_computer temp = (colored_computer)item;
@@ -128,7 +142,6 @@ public partial class Player : CharacterBody2D
 		MoveAndSlide();
 	}
 	private void PickUp(Node2D objectToPickup){
-
 		pickeUpItemPath = objectToPickup.GetParent().GetPath();
 		objectToPickup.GetNode<CollisionShape2D>("CollisionShape2D").Disabled = true;
 		
@@ -157,9 +170,13 @@ public partial class Player : CharacterBody2D
 	{
 		if (item == null && pickedUpItem == null){
 			if (body.IsInGroup("Pickable")){
+				to_label.Text = "Space to pickup";
+				ui_animations.Play("appear");
 				item = body;
 			}
 			else if (body.IsInGroup("PC") || body.IsInGroup("ColoredPC")){
+				to_label.Text = "E to interact";
+				ui_animations.Play("appear");
 				item = body;
 			}
 		}
@@ -170,6 +187,7 @@ public partial class Player : CharacterBody2D
 		if (item == body){
 			if (body.IsInGroup("Pickable") || body.IsInGroup("PC") || body.IsInGroup("ColoredPC")){
 				item = null;
+				ui_animations.PlayBackwards("appear");
 			}
 		}
 	}
