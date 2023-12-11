@@ -21,6 +21,9 @@ public partial class Player : CharacterBody2D
 	private HBoxContainer ui_box = null;
 	public Label to_label = null;
 	public AnimationPlayer ui_animations = null;
+
+	public bool OnIce = false;
+
 	public override void _Ready()
 	{
 		animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
@@ -39,38 +42,38 @@ public partial class Player : CharacterBody2D
 	public override void _Process(double delta)
 	{
 		Godot.Vector2 velocity = Velocity; // En gd script y a pas ça 
-		
 		// Prend les input
-		Godot.Vector2 input_direction = new(Input.GetActionStrength("Right") - Input.GetActionStrength("Left"), Input.GetActionStrength("Down") - Input.GetActionStrength("Up"));
+		if(!OnIce){
+			Godot.Vector2 input_direction = new(Input.GetActionStrength("Right") - Input.GetActionStrength("Left"), Input.GetActionStrength("Down") - Input.GetActionStrength("Up"));
+			input_direction = input_direction.Normalized(); // Permet de pas aller plus vite en diagonale
+		
+			// Faire que si il est sur la glace, gèle les inputs si ça vitesse est au dessus de 100 par ex
 
-		input_direction = input_direction.Normalized(); // Permet de pas aller plus vite en diagonale
+			if(Input.IsActionPressed("Up")){
+				ActionPressed(270,90,"Up_Arm","Up");
+			}
+			if(Input.IsActionPressed("Down")){
+				ActionPressed(90,270,"Down_Arm","Down");
+			}
+			if(Input.IsActionPressed("Right")){
+				ActionPressed(0,0,"Right_Arm","Right");
+			}
+			if(Input.IsActionPressed("Left")){
+				ActionPressed(180,180,"Left_Arm","Left");
+			}
+			// Si il y a des inputs
+			if (input_direction != Godot.Vector2.Zero && inputOnFocus == false)
+			{
+				velocity= input_direction * Speed; 
+			}
 
-		// Faire que si il est sur la glace, gèle les inputs si ça vitesse est au dessus de 100 par ex
-
-		if(Input.IsActionPressed("Up")){
-			ActionPressed(270,90,"Up_Arm","Up");
-		}
-		if(Input.IsActionPressed("Down")){
-			ActionPressed(90,270,"Down_Arm","Down");
-		}
-		if(Input.IsActionPressed("Right")){
-			ActionPressed(0,0,"Right_Arm","Right");
-		}
-		if(Input.IsActionPressed("Left")){
-			ActionPressed(180,180,"Left_Arm","Left");
-		}
-		// Si il y a des inputs
-		if (input_direction != Godot.Vector2.Zero && inputOnFocus == false)
-		{
-			velocity= input_direction * Speed; 
-		}
-
-		// Si il y en a pas
-		else
-		{
-			// Flemme de réunir en une ligne
-			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
-			velocity.Y = Mathf.MoveToward(Velocity.Y, 0, Speed);
+			// Si il y en a pas
+			else
+			{
+				// Flemme de réunir en une ligne
+				velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
+				velocity.Y = Mathf.MoveToward(Velocity.Y, 0, Speed);
+			}
 		}
 
 		if (Input.IsActionJustPressed("Interact") && inputOnFocus == false)
@@ -102,7 +105,35 @@ public partial class Player : CharacterBody2D
 		}
 		
 		Velocity = velocity;
-		MoveAndSlide(); // Return false ou true si collide
+		MoveAndSlide();
+
+		//MoveAndSlide(); // Return false ou true si collide
+		if(OnIce)
+		{
+			if(Velocity == new Godot.Vector2(0,0)){
+				Godot.Vector2 input_direction = new Godot.Vector2(0,0);
+				if(Input.IsActionPressed("Up")){
+					input_direction = new Godot.Vector2(0,-1);
+					ActionPressed(270,90,"Up_Arm","Up");
+				}
+				else if(Input.IsActionPressed("Down")){
+					input_direction = new Godot.Vector2(0,1);
+					ActionPressed(90,270,"Down_Arm","Down");
+				}
+				else if(Input.IsActionPressed("Right")){
+					input_direction = new Godot.Vector2(1,0);
+					ActionPressed(0,0,"Right_Arm","Right");
+				}
+				else if(Input.IsActionPressed("Left")){
+					input_direction = new Godot.Vector2(-1,0);
+					ActionPressed(180,180,"Left_Arm","Left");
+				}
+				if (input_direction != Godot.Vector2.Zero && inputOnFocus == false)
+				{
+					Velocity = input_direction * Speed;
+				}
+			}
+		}
 	}
 	private void PickUp(Node2D objectToPickup){
 		pickeUpItemPath = objectToPickup.GetParent().GetPath();
