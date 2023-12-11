@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://degk0tj8lto51"]
+[gd_scene load_steps=68 format=3 uid="uid://degk0tj8lto51"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_8aswi"]
 [ext_resource type="PackedScene" uid="uid://c767xbfu781tp" path="res://Scenes/Player/player.tscn" id="2_cxfpo"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://c4l34yx2ih016" path="res://Scenes/Components/object_to_fix.tscn" id="17_bbyt8"]
 [ext_resource type="Script" path="res://Scripts/Components/Pedestal.cs" id="18_ry15s"]
 [ext_resource type="Texture2D" uid="uid://lwvdi3qnh4ju" path="res://assets/Level_design_Loop_out (2).JPG" id="19_p6hmw"]
+[ext_resource type="PackedScene" uid="uid://djrmn7u5ni8e1" path="res://Scenes/Components/Crate.tscn" id="22_ea3dc"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_k0qkj"]
 tile_data = PackedInt32Array(0, 1441793, 4, 65536, 1572865, 4, 1, 1572865, 4, 65537, 1441793, 4)
@@ -906,16 +907,51 @@ ColorThis = Color(1, 1, 1, 1)
 position = Vector2(-483, 843)
 ColorThis = Color(1, 1, 1, 1)
 
+[node name="ObjectFixArea4" parent="ObjectForFix/Areas" instance=ExtResource("16_3jsu8")]
+position = Vector2(-580, 779)
+ColorThis = Color(1, 1, 1, 1)
+
+[node name="ObjectFixArea5" parent="ObjectForFix/Areas" instance=ExtResource("16_3jsu8")]
+position = Vector2(-409, 747)
+ColorThis = Color(1, 1, 1, 1)
+
+[node name="ObjectFixArea6" parent="ObjectForFix/Areas" instance=ExtResource("16_3jsu8")]
+position = Vector2(-576, 709)
+ColorThis = Color(1, 1, 1, 1)
+
+[node name="ObjectFixArea7" parent="ObjectForFix/Areas" instance=ExtResource("16_3jsu8")]
+position = Vector2(-574, 659)
+ColorThis = Color(1, 1, 1, 1)
+
+[node name="ObjectFixArea8" parent="ObjectForFix/Areas" instance=ExtResource("16_3jsu8")]
+position = Vector2(-489, 601)
+ColorThis = Color(1, 1, 1, 1)
+
 [node name="Objects" type="Node" parent="ObjectForFix"]
 
 [node name="ObjectToFix" parent="ObjectForFix/Objects" instance=ExtResource("17_bbyt8")]
 position = Vector2(-275, 861)
 
+[node name="ObjectToFix4" parent="ObjectForFix/Objects" instance=ExtResource("17_bbyt8")]
+position = Vector2(-581, 777)
+
+[node name="ObjectToFix5" parent="ObjectForFix/Objects" instance=ExtResource("17_bbyt8")]
+position = Vector2(-578, 706)
+
+[node name="ObjectToFix6" parent="ObjectForFix/Objects" instance=ExtResource("17_bbyt8")]
+position = Vector2(-412, 745)
+
+[node name="ObjectToFix7" parent="ObjectForFix/Objects" instance=ExtResource("17_bbyt8")]
+position = Vector2(-574, 657)
+
+[node name="ObjectToFix8" parent="ObjectForFix/Objects" instance=ExtResource("17_bbyt8")]
+position = Vector2(-492, 598)
+
 [node name="ObjectToFix2" parent="ObjectForFix/Objects" instance=ExtResource("17_bbyt8")]
-position = Vector2(-1027, 682)
+position = Vector2(-1089, 650)
 
 [node name="ObjectToFix3" parent="ObjectForFix/Objects" instance=ExtResource("17_bbyt8")]
-position = Vector2(-415, -395)
+position = Vector2(-428, -399)
 
 [node name="Trashcan_fix" type="Node" parent="."]
 
@@ -1065,6 +1101,26 @@ script = ExtResource("18_ry15s")
 
 [node name="ObjectsPedestal" type="Node" parent="Pedestal"]
 
+[node name="Crate" parent="Pedestal/ObjectsPedestal" instance=ExtResource("22_ea3dc")]
+z_index = 1
+position = Vector2(-686, 472)
+
+[node name="Crate4" parent="Pedestal/ObjectsPedestal" instance=ExtResource("22_ea3dc")]
+z_index = 1
+position = Vector2(-455, 468)
+
+[node name="Crate2" parent="Pedestal/ObjectsPedestal" instance=ExtResource("22_ea3dc")]
+z_index = 1
+position = Vector2(-400, 331)
+
+[node name="Crate5" parent="Pedestal/ObjectsPedestal" instance=ExtResource("22_ea3dc")]
+z_index = 1
+position = Vector2(-349, 1068)
+
+[node name="Crate3" parent="Pedestal/ObjectsPedestal" instance=ExtResource("22_ea3dc")]
+z_index = 1
+position = Vector2(-631, 298)
+
 [node name="AreasPedestal" type="Node" parent="Pedestal"]
 
 [node name="PressionPlate" parent="Pedestal/AreasPedestal" instance=ExtResource("16_3jsu8")]
@@ -1080,7 +1136,7 @@ position = Vector2(-543, 360)
 ColorThis = Color(0.266667, 0.266667, 0.00392157, 1)
 
 [node name="PressionPlate3" parent="Pedestal/AreasPedestal" instance=ExtResource("16_3jsu8")]
-position = Vector2(-634, 418)
+position = Vector2(-631, 414)
 ColorThis = Color(0.266667, 0.266667, 0.00392157, 1)
 
 [node name="PressionPlate4" parent="Pedestal/AreasPedestal" instance=ExtResource("16_3jsu8")]
