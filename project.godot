@@ -27,6 +27,11 @@ Global="*res://Scripts/Global.cs"
 
 project/assembly_name="Loop_Out"
 
+[filesystem]
+
+import/blender/enabled=false
+import/fbx/enabled=false
+
 [input]
 
 ui_left={

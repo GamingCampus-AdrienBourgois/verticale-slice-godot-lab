@@ -44,6 +44,9 @@ public partial class Player : CharacterBody2D
 		Godot.Vector2 input_direction = new(Input.GetActionStrength("ui_right") - Input.GetActionStrength("ui_left"), Input.GetActionStrength("ui_down") - Input.GetActionStrength("ui_up"));
 
 		input_direction = input_direction.Normalized(); // Permet de pas aller plus vite en diagonale
+
+		// Faire une seule fonction avec 5 params
+
 		if(Input.IsActionPressed("ui_up")){
 			MarkerArea.RotationDegrees = 270;
 			MarkerObject.RotationDegrees = 90;
@@ -115,6 +118,8 @@ public partial class Player : CharacterBody2D
 				{
 					computer temp = (computer)item;
 					InteractWithComputer(temp);
+					_on_area_2d_body_exited(item);
+					//item.RemoveFromGroup("PC");
 				}
 				else if(item.IsInGroup("ColoredPC")){
 					colored_computer temp = (colored_computer)item;
@@ -137,7 +142,6 @@ public partial class Player : CharacterBody2D
 		MoveAndSlide();
 	}
 	private void PickUp(Node2D objectToPickup){
-
 		pickeUpItemPath = objectToPickup.GetParent().GetPath();
 		objectToPickup.GetNode<CollisionShape2D>("CollisionShape2D").Disabled = true;
 		

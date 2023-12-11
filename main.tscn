@@ -1103,7 +1103,7 @@ script = ExtResource("18_ry15s")
 
 [node name="Crate" parent="Pedestal/ObjectsPedestal" instance=ExtResource("22_ea3dc")]
 z_index = 1
-position = Vector2(-686, 472)
+position = Vector2(-683, 463)
 
 [node name="Crate4" parent="Pedestal/ObjectsPedestal" instance=ExtResource("22_ea3dc")]
 z_index = 1
