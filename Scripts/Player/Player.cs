@@ -41,13 +41,13 @@ public partial class Player : CharacterBody2D
 		Godot.Vector2 velocity = Velocity; // En gd script y a pas ça 
 		
 		// Prend les input
-		Godot.Vector2 input_direction = new(Input.GetActionStrength("ui_right") - Input.GetActionStrength("ui_left"), Input.GetActionStrength("ui_down") - Input.GetActionStrength("ui_up"));
+		Godot.Vector2 input_direction = new(Input.GetActionStrength("Right") - Input.GetActionStrength("Left"), Input.GetActionStrength("Down") - Input.GetActionStrength("Up"));
 
 		input_direction = input_direction.Normalized(); // Permet de pas aller plus vite en diagonale
 
 		// Faire une seule fonction avec 5 params
 
-		if(Input.IsActionPressed("ui_up") && inputOnFocus == false){
+		if(Input.IsActionPressed("Up")){
 			MarkerArea.RotationDegrees = 270;
 			MarkerObject.RotationDegrees = 90;
 			if(pickedUpItem != null) 
@@ -59,7 +59,7 @@ public partial class Player : CharacterBody2D
 				animatedSprite.Play("Up");
 			}
 		}
-		if(Input.IsActionPressed("ui_down") && inputOnFocus == false){
+		if(Input.IsActionPressed("Down")){
 			MarkerArea.RotationDegrees = 90;
 			MarkerObject.RotationDegrees = 270;
 			if(pickedUpItem != null) 
@@ -71,7 +71,7 @@ public partial class Player : CharacterBody2D
 				animatedSprite.Play("Down");
 			}
 		}
-		if(Input.IsActionPressed("ui_right") && inputOnFocus == false){
+		if(Input.IsActionPressed("Right")){
 			MarkerArea.RotationDegrees = 0;
 			MarkerObject.RotationDegrees = 0;
 			if(pickedUpItem != null) 
@@ -83,7 +83,7 @@ public partial class Player : CharacterBody2D
 				animatedSprite.Play("Right");
 			}
 		}
-		if(Input.IsActionPressed("ui_left") && inputOnFocus == false){
+		if(Input.IsActionPressed("Left")){
 			MarkerArea.RotationDegrees = 180;
 			MarkerObject.RotationDegrees = 180;
 			if(pickedUpItem != null) 
@@ -110,7 +110,7 @@ public partial class Player : CharacterBody2D
 			velocity.Y = Mathf.MoveToward(Velocity.Y, 0, Speed);
 		}
 
-		if (Input.IsActionJustPressed("interact") && inputOnFocus == false)
+		if (Input.IsActionJustPressed("Interact") && inputOnFocus == false)
 		{
 			if(item != null)
 			{
@@ -129,7 +129,7 @@ public partial class Player : CharacterBody2D
 				
 		}
 
-		if (Input.IsActionJustPressed("ui_accept") && inputOnFocus == false){
+		if (Input.IsActionJustPressed("Accept") && inputOnFocus == false){
 			if (item != null && pickedUpItem == null && item.IsInGroup("Pickable")){
 				PickUp(item);
 			}
