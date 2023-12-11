@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://degk0tj8lto51"]
+[gd_scene load_steps=71 format=3 uid="uid://degk0tj8lto51"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_8aswi"]
 [ext_resource type="PackedScene" uid="uid://c767xbfu781tp" path="res://Scenes/Player/player.tscn" id="2_cxfpo"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://djrmn7u5ni8e1" path="res://Scenes/Components/Crate.tscn" id="22_ea3dc"]
 [ext_resource type="Script" path="res://Scripts/Components/ObjectForFixVert.cs" id="23_klot5"]
 [ext_resource type="PackedScene" uid="uid://cwjvrs1os6rp6" path="res://Scenes/Components/FixVert.tscn" id="24_cg7jq"]
+[ext_resource type="PackedScene" uid="uid://db20a5ijr88h5" path="res://Scenes/Components/Fruit.tscn" id="25_5na4j"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_k0qkj"]
 tile_data = PackedInt32Array(0, 1441793, 4, 65536, 1572865, 4, 1, 1572865, 4, 65537, 1441793, 4)
@@ -1193,6 +1194,48 @@ position = Vector2(-149, -253)
 
 [node name="ObjectFixArea5" parent="ObjectForFixVert/Areas" instance=ExtResource("16_3jsu8")]
 position = Vector2(-148, -302)
+
+[node name="FruitGame" type="Node" parent="."]
+
+[node name="Areas" type="Node" parent="FruitGame"]
+
+[node name="FruitArea" parent="FruitGame/Areas" instance=ExtResource("16_3jsu8")]
+position = Vector2(-422, -515)
+
+[node name="FruitArea2" parent="FruitGame/Areas" instance=ExtResource("16_3jsu8")]
+position = Vector2(-506, -513)
+
+[node name="FruitArea3" parent="FruitGame/Areas" instance=ExtResource("16_3jsu8")]
+position = Vector2(-586, -512)
+
+[node name="FruitArea4" parent="FruitGame/Areas" instance=ExtResource("16_3jsu8")]
+position = Vector2(-654, -514)
+
+[node name="FruitArea5" parent="FruitGame/Areas" instance=ExtResource("16_3jsu8")]
+position = Vector2(-730, -515)
+
+[node name="FruitArea6" parent="FruitGame/Areas" instance=ExtResource("16_3jsu8")]
+position = Vector2(-812, -516)
+
+[node name="FruitArea7" parent="FruitGame/Areas" instance=ExtResource("16_3jsu8")]
+position = Vector2(-895, -520)
+
+[node name="FruitArea8" parent="FruitGame/Areas" instance=ExtResource("16_3jsu8")]
+position = Vector2(-998, -522)
+
+[node name="FruitArea9" parent="FruitGame/Areas" instance=ExtResource("16_3jsu8")]
+position = Vector2(-1078, -520)
+
+[node name="FruitArea10" parent="FruitGame/Areas" instance=ExtResource("16_3jsu8")]
+position = Vector2(-1156, -526)
+
+[node name="FruitArea11" parent="FruitGame/Areas" instance=ExtResource("16_3jsu8")]
+position = Vector2(-1245, -526)
+
+[node name="Objects" type="Node" parent="FruitGame"]
+
+[node name="Fruit" parent="FruitGame/Objects" instance=ExtResource("25_5na4j")]
+position = Vector2(-651, -513)
 
 [node name="PC" parent="." instance=ExtResource("10_gflbg")]
 position = Vector2(-295, 138)

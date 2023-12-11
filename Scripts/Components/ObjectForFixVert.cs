@@ -4,6 +4,7 @@ using System;
 public partial class ObjectForFixVert : Node
 {
 	// Meme script que objectToFix donc les réunir ? 
+	// Faire un seul et meme object à prendre et mettr un sprite en export et voila, et change les tag dans l'inspecteur
 	private int PedestalsActives = 0;
 	private int PedestalsToActive = 0;
 	public bool STATE = false;
