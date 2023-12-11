@@ -20,7 +20,6 @@ public partial class fix_wire : Area2D
 			fixWireHud.Visible = isShow;
 			
 		}
-		GD.Print(fixWireHud.Visible, "     ", fixWireHud);
 	}
 	
 
