@@ -27,6 +27,8 @@ public partial class Console : Node2D
 		List_levels.Add(global.Niveau_3);
 		List_levels.Add(global.Niveau_4);
 		List_levels.Add(global.Niveau_5);
+		List_levels.Add(global.Niveau_6);
+		List_levels.Add(global.Niveau_7);
 
 		int count = 0;
 		// Refaire ça pour que ça prenne le text lié au niveau -> Dictionnaire à faire
@@ -40,6 +42,7 @@ public partial class Console : Node2D
 				else if (count == 4){	label.Text = "Detritus on the floor... Not the best for the company.";	}
 				else if (count == 5){	label.Text = "Someone left some crates somewhere...";	}
 				else if (count == 6){	label.Text = "2 and 3 on the other side ? Hmmm...";	}
+				else if (count == 7){	label.Text = "Everyone wants their favorite item in their bedroom...";	}
 				break;
 			}
 			if(count == List_levels.Count)

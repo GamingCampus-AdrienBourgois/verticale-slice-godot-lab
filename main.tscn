@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://degk0tj8lto51"]
+[gd_scene load_steps=75 format=3 uid="uid://degk0tj8lto51"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_8aswi"]
 [ext_resource type="PackedScene" uid="uid://c767xbfu781tp" path="res://Scenes/Player/player.tscn" id="2_cxfpo"]
@@ -27,6 +27,8 @@
 [ext_resource type="PackedScene" uid="uid://db20a5ijr88h5" path="res://Scenes/Components/Fruit.tscn" id="25_5na4j"]
 [ext_resource type="Script" path="res://Scripts/Mecanics/IceRoom.cs" id="26_w0xqu"]
 [ext_resource type="Script" path="res://Scripts/Components/ObjectFixArea.cs" id="27_558j3"]
+[ext_resource type="Script" path="res://Scripts/Components/Bedroom.cs" id="28_wxtn0"]
+[ext_resource type="PackedScene" uid="uid://bk6nab6nklg47" path="res://Scenes/Components/ObjectBedroom.tscn" id="29_uguob"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_k0qkj"]
 tile_data = PackedInt32Array(0, 1441793, 4, 65536, 1572865, 4, 1, 1572865, 4, 65537, 1441793, 4)
@@ -614,7 +616,7 @@ position = Vector2(-234, 699)
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_cxfpo")]
 z_index = 1
-position = Vector2(-1024, 175)
+position = Vector2(89, 114)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
@@ -1264,9 +1266,106 @@ script = ExtResource("27_558j3")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ice/Player_detect"]
 polygon = PackedVector2Array(63, -54, 202, -55, 203, -85, 67, -85)
 
+[node name="Bedroom" type="Node" parent="."]
+script = ExtResource("28_wxtn0")
+
+[node name="Areas" type="Node" parent="Bedroom"]
+
+[node name="BedArea" type="Area2D" parent="Bedroom/Areas"]
+position = Vector2(-105, 359)
+script = ExtResource("27_558j3")
+Group = "Victor"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bedroom/Areas/BedArea"]
+position = Vector2(157, 112)
+polygon = PackedVector2Array(-48, -38, -48, -193, -245, -188, -251, -38)
+
+[node name="BedArea2" type="Area2D" parent="Bedroom/Areas"]
+position = Vector2(307, 356)
+script = ExtResource("27_558j3")
+Group = "Lucie"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bedroom/Areas/BedArea2"]
+position = Vector2(157, 112)
+polygon = PackedVector2Array(-269, -31, -49, -31, -49, -184, -269, -184)
+
+[node name="BedArea3" type="Area2D" parent="Bedroom/Areas"]
+position = Vector2(314, 543)
+script = ExtResource("27_558j3")
+Group = "Henry"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bedroom/Areas/BedArea3"]
+position = Vector2(157, 112)
+polygon = PackedVector2Array(-466, -207, -662, -207, -663, -13, -467, -12)
+
+[node name="BedArea4" type="Area2D" parent="Bedroom/Areas"]
+position = Vector2(-104, 543)
+script = ExtResource("27_558j3")
+Group = "Hugo"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bedroom/Areas/BedArea4"]
+position = Vector2(157, 112)
+polygon = PackedVector2Array(140, -12, 394, -11, 395, -78, 364, -80, 362, -204, 142, -204)
+
+[node name="BedArea5" type="Area2D" parent="Bedroom/Areas"]
+position = Vector2(-101, 751)
+script = ExtResource("27_558j3")
+Group = "Jarod"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bedroom/Areas/BedArea5"]
+position = Vector2(157, 112)
+polygon = PackedVector2Array(-54, -4, -247, 0, -248, -208, -52, -208)
+
+[node name="BedArea6" type="Area2D" parent="Bedroom/Areas"]
+position = Vector2(320, 752)
+script = ExtResource("27_558j3")
+Group = "Anthony"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bedroom/Areas/BedArea6"]
+position = Vector2(157, 112)
+polygon = PackedVector2Array(-282, -4, -32, -4, -28, -207, -283, -207)
+
+[node name="Objects" type="Node" parent="Bedroom"]
+
+[node name="Object_Bedrooms" parent="Bedroom/Objects" instance=ExtResource("29_uguob")]
+position = Vector2(72, 354)
+GroupToAdd = "Jarod"
+
+[node name="Object_Bedrooms2" parent="Bedroom/Objects" instance=ExtResource("29_uguob")]
+position = Vector2(119, 367)
+GroupToAdd = "Victor"
+
+[node name="Object_Bedrooms3" parent="Bedroom/Objects" instance=ExtResource("29_uguob")]
+position = Vector2(81, 409)
+GroupToAdd = "Lucie"
+
+[node name="Object_Bedrooms4" parent="Bedroom/Objects" instance=ExtResource("29_uguob")]
+position = Vector2(124, 421)
+GroupToAdd = "Henry"
+
+[node name="Object_Bedrooms5" parent="Bedroom/Objects" instance=ExtResource("29_uguob")]
+position = Vector2(62, 461)
+GroupToAdd = "Hugo"
+
+[node name="Object_Bedrooms6" parent="Bedroom/Objects" instance=ExtResource("29_uguob")]
+position = Vector2(117, 467)
+GroupToAdd = "Anthony"
+
 [connection signal="OFF" from="Ice/IceDec1" to="Ice" method="_on_ice_dec_1_off"]
 [connection signal="ON" from="Ice/IceDec1" to="Ice" method="_on_ice_dec_1_on"]
 [connection signal="body_entered" from="Ice/IceDec1" to="Ice/IceDec1" method="_on_body_entered"]
 [connection signal="body_exited" from="Ice/IceDec1" to="Ice/IceDec1" method="_on_body_exited"]
 [connection signal="ON" from="Ice/Player_detect" to="Ice" method="_on_player_detect_on"]
 [connection signal="body_entered" from="Ice/Player_detect" to="Ice/Player_detect" method="_on_body_entered"]
+[connection signal="body_entered" from="Bedroom/Areas/BedArea" to="Bedroom/Areas/BedArea" method="_on_body_entered"]
+[connection signal="body_exited" from="Bedroom/Areas/BedArea" to="Bedroom/Areas/BedArea" method="_on_body_exited"]
+[connection signal="body_entered" from="Bedroom/Areas/BedArea2" to="Bedroom/Areas/BedArea2" method="_on_body_entered"]
+[connection signal="body_exited" from="Bedroom/Areas/BedArea2" to="Bedroom/Areas/BedArea2" method="_on_body_exited"]
+[connection signal="body_entered" from="Bedroom/Areas/BedArea3" to="Bedroom/Areas/BedArea3" method="_on_body_entered"]
+[connection signal="body_exited" from="Bedroom/Areas/BedArea3" to="Bedroom/Areas/BedArea3" method="_on_body_exited"]
+[connection signal="body_entered" from="Bedroom/Areas/BedArea4" to="Bedroom/Areas/BedArea4" method="_on_body_entered"]
+[connection signal="body_exited" from="Bedroom/Areas/BedArea4" to="Bedroom/Areas/BedArea4" method="_on_body_exited"]
+[connection signal="body_entered" from="Bedroom/Areas/BedArea5" to="Bedroom/Areas/BedArea5" method="_on_body_entered"]
+[connection signal="body_exited" from="Bedroom/Areas/BedArea5" to="Bedroom/Areas/BedArea5" method="_on_body_exited"]
+[connection signal="body_entered" from="Bedroom/Areas/BedArea6" to="Bedroom/Areas/BedArea6" method="_on_body_entered"]
+[connection signal="body_exited" from="Bedroom/Areas/BedArea6" to="Bedroom/Areas/BedArea6" method="_on_body_exited"]

@@ -10,6 +10,7 @@ public partial class Global : Node
 	public bool Niveau_4 = false;
 	public bool Niveau_5 = false;
 	public bool Niveau_6 = false;
+	public bool Niveau_7 = false;
 
 	// public List<bool> ReturnNiveaux(){
 	// 	List<bool> list = new List<bool>();
