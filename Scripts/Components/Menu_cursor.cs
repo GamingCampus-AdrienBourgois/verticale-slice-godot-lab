@@ -9,7 +9,7 @@ public partial class Menu_cursor : TextureRect
 	public Vector2 cursorOffset;
 
 	private fix_wire fixWire;
-	private Fix_wire_hud fixWireHud;
+	private CanvasLayer fixWireHud;
 	private GridContainer menu_parent;
 
 	private Line2D line;
@@ -25,11 +25,10 @@ public partial class Menu_cursor : TextureRect
 	public override void _Ready()
 	{
 		menu_parent = GetNode(nodePath) as GridContainer;
-		fixWireHud = (Fix_wire_hud)GetParent();
+		fixWireHud = (CanvasLayer)GetParent();
 		fixWire = GetTree().Root.GetNode("Main").GetNode("FixWire") as fix_wire;
 
 	}
-
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)

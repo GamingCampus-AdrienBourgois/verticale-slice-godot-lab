@@ -8,7 +8,6 @@ public partial class fix_wire : Area2D
 	private bool interact = false;
 	private bool isShow = false;
 
-
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -18,19 +17,13 @@ public partial class fix_wire : Area2D
 		if (fixWireHud != null)
 		{
 			fixWireHud.Visible = isShow;
-			
 		}
 	}
 	
-
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if (interact == false)
-		{
-			
-		}
-		else
+		if (interact == true)
 		{
 			if (Input.IsActionJustPressed("interact") && isShow == false)
 			{

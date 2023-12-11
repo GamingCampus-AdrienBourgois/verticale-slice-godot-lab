@@ -1,10 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dsre6p0qf37th"]
+[gd_scene load_steps=2 format=3 uid="uid://dsre6p0qf37th"]
 
-[ext_resource type="Script" path="res://Scripts/Components/Fix_wire_hud.cs" id="1_3x3ap"]
 [ext_resource type="PackedScene" uid="uid://f6hk1vq4gea" path="res://Scenes/Components/menu_cursor.tscn" id="2_horgu"]
 
 [node name="Fix_wire_hud" type="CanvasLayer"]
-script = ExtResource("1_3x3ap")
 
 [node name="DarkFilter" type="ColorRect" parent="."]
 anchors_preset = 15
