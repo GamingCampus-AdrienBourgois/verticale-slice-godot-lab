@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://db20a5ijr88h5"]
+
+[ext_resource type="Script" path="res://Scripts/Components/Fruit.cs" id="1_5p0rq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c6stl"]
+radius = 31.0644
+
+[node name="Fruit" type="CharacterBody2D" groups=["Fruit", "Pickable"]]
+script = ExtResource("1_5p0rq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_c6stl")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(1, 0.490196, 0, 1)
+polygon = PackedVector2Array(-1, 23, -12, 18, -21, 7, -22, -3, -17, -13, -4, -19, 11, -17, 20, -6, 22, 7, 13, 13, 4, 20)

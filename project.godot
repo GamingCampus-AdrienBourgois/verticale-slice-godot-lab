@@ -23,6 +23,11 @@ config/windows_native_icon="res://assets/loopoutico.ico"
 SceneTransition="*res://Scenes/Transitions/Scene_transition.tscn"
 Global="*res://Scripts/Global.cs"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="ignore"
+
 [dotnet]
 
 project/assembly_name="Loop_Out"

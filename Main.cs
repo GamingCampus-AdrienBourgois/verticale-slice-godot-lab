@@ -15,6 +15,7 @@ public partial class Main : Node2D
 	private ColorCode coloredpc = null;
 	private AllPc allpc = null;
 	private Pedestal pedestal = null;
+	private ObjectForFixVert fixvert = null;
 
 	public override void _Ready()
 	{
@@ -23,6 +24,8 @@ public partial class Main : Node2D
 		trashcan = GetNode<Node>("Trashcan_fix").GetNode<Trashcan>("Trashcan");
 		allpc = GetNode<AllPc>("AllPc");
 		pedestal = GetNode<Pedestal>("Pedestal");
+		fixvert = GetNode<ObjectForFixVert>("ObjectForFixVert");
+		
 
 		SceneTransition = GetParent().GetNode<Scene_transition>("SceneTransition");
 		global = GetParent().GetNode<Global>("Global");
@@ -49,6 +52,7 @@ public partial class Main : Node2D
 			if(objectForFix.STATE == true){ global.Niveau_3 = true; }
 			if(trashcan.Full == true){ global.Niveau_4 = true; }
 			if(pedestal.STATE == true) { global.Niveau_5 = true; }
+			if(fixvert.STATE == true) { global.Niveau_6 = true; }
 			
 			SceneTransition.Call("changeScene",_scenePath); 
 		}
