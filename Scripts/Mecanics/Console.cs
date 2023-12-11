@@ -39,6 +39,7 @@ public partial class Console : Node2D
 				else if (count == 3){	label.Text = "Hmmm... Sometimes things aren't were they're supposed to be.";	}
 				else if (count == 4){	label.Text = "Detritus on the floor... Not the best for the company.";	}
 				else if (count == 5){	label.Text = "Someone left some crates somewhere...";	}
+				else if (count == 6){	label.Text = "2 and 3 on the other side ? Hmmm...";	}
 				break;
 			}
 			if(count == List_levels.Count)

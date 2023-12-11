@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://degk0tj8lto51"]
+[gd_scene load_steps=70 format=3 uid="uid://degk0tj8lto51"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_8aswi"]
 [ext_resource type="PackedScene" uid="uid://c767xbfu781tp" path="res://Scenes/Player/player.tscn" id="2_cxfpo"]
@@ -22,6 +22,8 @@
 [ext_resource type="Script" path="res://Scripts/Components/Pedestal.cs" id="18_ry15s"]
 [ext_resource type="Texture2D" uid="uid://lwvdi3qnh4ju" path="res://assets/Level_design_Loop_out (2).JPG" id="19_p6hmw"]
 [ext_resource type="PackedScene" uid="uid://djrmn7u5ni8e1" path="res://Scenes/Components/Crate.tscn" id="22_ea3dc"]
+[ext_resource type="Script" path="res://Scripts/Components/ObjectForFixVert.cs" id="23_klot5"]
+[ext_resource type="PackedScene" uid="uid://cwjvrs1os6rp6" path="res://Scenes/Components/FixVert.tscn" id="24_cg7jq"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_k0qkj"]
 tile_data = PackedInt32Array(0, 1441793, 4, 65536, 1572865, 4, 1, 1572865, 4, 65537, 1441793, 4)
@@ -1142,6 +1144,55 @@ ColorThis = Color(0.266667, 0.266667, 0.00392157, 1)
 [node name="PressionPlate4" parent="Pedestal/AreasPedestal" instance=ExtResource("16_3jsu8")]
 position = Vector2(-634, 299)
 ColorThis = Color(0.266667, 0.266667, 0.00392157, 1)
+
+[node name="ObjectForFixVert" type="Node" parent="."]
+script = ExtResource("23_klot5")
+
+[node name="Objects" type="Node" parent="ObjectForFixVert"]
+
+[node name="FixVert" parent="ObjectForFixVert/Objects" instance=ExtResource("24_cg7jq")]
+z_index = 1
+position = Vector2(313, -287)
+
+[node name="FixVert4" parent="ObjectForFixVert/Objects" instance=ExtResource("24_cg7jq")]
+z_index = 1
+position = Vector2(-100, -303)
+
+[node name="FixVert6" parent="ObjectForFixVert/Objects" instance=ExtResource("24_cg7jq")]
+z_index = 1
+position = Vector2(-544, 356)
+
+[node name="FixVert5" parent="ObjectForFixVert/Objects" instance=ExtResource("24_cg7jq")]
+z_index = 1
+position = Vector2(-148, -304)
+
+[node name="FixVert2" parent="ObjectForFixVert/Objects" instance=ExtResource("24_cg7jq")]
+z_index = 1
+position = Vector2(382, -283)
+
+[node name="FixVert3" parent="ObjectForFixVert/Objects" instance=ExtResource("24_cg7jq")]
+z_index = 1
+position = Vector2(371, -206)
+
+[node name="Areas" type="Node" parent="ObjectForFixVert"]
+
+[node name="ObjectFixArea" parent="ObjectForFixVert/Areas" instance=ExtResource("16_3jsu8")]
+position = Vector2(314, -289)
+
+[node name="ObjectFixArea2" parent="ObjectForFixVert/Areas" instance=ExtResource("16_3jsu8")]
+position = Vector2(380, -283)
+
+[node name="ObjectFixArea3" parent="ObjectForFixVert/Areas" instance=ExtResource("16_3jsu8")]
+position = Vector2(371, -204)
+
+[node name="ObjectFixArea4" parent="ObjectForFixVert/Areas" instance=ExtResource("16_3jsu8")]
+position = Vector2(-102, -302)
+
+[node name="ObjectFixArea6" parent="ObjectForFixVert/Areas" instance=ExtResource("16_3jsu8")]
+position = Vector2(-149, -253)
+
+[node name="ObjectFixArea5" parent="ObjectForFixVert/Areas" instance=ExtResource("16_3jsu8")]
+position = Vector2(-148, -302)
 
 [node name="PC" parent="." instance=ExtResource("10_gflbg")]
 position = Vector2(-295, 138)
