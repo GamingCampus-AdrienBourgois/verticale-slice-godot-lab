@@ -92,6 +92,7 @@ public partial class MenuCursor : TextureRect
 			if (WireFixNb >= 4)
 			{
 				isWiring = !isWiring;
+				fixWire.WireIsFinish = true;
 				fixWire.WireIsFix();
 			}
 		}

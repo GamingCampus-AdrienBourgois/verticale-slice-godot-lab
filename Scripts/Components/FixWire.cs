@@ -8,6 +8,7 @@ public partial class FixWire : Area2D
 	private MenuCursor menuCursor;
 	private bool interact = false;
 	private bool isShow = false;
+	public bool WireIsFinish = false;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -43,7 +44,7 @@ public partial class FixWire : Area2D
 		}
 	}
 
-	private void ShowText()
+	public void ShowText()
 	{
 		if (interact == true)
 		{
@@ -58,7 +59,7 @@ public partial class FixWire : Area2D
 
 	private void _on_body_entered(Node2D body)
 	{
-		if (body.IsInGroup("Player"))
+		if (body.IsInGroup("Player") && !WireIsFinish)
 		{
 			interact = true;
 			ShowText();
@@ -67,7 +68,7 @@ public partial class FixWire : Area2D
 
 	private void _on_body_exited(Node2D body)
 	{
-		if (body.IsInGroup("Player"))
+		if (body.IsInGroup("Player") && !WireIsFinish)
 		{
 			interact = false;
 			ShowText();
