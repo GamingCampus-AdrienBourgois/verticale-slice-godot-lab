@@ -45,56 +45,19 @@ public partial class Player : CharacterBody2D
 
 		input_direction = input_direction.Normalized(); // Permet de pas aller plus vite en diagonale
 
-		// Faire une seule fonction avec 5 params
+		// Faire que si il est sur la glace, gèle les inputs si ça vitesse est au dessus de 100 par ex
 
 		if(Input.IsActionPressed("Up")){
-			MarkerArea.RotationDegrees = 270;
-			MarkerObject.RotationDegrees = 90;
-			if(pickedUpItem != null) 
-			{
-				animatedSprite.Play("Up_Arm");
-			}
-			else 
-			{
-				animatedSprite.Play("Up");
-			}
+			ActionPressed(270,90,"Up_Arm","Up");
 		}
 		if(Input.IsActionPressed("Down")){
-			MarkerArea.RotationDegrees = 90;
-			MarkerObject.RotationDegrees = 270;
-			if(pickedUpItem != null) 
-			{
-				animatedSprite.Play("Down_Arm");
-			}
-			else 
-			{
-				animatedSprite.Play("Down");
-			}
+			ActionPressed(90,270,"Down_Arm","Down");
 		}
 		if(Input.IsActionPressed("Right")){
-			MarkerArea.RotationDegrees = 0;
-			MarkerObject.RotationDegrees = 0;
-			if(pickedUpItem != null) 
-			{
-				animatedSprite.Play("Right_Arm");
-			}
-			else 
-			{
-				animatedSprite.Play("Right");
-			}
+			ActionPressed(0,0,"Right_Arm","Right");
 		}
 		if(Input.IsActionPressed("Left")){
-			MarkerArea.RotationDegrees = 180;
-			MarkerObject.RotationDegrees = 180;
-			if(pickedUpItem != null) 
-			{
-				animatedSprite.Play("Left_Arm");
-			}
-			else 
-			{
-				animatedSprite.Play("Left");
-			}
-
+			ActionPressed(180,180,"Left_Arm","Left");
 		}
 		// Si il y a des inputs
 		if (input_direction != Godot.Vector2.Zero && inputOnFocus == false)
@@ -139,7 +102,7 @@ public partial class Player : CharacterBody2D
 		}
 		
 		Velocity = velocity;
-		MoveAndSlide();
+		MoveAndSlide(); // Return false ou true si collide
 	}
 	private void PickUp(Node2D objectToPickup){
 		pickeUpItemPath = objectToPickup.GetParent().GetPath();
@@ -204,6 +167,20 @@ public partial class Player : CharacterBody2D
 	{
 		interactingObject.ComputerColorChange();
 		code.CheckNewCode();
+	}
+
+	private void ActionPressed(int Rotate1,int Rotate2,string string1,string string2)
+	{
+		MarkerArea.RotationDegrees = Rotate1;
+		MarkerObject.RotationDegrees = Rotate2;
+		if(pickedUpItem != null) 
+		{
+			animatedSprite.Play(string1);
+		}
+		else 
+		{
+			animatedSprite.Play(string2);
+		}
 	}
 
 }

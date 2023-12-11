@@ -11,7 +11,7 @@ public partial class ObjectForFixVert : Node
 
 	public override void _Ready()
 	{
-		foreach (Node i in GetNode<Node>("AreasPedestal").GetChildren())
+		foreach (Node i in GetNode<Node>("Areas").GetChildren())
 		{
 			i.Connect("ON",new Callable(this,"PedestalActivated"));
 			i.Connect("OFF",new Callable(this,"PedestalDesactivated"));

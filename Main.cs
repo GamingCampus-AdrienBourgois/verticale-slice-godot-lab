@@ -24,7 +24,7 @@ public partial class Main : Node2D
 		trashcan = GetNode<Node>("Trashcan_fix").GetNode<Trashcan>("Trashcan");
 		allpc = GetNode<AllPc>("AllPc");
 		pedestal = GetNode<Pedestal>("Pedestal");
-		fixvert = GetNode<ObjectForFixVert>("ObjectForfixVert");
+		fixvert = GetNode<ObjectForFixVert>("ObjectForFixVert");
 		
 
 		SceneTransition = GetParent().GetNode<Scene_transition>("SceneTransition");
