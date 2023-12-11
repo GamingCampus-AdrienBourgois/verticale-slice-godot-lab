@@ -630,7 +630,7 @@ position = Vector2(121, -78)
 _scenePath = "res://Scenes/Mecanics/Console.tscn"
 
 [node name="Tp2" parent="TP_all" instance=ExtResource("4_12jmb")]
-position = Vector2(-179, 1160)
+position = Vector2(426, 1160)
 _scenePath = "res://Platformer/scenes/platformer.tscn"
 
 [node name="AllPc" type="Node" parent="."]

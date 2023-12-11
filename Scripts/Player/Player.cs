@@ -17,12 +17,21 @@ public partial class Player : CharacterBody2D
 
 	private Marker2D MarkerObject = null;
 	private Marker2D MarkerArea = null;
+	private Control ui = null;
+	private HBoxContainer ui_box = null;
+	private Label to_label = null;
+	private AnimationPlayer ui_animations = null;
 	public override void _Ready()
 	{
 		animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		MarkerObject = GetNode("MarkerArea").GetNode<Marker2D>("Object");
 		MarkerArea = GetNode<Marker2D>("MarkerArea");
 		code = GetParent().GetNode<ColorCode>("ColoredPc");
+
+		ui = GetNode<Control>("UI");
+		ui_box = ui.GetNode<HBoxContainer>("Box");
+		to_label = ui_box.GetNode<Label>("To");
+		ui_animations = ui.GetNode<AnimationPlayer>("Animations");
 	}
 
 
@@ -157,9 +166,13 @@ public partial class Player : CharacterBody2D
 	{
 		if (item == null && pickedUpItem == null){
 			if (body.IsInGroup("Pickable")){
+				to_label.Text = "Space to pickup";
+				ui_animations.Play("appear");
 				item = body;
 			}
 			else if (body.IsInGroup("PC") || body.IsInGroup("ColoredPC")){
+				to_label.Text = "E to interact";
+				ui_animations.Play("appear");
 				item = body;
 			}
 		}
@@ -170,6 +183,7 @@ public partial class Player : CharacterBody2D
 		if (item == body){
 			if (body.IsInGroup("Pickable") || body.IsInGroup("PC") || body.IsInGroup("ColoredPC")){
 				item = null;
+				ui_animations.PlayBackwards("appear");
 			}
 		}
 	}

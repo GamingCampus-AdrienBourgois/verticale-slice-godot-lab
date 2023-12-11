@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://c767xbfu781tp"]
+[gd_scene load_steps=18 format=3 uid="uid://c767xbfu781tp"]
 
 [ext_resource type="Texture2D" uid="uid://bnmkl1gwaqahx" path="res://icon.svg" id="1_rcknm"]
 [ext_resource type="Script" path="res://Scripts/Player/Player.cs" id="1_u3eu4"]
 [ext_resource type="Texture2D" uid="uid://dul0k1jbm4pci" path="res://assets/player_animations.png" id="3_mamx2"]
 [ext_resource type="Texture2D" uid="uid://bofybbehxto5o" path="res://assets/Components/light.png" id="4_bujv8"]
 [ext_resource type="Texture2D" uid="uid://darjrcixr2156" path="res://assets/Components/1316-removebg-preview.png" id="4_lkp12"]
+[ext_resource type="PackedScene" uid="uid://dpbjbddrjlt7s" path="res://Scenes/Player/Ui_player.tscn" id="6_ofaw7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qwxg3"]
 atlas = ExtResource("3_mamx2")
@@ -158,5 +159,13 @@ blend_mode = 2
 shadow_enabled = true
 texture = ExtResource("4_lkp12")
 
+[node name="UI" parent="." instance=ExtResource("6_ofaw7")]
+offset_left = -104.0
+offset_top = -65.0
+offset_right = -51.0
+offset_bottom = -65.0
+
 [connection signal="body_entered" from="MarkerArea/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="MarkerArea/Area2D" to="." method="_on_area_2d_body_exited"]
+
+[editable path="UI"]
