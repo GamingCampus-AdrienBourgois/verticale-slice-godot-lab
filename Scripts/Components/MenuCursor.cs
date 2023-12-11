@@ -1,14 +1,14 @@
 using Godot;
 using System;
 
-public partial class Menu_cursor : TextureRect
+public partial class MenuCursor : TextureRect
 {
 	[Export]
 	public NodePath nodePath;
 	[Export]
 	public Vector2 cursorOffset;
 
-	private fix_wire fixWire;
+	private FixWire fixWire;
 	private CanvasLayer fixWireHud;
 	private GridContainer menu_parent;
 
@@ -18,6 +18,7 @@ public partial class Menu_cursor : TextureRect
 	private int WireFixNb = 0;
 	private bool isWireSelected = false;
 	private bool colorMatched;
+	public bool isWiring = false;
 	private bool[] isWireAlreadyFix = new bool[7];
 	private Vector2 wireSelected = Vector2.Zero;
 
@@ -26,7 +27,7 @@ public partial class Menu_cursor : TextureRect
 	{
 		menu_parent = GetNode(nodePath) as GridContainer;
 		fixWireHud = (CanvasLayer)GetParent();
-		fixWire = GetTree().Root.GetNode("Main").GetNode("FixWire") as fix_wire;
+		fixWire = GetTree().Root.GetNode("Main").GetNode("FixWire") as FixWire;
 
 	}
 
@@ -49,34 +50,39 @@ public partial class Menu_cursor : TextureRect
 			SetCursorFromIndex(cursorIndex + (int)input.Y * menu_parent.Columns);
 		}
 
-		if (Input.IsActionJustPressed("ui_accept") && isWireSelected == false) 
+		if(isWiring)
 		{
-			wireSelected.X = cursorIndex;
-			SetCursorFromIndex(cursorIndex + 1);
-			isWireSelected = true;
+			if (Input.IsActionJustPressed("ui_accept") && !isWireSelected) 
+			{
+				wireSelected.X = cursorIndex;
+				SetCursorFromIndex(cursorIndex + 1);
+				isWireSelected = true;
 
-		}
-		else if (Input.IsActionJustPressed("ui_accept") && isWireSelected == true)
-		{
-			wireSelected.Y = cursorIndex;
-			colorMatched = CheckWiresColor(wireSelected);
-			if (colorMatched == true)
-			{
-				SetWireFix((int)wireSelected.X);
 			}
-			else if (colorMatched == false)
+			else if (Input.IsActionJustPressed("ui_accept") && isWireSelected)
 			{
-				GD.Print("Mauvais branchement");
-				SetCursorFromIndex(cursorIndex - 1);
+				wireSelected.Y = cursorIndex;
+				colorMatched = CheckWiresColor(wireSelected);
+				if (colorMatched)
+				{
+					SetWireFix((int)wireSelected.X);
+				}
+				else if (!colorMatched)
+				{
+					GD.Print("Mauvais branchement");
+					SetCursorFromIndex(cursorIndex - 1);
+					isWireSelected = false;
+				}
 			}
 		}
+		
 		
 	}
 
 	private void SetWireFix(int index) 
 	{
 
-		if (isWireAlreadyFix[index] == false)
+		if (!isWireAlreadyFix[index])
 		{
 			isWireAlreadyFix[index] = true;
 			SetCursorFromIndex(cursorIndex - 1);
@@ -85,10 +91,11 @@ public partial class Menu_cursor : TextureRect
 			GD.Print("Cable brancher"); 
 			if (WireFixNb >= 4)
 			{
+				isWiring = !isWiring;
 				fixWire.WireIsFix();
 			}
 		}
-		else if (isWireAlreadyFix[index] == true)
+		else if (isWireAlreadyFix[index])
 		{
 			GD.Print("Cable deja brancher");
 			SetCursorFromIndex(cursorIndex - 1);

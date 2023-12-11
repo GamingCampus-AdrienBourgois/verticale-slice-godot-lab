@@ -1,10 +1,11 @@
 using Godot;
 using System;
 
-public partial class fix_wire : Area2D
+public partial class FixWire : Area2D
 {
 	private Player player;
 	private CanvasLayer fixWireHud;
+	private MenuCursor menuCursor;
 	private bool interact = false;
 	private bool isShow = false;
 
@@ -14,6 +15,7 @@ public partial class fix_wire : Area2D
 
 		player = GetParent().GetNode<Player>("Player");
 		fixWireHud = GetNode<CanvasLayer>("Fix_wire_hud");
+		menuCursor = fixWireHud.GetNode<MenuCursor>("Menu_cursor");
 		if (fixWireHud != null)
 		{
 			fixWireHud.Visible = isShow;
@@ -30,6 +32,7 @@ public partial class fix_wire : Area2D
 				isShow = true;
 				player.inputOnFocus = true;
 				fixWireHud.Visible = isShow;
+				menuCursor.isWiring = true;
 
 			} else if (Input.IsActionJustPressed("ui_cancel") && isShow == true)
 			{
