@@ -47,7 +47,7 @@ public partial class Player : CharacterBody2D
 
 		// Faire une seule fonction avec 5 params
 
-		if(Input.IsActionPressed("ui_up")){
+		if(Input.IsActionPressed("ui_up") && inputOnFocus == false){
 			MarkerArea.RotationDegrees = 270;
 			MarkerObject.RotationDegrees = 90;
 			if(pickedUpItem != null) 
@@ -59,7 +59,7 @@ public partial class Player : CharacterBody2D
 				animatedSprite.Play("Up");
 			}
 		}
-		if(Input.IsActionPressed("ui_down")){
+		if(Input.IsActionPressed("ui_down") && inputOnFocus == false){
 			MarkerArea.RotationDegrees = 90;
 			MarkerObject.RotationDegrees = 270;
 			if(pickedUpItem != null) 
@@ -71,7 +71,7 @@ public partial class Player : CharacterBody2D
 				animatedSprite.Play("Down");
 			}
 		}
-		if(Input.IsActionPressed("ui_right")){
+		if(Input.IsActionPressed("ui_right") && inputOnFocus == false){
 			MarkerArea.RotationDegrees = 0;
 			MarkerObject.RotationDegrees = 0;
 			if(pickedUpItem != null) 
@@ -83,7 +83,7 @@ public partial class Player : CharacterBody2D
 				animatedSprite.Play("Right");
 			}
 		}
-		if(Input.IsActionPressed("ui_left")){
+		if(Input.IsActionPressed("ui_left") && inputOnFocus == false){
 			MarkerArea.RotationDegrees = 180;
 			MarkerObject.RotationDegrees = 180;
 			if(pickedUpItem != null) 

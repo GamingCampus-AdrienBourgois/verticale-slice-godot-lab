@@ -33,7 +33,7 @@ public partial class fix_wire : Area2D
 		}
 		else
 		{
-			if (Input.IsActionJustPressed("ui_accept") && isShow == false)
+			if (Input.IsActionJustPressed("interact") && isShow == false)
 			{
 				isShow = true;
 				player.inputOnFocus = true;
@@ -63,6 +63,14 @@ public partial class fix_wire : Area2D
 			interact = false;
 		}
 
+	}
+
+	public void WireIsFix()
+	{
+		isShow = false;
+		player.inputOnFocus = false;
+		fixWireHud.Visible = isShow;
+		GD.Print("Cable Reparer");
 	}
 
 }

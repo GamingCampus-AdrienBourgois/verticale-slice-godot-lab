@@ -8,14 +8,17 @@ public partial class Menu_cursor : TextureRect
 	[Export]
 	public Vector2 cursorOffset;
 
+	private fix_wire fixWire;
 	private Fix_wire_hud fixWireHud;
 	private GridContainer menu_parent;
 
 	private Line2D line;
 
 	private int cursorIndex = 0;
+	private int WireFixNb = 0;
 	private bool isWireSelected = false;
 	private bool colorMatched;
+	private bool[] isWireAlreadyFix = new bool[7];
 	private Vector2 wireSelected = Vector2.Zero;
 
 	// Called when the node enters the scene tree for the first time.
@@ -23,6 +26,7 @@ public partial class Menu_cursor : TextureRect
 	{
 		menu_parent = GetNode(nodePath) as GridContainer;
 		fixWireHud = (Fix_wire_hud)GetParent();
+		fixWire = GetTree().Root.GetNode("Main").GetNode("FixWire") as fix_wire;
 
 	}
 
@@ -57,32 +61,59 @@ public partial class Menu_cursor : TextureRect
 		{
 			wireSelected.Y = cursorIndex;
 			colorMatched = CheckWiresColor(wireSelected);
-
+			if (colorMatched == true)
+			{
+				SetWireFix((int)wireSelected.X);
+			}
+			else if (colorMatched == false)
+			{
+				GD.Print("Mauvais branchement");
+				SetCursorFromIndex(cursorIndex - 1);
+			}
 		}
-
-		if (colorMatched == true)
-		{
-			SetNewLine(wireSelected);
-		}
+		
 	}
 
-	public void SetNewLine(Vector2 wire)
+	private void SetWireFix(int index) 
 	{
-		ColorRect ItemLeft = GetMenuItemAtIndex((int)wire.X) as ColorRect;
-		ColorRect ItemRight = GetMenuItemAtIndex((int)wire.Y) as ColorRect;
 
-		Godot.Vector2 startPos = ItemLeft.GlobalPosition;
-		Vector2 endPos = ItemRight.GlobalPosition;
-
-		line = new Line2D();
-
-		line.Points = startPos;
-		line.Points = endPos;
-		line.Width = 2.0f;
-		line.DefaultColor = ItemLeft.Color;
-
-		GetParent().AddChild(line);
+		if (isWireAlreadyFix[index] == false)
+		{
+			isWireAlreadyFix[index] = true;
+			SetCursorFromIndex(cursorIndex - 1);
+			isWireSelected = false;
+			WireFixNb++;
+			GD.Print("Cable brancher"); 
+			if (WireFixNb >= 4)
+			{
+				fixWire.WireIsFix();
+			}
+		}
+		else if (isWireAlreadyFix[index] == true)
+		{
+			GD.Print("Cable deja brancher");
+			SetCursorFromIndex(cursorIndex - 1);
+			isWireSelected = false;
+		}
 	}
+
+	// public void SetNewLine(Vector2 wire)
+	// {
+	// 	ColorRect ItemLeft = GetMenuItemAtIndex((int)wire.X) as ColorRect;
+	// 	ColorRect ItemRight = GetMenuItemAtIndex((int)wire.Y) as ColorRect;
+
+	// 	Godot.Vector2 startPos = ItemLeft.GlobalPosition;
+	// 	Vector2 endPos = ItemRight.GlobalPosition;
+
+	// 	line = new Line2D();
+
+	// 	line.Points = startPos;
+	// 	line.Points = endPos;
+	// 	line.Width = 2.0f;
+	// 	line.DefaultColor = ItemLeft.Color;
+
+	// 	GetParent().AddChild(line);
+	// }
 
 	public Control GetMenuItemAtIndex(int index)
 	{
@@ -129,6 +160,8 @@ public partial class Menu_cursor : TextureRect
 
 		if (itemLeft.Color == itemRight.Color) 
 		{
+			itemLeft.SelfModulate = Color.FromHsv(0.0f,0.0f,0.0f,1.0f);
+			itemRight.SelfModulate = Color.FromHsv(0.0f,0.0f,0.0f,1.0f);
 			return true;
 		}
 		else
