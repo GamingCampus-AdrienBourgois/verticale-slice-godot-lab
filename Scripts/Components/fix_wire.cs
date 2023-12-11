@@ -48,11 +48,25 @@ public partial class fix_wire : Area2D
 		}
 	}
 
+	private void ShowText()
+	{
+		if (interact == true)
+		{
+			player.to_label.Text = "E to interact";
+			player.ui_animations.Play("appear");
+		}
+		else if (interact == false)
+		{
+			player.ui_animations.PlayBackwards("appear");
+		}
+	}
+
 	private void _on_body_entered(Node2D body)
 	{
 		if (body.IsInGroup("Player"))
 		{
 			interact = true;
+			ShowText();
 		}
 	}
 
@@ -61,6 +75,7 @@ public partial class fix_wire : Area2D
 		if (body.IsInGroup("Player"))
 		{
 			interact = false;
+			ShowText();
 		}
 
 	}

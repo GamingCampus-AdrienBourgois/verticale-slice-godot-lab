@@ -19,8 +19,8 @@ public partial class Player : CharacterBody2D
 	private Marker2D MarkerArea = null;
 	private Control ui = null;
 	private HBoxContainer ui_box = null;
-	private Label to_label = null;
-	private AnimationPlayer ui_animations = null;
+	public Label to_label = null;
+	public AnimationPlayer ui_animations = null;
 	public override void _Ready()
 	{
 		animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");

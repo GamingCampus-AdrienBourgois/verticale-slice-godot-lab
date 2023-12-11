@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4jqfp"]
 size = Vector2(128, 128)
 
-[node name="FixWire" type="Area2D"]
+[node name="FixWire" type="Area2D" groups=["HudObject"]]
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_dk50l")
 
