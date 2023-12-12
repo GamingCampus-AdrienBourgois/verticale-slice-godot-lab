@@ -11,21 +11,27 @@ public partial class Pattern_game : Control
 	PackedScene hbox_scene = null;
 	ColorRect colorRect_scene = null;
 
-	int height = 5;
-	int width = 8;
+	int height = 9;
+	int width = 20;
 	// PackedScene button_input = ResourceLoader.Load("res://Scenes/Menu/Input_button.tscn") as PackedScene;
 
 
 	Godot.Vector2 selected = new Godot.Vector2(0,0);
-
 	List<Godot.Vector2> ToSelect = new List<Godot.Vector2>();
 
 	List<Godot.Vector2> Found = new List<Godot.Vector2>();
 
 	public override void _Ready()
 	{
-		ToSelect.Add(new Godot.Vector2(2,2));
-		ToSelect.Add(new Godot.Vector2(1,3));
+		Random rnd = new Random();
+		for (int i = 0; i < width/2; i++)
+		{
+			ToSelect.Add(new Godot.Vector2(rnd.Next(0,height-1),rnd.Next(0,width-1)));
+			GD.Print(ToSelect[i]);
+		}
+		// ToSelect.Add(new Godot.Vector2(2,2));
+		// ToSelect.Add(new Godot.Vector2(1,3));
+		
 		vbox = GetNode("Vbox");
 
 		for (int i = 0; i < height; i++)
@@ -43,17 +49,30 @@ public partial class Pattern_game : Control
 				x.AddChild(colorRect);
 			}
 		}
-		ToColor(selected,new Color(0,0,0));
+		ToColor(selected,new Color(158,177,228));
 	}
 
 	public override void _Input(InputEvent @event)
 	{
-		if (Found.Count() > 2)
+		bool Confirm = true;
+		if(Found.Count() > 0)
 		{
-			GD.Print("Mission completed !");
+			for (int i = 0; i < Found.Count(); i++)
+			{
+				if(ToSelect[i] != Found[i])
+				{
+					Confirm = false;
+				}
+			}
+			if (Confirm == true)
+			{
+				GD.Print("Resolved");
+				// Envoie sur la salle dans l'espace avec le mec ou dans la room
+			}
 		}
+		
 		Godot.Vector2 AncientSelec = selected;
-		// Mettre qu'il peut pas dépasser les limites 
+		// Mettre que si il appuie sur une touche ça enlève le rouge
 		if(@event.IsActionPressed("Up")){selected.X -= 1;}
 		else if(@event.IsActionPressed("Down")){selected.X += 1;}
 		else if(@event.IsActionPressed("Right")){selected.Y += 1;}
@@ -71,12 +90,12 @@ public partial class Pattern_game : Control
 				ToColor(Found[i],new Color(255,0,0));
 			}
 		}
-		ToColor(selected,new Color(0,0,0));
+		ToColor(selected,new Color(0,0,255));
 
 		
 
 		// GD.Print("selected : ",selected);
-		if (@event.IsActionPressed("Accept") && ToSelect.Contains(selected))
+		if (@event.IsActionPressed("Accept"))
 		{
 			GD.Print("OK");
 			ToColor(selected,new Color(255,0,0));

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bsvwk380ndi4g"]
+[gd_scene load_steps=3 format=3 uid="uid://bsvwk380ndi4g"]
 
 [ext_resource type="Script" path="res://Scripts/Game/Pattern_game.cs" id="1_yrxck"]
+[ext_resource type="FontFile" uid="uid://dox4m0tdho7s7" path="res://assets/Components/monogram-extended.ttf" id="2_kmmrk"]
 
 [node name="Pattern_game" type="Control"]
 layout_mode = 3
@@ -17,7 +18,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 45.0
-offset_top = 37.0
+offset_top = 60.0
 offset_right = -45.0
 offset_bottom = -57.0
 grow_horizontal = 2
@@ -80,3 +81,27 @@ layout_mode = 2
 [node name="ColorRect11" type="ColorRect" parent="Grid"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -144.0
+offset_right = 144.0
+offset_bottom = 52.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_kmmrk")
+theme_override_font_sizes/font_size = 64
+text = "Start at 0,0"
