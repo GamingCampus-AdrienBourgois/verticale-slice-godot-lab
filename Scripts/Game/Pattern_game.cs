@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using System.Threading;
@@ -17,12 +18,14 @@ public partial class Pattern_game : Control
 
 	Godot.Vector2 selected = new Godot.Vector2(0,0);
 
-	Godot.Vector2 ToSelect = new Godot.Vector2(2,2);
+	List<Godot.Vector2> ToSelect = new List<Godot.Vector2>();
 
-	Godot.Vector2[] Found = null;
+	List<Godot.Vector2> Found = new List<Godot.Vector2>();
 
 	public override void _Ready()
 	{
+		ToSelect.Add(new Godot.Vector2(2,2));
+		ToSelect.Add(new Godot.Vector2(1,3));
 		vbox = GetNode("Vbox");
 
 		for (int i = 0; i < height; i++)
@@ -45,35 +48,40 @@ public partial class Pattern_game : Control
 
 	public override void _Input(InputEvent @event)
 	{
-		ToColor(selected, new Color(255,255,255));
+		Godot.Vector2 AncientSelec = selected;
+		// Mettre qu'il peut pas dépasser les limites 
 		if(@event.IsActionPressed("Up")){selected.X -= 1;}
 		else if(@event.IsActionPressed("Down")){selected.X += 1;}
 		else if(@event.IsActionPressed("Right")){selected.Y += 1;}
 		else if(@event.IsActionPressed("Left")){selected.Y -= 1;}
-		ToColor(selected,new Color(0,0,0));
-		GD.Print("selected : ",selected);
-		if (@event.IsActionPressed("Accept") && selected == ToSelect)
+
+		ToColor(AncientSelec, new Color(255,255,255));
+		if (Found.Count() > 0)
 		{
+			for (int i = 0; i < Found.Count(); i++)
+			{
+				ToColor(Found[i],new Color(255,0,0));
+			}
+		}
+		ToColor(selected,new Color(0,0,0));
+
+		
+
+		// GD.Print("selected : ",selected);
+		if (@event.IsActionPressed("Accept") && ToSelect.Contains(selected))
+		{
+			
 			GD.Print("OK");
 			ToColor(selected,new Color(255,0,0));
-			Found.Append(ToSelect);
+			if(!Found.Contains(selected)){
+				Found.Add(selected);
+			}
 		}
 	}
 
 
 	private void ToColor(Godot.Vector2 thing, Color color)
 	{
-		if(!Found.IsEmpty())
-		{
-			foreach (Godot.Vector2 i in Found)
-			{
-				if(thing == i)
-				{
-					color = new Color(255,0,0);
-				}
-			}
-		}
-
 		var hbox_to = vbox.GetChild((int)thing.X);
 		var childHbox = hbox_to.GetChild((int)thing.Y);
 		ColorRect temp = (ColorRect)childHbox;

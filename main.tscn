@@ -1274,7 +1274,6 @@ script = ExtResource("28_wxtn0")
 [node name="BedArea" type="Area2D" parent="Bedroom/Areas"]
 position = Vector2(-105, 359)
 script = ExtResource("27_558j3")
-Group = "Victor"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bedroom/Areas/BedArea"]
 position = Vector2(157, 112)
@@ -1283,7 +1282,6 @@ polygon = PackedVector2Array(-48, -38, -48, -193, -245, -188, -251, -38)
 [node name="BedArea2" type="Area2D" parent="Bedroom/Areas"]
 position = Vector2(307, 356)
 script = ExtResource("27_558j3")
-Group = "Lucie"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bedroom/Areas/BedArea2"]
 position = Vector2(157, 112)
@@ -1292,7 +1290,6 @@ polygon = PackedVector2Array(-269, -31, -49, -31, -49, -184, -269, -184)
 [node name="BedArea3" type="Area2D" parent="Bedroom/Areas"]
 position = Vector2(314, 543)
 script = ExtResource("27_558j3")
-Group = "Henry"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bedroom/Areas/BedArea3"]
 position = Vector2(157, 112)
@@ -1301,7 +1298,6 @@ polygon = PackedVector2Array(-466, -207, -662, -207, -663, -13, -467, -12)
 [node name="BedArea4" type="Area2D" parent="Bedroom/Areas"]
 position = Vector2(-104, 543)
 script = ExtResource("27_558j3")
-Group = "Hugo"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bedroom/Areas/BedArea4"]
 position = Vector2(157, 112)
@@ -1310,7 +1306,6 @@ polygon = PackedVector2Array(140, -12, 394, -11, 395, -78, 364, -80, 362, -204, 
 [node name="BedArea5" type="Area2D" parent="Bedroom/Areas"]
 position = Vector2(-101, 751)
 script = ExtResource("27_558j3")
-Group = "Jarod"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bedroom/Areas/BedArea5"]
 position = Vector2(157, 112)
@@ -1319,7 +1314,6 @@ polygon = PackedVector2Array(-54, -4, -247, 0, -248, -208, -52, -208)
 [node name="BedArea6" type="Area2D" parent="Bedroom/Areas"]
 position = Vector2(320, 752)
 script = ExtResource("27_558j3")
-Group = "Anthony"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bedroom/Areas/BedArea6"]
 position = Vector2(157, 112)
