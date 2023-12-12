@@ -48,12 +48,20 @@ public partial class Pattern_game : Control
 
 	public override void _Input(InputEvent @event)
 	{
+		if (Found.Count() > 2)
+		{
+			GD.Print("Mission completed !");
+		}
 		Godot.Vector2 AncientSelec = selected;
 		// Mettre qu'il peut pas dépasser les limites 
 		if(@event.IsActionPressed("Up")){selected.X -= 1;}
 		else if(@event.IsActionPressed("Down")){selected.X += 1;}
 		else if(@event.IsActionPressed("Right")){selected.Y += 1;}
 		else if(@event.IsActionPressed("Left")){selected.Y -= 1;}
+		if(selected.X < 0 || selected.Y < 0 || selected.X > height-1 || selected.Y > width-1)
+		{
+			selected = AncientSelec;
+		}
 
 		ToColor(AncientSelec, new Color(255,255,255));
 		if (Found.Count() > 0)
@@ -70,7 +78,6 @@ public partial class Pattern_game : Control
 		// GD.Print("selected : ",selected);
 		if (@event.IsActionPressed("Accept") && ToSelect.Contains(selected))
 		{
-			
 			GD.Print("OK");
 			ToColor(selected,new Color(255,0,0));
 			if(!Found.Contains(selected)){
