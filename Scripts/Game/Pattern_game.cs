@@ -24,7 +24,7 @@ public partial class Pattern_game : Control
 	public override void _Ready()
 	{
 		Random rnd = new Random();
-		for (int i = 0; i < width/2; i++)
+		for (int i = 0; i < width/10; i++)
 		{
 			ToSelect.Add(new Godot.Vector2(rnd.Next(0,height-1),rnd.Next(0,width-1)));
 			GD.Print(ToSelect[i]);
@@ -55,13 +55,14 @@ public partial class Pattern_game : Control
 	public override void _Input(InputEvent @event)
 	{
 		bool Confirm = true;
-		if(Found.Count() > 0)
+		if(Found.Count() == ToSelect.Count())
 		{
-			for (int i = 0; i < Found.Count(); i++)
+			for (int i = 0; i < Found.Count()-1; i++)
 			{
 				if(ToSelect[i] != Found[i])
 				{
 					Confirm = false;
+					break;
 				}
 			}
 			if (Confirm == true)
