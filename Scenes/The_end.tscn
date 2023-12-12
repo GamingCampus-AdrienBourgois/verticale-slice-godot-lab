@@ -536,7 +536,7 @@ size = Vector2(66, 43)
 
 [node name="The_END" type="Node2D"]
 script = ExtResource("1_wima7")
-AllText = PackedStringArray("Hey ça faisait longtemps !", "Hmmmm")
+AllText = PackedStringArray("Cela faisait longtemps que j\'attendais, longtemps ? Je ne sais plus...", "Cela fait du bien de pas se sentir seul", "...", "Je ne pensais pas que tu allais venir ici", "Je voulais rester ici un maximum...", "C\'est magnifique non ? Peut importe le temps que je reste, je suis toujours émerveillé", "Je me doute que tout a une fin non ?", "Tu veux rester regarder avec moi ?", "On ira manger après t\'en fais pas")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

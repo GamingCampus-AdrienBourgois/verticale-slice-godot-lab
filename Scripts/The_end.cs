@@ -22,7 +22,6 @@ public partial class The_end : Node2D
 
 
 
-
 		textrpg = GetNode<Control>("TextRpg");	
 		speaktext = textrpg.GetNode("PanelContainer").GetNode<Label>("SpeakText");
 		animation_text = speaktext.GetNode<AnimationPlayer>("AnimationPlayer");
@@ -52,9 +51,18 @@ public partial class The_end : Node2D
 			//animation.TrackGetPath(0);
 			//GD.Print(animation.GetTrackCount());
 
+
+			// En gros, ça met les keys, mais ça met instant de 0 à 1
 			var animation = animation_text.GetAnimation("appear");
-			animation.TrackRemoveKey(0,1);
-			animation.TrackInsertKey(0,5f/speaktext.Text.Length,1);
+			//animation.TrackRemoveKey(0 , 0);
+			//animation.TrackInsertKey(0 , 0 , 0 , 1);
+			//animation.TrackRemoveKey(0 , 1);
+			//animation.TrackInsertKey(0 , 5f/speaktext.Text.Length , 1 , 1);
+
+			animation.TrackSetKeyTime(0 , 1 , 2);
+
+			
+			//GD.Print("Trackname method :",animation.MethodTrackGetName(0,0));
 
 			//GD.Print(animation.TrackInsertKey(0,10f/speaktext.Text.Length,1));
 
@@ -90,15 +98,26 @@ public partial class The_end : Node2D
 			// Met bien la key mais pas de ease entre les 2, ça va de 0 à 1 direct
 			speaktext.Text = AllText[TextNumber];
 			var animation = animation_text.GetAnimation("appear");
-			animation.TrackRemoveKey(0,1);
-			animation.TrackInsertKey(0,1,1);
-			GD.Print("KeyCount :",animation.TrackGetKeyCount(0));
-			GD.Print("Key Value 0 :",animation.TrackGetKeyValue(0,0));
-			animation.TrackSetKeyValue(0,1,1);
-			GD.Print("Value Key 1:",animation.TrackGetKeyValue(0,1));
-			GD.Print("Time Key 1:",animation.TrackGetKeyTime(0,1));
-			GD.Print("KeyCount :",animation.TrackGetKeyCount(0));
+			// animation.TrackRemoveKey(0,1);
+			// animation.TrackInsertKey(0,1,1,1);
+			// GD.Print("KeyCount :",animation.TrackGetKeyCount(0));
+			// GD.Print("Key Value 0 :",animation.TrackGetKeyValue(0,0));
+			// animation.TrackSetKeyValue(0,1,1);
+			// GD.Print("Value Key 1:",animation.TrackGetKeyValue(0,1));
+			// GD.Print("Time Key 1:",animation.TrackGetKeyTime(0,1));
+			// GD.Print("KeyCount :",animation.TrackGetKeyCount(0));
+			//GD.Print(0.5f+((float)speaktext.Text.Length/20));
+			// Vu que l'animation ne va pas au dessus de 1 bah ça peut pas
+			float time = 0.5f+((float)speaktext.Text.Length/20);
+			animation.Length = time;
+			animation.TrackSetKeyTime(0 , 1 , time);
 			animation_text.Play("appear");
+
+
+			// Vu que l'anim dépassait pas 1 sec pour ça que ça marchait pas bien avant
+
+
+
 		}
 	}
 
