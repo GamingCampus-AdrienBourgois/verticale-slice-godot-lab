@@ -37,15 +37,16 @@ public partial class Pattern_game : Control
 		for (int i = 0; i < height; i++)
 		{
 			var Hbox = new HBoxContainer();
-			// Si je veux rajouter des props au hbox
-			vbox.AddChild(new HBoxContainer());
+			vbox.AddChild(Hbox);
 		}
 		foreach(Node x in vbox.GetChildren())
 		{
 			for (int i = 0; i < width; i++)
 			{
-				var colorRect = new ColorRect();
-				colorRect.CustomMinimumSize = new Godot.Vector2(50,50);
+				var colorRect = new ColorRect
+				{
+					CustomMinimumSize = new Godot.Vector2(50, 50)
+				};
 				x.AddChild(colorRect);
 			}
 		}
