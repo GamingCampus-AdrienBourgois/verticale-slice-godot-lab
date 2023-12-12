@@ -62,7 +62,7 @@ public partial class Player : CharacterBody2D
 				ActionPressed(180,180,"Left_Arm","Left");
 			}
 			// Si il y a des inputs
-			if (input_direction != Godot.Vector2.Zero && inputOnFocus == false)
+			if (input_direction != Godot.Vector2.Zero && !inputOnFocus)
 			{
 				velocity= input_direction * Speed; 
 			}
@@ -76,31 +76,56 @@ public partial class Player : CharacterBody2D
 			}
 		}
 
-		if (Input.IsActionJustPressed("Interact") && inputOnFocus == false)
+		if (!inputOnFocus)
 		{
-			if(item != null)
-			{
-				if (item.IsInGroup("PC"))
-				{
-					computer temp = (computer)item;
-					InteractWithComputer(temp);
-					_on_area_2d_body_exited(item);
-					//item.RemoveFromGroup("PC");
-				}
-				else if(item.IsInGroup("ColoredPC")){
-					colored_computer temp = (colored_computer)item;
-					InteractWithColoredComputer(temp);
-				}
-			}
-				
-		}
 
-		if (Input.IsActionJustPressed("Accept") && inputOnFocus == false){
-			if (item != null && pickedUpItem == null && item.IsInGroup("Pickable")){
-				PickUp(item);
+			if (Input.IsActionJustPressed("Interact") && !inputOnFocus)
+			{
+				if(item != null)
+				{
+					if (item.IsInGroup("PC"))
+					{
+						computer temp = (computer)item;
+						InteractWithComputer(temp);
+						_on_area_2d_body_exited(item);
+						//item.RemoveFromGroup("PC");
+					}
+					else if(item.IsInGroup("ColoredPC")){
+						colored_computer temp = (colored_computer)item;
+						InteractWithColoredComputer(temp);
+					}
+				}
+					
 			}
-			else if (pickedUpItem != null){
-				Throw();
+	
+			if (Input.IsActionJustPressed("Accept") && !inputOnFocus){
+				if (item != null && pickedUpItem == null && item.IsInGroup("Pickable")){
+					PickUp(item);
+				}
+				else if (pickedUpItem.IsInGroup("FolderNote")) {
+					FolderNote body = (FolderNote)pickedUpItem;
+					body.CloseFolder();
+					Throw();
+				}
+				else if (pickedUpItem != null){
+					Throw();
+				}
+				else if (pickedUpItem == null && item == null)
+				{
+				
+				}
+			}
+	
+			if (Input.IsActionJustPressed("Use") && !inputOnFocus && pickedUpItem != null)
+			{
+				if (pickedUpItem.IsInGroup("FolderNote"))
+				{
+					FolderNote body = (FolderNote)pickedUpItem;
+					body.InteractFolder();
+				}
+				else {
+					
+				}
 			}
 		}
 		
@@ -148,6 +173,12 @@ public partial class Player : CharacterBody2D
 		MarkerObject.AddChild(objectToPickup);
 		objectToPickup.Position = Godot.Vector2.Zero;
 		pickedUpItem = objectToPickup;
+
+		if (objectToPickup.IsInGroup("FolderNote"))
+		{
+			to_label.Text = " A to open";
+			ui_animations.Play("appear");
+		}
 
 		item = null;
 	}

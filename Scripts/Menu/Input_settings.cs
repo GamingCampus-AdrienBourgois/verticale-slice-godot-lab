@@ -12,7 +12,7 @@ public partial class Input_settings : Control
 	bool is_remapping = false;
 	string action_to_remap = null;
 	Node remapping_button = null;
-	private string[] input_actions = {"Up","Down","Left","Right","Interact","Accept"};
+	private string[] input_actions = {"Up","Down","Left","Right","Interact","Accept","Use"};
 
 
 	PackedScene button_input = ResourceLoader.Load("res://Scenes/Menu/Input_button.tscn") as PackedScene;

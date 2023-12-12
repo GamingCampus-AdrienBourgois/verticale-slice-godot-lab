@@ -20,18 +20,13 @@ public partial class fix_wire : Area2D
 			fixWireHud.Visible = isShow;
 			
 		}
-		GD.Print(fixWireHud.Visible, "     ", fixWireHud);
 	}
 	
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if (Interact == false)
-		{
-			
-		}
-		else
+		if (Interact)
 		{
 			if (Input.IsActionJustPressed("Accept") && isShow == false)
 			{
