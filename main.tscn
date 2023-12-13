@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://degk0tj8lto51"]
+[gd_scene load_steps=73 format=3 uid="uid://degk0tj8lto51"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_8aswi"]
 [ext_resource type="PackedScene" uid="uid://c767xbfu781tp" path="res://Scenes/Player/player.tscn" id="2_cxfpo"]
@@ -27,7 +27,6 @@
 [ext_resource type="PackedScene" uid="uid://db20a5ijr88h5" path="res://Scenes/Components/Fruit.tscn" id="25_5na4j"]
 [ext_resource type="Script" path="res://Scripts/Mecanics/IceRoom.cs" id="26_w0xqu"]
 [ext_resource type="Script" path="res://Scripts/Components/ObjectFixArea.cs" id="27_558j3"]
-[ext_resource type="PackedScene" uid="uid://ciukujhat3kj" path="res://Scenes/Components/FolderNote.tscn" id="28_4xuyr"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_k0qkj"]
 tile_data = PackedInt32Array(0, 1441793, 4, 65536, 1572865, 4, 1, 1572865, 4, 65537, 1441793, 4)
@@ -1264,11 +1263,6 @@ script = ExtResource("27_558j3")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ice/Player_detect"]
 polygon = PackedVector2Array(63, -54, 202, -55, 203, -85, 67, -85)
-
-[node name="FolderNote" type="Node" parent="."]
-
-[node name="TestNote" parent="FolderNote" instance=ExtResource("28_4xuyr")]
-position = Vector2(-117, 192)
 
 [connection signal="OFF" from="Ice/IceDec1" to="Ice" method="_on_ice_dec_1_off"]
 [connection signal="ON" from="Ice/IceDec1" to="Ice" method="_on_ice_dec_1_on"]
