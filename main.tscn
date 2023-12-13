@@ -1424,7 +1424,8 @@ position = Vector2(-163, 184)
 
 [node name="Note2" parent="Note" instance=ExtResource("34_xqgb4")]
 position = Vector2(-80, 195)
-isPickable = true
+StickyNote = true
+text = "Une poutre en bois pointe du doit une poutre de métale"
 
 [connection signal="OFF" from="Ice/IceDec1" to="Ice" method="_on_ice_dec_1_off"]
 [connection signal="ON" from="Ice/IceDec1" to="Ice" method="_on_ice_dec_1_on"]
