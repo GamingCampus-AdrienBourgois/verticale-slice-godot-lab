@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwsc75yrhmwn2"]
+
+[ext_resource type="Script" path="res://Scripts/Game/Escape_the_game.cs" id="1_bn4q4"]
+[ext_resource type="FontFile" uid="uid://dox4m0tdho7s7" path="res://assets/Components/monogram-extended.ttf" id="2_is0wv"]
+
+[node name="EscapeTheGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bn4q4")
+
+[node name="Label" type="Label" parent="."]
+z_index = 1
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_is0wv")
+theme_override_font_sizes/font_size = 64
