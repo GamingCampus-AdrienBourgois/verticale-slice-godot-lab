@@ -7,6 +7,8 @@ public partial class Note : CharacterBody2D
     public bool StickyNote = false;
     [Export]
     public Texture2D img;
+    [Export]
+    public bool isPickable = false;
 
     private CanvasLayer FolderNoteHud;
     private CanvasLayer StickyNoteHud;
@@ -24,6 +26,12 @@ public partial class Note : CharacterBody2D
         if (!StickyNote)
         {
             AddToGroup("FolderNote");
+            if (isPickable)
+            {
+                AddToGroup("Pickable");
+            }
+
+
 
             if (img != null)
             {

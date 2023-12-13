@@ -103,7 +103,7 @@ public partial class Player : CharacterBody2D
 					PickUp(item);
 				}
 				else if (pickedUpItem.IsInGroup("FolderNote")) {
-					FolderNote body = (FolderNote)pickedUpItem;
+					Note body = (Note)pickedUpItem;
 					body.CloseFolder();
 					Throw();
 				}
@@ -120,7 +120,7 @@ public partial class Player : CharacterBody2D
 			{
 				if (pickedUpItem.IsInGroup("FolderNote"))
 				{
-					FolderNote body = (FolderNote)pickedUpItem;
+					Note body = (Note)pickedUpItem;
 					body.InteractFolder();
 				}
 				else {

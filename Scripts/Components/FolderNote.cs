@@ -4,7 +4,6 @@ using System;
 public partial class FolderNote : CharacterBody2D
 {
 
-	private Player player;
 	private CanvasLayer FolderHud;
 	private bool interact = false;
 	private bool isShow = false;
@@ -19,7 +18,6 @@ public partial class FolderNote : CharacterBody2D
 		{
 			GetNode<CanvasLayer>("CanvasLayer").GetNode<PanelContainer>("PanelContainer").GetNode<Sprite2D>("Sprite2D").Texture = img;
 		}
-		player = GetParent().GetParent().GetNode<Player>("Player");
 		FolderHud = GetNode<CanvasLayer>("CanvasLayer");
 		if (FolderHud != null)
 		{

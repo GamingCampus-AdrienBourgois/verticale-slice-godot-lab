@@ -1,19 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://lslqnak1qpv1"]
+[gd_scene load_steps=7 format=3 uid="uid://lslqnak1qpv1"]
 
 [ext_resource type="Script" path="res://Scripts/Components/Note.cs" id="1_guqmt"]
 [ext_resource type="Texture2D" uid="uid://dnrn75ms2jsk5" path="res://assets/Components/folder.png" id="1_qk8sa"]
 [ext_resource type="Texture2D" uid="uid://bnmkl1gwaqahx" path="res://icon.svg" id="2_64upd"]
 [ext_resource type="FontFile" uid="uid://dox4m0tdho7s7" path="res://assets/Components/monogram-extended.ttf" id="3_2moxp"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l5mt6"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qd668"]
 size = Vector2(12, 19)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l5mt6"]
+size = Vector2(18, 23)
+
 [node name="Note" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_guqmt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("1_qk8sa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_qd668")
 
 [node name="Area2D" type="Area2D" parent="."]
 
