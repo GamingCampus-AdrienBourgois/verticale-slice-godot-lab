@@ -28,11 +28,11 @@
 [ext_resource type="Script" path="res://Scripts/Components/FruitGame.cs" id="25_kl4gw"]
 [ext_resource type="Script" path="res://Scripts/Mecanics/IceRoom.cs" id="26_w0xqu"]
 [ext_resource type="Script" path="res://Scripts/Components/ObjectFixArea.cs" id="27_558j3"]
-[ext_resource type="PackedScene" path="res://Scenes/Components/FolderNote.tscn" id="28_4xuyr"]
+[ext_resource type="PackedScene" uid="uid://ciukujhat3kj" path="res://Scenes/Components/FolderNote.tscn" id="28_4xuyr"]
 [ext_resource type="Script" path="res://Scripts/Components/Bedroom.cs" id="28_wxtn0"]
 [ext_resource type="PackedScene" uid="uid://bk6nab6nklg47" path="res://Scenes/Components/ObjectBedroom.tscn" id="29_uguob"]
 [ext_resource type="Texture2D" uid="uid://cpuqjugh8sff" path="res://assets/loopoutlogo-removebg-preview.png" id="31_ykc4o"]
-[ext_resource type="PackedScene" path="res://Scenes/Components/StickyNote.tscn" id="32_rrml4"]
+[ext_resource type="PackedScene" uid="uid://c1orudm7getch" path="res://Scenes/Components/StickyNote.tscn" id="32_rrml4"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_k0qkj"]
 tile_data = PackedInt32Array(0, 1441793, 4, 65536, 1572865, 4, 1, 1572865, 4, 65537, 1441793, 4)
