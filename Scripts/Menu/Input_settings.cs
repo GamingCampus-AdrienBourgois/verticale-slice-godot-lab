@@ -95,7 +95,7 @@ public partial class Input_settings : Control
 		{
 			if(@event.IsActionPressed("ui_cancel"))
 			{
-				SceneTransition.Call("changeScene","Scenes/Menu/Menu.tscn"); 
+				SceneTransition.Call("changeScene","Scenes/Menu/Menu.tscn",false); 
 			}
 		}
 	}

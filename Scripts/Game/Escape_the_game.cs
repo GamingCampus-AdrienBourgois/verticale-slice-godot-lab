@@ -165,6 +165,4 @@ public partial class Escape_the_game : Control
 	{
 		SceneTransition.Call("changeScene",this,true);
 	}
-
-
 }

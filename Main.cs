@@ -53,7 +53,7 @@ public partial class Main : Node2D
 			if(fixvert.STATE == true) { global.Niveau_6 = true; }
 			if(bedroom.STATE == true) { global.Niveau_7 = true; }
 			
-			SceneTransition.Call("changeScene",_scenePath); 
+			SceneTransition.Call("changeScene",_scenePath,false); 
 		}
 		else {
 			GD.Print("Non_player collision");

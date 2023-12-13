@@ -63,11 +63,11 @@ public partial class Console : Node2D
 		{
 			if(GameFinished)
 			{
-				SceneTransition.Call("changeScene","Scenes/Menu/Credits.tscn");
+				SceneTransition.Call("changeScene","Scenes/Menu/Credits.tscn",false);
 			}
 			else
 			{
-				SceneTransition.Call("changeScene","main.tscn");
+				SceneTransition.Call("changeScene","main.tscn",false);
 			}
 		}
 	}

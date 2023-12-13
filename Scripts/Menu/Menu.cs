@@ -55,11 +55,11 @@ public partial class Menu : Control
 			//Mettre un switch mais jsp la syntaxe
 			if (SelectedIndex == 0)
 			{
-				SceneTransition.Call("changeScene","main.tscn");
+				SceneTransition.Call("changeScene","main.tscn",false);
 			}
 			else if(SelectedIndex == 1)
 			{
-				SceneTransition.Call("changeScene","Scenes/Menu/Input_settings.tscn");
+				SceneTransition.Call("changeScene","Scenes/Menu/Input_settings.tscn",false);
 			}
 			else if(SelectedIndex == 2)
 			{
