@@ -5,7 +5,9 @@ public partial class Escape_the_game : Control
 {
 	private Scene_transition SceneTransition = null;
 	//private Global global = null;
+	[Export]
 	int height = 5;
+	[Export]
 	int width = 8;
 
 	Vector2 selected = new Vector2(0,0);
@@ -20,6 +22,12 @@ public partial class Escape_the_game : Control
 		SceneTransition = GetParent().GetNode<Scene_transition>("SceneTransition");
 		
 		label = GetNode<Label>("Label");
+		// AddChild(new Label
+		// {
+		// 	LayoutMode = 1,
+		// 	AnchorsPreset = 5,
+		// 	Theme
+		// });
 		
 		InitMap();
 		CreateLab();
@@ -65,8 +73,10 @@ public partial class Escape_the_game : Control
 
 	private void CreateLab()
 	{
+		// Faire un algo qui check si il est faisable, si l'est pas, il le refait ou enlève un carré
 		label.Text = "Solved: "+EscapeSolved;
-		bool exit = false;
+		Vector2 exit = new Vector2(0,0);
+		var y = 0;
 		foreach(Node x in vbox.GetChildren())
 		{
 			for (int i = 0; i < width; i++)
@@ -75,23 +85,25 @@ public partial class Escape_the_game : Control
 				Random rnd = new Random();
 				new Godot.Vector2(rnd.Next(0,height-1),rnd.Next(0,width-1));
 				rectangle.Color = Colors.White;
-				if(rnd.Next(1,10) > 8){
+				if(rnd.Next(1,10) > 7){
 					rectangle.Color = Colors.Red;
 				}
-				if(rnd.Next(1,10) > 9 && exit == false)
+				if(rnd.Next(1,10) > 9 && exit == new Vector2(0,0))
 				{
 					rectangle.Color = Colors.Green;
+					exit = new Vector2(y,i);
 				}
-				if(i == width-1 && exit == false && vbox.GetChild(vbox.GetChildCount()-1) == x)
+				if(i == width-1 && exit == new Vector2(0,0) && vbox.GetChild(height-1) == x)
 				{
 					rectangle.Color = Colors.Green;
+					exit = new Vector2(y,i);
 				}
-				if(i == 0 && vbox.GetChild(0) == x)
+				else if(i == 0 && vbox.GetChild(0) == x && y != exit.Y && i != exit.X)
 				{
 					rectangle.Color = Colors.White;
 				}
-
 			}
+			y++;
 		}
 		selected.X = 0;
 		selected.Y = 0;
