@@ -30,4 +30,14 @@ public partial class level_platformer : Node
 			
 		}
 	}
+
+	// Flemme de faire une classe checkpoint c'est juste pour 1
+	private void _on_check_the_point_body_entered(Node2D body)
+	{
+		GetNode<Node2D>("Checkpoint").GlobalPosition = GetNode<Node2D>("CheckThePoint").GlobalPosition;
+		GetNode<Node2D>("CheckThePoint").QueueFree();
+	}
+
 }
+
+

@@ -13,10 +13,11 @@ public partial class Label_end : Label
 	private async void _on_end_body_entered(Node2D body)
 	{
 		if (body.IsInGroup("Player")){
+			GetParent().GetParent().GetParent().GetNode("End").QueueFree();
 			animations.Play("Show_text");
-			await ToSignal(animations,"AnimationFinished");
+			await ToSignal(animations,AnimationPlayer.SignalName.AnimationFinished);
 			animations.PlayBackwards("Show_text");
-			await ToSignal(animations,"AnimationFinished");
+			await ToSignal(animations,AnimationPlayer.SignalName.AnimationFinished);
 			QueueFree();
 		}
 	}

@@ -8,9 +8,14 @@ public partial class player_platformer : CharacterBody2D
 	[Export]
 	public  float JumpVelocity = -400.0f;
 
+	Node2D spawn = null;
+
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
-
+	public override void _Ready()
+	{
+		spawn = GetParent().GetNode<Node2D>("Checkpoint");
+	}
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector2 velocity = Velocity;
@@ -47,7 +52,7 @@ public partial class player_platformer : CharacterBody2D
 
 	private void _on_area_2d_body_entered(Node2D body)
 	{
-		GetTree().ChangeSceneToFile("res://Platformer/scenes/platformer.tscn");
+		GlobalPosition = spawn.GlobalPosition;
 	}
 
 }
