@@ -9,11 +9,15 @@ public partial class ObjectFixArea : Area2D
 	[Signal]
 	public delegate void OFFEventHandler(ObjectFixArea This,Node2D body);
 	private bool State = false;
+	
+	[Export]
+	private string Group;
 
 	[Export]
 	private Color ColorThis = new Color(100,100,0);
 
 	public bool GetState(){ return State;}
+	public string GetGroup(){ return Group;}
 
 	public override void _Ready()
 	{

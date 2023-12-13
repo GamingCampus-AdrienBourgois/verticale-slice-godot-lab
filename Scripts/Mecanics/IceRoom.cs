@@ -4,14 +4,6 @@ using System;
 public partial class IceRoom : Node
 {
 	Node2D player = null;
-	public override void _Ready()
-	{
-	}
-
-
-	public override void _Process(double delta)
-	{
-	}
 
 	private void _on_player_detect_on(Area2D This, Node2D body)
 	{

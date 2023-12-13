@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk6nab6nklg47"]
+
+[ext_resource type="Script" path="res://Scripts/Components/ObjectBedroom.cs" id="1_3455a"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1v0kb"]
+radius = 11.0
+
+[node name="Object_Bedrooms" type="CharacterBody2D" groups=["Pickable"]]
+script = ExtResource("1_3455a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1v0kb")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(1, -1)
+scale = Vector2(0.5, 0.5)
+color = Color(0.14902, 0.14902, 0.14902, 1)
+polygon = PackedVector2Array(-31, 19, -6, 9, -7, 31, 6, 11, 18, 28, 28, 0, 7, -8, 9, -22, -8, -23, -26, -24, -35, -4, -34, 15)

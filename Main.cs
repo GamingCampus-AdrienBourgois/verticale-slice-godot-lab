@@ -16,6 +16,7 @@ public partial class Main : Node2D
 	private AllPc allpc = null;
 	private Pedestal pedestal = null;
 	private ObjectForFixVert fixvert = null;
+	private Bedroom bedroom = null;
 
 	public override void _Ready()
 	{
@@ -25,6 +26,8 @@ public partial class Main : Node2D
 		allpc = GetNode<AllPc>("AllPc");
 		pedestal = GetNode<Pedestal>("Pedestal");
 		fixvert = GetNode<ObjectForFixVert>("ObjectForFixVert");
+		bedroom = GetNode<Bedroom>("Bedroom");
+
 		
 
 		SceneTransition = GetParent().GetNode<Scene_transition>("SceneTransition");
@@ -45,7 +48,6 @@ public partial class Main : Node2D
 		{
 			Player temp = (Player)body;
 			temp.Speed = 0;
-
 			// Mettre tout ça dans une node et checker chaque enfant ptet (ptet pas possible vu que faut cast du bon type, ou tous meme class pour le state)
 			if(allpc.STATE == true){ global.Niveau_1 = true; }
 			if(coloredpc.STATE == true){ global.Niveau_2 = true; }
@@ -53,6 +55,7 @@ public partial class Main : Node2D
 			if(trashcan.Full == true){ global.Niveau_4 = true; }
 			if(pedestal.STATE == true) { global.Niveau_5 = true; }
 			if(fixvert.STATE == true) { global.Niveau_6 = true; }
+			if(bedroom.STATE == true) { global.Niveau_7 = true; }
 			
 			SceneTransition.Call("changeScene",_scenePath); 
 		}
