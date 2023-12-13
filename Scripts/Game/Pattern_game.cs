@@ -21,6 +21,8 @@ public partial class Pattern_game : Control
 
 	List<Godot.Vector2> Found = new List<Godot.Vector2>();
 
+	public bool STATE = false;
+
 	public override void _Ready()
 	{
 		Random rnd = new Random();
@@ -69,6 +71,7 @@ public partial class Pattern_game : Control
 			if (Confirm == true)
 			{
 				GD.Print("Resolved");
+				STATE = true;
 				// Envoie sur la salle dans l'espace avec le mec ou dans la room
 			}
 		}

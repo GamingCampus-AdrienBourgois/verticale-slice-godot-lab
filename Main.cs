@@ -37,10 +37,6 @@ public partial class Main : Node2D
 			i.Connect("script_changed",new Callable(this,"Tp_entered"));
 		}
 	}
-
-	public override void _Process(double delta)
-	{
-	}
 	
 	public void Tp_entered(string _scenePath, Node2D body)
 	{
