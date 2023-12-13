@@ -19,8 +19,8 @@ public partial class Scene_transition : CanvasLayer
 		//Animations = GetNode<AnimationPlayer>("Animation");
 		Reload = reload;
 		Target = target;
-		GD.Print(GetType());
-		GD.Print(GetChildCount());
+		// GD.Print(GetType());
+		// GD.Print(GetChildCount());
 		if (GetNode("Animation") != null)
 		{
 			GetNode<AnimationPlayer>("Animation").Play("dissolve");

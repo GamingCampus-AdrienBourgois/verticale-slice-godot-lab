@@ -21,6 +21,10 @@ public partial class Escape_the_game : Control
 	Node vbox = null;
 	Label label = null;
 	Timer TimerAll = null;
+
+	// Faire un truc qui reprends ce code, mais color white que les cases autour
+	// Des balles à éviter et survivre un max, on se déplace avec les touches et les cubes
+
 	public override void _Ready()
 	{
 		AddChild(new Timer
