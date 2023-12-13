@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://jnwv8osmr4bx" path="res://Platformer/imports/monochrome_tilemap_transparent_packed.png" id="3_1h5fh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kmfiq"]
-size = Vector2(24, 22)
+size = Vector2(16, 18)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hf0ul"]
 texture = ExtResource("3_1h5fh")
@@ -417,7 +417,7 @@ z_index = 1
 script = ExtResource("1_mdwre")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-16, -11)
+position = Vector2(-16, -9)
 shape = SubResource("RectangleShape2D_kmfiq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
