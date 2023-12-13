@@ -7,15 +7,17 @@ public partial class Scene_transition : CanvasLayer
 
 	private String Target = null;
 
+	private bool Reload = false;
 
-	public void changeScene(String target)
+
+	public void changeScene(String target, bool reload = false)
 	{
 		// foreach (Node i in GetChildren())
 		// {
 		// 	GD.Print(i.Name);
 		// }
 		//Animations = GetNode<AnimationPlayer>("Animation");
-
+		Reload = reload;
 		Target = target;
 		GD.Print(GetType());
 		GD.Print(GetChildCount());
@@ -33,9 +35,18 @@ public partial class Scene_transition : CanvasLayer
 	}
 	public void _OnAnimationFinished()
 	{
-		GetTree().ChangeSceneToFile(Target);
-		GetNode<AnimationPlayer>("Animation").PlayBackwards("dissolve");
-		GetNode<AnimationPlayer>("Animation").Disconnect("AnimationFinish", new Callable(this, "_OnAnimationFinished"));
+		if(!Reload)
+		{
+			GetTree().ChangeSceneToFile(Target);
+			GetNode<AnimationPlayer>("Animation").PlayBackwards("dissolve");
+			GetNode<AnimationPlayer>("Animation").Disconnect("AnimationFinish", new Callable(this, "_OnAnimationFinished"));
+		}
+		else
+		{
+			GetTree().ReloadCurrentScene();
+			GetNode<AnimationPlayer>("Animation").PlayBackwards("dissolve");
+			GetNode<AnimationPlayer>("Animation").Disconnect("AnimationFinish", new Callable(this, "_OnAnimationFinished"));
+		}
 	}
 
 }

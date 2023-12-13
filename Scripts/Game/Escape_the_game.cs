@@ -9,6 +9,10 @@ public partial class Escape_the_game : Control
 	int height = 5;
 	[Export]
 	int width = 8;
+	[Export]
+	int ScoreToHave = 3;
+	[Export]
+	float TimeAll = 10;
 
 	Vector2 selected = new Vector2(0,0);
 
@@ -16,12 +20,24 @@ public partial class Escape_the_game : Control
 
 	Node vbox = null;
 	Label label = null;
+	Timer TimerAll = null;
 	public override void _Ready()
 	{
+		AddChild(new Timer
+		{
+			Name = "TimerAll",
+			Autostart = true,
+			WaitTime = TimeAll,
+			OneShot = true
+		});
+		TimerAll = GetNode<Timer>("TimerAll");
+		TimerAll.Connect(Timer.SignalName.Timeout,new Callable(this,"TimeRanOut"));
+		// i.Connect("script_changed",new Callable(this,"Tp_entered"));
 		//global = GetParent().GetNode<Global>("Global");
 		SceneTransition = GetParent().GetNode<Scene_transition>("SceneTransition");
 		
 		label = GetNode<Label>("Label");
+		
 		// AddChild(new Label
 		// {
 		// 	LayoutMode = 1,
@@ -143,6 +159,11 @@ public partial class Escape_the_game : Control
 				x.AddChild(colorRect);
 			}
 		}
+	}
+
+	private void TimeRanOut()
+	{
+		SceneTransition.Call("changeScene",this,true);
 	}
 
 
