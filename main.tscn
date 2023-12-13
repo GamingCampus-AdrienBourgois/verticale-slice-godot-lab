@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://degk0tj8lto51"]
+[gd_scene load_steps=79 format=3 uid="uid://degk0tj8lto51"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_8aswi"]
 [ext_resource type="PackedScene" uid="uid://c767xbfu781tp" path="res://Scenes/Player/player.tscn" id="2_cxfpo"]
@@ -25,6 +25,7 @@
 [ext_resource type="Script" path="res://Scripts/Components/ObjectForFixVert.cs" id="23_klot5"]
 [ext_resource type="PackedScene" uid="uid://cwjvrs1os6rp6" path="res://Scenes/Components/FixVert.tscn" id="24_cg7jq"]
 [ext_resource type="PackedScene" uid="uid://db20a5ijr88h5" path="res://Scenes/Components/Fruit.tscn" id="25_5na4j"]
+[ext_resource type="Script" path="res://Scripts/Components/FruitGame.cs" id="25_kl4gw"]
 [ext_resource type="Script" path="res://Scripts/Mecanics/IceRoom.cs" id="26_w0xqu"]
 [ext_resource type="Script" path="res://Scripts/Components/ObjectFixArea.cs" id="27_558j3"]
 [ext_resource type="PackedScene" path="res://Scenes/Components/FolderNote.tscn" id="28_4xuyr"]
@@ -1204,11 +1205,14 @@ position = Vector2(-149, -253)
 position = Vector2(-148, -302)
 
 [node name="FruitGame" type="Node" parent="."]
+script = ExtResource("25_kl4gw")
 
 [node name="Areas" type="Node" parent="FruitGame"]
 
-[node name="FruitArea" parent="FruitGame/Areas" instance=ExtResource("16_3jsu8")]
+[node name="FruitArea" parent="FruitGame/Areas" groups=["True"] instance=ExtResource("16_3jsu8")]
 position = Vector2(-422, -515)
+collision_layer = 2
+collision_mask = 2
 
 [node name="FruitArea2" parent="FruitGame/Areas" instance=ExtResource("16_3jsu8")]
 position = Vector2(-506, -513)
@@ -1242,8 +1246,62 @@ position = Vector2(-1245, -526)
 
 [node name="Objects" type="Node" parent="FruitGame"]
 
-[node name="Fruit" parent="FruitGame/Objects" instance=ExtResource("25_5na4j")]
-position = Vector2(-651, -513)
+[node name="Fruit" parent="FruitGame/Objects" groups=["Kiwi", "True"] instance=ExtResource("25_5na4j")]
+position = Vector2(-955, -325)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Fruit2" parent="FruitGame/Objects" groups=["Kiwi"] instance=ExtResource("25_5na4j")]
+position = Vector2(-890, -326)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Fruit3" parent="FruitGame/Objects" groups=["Kiwi"] instance=ExtResource("25_5na4j")]
+position = Vector2(-826, -325)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Fruit4" parent="FruitGame/Objects" instance=ExtResource("25_5na4j")]
+position = Vector2(-762, -323)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Fruit5" parent="FruitGame/Objects" instance=ExtResource("25_5na4j")]
+position = Vector2(-700, -322)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Fruit6" parent="FruitGame/Objects" instance=ExtResource("25_5na4j")]
+position = Vector2(-636, -322)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Fruit7" parent="FruitGame/Objects" instance=ExtResource("25_5na4j")]
+position = Vector2(-569, -323)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Fruit8" parent="FruitGame/Objects" instance=ExtResource("25_5na4j")]
+position = Vector2(-501, -325)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Fruit9" parent="FruitGame/Objects" instance=ExtResource("25_5na4j")]
+position = Vector2(-431, -327)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Fruit10" parent="FruitGame/Objects" instance=ExtResource("25_5na4j")]
+position = Vector2(-371, -323)
+rotation = 3.05342
+collision_layer = 2
+collision_mask = 2
+
+[node name="Fruit11" parent="FruitGame/Objects" instance=ExtResource("25_5na4j")]
+position = Vector2(-912, -265)
+rotation = 3.05342
+collision_layer = 2
+collision_mask = 2
 
 [node name="PC" parent="." instance=ExtResource("10_gflbg")]
 position = Vector2(-295, 138)
