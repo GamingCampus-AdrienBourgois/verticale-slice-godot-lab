@@ -8,9 +8,17 @@ public partial class FolderNote : CharacterBody2D
 	private CanvasLayer FolderHud;
 	private bool interact = false;
 	private bool isShow = false;
+
+	[Export]
+	public Texture2D img;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		if (img != null)
+		{
+			GetNode<CanvasLayer>("CanvasLayer").GetNode<PanelContainer>("PanelContainer").GetNode<Sprite2D>("Sprite2D").Texture = img;
+		}
 		player = GetParent().GetParent().GetNode<Player>("Player");
 		FolderHud = GetNode<CanvasLayer>("CanvasLayer");
 		if (FolderHud != null)
