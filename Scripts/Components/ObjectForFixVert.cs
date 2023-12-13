@@ -28,11 +28,14 @@ public partial class ObjectForFixVert : Node
 	{
 		if(body.IsInGroup("FixVert"))
 		{
-			ObjectFixedArea.Call("FixedChange");
-			PedestalsActives++;
-			
-			if (PedestalsActives >= PedestalsToActive){
-				GD.Print("Pedestal activated");
+			if(ObjectFixedArea.GetState() == false)
+			{
+				ObjectFixedArea.Call("FixedChange");
+				PedestalsActives++;
+			}
+			// Sinon au lieu de ça, faire un foreach des enfants et check leur state
+			if (PedestalsActives == PedestalsToActive){
+				GD.Print("FixVert activated");
 				STATE = true;
 				// Changer la variable dans le global ou faire un emit au main
 			}
@@ -43,10 +46,13 @@ public partial class ObjectForFixVert : Node
 	{
 		if(body.IsInGroup("FixVert"))
 		{
-			Area.Call("FixedChange");
-			GD.Print();
-			PedestalsActives--;
-			STATE = false;
+			if(Area.GetState() == true)
+			{
+				Area.Call("FixedChange");
+				PedestalsActives--;
+				STATE = false;
+			}
+
 		}
 	}
 }

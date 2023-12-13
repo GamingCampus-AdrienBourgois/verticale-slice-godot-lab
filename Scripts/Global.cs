@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public partial class Global : Node
 {
+	//public int Solved_escape_game = 0;
 	public bool Niveau_1 = false;
 	public bool Niveau_2 = false;
 	public bool Niveau_3 = false;
