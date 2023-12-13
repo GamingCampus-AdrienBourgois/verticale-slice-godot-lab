@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://degk0tj8lto51"]
+[gd_scene load_steps=77 format=3 uid="uid://degk0tj8lto51"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_8aswi"]
 [ext_resource type="PackedScene" uid="uid://c767xbfu781tp" path="res://Scenes/Player/player.tscn" id="2_cxfpo"]
@@ -33,6 +33,9 @@
 [ext_resource type="PackedScene" uid="uid://bk6nab6nklg47" path="res://Scenes/Components/ObjectBedroom.tscn" id="29_uguob"]
 [ext_resource type="Texture2D" uid="uid://cpuqjugh8sff" path="res://assets/loopoutlogo-removebg-preview.png" id="31_ykc4o"]
 [ext_resource type="PackedScene" uid="uid://c1orudm7getch" path="res://Scenes/Components/StickyNote.tscn" id="32_rrml4"]
+[ext_resource type="Script" path="res://Scripts/Components/Bedroom.cs" id="28_wxtn0"]
+[ext_resource type="PackedScene" uid="uid://bk6nab6nklg47" path="res://Scenes/Components/ObjectBedroom.tscn" id="29_uguob"]
+[ext_resource type="PackedScene" uid="uid://lslqnak1qpv1" path="res://Scenes/Components/Note.tscn" id="34_xqgb4"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_k0qkj"]
 tile_data = PackedInt32Array(0, 1441793, 4, 65536, 1572865, 4, 1, 1572865, 4, 65537, 1441793, 4)
@@ -1406,16 +1409,12 @@ GroupToAdd = "Hugo"
 position = Vector2(117, 467)
 GroupToAdd = "Anthony"
 
-[node name="FolderNote" type="Node" parent="."]
+[node name="Note" type="Node" parent="."]
 
-[node name="TestNote" parent="FolderNote" instance=ExtResource("28_4xuyr")]
-position = Vector2(773, 521)
-img = ExtResource("31_ykc4o")
-
-[node name="StickyNote" type="Node" parent="."]
-
-[node name="StickyNote" parent="StickyNote" instance=ExtResource("32_rrml4")]
-position = Vector2(-163, 184)
+[node name="Note2" parent="Note" instance=ExtResource("34_xqgb4")]
+position = Vector2(-80, 195)
+StickyNote = true
+text = "Une poutre en bois pointe du doit une poutre de métale"
 
 [connection signal="OFF" from="Ice/IceDec1" to="Ice" method="_on_ice_dec_1_off"]
 [connection signal="ON" from="Ice/IceDec1" to="Ice" method="_on_ice_dec_1_on"]
