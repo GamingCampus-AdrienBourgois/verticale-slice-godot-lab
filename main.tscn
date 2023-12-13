@@ -1357,7 +1357,7 @@ img = ExtResource("31_ykc4o")
 [node name="StickyNote" type="Node" parent="."]
 
 [node name="StickyNote" parent="StickyNote" instance=ExtResource("32_rrml4")]
-position = Vector2(-114, 183)
+position = Vector2(-163, 184)
 
 [connection signal="OFF" from="Ice/IceDec1" to="Ice" method="_on_ice_dec_1_off"]
 [connection signal="ON" from="Ice/IceDec1" to="Ice" method="_on_ice_dec_1_on"]

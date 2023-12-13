@@ -1,14 +1,62 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1orudm7getch"]
+[gd_scene load_steps=5 format=3 uid="uid://c1orudm7getch"]
 
+[ext_resource type="Script" path="res://Scripts/Components/StickyNote.cs" id="1_1ygaf"]
 [ext_resource type="Texture2D" uid="uid://bnmkl1gwaqahx" path="res://icon.svg" id="1_lf57o"]
+[ext_resource type="FontFile" uid="uid://dox4m0tdho7s7" path="res://assets/Components/monogram-extended.ttf" id="2_pwqj8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rf041"]
+size = Vector2(130, 130)
 
 [node name="StickyNote" type="Area2D"]
 scale = Vector2(0.2, 0.2)
+script = ExtResource("1_1ygaf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_lf57o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-7.15256e-06, 7.15256e-06)
+scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_rf041")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -125.0
+offset_right = 125.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.819608, 0, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -125.0
+offset_right = 125.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("2_pwqj8")
+theme_override_font_sizes/font_size = 24
+text = "Bla Bla Bla Bla Bla Bla Bla"
+autowrap_mode = 2
+clip_text = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

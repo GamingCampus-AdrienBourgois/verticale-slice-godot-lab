@@ -26,16 +26,16 @@ public partial class FixWire : Area2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if (interact == true)
+		if (interact)
 		{
-			if (Input.IsActionJustPressed("Interact") && isShow == false)
+			if (Input.IsActionJustPressed("Interact") && !isShow)
 			{
 				isShow = true;
 				player.inputOnFocus = true;
 				fixWireHud.Visible = isShow;
 				menuCursor.isWiring = true;
 
-			} else if (Input.IsActionJustPressed("ui_cancel") && isShow == true)
+			} else if (Input.IsActionJustPressed("ui_cancel") && isShow)
 			{
 				isShow = false;
 				player.inputOnFocus = false;
@@ -46,12 +46,12 @@ public partial class FixWire : Area2D
 
 	public void ShowText()
 	{
-		if (interact == true)
+		if (interact)
 		{
 			player.to_label.Text = "E to interact";
 			player.ui_animations.Play("appear");
 		}
-		else if (interact == false)
+		else if (!interact)
 		{
 			player.ui_animations.PlayBackwards("appear");
 		}
