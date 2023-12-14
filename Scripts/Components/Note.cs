@@ -45,9 +45,7 @@ public partial class Note : CharacterBody2D
 		if (!StickyNote)
 		{
 			AddToGroup("FolderNote");
-
 			GetNode<Area2D>("Area2D").GetNode<CollisionShape2D>("CollisionShape2D").Disabled = true;
-
 
 			if (img != null)
 			{
@@ -82,11 +80,7 @@ public partial class Note : CharacterBody2D
 		{
 			if(interact)
 			{
-				if (Input.IsActionJustPressed("Interact") && !isShow)
-				{
-					ShowStickyNote();
-				}
-				else if (Input.IsActionJustPressed("ui_cancel") && isShow)
+				if (Input.IsActionJustPressed("Interact"))
 				{
 					ShowStickyNote();
 				}

@@ -26,21 +26,26 @@ public partial class FixWire : Area2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if (interact)
+		if (Input.IsActionJustPressed("Interact") && interact)
 		{
-			if (Input.IsActionJustPressed("Interact") && !isShow)
-			{
-				isShow = true;
-				player.inputOnFocus = true;
-				fixWireHud.Visible = isShow;
-				menuCursor.isWiring = true;
+			ShowWireHud();
+		}
+	}
 
-			} else if (Input.IsActionJustPressed("ui_cancel") && isShow)
-			{
-				isShow = false;
-				player.inputOnFocus = false;
-				fixWireHud.Visible = isShow;
-			}
+	private void ShowWireHud()
+	{
+		if (!isShow)
+		{
+			isShow = true;
+			player.inputOnFocus = true;
+			fixWireHud.Visible = isShow;
+			menuCursor.isWiring = true;
+		}
+		else
+		{
+			isShow = false;
+			player.inputOnFocus = false;
+			fixWireHud.Visible = isShow;
 		}
 	}
 
@@ -78,11 +83,8 @@ public partial class FixWire : Area2D
 
 	public void WireIsFix()
 	{
-		isShow = false;
-		player.inputOnFocus = false;
-		fixWireHud.Visible = isShow;
+		ShowWireHud();
 		GD.Print("Cable Reparer");
-
 		// Faire plus propre avec un signal si on veut
 		Node WireDoors = GetParent().GetNode("Doors").GetNode("WireDoors");
 		foreach(door i in WireDoors.GetChildren())

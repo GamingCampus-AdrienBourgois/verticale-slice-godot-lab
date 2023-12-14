@@ -5,6 +5,33 @@
 [ext_resource type="FontFile" uid="uid://dox4m0tdho7s7" path="res://assets/Components/monogram-extended.ttf" id="2_3cpje"]
 [ext_resource type="Texture2D" uid="uid://cpuqjugh8sff" path="res://assets/loopoutlogo-removebg-preview.png" id="3_8gurd"]
 
+[sub_resource type="Animation" id="Animation_vqmeu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles2D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(586, 50)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(594, 568)]
+}
+
 [sub_resource type="Animation" id="Animation_wqjsf"]
 resource_name = "start"
 length = 14.0
@@ -139,33 +166,6 @@ tracks/10/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(280, 270)]
-}
-
-[sub_resource type="Animation" id="Animation_vqmeu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("GPUParticles2D2:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(586, 50)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("GPUParticles2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(594, 568)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m1mwl"]

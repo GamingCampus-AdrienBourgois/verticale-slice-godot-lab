@@ -79,7 +79,7 @@ public partial class Player : CharacterBody2D
 		if (!inputOnFocus)
 		{
 
-			if (Input.IsActionJustPressed("Interact") && !inputOnFocus)
+			if (Input.IsActionJustPressed("Interact"))
 			{
 				if(item != null)
 				{
@@ -98,25 +98,26 @@ public partial class Player : CharacterBody2D
 					
 			}
 	
-			if (Input.IsActionJustPressed("Accept") && !inputOnFocus){
+			if (Input.IsActionJustPressed("Accept")){
 				if (item != null && pickedUpItem == null && item.IsInGroup("Pickable")){
 					PickUp(item);
 				}
-				else if (pickedUpItem.IsInGroup("FolderNote")) {
-					Note body = (Note)pickedUpItem;
-					body.CloseFolder();
-					Throw();
-				}
-				else if (pickedUpItem != null){
-					Throw();
-				}
-				else if (pickedUpItem == null && item == null)
+				else if (pickedUpItem != null)
 				{
-				
+					if (pickedUpItem.IsInGroup("FolderNote")) 
+					{
+						Note body = (Note)pickedUpItem;
+						body.CloseFolder();
+						Throw();
+						}
+					else
+					{
+						Throw();
+					}
 				}
 			}
-	
-			if (Input.IsActionJustPressed("Use") && !inputOnFocus && pickedUpItem != null)
+
+			if (Input.IsActionJustPressed("Use") && pickedUpItem != null)
 			{
 				if (pickedUpItem.IsInGroup("FolderNote"))
 				{
@@ -207,6 +208,7 @@ public partial class Player : CharacterBody2D
 		}
 		
 	}
+	
 	private void _on_area_2d_body_exited(Node2D body)
 	{
 		if (item == body){
@@ -235,14 +237,18 @@ public partial class Player : CharacterBody2D
 	{
 		MarkerArea.RotationDegrees = Rotate1;
 		MarkerObject.RotationDegrees = Rotate2;
-		if(pickedUpItem != null) 
+		if (!inputOnFocus)
 		{
-			animatedSprite.Play(string1);
+			if(pickedUpItem != null) 
+			{
+				animatedSprite.Play(string1);
+			}
+			else 
+			{
+				animatedSprite.Play(string2);
+			}
 		}
-		else 
-		{
-			animatedSprite.Play(string2);
-		}
+		
 	}
 
 }
