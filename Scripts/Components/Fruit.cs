@@ -6,7 +6,6 @@ public partial class Fruit : CharacterBody2D
 
 	[Export]
 	Texture2D Sprite;
-	// A garder comme idée
 
 	// Kiwi bon fruit
 	// Mettre groupe True et Kiwi pour le bon fruit

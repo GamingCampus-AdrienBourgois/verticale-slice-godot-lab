@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bb4p4xqbsmgo"]
+[gd_scene load_steps=9 format=3 uid="uid://bb4p4xqbsmgo"]
 
 [ext_resource type="TileSet" uid="uid://cnowwr0gr3n55" path="res://Platformer/scenes/tilemap_platformer.tres" id="1_ovbht"]
 [ext_resource type="Texture2D" uid="uid://jnwv8osmr4bx" path="res://Platformer/imports/monochrome_tilemap_transparent_packed.png" id="2_vhs7s"]
 [ext_resource type="PackedScene" uid="uid://coltq3dqh0sx3" path="res://Scenes/Menu/SleepZzz.tscn" id="3_yme7h"]
 [ext_resource type="Texture2D" uid="uid://bey7i5be60sen" path="res://assets/Space Background3.png" id="4_qffpx"]
+[ext_resource type="FontFile" uid="uid://dox4m0tdho7s7" path="res://assets/Components/monogram-extended.ttf" id="5_mhmot"]
 
 [sub_resource type="Animation" id="Animation_bul7m"]
 length = 0.001
@@ -22,7 +23,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_k3uio"]
 resource_name = "credits"
-length = 16.0
+length = 75.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -30,10 +31,10 @@ tracks/0/path = NodePath("Sprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6, 6),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.6, 6, 7.2, 8.5, 9.5, 10.5, 11.5, 14, 22.1, 26.3619, 27.1, 33, 36, 36.4, 36.8, 37.1, 37.6, 40, 41, 43.5, 44.1, 45.1, 46.5, 46.9, 47.3, 49, 50, 54.1, 56.8, 58.6, 59.3, 60.4, 60.6, 60.9, 61.6, 62.3, 63.1, 68),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(336, 135), Vector2(336, 591), Vector2(843.445, 591)]
+"values": [Vector2(336, 135), Vector2(336, 591), Vector2(843.445, 591), Vector2(843.445, 591), Vector2(-25, 208), Vector2(52, 208), Vector2(85, 172), Vector2(151, 160), Vector2(229, 595), Vector2(849, 595), Vector2(849, 595), Vector2(1008, -32), Vector2(1006, 270), Vector2(849, 272), Vector2(828, 247), Vector2(804, 232), Vector2(785, 243), Vector2(777, 274), Vector2(781, 593), Vector2(851, 593), Vector2(851, 593), Vector2(48, 83), Vector2(48, 83), Vector2(112, 83), Vector2(137, 53), Vector2(170, 46), Vector2(271, 591), Vector2(271, 591), Vector2(847, 592), Vector2(847, 592), Vector2(505, -32), Vector2(505, -32), Vector2(506, 81), Vector2(526, 66), Vector2(564, 47), Vector2(629, 326), Vector2(681, 594), Vector2(681, 594), Vector2(849, 596)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -54,10 +55,10 @@ tracks/2/path = NodePath("Sprite2D/Label:self_modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(-0.4, 0.9, 2.4, 6, 7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(-0.4, 0.9, 2.4, 6, 7, 13.5, 15, 22, 25.3, 32.9, 34.1, 41, 43.1, 44, 49.1, 50.2, 54.5, 56.6, 61, 62.4, 68.2, 69),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -66,10 +67,41 @@ tracks/3/path = NodePath("Sprite2D:self_modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 6, 7),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 6, 7, 8, 8.4, 22.2, 25.2, 27.3, 28.1, 41, 43, 44.1, 45.2, 54.5, 56.5, 58.8, 59.3, 68.1, 69),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D/Label:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 12.9, 25.7, 26.8, 43.5, 48.1, 54.6, 58.8, 68.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["Jarod ", "Henry
+", "Henry
+", "Anthony
+
+", "Anthony
+", "Victor", "Victor
+", "Hugo
+", "Hugo"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Thanks:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(-0.3, 70, 73.2),
+"transitions": PackedFloat32Array(1, 3.86374, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ru7vp"]
@@ -86,6 +118,35 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -10
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = -9.0
+offset_right = 4.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Bg" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(578.5, 323.5)
+scale = Vector2(1.04636, 1.085)
+texture = ExtResource("4_qffpx")
+
+[node name="Sprite2D4" parent="." instance=ExtResource("3_yme7h")]
+position = Vector2(1036, 262)
+
+[node name="Sprite2D3" parent="." instance=ExtResource("3_yme7h")]
+position = Vector2(226, 587)
+
+[node name="Sprite2D2" parent="." instance=ExtResource("3_yme7h")]
+position = Vector2(20, 199)
+
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
 scale = Vector2(2, 2)
@@ -98,17 +159,8 @@ layer_1/name = "Elements"
 layer_1/z_index = -8
 layer_1/tile_data = PackedInt32Array()
 
-[node name="ColorRect" type="ColorRect" parent="."]
-z_index = -10
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0)
 texture_filter = 1
 position = Vector2(843.445, 591)
 scale = Vector2(2, 2)
@@ -119,12 +171,13 @@ frame = 240
 
 [node name="Label" type="Label" parent="Sprite2D"]
 self_modulate = Color(1, 1, 1, 0)
-offset_left = -77.2225
-offset_top = -71.5
-offset_right = 102.777
-offset_bottom = 16.5
-theme_override_font_sizes/font_size = 32
-text = "Jarod "
+offset_left = -92.5
+offset_top = -75.0
+offset_right = 87.4995
+offset_bottom = 13.0
+theme_override_fonts/font = ExtResource("5_mhmot")
+theme_override_font_sizes/font_size = 64
+text = "Hugo"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -132,17 +185,12 @@ libraries = {
 }
 autoplay = "credits"
 
-[node name="Sprite2D2" parent="." instance=ExtResource("3_yme7h")]
-position = Vector2(20, 199)
-
-[node name="Sprite2D3" parent="." instance=ExtResource("3_yme7h")]
-position = Vector2(226, 587)
-
-[node name="Sprite2D4" parent="." instance=ExtResource("3_yme7h")]
-position = Vector2(1036, 262)
-
-[node name="Bg" type="Sprite2D" parent="."]
-z_index = -10
-position = Vector2(578.5, 323.5)
-scale = Vector2(1.04636, 1.085)
-texture = ExtResource("4_qffpx")
+[node name="Thanks" type="Label" parent="."]
+layout_mode = 0
+offset_left = 49.0
+offset_top = 421.0
+offset_right = 1153.0
+offset_bottom = 525.0
+theme_override_fonts/font = ExtResource("5_mhmot")
+theme_override_font_sizes/font_size = 128
+text = "Thank you for playing !"
