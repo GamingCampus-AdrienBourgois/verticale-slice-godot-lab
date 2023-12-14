@@ -1,0 +1,285 @@
+[gd_scene load_steps=13 format=3 uid="uid://cokearix5kfdo"]
+
+[ext_resource type="Script" path="res://Scripts/Menu/Start_game.cs" id="1_2klof"]
+[ext_resource type="Texture2D" uid="uid://6hg7qrysuf0g" path="res://assets/logo_studio.PNG" id="1_awn1u"]
+[ext_resource type="FontFile" uid="uid://dox4m0tdho7s7" path="res://assets/Components/monogram-extended.ttf" id="2_3cpje"]
+[ext_resource type="Texture2D" uid="uid://cpuqjugh8sff" path="res://assets/loopoutlogo-removebg-preview.png" id="3_8gurd"]
+
+[sub_resource type="Animation" id="Animation_wqjsf"]
+resource_name = "start"
+length = 14.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 5, 5.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:visible_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.9, 2.2, 5, 5.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D2:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 6.6, 8.6, 10.1, 13),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GPUParticles2D:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(8.6),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GPUParticles2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(8.6),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(594, 568)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("GPUParticles2D2:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(8.6),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("GPUParticles2D2:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(8.6),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(586, 50)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("GPUParticles2D3:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(8.6),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("GPUParticles2D3:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(8.6),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(990, 262)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("GPUParticles2D4:emitting")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(8.6),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("GPUParticles2D4:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(8.6),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(280, 270)]
+}
+
+[sub_resource type="Animation" id="Animation_vqmeu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GPUParticles2D2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(586, 50)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(594, 568)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m1mwl"]
+_data = {
+"RESET": SubResource("Animation_vqmeu"),
+"start": SubResource("Animation_wqjsf")
+}
+
+[sub_resource type="Gradient" id="Gradient_45i41"]
+colors = PackedColorArray(1, 0, 0.101961, 1, 1, 1, 1, 0.309804)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_acge6"]
+gradient = SubResource("Gradient_45i41")
+
+[sub_resource type="Curve" id="Curve_mv2tl"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, -162.264), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_csb2i"]
+curve = SubResource("Curve_mv2tl")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_icw4n"]
+particle_flag_disable_z = true
+angle_max = 360.0
+spread = 180.0
+initial_velocity_min = 150.0
+initial_velocity_max = 250.0
+linear_accel_curve = SubResource("CurveTexture_csb2i")
+scale_min = 10.0
+scale_max = 15.0
+color_ramp = SubResource("GradientTexture1D_acge6")
+
+[node name="StartGame" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2klof")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(577, 274)
+texture = ExtResource("1_awn1u")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_m1mwl")
+}
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -190.0
+offset_top = -147.0
+offset_right = 194.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_3cpje")
+theme_override_font_sizes/font_size = 128
+text = "Présente"
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.0046851)
+position = Vector2(586, 312)
+texture = ExtResource("3_8gurd")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(594, 568)
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_icw4n")
+one_shot = true
+explosiveness = 0.5
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+position = Vector2(586, 50)
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_icw4n")
+one_shot = true
+explosiveness = 0.5
+
+[node name="GPUParticles2D3" type="GPUParticles2D" parent="."]
+position = Vector2(990, 262)
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_icw4n")
+one_shot = true
+explosiveness = 0.5
+
+[node name="GPUParticles2D4" type="GPUParticles2D" parent="."]
+position = Vector2(280, 270)
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_icw4n")
+one_shot = true
+explosiveness = 0.5
