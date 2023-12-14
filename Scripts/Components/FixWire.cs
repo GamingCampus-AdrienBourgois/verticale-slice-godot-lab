@@ -26,7 +26,7 @@ public partial class FixWire : Area2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		if (Input.IsActionJustPressed("Interact") && interact)
+		if (Input.IsActionJustPressed("Interact") && interact && !WireIsFinish)
 		{
 			ShowWireHud();
 		}
@@ -84,6 +84,7 @@ public partial class FixWire : Area2D
 	public void WireIsFix()
 	{
 		ShowWireHud();
+		ShowText();
 		GD.Print("Cable Reparer");
 		// Faire plus propre avec un signal si on veut
 		Node WireDoors = GetParent().GetNode("Doors").GetNode("WireDoors");
