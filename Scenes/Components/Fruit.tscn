@@ -14,3 +14,5 @@ shape = SubResource("CircleShape2D_c6stl")
 [node name="Polygon2D" type="Polygon2D" parent="."]
 color = Color(1, 0.490196, 0, 1)
 polygon = PackedVector2Array(-1, 23, -12, 18, -21, 7, -22, -3, -17, -13, -4, -19, 11, -17, 20, -6, 22, 7, 13, 13, 4, 20)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
