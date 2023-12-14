@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://do4yo7e1llxir"]
+
+[ext_resource type="AudioStream" uid="uid://cw7bqtdbmyxph" path="res://assets/Imports/Musics/loopoutmusic_low_mb.mp3" id="1_cayem"]
+
+[node name="Bg_Music" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_cayem")
+volume_db = -5.0
+autoplay = true

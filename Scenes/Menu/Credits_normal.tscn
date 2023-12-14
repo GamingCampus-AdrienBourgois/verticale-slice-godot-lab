@@ -1,8 +1,10 @@
-[gd_scene load_steps=109 format=3 uid="uid://be353e4m8imf7"]
+[gd_scene load_steps=111 format=3 uid="uid://be353e4m8imf7"]
 
 [ext_resource type="Script" path="res://Scripts/Menu/Credits_normal.cs" id="1_gy0xd"]
 [ext_resource type="Texture2D" uid="uid://c7vkqbit3dyy8" path="res://assets/Imports/3171765344.png" id="1_ic7pj"]
+[ext_resource type="AudioStream" uid="uid://1vmt2j7yig5b" path="res://assets/Imports/Musics/loopoutcredits_low_mb.mp3" id="2_5ecgk"]
 [ext_resource type="FontFile" uid="uid://dox4m0tdho7s7" path="res://assets/Components/monogram-extended.ttf" id="2_d81oa"]
+[ext_resource type="Texture2D" uid="uid://ctvpufr2i07by" path="res://assets/Space Background.png" id="5_23vw8"]
 
 [sub_resource type="Animation" id="Animation_s33h4"]
 resource_name = "End"
@@ -858,6 +860,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gy0xd")
+Music = ExtResource("2_5ecgk")
 LesGens = PackedStringArray("Jarod", "Henry", "Anthony", "Victor", "Hugo")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -866,6 +869,7 @@ libraries = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
+z_index = -2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -898,3 +902,10 @@ grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_d81oa")
 theme_override_font_sizes/font_size = 128
 text = "Thank you for playing !"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+position = Vector2(577.75, 322.25)
+scale = Vector2(1.05136, 1.0775)
+texture = ExtResource("5_23vw8")

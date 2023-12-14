@@ -12,12 +12,13 @@ public partial class Menu : Control
 	private List<NodePath> List_labels;
 
 	private Scene_transition SceneTransition = null;
+	private AudioStreamPlayer audio = null;
 
 	public override void _Ready()
 	{
 		ChangeColor();
 			
-
+		audio = GetNode<AudioStreamPlayer>("Audio");
 		SceneTransition = GetParent().GetNode<Scene_transition>("SceneTransition");
 
 		// Veut pas prendre ça dans une liste
@@ -83,6 +84,7 @@ public partial class Menu : Control
 			SelectedIndex = 0;
 			
 		}
+		audio.Play();
 	}
 
 	private void ChangeColor(){
