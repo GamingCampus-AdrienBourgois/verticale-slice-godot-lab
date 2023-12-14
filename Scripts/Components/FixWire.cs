@@ -82,6 +82,12 @@ public partial class FixWire : Area2D
 		player.inputOnFocus = false;
 		fixWireHud.Visible = isShow;
 		GD.Print("Cable Reparer");
-	}
 
+		// Faire plus propre avec un signal si on veut
+		Node WireDoors = GetParent().GetNode("Doors").GetNode("WireDoors");
+		foreach(door i in WireDoors.GetChildren())
+		{
+			i.DoorOpenedChange();
+		}
+	}
 }

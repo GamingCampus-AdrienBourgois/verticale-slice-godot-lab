@@ -14,6 +14,7 @@ config/name="Loop_Out"
 config/description="Loop_Out game"
 run/main_scene="res://Scenes/Menu/Menu.tscn"
 config/features=PackedStringArray("4.2", "C#", "GL Compatibility")
+boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
 config/icon="res://assets/loopoutlogo-removebg-preview.png"
 config/windows_native_icon="res://assets/loopoutico.ico"

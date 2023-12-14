@@ -37,11 +37,13 @@ public partial class door : StaticBody2D
 	public void DoorOpenedChange(){
 		if (collision.Disabled == true){
 			collision.Disabled = false;
-			this.Modulate = NotOpenedColor;
+			//sprite.Modulate = NotOpenedColor;
+			sprite.Modulate = OpenedColor;
 		}
 		else {
 			collision.Disabled = true;
-			this.Modulate = OpenedColor;
+			//sprite.Modulate = OpenedColor;
+			sprite.Modulate = NotOpenedColor;
 		}
 	}
 }

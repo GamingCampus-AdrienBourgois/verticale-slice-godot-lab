@@ -30,7 +30,6 @@ public partial class Bedroom : Node
 				GD.Print("FINISHED");
 			}
 		}
-		
 	}
 	private void BedDesactivated(Area2D area, Node2D body)
 	{

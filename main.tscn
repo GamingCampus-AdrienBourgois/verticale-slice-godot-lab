@@ -30,7 +30,7 @@
 [ext_resource type="Script" path="res://Scripts/Components/ObjectFixArea.cs" id="27_558j3"]
 [ext_resource type="Script" path="res://Scripts/Components/Bedroom.cs" id="28_wxtn0"]
 [ext_resource type="PackedScene" uid="uid://bk6nab6nklg47" path="res://Scenes/Components/ObjectBedroom.tscn" id="29_uguob"]
-[ext_resource type="PackedScene" path="res://Scenes/Components/Note.tscn" id="34_xqgb4"]
+[ext_resource type="PackedScene" uid="uid://lslqnak1qpv1" path="res://Scenes/Components/Note.tscn" id="34_xqgb4"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_k0qkj"]
 tile_data = PackedInt32Array(0, 1441793, 4, 65536, 1572865, 4, 1, 1572865, 4, 65537, 1441793, 4)
@@ -949,7 +949,7 @@ position = Vector2(-581, 777)
 position = Vector2(-578, 706)
 
 [node name="ObjectToFix6" parent="ObjectForFix/Objects" instance=ExtResource("17_bbyt8")]
-position = Vector2(-412, 745)
+position = Vector2(-411, 744)
 
 [node name="ObjectToFix7" parent="ObjectForFix/Objects" instance=ExtResource("17_bbyt8")]
 position = Vector2(-574, 657)
@@ -987,12 +987,6 @@ position = Vector2(311, 149)
 physics_material_override = SubResource("PhysicsMaterial_nrhup")
 
 [node name="Doors" type="Node" parent="."]
-
-[node name="Door" parent="Doors" instance=ExtResource("6_e23jg")]
-position = Vector2(-669, 239)
-Opened = true
-OpenedColor = Color(0.996078, 0.368627, 0.243137, 1)
-NotOpenedColor = Color(1, 1, 1, 1)
 
 [node name="Door4" parent="Doors" instance=ExtResource("6_e23jg")]
 position = Vector2(-336, -31)
@@ -1099,7 +1093,14 @@ Opened = true
 OpenedColor = Color(0.996078, 0.368627, 0.243137, 1)
 NotOpenedColor = Color(1, 1, 1, 1)
 
-[node name="Door3" parent="Doors" instance=ExtResource("6_e23jg")]
+[node name="WireDoors" type="Node" parent="Doors"]
+
+[node name="Door" parent="Doors/WireDoors" instance=ExtResource("6_e23jg")]
+position = Vector2(-669, 239)
+OpenedColor = Color(0.996078, 0.368627, 0.243137, 1)
+NotOpenedColor = Color(1, 1, 1, 1)
+
+[node name="Door3" parent="Doors/WireDoors" instance=ExtResource("6_e23jg")]
 position = Vector2(-511, 993)
 scale = Vector2(0.55, 0.55)
 Opened = true
@@ -1333,6 +1334,7 @@ script = ExtResource("28_wxtn0")
 [node name="BedArea" type="Area2D" parent="Bedroom/Areas"]
 position = Vector2(-105, 359)
 script = ExtResource("27_558j3")
+Group = "Victor"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bedroom/Areas/BedArea"]
 position = Vector2(157, 112)
@@ -1341,6 +1343,7 @@ polygon = PackedVector2Array(-48, -38, -48, -193, -245, -188, -251, -38)
 [node name="BedArea2" type="Area2D" parent="Bedroom/Areas"]
 position = Vector2(307, 356)
 script = ExtResource("27_558j3")
+Group = "Lucie"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bedroom/Areas/BedArea2"]
 position = Vector2(157, 112)
@@ -1349,6 +1352,7 @@ polygon = PackedVector2Array(-269, -31, -49, -31, -49, -184, -269, -184)
 [node name="BedArea3" type="Area2D" parent="Bedroom/Areas"]
 position = Vector2(314, 543)
 script = ExtResource("27_558j3")
+Group = "Henry"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bedroom/Areas/BedArea3"]
 position = Vector2(157, 112)
@@ -1357,6 +1361,7 @@ polygon = PackedVector2Array(-466, -207, -662, -207, -663, -13, -467, -12)
 [node name="BedArea4" type="Area2D" parent="Bedroom/Areas"]
 position = Vector2(-104, 543)
 script = ExtResource("27_558j3")
+Group = "Hugo"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bedroom/Areas/BedArea4"]
 position = Vector2(157, 112)
@@ -1365,6 +1370,7 @@ polygon = PackedVector2Array(140, -12, 394, -11, 395, -78, 364, -80, 362, -204, 
 [node name="BedArea5" type="Area2D" parent="Bedroom/Areas"]
 position = Vector2(-101, 751)
 script = ExtResource("27_558j3")
+Group = "Jarod"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bedroom/Areas/BedArea5"]
 position = Vector2(157, 112)
@@ -1373,6 +1379,7 @@ polygon = PackedVector2Array(-54, -4, -247, 0, -248, -208, -52, -208)
 [node name="BedArea6" type="Area2D" parent="Bedroom/Areas"]
 position = Vector2(320, 752)
 script = ExtResource("27_558j3")
+Group = "Anthony"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bedroom/Areas/BedArea6"]
 position = Vector2(157, 112)
@@ -1407,9 +1414,39 @@ GroupToAdd = "Anthony"
 [node name="Note" type="Node" parent="."]
 
 [node name="Note2" parent="Note" instance=ExtResource("34_xqgb4")]
-position = Vector2(-80, 195)
+position = Vector2(-76, 198)
 StickyNote = true
 text = "Une poutre en bois pointe du doit une poutre de métale"
+
+[node name="Note3" parent="Note" instance=ExtResource("34_xqgb4")]
+position = Vector2(-90, 385)
+StickyNote = true
+text = "Il aime bien les avions"
+
+[node name="Note4" parent="Note" instance=ExtResource("34_xqgb4")]
+position = Vector2(-92, 560)
+StickyNote = true
+text = "Il aime bien les immeubles"
+
+[node name="Note5" parent="Note" instance=ExtResource("34_xqgb4")]
+position = Vector2(-94, 750)
+StickyNote = true
+text = "Le vent, la distance, se trouver"
+
+[node name="Note6" parent="Note" instance=ExtResource("34_xqgb4")]
+position = Vector2(328, 759)
+StickyNote = true
+text = "Une poutre ?"
+
+[node name="Note7" parent="Note" instance=ExtResource("34_xqgb4")]
+position = Vector2(305, 540)
+StickyNote = true
+text = "Hatsune Miku"
+
+[node name="Note8" parent="Note" instance=ExtResource("34_xqgb4")]
+position = Vector2(309, 357)
+StickyNote = true
+text = "Jsp frr"
 
 [connection signal="OFF" from="Ice/IceDec1" to="Ice" method="_on_ice_dec_1_off"]
 [connection signal="ON" from="Ice/IceDec1" to="Ice" method="_on_ice_dec_1_on"]
