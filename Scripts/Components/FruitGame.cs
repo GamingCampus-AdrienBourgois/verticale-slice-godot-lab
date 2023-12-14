@@ -22,6 +22,11 @@ public partial class FruitGame : Node
 			{
 				GD.Print("Porte active");
 				// Fait la porte
+				Node IceDoor = GetParent().GetNode("Doors").GetNode("IceDoor");
+				foreach (door i in IceDoor.GetChildren())
+				{
+					i.DoorOpenedChange();
+				}
 				if(body.IsInGroup("True"))
 				{
 					GD.Print("Valid");

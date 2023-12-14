@@ -1087,9 +1087,10 @@ Opened = true
 OpenedColor = Color(0.996078, 0.368627, 0.243137, 1)
 NotOpenedColor = Color(1, 1, 1, 1)
 
-[node name="Door2" parent="Doors" instance=ExtResource("6_e23jg")]
+[node name="IceDoor" type="Node" parent="Doors"]
+
+[node name="Door2" parent="Doors/IceDoor" instance=ExtResource("6_e23jg")]
 position = Vector2(-1025, 241)
-Opened = true
 OpenedColor = Color(0.996078, 0.368627, 0.243137, 1)
 NotOpenedColor = Color(1, 1, 1, 1)
 

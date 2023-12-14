@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bb4p4xqbsmgo"]
+[gd_scene load_steps=8 format=3 uid="uid://bb4p4xqbsmgo"]
 
 [ext_resource type="TileSet" uid="uid://cnowwr0gr3n55" path="res://Platformer/scenes/tilemap_platformer.tres" id="1_ovbht"]
 [ext_resource type="Texture2D" uid="uid://jnwv8osmr4bx" path="res://Platformer/imports/monochrome_tilemap_transparent_packed.png" id="2_vhs7s"]
 [ext_resource type="PackedScene" uid="uid://coltq3dqh0sx3" path="res://Scenes/Menu/SleepZzz.tscn" id="3_yme7h"]
+[ext_resource type="Texture2D" uid="uid://bey7i5be60sen" path="res://assets/Space Background3.png" id="4_qffpx"]
 
 [sub_resource type="Animation" id="Animation_bul7m"]
 length = 0.001
@@ -139,3 +140,9 @@ position = Vector2(226, 587)
 
 [node name="Sprite2D4" parent="." instance=ExtResource("3_yme7h")]
 position = Vector2(1036, 262)
+
+[node name="Bg" type="Sprite2D" parent="."]
+z_index = -10
+position = Vector2(578.5, 323.5)
+scale = Vector2(1.04636, 1.085)
+texture = ExtResource("4_qffpx")
