@@ -6,11 +6,17 @@ public partial class Credits_normal : Control
 {
 	AnimationPlayer animations = null;
 	Label label = null;
+	AudioStreamPlayer2D audio_global = null;
+	[Export]
+	AudioStream Music;
 
 	[Export]
 	string[] LesGens;
 	public override async void _Ready()
 	{
+		audio_global = GetParent().GetNode<AudioStreamPlayer2D>("BgMusic");
+		audio_global.Stream = Music;
+		audio_global.Play();
 		animations = GetNode<AnimationPlayer>("AnimationPlayer");
 		label = GetNode<Label>("Names");
 

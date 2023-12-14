@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dahbjfvejuq3m"]
+[gd_scene load_steps=6 format=3 uid="uid://dahbjfvejuq3m"]
 
 [ext_resource type="Script" path="res://Scripts/Components/Trashcan.cs" id="1_cjiww"]
 [ext_resource type="Texture2D" uid="uid://bnmkl1gwaqahx" path="res://icon.svg" id="1_tatsm"]
+[ext_resource type="AudioStream" uid="uid://c2km7o7cdhkr" path="res://assets/Imports/Sound_Effects/trashcan_sound.wav" id="3_xbp2w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2oupa"]
 size = Vector2(44, 41)
@@ -28,5 +29,9 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_57naq")
 debug_color = Color(0, 0, 0, 0.419608)
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_xbp2w")
+volume_db = -10.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

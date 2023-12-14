@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfv0qhjvvqket"]
+[gd_scene load_steps=5 format=3 uid="uid://bfv0qhjvvqket"]
 
 [ext_resource type="Texture2D" uid="uid://bnmkl1gwaqahx" path="res://icon.svg" id="1_d0d42"]
 [ext_resource type="Script" path="res://Scripts/Components/computer.cs" id="1_hnjmo"]
+[ext_resource type="AudioStream" uid="uid://bgp0resytrc0j" path="res://assets/Imports/Sound_Effects/OFFPc2.wav" id="3_qpbn4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ywko"]
 size = Vector2(30, 32)
@@ -18,3 +19,7 @@ texture_filter = 1
 position = Vector2(1.19209e-07, 0)
 scale = Vector2(0.234375, 0.25)
 texture = ExtResource("1_d0d42")
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_qpbn4")
+volume_db = -10.0

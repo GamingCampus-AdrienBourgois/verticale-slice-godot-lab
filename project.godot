@@ -23,6 +23,7 @@ config/windows_native_icon="res://assets/loopoutico.ico"
 
 SceneTransition="*res://Scenes/Transitions/Scene_transition.tscn"
 Global="*res://Scripts/Global.cs"
+BgMusic="*res://Scenes/Bg_Music.tscn"
 
 [display]
 
