@@ -888,15 +888,14 @@ autoplay = "default"
 frame_progress = 0.30578
 
 [node name="Names" type="Label" parent="."]
-modulate = Color(1, 1, 1, 0)
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -129.0
+offset_left = 447.0
 offset_top = 247.0
-offset_right = 975.0
+offset_right = 1551.0
 offset_bottom = 351.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_d81oa")
@@ -909,3 +908,15 @@ texture_filter = 1
 position = Vector2(577.75, 322.25)
 scale = Vector2(1.05136, 1.0775)
 texture = ExtResource("5_23vw8")
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.0823529)
+texture_filter = 1
+layout_mode = 0
+offset_right = 33.0
+offset_bottom = 101.0
+theme_override_fonts/font = ExtResource("2_d81oa")
+text = "4,6
+5,6
+7,7
+2,2"

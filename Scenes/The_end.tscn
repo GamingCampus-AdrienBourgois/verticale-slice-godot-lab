@@ -604,4 +604,8 @@ position = Vector2(187, -1)
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_dx4ch")
 
+[node name="Sprite2D" type="Polygon2D" parent="."]
+position = Vector2(186, 0)
+polygon = PackedVector2Array(-32, 21, 34, 21, 34, -22, -32, -22)
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

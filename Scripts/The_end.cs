@@ -12,6 +12,7 @@ public partial class The_end : Node2D
 	private string[] AllText;
 	int TextNumber = 0;
 	bool animation_finished = true;
+	private Scene_transition SceneTransition = null;
 
 	public override void _Ready()
 	{
@@ -21,7 +22,7 @@ public partial class The_end : Node2D
 		// Si j'ai envie, faire un .txt et rajouter chaque ligne à la liste
 
 
-
+		SceneTransition = GetParent().GetNode<Scene_transition>("SceneTransition");
 		textrpg = GetNode<Control>("TextRpg");	
 		speaktext = textrpg.GetNode("PanelContainer").GetNode<Label>("SpeakText");
 		animation_text = speaktext.GetNode<AnimationPlayer>("AnimationPlayer");
@@ -33,6 +34,7 @@ public partial class The_end : Node2D
 		PlayAnimation();
 		await ToSignal(animation_text, AnimationPlayer.SignalName.AnimationFinished);
 		//await ToSignal(animation_text, AnimationPlayer.SignalName.AnimationFinished);
+		GetNode("Area2D").QueueFree();
 	}
 
 	public async override void _Input(InputEvent @event)
@@ -75,6 +77,10 @@ public partial class The_end : Node2D
 			animation_text.PlayBackwards("appear");
 			await ToSignal(animation_text, AnimationPlayer.SignalName.AnimationFinished);
 			TextNumber++;
+			if(TextNumber >= AllText.Count())
+			{
+				SceneTransition.Call("changeScene","Scenes/Menu/Credits.tscn",false);
+			}
 			speaktext.Text = "";
 			PlayAnimation();
 		}

@@ -134,6 +134,10 @@ position = Vector2(615, -79)
 position = Vector2(-123, -7)
 _scenePath = "main.tscn"
 
+[node name="Tp2" parent="TP_all" instance=ExtResource("5_qp7ys")]
+position = Vector2(1681, -14)
+_scenePath = "Scenes/Menu/The_end.tscn"
+
 [node name="End" type="Area2D" parent="."]
 position = Vector2(1465, -29)
 
