@@ -4,6 +4,8 @@ using System.Data;
 
 public partial class FruitGame : Node
 {
+	[Export]
+	string BodyGroup = "Durian";
 	public bool STATE = false;
 	public override void _Ready()
 	{
@@ -18,14 +20,15 @@ public partial class FruitGame : Node
 	{
 		if(Area.IsInGroup("True"))
 		{
-			if(body.IsInGroup("Kiwi"))
+			if(body.IsInGroup(BodyGroup))
 			{
 				GD.Print("Porte active");
 				// Fait la porte
 				Node IceDoor = GetParent().GetNode("Doors").GetNode("IceDoor");
 				foreach (door i in IceDoor.GetChildren())
 				{
-					i.DoorOpenedChange();
+					// i.DoorOpenedChange();
+					i.CallDeferred("DoorOpenedChange");
 				}
 				if(body.IsInGroup("True"))
 				{
@@ -40,10 +43,15 @@ public partial class FruitGame : Node
 	{
 		if(Area.IsInGroup("True"))
 		{
-			if(body.IsInGroup("Kiwi"))
+			if(body.IsInGroup(BodyGroup))
 			{
 				GD.Print("Porte desactivé");
 				// Fait la porte
+				Node IceDoor = GetParent().GetNode("Doors").GetNode("IceDoor");
+				foreach (door i in IceDoor.GetChildren())
+				{
+					i.CallDeferred("DoorOpenedChange");
+				}
 				if(body.IsInGroup("True"))
 				{
 					GD.Print("not valid");

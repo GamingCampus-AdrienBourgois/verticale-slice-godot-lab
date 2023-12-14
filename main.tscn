@@ -1246,17 +1246,17 @@ position = Vector2(-1245, -526)
 
 [node name="Objects" type="Node" parent="FruitGame"]
 
-[node name="Fruit" parent="FruitGame/Objects" groups=["Kiwi", "True"] instance=ExtResource("25_5na4j")]
+[node name="Fruit" parent="FruitGame/Objects" groups=["Durian", "True"] instance=ExtResource("25_5na4j")]
 position = Vector2(-955, -325)
 collision_layer = 2
 collision_mask = 2
 
-[node name="Fruit2" parent="FruitGame/Objects" groups=["Kiwi"] instance=ExtResource("25_5na4j")]
+[node name="Fruit2" parent="FruitGame/Objects" groups=["Durian"] instance=ExtResource("25_5na4j")]
 position = Vector2(-890, -326)
 collision_layer = 2
 collision_mask = 2
 
-[node name="Fruit3" parent="FruitGame/Objects" groups=["Kiwi"] instance=ExtResource("25_5na4j")]
+[node name="Fruit3" parent="FruitGame/Objects" groups=["Durian"] instance=ExtResource("25_5na4j")]
 position = Vector2(-826, -325)
 collision_layer = 2
 collision_mask = 2
