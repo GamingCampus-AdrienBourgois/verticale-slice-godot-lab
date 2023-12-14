@@ -5,11 +5,19 @@ public partial class Fruit : CharacterBody2D
 {
 
 	[Export]
-	Polygon2D Sprite;
+	Texture2D Sprite;
 	// A garder comme idée
+
+	// Kiwi bon fruit
+	// Mettre groupe True et Kiwi pour le bon fruit
 	public override void _Ready()
 	{
-		//GetNode<Polygon2D>("Polygon2D").Polygon = Sprite.Polygon;
+		// Mettre si y a un sprite 
+		if(Sprite.GetImage() != null) 
+		{
+			GetNode<Sprite2D>("Sprite2D").Texture = Sprite;
+			GetNode<Polygon2D>("Polygon2D").QueueFree();
+		}
 	}
 
 }
