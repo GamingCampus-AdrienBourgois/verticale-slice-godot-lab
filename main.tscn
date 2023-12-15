@@ -2301,12 +2301,12 @@ anim = "Right"
 [node name="PC40" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(652, -531)
 OpenedColor = Color(257, 0, 0, 1)
-anim = "Top"
+anim = "Red"
 
 [node name="PC41" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(728, -532)
 OpenedColor = Color(0, 0, 255, 1)
-anim = "Top"
+anim = "Blue"
 
 [node name="PC42" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(828, -533)
@@ -2316,12 +2316,12 @@ anim = "Top"
 [node name="PC43" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(930, -533)
 OpenedColor = Color(255, 0, 0, 1)
-anim = "Top"
+anim = "Red"
 
 [node name="PC44" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(1029, -531)
 OpenedColor = Color(1, 1, 0, 1)
-anim = "Top"
+anim = "Yellow"
 
 [node name="PC45" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(1125, -532)
@@ -2331,7 +2331,7 @@ anim = "Top"
 [node name="PC46" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(1202, -533)
 OpenedColor = Color(0, 0, 255, 1)
-anim = "Top"
+anim = "Blue"
 
 [node name="PC47" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(651, -259)
@@ -2342,17 +2342,17 @@ anim = "Top"
 [node name="PC48" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(732, -260)
 OpenedColor = Color(1, 1, 0, 1)
-anim = "Top"
+anim = "Yellow"
 
 [node name="PC49" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(830, -259)
 OpenedColor = Color(255, 0, 0, 1)
-anim = "Top"
+anim = "Red"
 
 [node name="PC50" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(933, -258)
 OpenedColor = Color(0, 0, 1, 1)
-anim = "Top"
+anim = "Blue"
 
 [node name="PC51" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(1030, -259)
@@ -2363,12 +2363,12 @@ anim = "Top"
 [node name="PC52" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(1127, -258)
 OpenedColor = Color(1, 1, 0, 1)
-anim = "Top"
+anim = "Yellow"
 
 [node name="PC53" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(1204, -259)
 OpenedColor = Color(1, 0, 0, 1)
-anim = "Top"
+anim = "Red"
 
 [node name="PC54" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(660, 32)
@@ -2379,12 +2379,12 @@ anim = "Top"
 [node name="PC55" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(737, 32)
 OpenedColor = Color(1, 0, 0, 1)
-anim = "Top"
+anim = "Red"
 
 [node name="PC56" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(834, 31)
 OpenedColor = Color(0, 0, 257, 1)
-anim = "Top"
+anim = "Yellow"
 
 [node name="PC57" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(936, 31)
@@ -2395,17 +2395,17 @@ anim = "Top"
 [node name="PC58" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(1029, 30)
 OpenedColor = Color(1, 0, 0, 1)
-anim = "Top"
+anim = "Red"
 
 [node name="PC59" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(1126, 32)
 OpenedColor = Color(1, 0, 0, 1)
-anim = "Top"
+anim = "Red"
 
 [node name="PC60" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(1208, 31)
 OpenedColor = Color(1, 1, 0, 1)
-anim = "Top"
+anim = "Yellow"
 
 [node name="ColoredPc" type="Node" parent="."]
 script = ExtResource("13_6wkxx")

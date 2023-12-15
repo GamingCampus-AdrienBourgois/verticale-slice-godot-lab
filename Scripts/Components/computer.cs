@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class computer : StaticBody2D
 {
@@ -22,11 +23,18 @@ public partial class computer : StaticBody2D
 	AnimatedSprite2D animatedsprite = null;
 	[Export]
 	string anim;
+	List<string> colors = new List<string>();
 	AudioStreamPlayer audio = null;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		colors.Add("Blue");
+		colors.Add("Orange");
+		colors.Add("Yellow");
+		colors.Add("Purple");
+		colors.Add("Green");
+		colors.Add("Red");
 
 		animatedsprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 
@@ -39,15 +47,29 @@ public partial class computer : StaticBody2D
 		 	animatedsprite.Play(anim+"_OFF");
 		}
 		else {
-			animatedsprite.Play(anim+"_ON");
+			if(colors.Contains(anim))
+			{
+				animatedsprite.Play(anim);
+			}
+			else
+			{
+				animatedsprite.Play(anim+"_ON");
+			}
 		}
 	}
 
 	public void ComputerOpenedChange(){
 		if (Opened == true){
 			Opened = false;
+			if(colors.Contains(anim))
+			{
+				animatedsprite.Play("Top_OFF");
+			}
+			else
+			{
+				animatedsprite.Play(anim+"_OFF");
+			}
 			//this.Modulate = NotOpenedColor;
-			animatedsprite.Play(anim+"_OFF");
 			audio.Play();
 			EmitSignal("ComputerChanged");
 		}
