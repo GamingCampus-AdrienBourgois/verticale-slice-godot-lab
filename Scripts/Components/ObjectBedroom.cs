@@ -6,12 +6,17 @@ public partial class ObjectBedroom : CharacterBody2D
 
 	[Export]
 	private string GroupToAdd;
+
+
 	[Export]
-	private Texture2D sprite;
-	
+	string anim = null;
+
+	AnimatedSprite2D sprite = null;
+
 	public override void _Ready()
 	{
+
 		AddToGroup(GroupToAdd);
-		//GetNode<Sprite2D>("Sprite2D").Texture = sprite;
+		sprite.Play(anim);
 	}
 }

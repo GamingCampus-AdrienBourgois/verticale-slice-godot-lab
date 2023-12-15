@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsre6p0qf37th"]
+[gd_scene load_steps=3 format=3 uid="uid://dsre6p0qf37th"]
 
+[ext_resource type="Texture2D" uid="uid://bj8yb270ydsyk" path="res://assets/fix_wire_bg.png" id="2_g3oxc"]
 [ext_resource type="PackedScene" uid="uid://f6hk1vq4gea" path="res://Scenes/Components/menu_cursor.tscn" id="2_horgu"]
 
 [node name="Fix_wire_hud" type="CanvasLayer"]
@@ -80,3 +81,9 @@ offset_right = 171.0
 offset_bottom = 288.0
 nodePath = NodePath("../VBoxContainer")
 cursorOffset = Vector2(20, -60)
+
+[node name="bg" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(579, 329.25)
+scale = Vector2(5.58929, 8.05469)
+texture = ExtResource("2_g3oxc")

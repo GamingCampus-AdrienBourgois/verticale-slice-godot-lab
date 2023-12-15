@@ -1,9 +1,85 @@
-[gd_scene load_steps=3 format=3 uid="uid://bk6nab6nklg47"]
+[gd_scene load_steps=11 format=3 uid="uid://bk6nab6nklg47"]
 
 [ext_resource type="Script" path="res://Scripts/Components/ObjectBedroom.cs" id="1_3455a"]
+[ext_resource type="Texture2D" uid="uid://qrqn5uj6tvbl" path="res://assets/obj_perso.png" id="2_i1umy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1v0kb"]
 radius = 11.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wot1"]
+atlas = ExtResource("2_i1umy")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ujsr"]
+atlas = ExtResource("2_i1umy")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iv7he"]
+atlas = ExtResource("2_i1umy")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1cpa"]
+atlas = ExtResource("2_i1umy")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrabr"]
+atlas = ExtResource("2_i1umy")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eu4ht"]
+atlas = ExtResource("2_i1umy")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l4v8k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wot1")
+}],
+"loop": true,
+"name": &"Bousole",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ujsr")
+}],
+"loop": true,
+"name": &"Buche",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iv7he")
+}],
+"loop": true,
+"name": &"Canard",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1cpa")
+}],
+"loop": true,
+"name": &"Peluche",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrabr")
+}],
+"loop": true,
+"name": &"Pokeball",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eu4ht")
+}],
+"loop": true,
+"name": &"Slime",
+"speed": 5.0
+}]
 
 [node name="Object_Bedrooms" type="CharacterBody2D" groups=["Pickable"]]
 script = ExtResource("1_3455a")
@@ -12,9 +88,16 @@ script = ExtResource("1_3455a")
 shape = SubResource("CircleShape2D_1v0kb")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
 position = Vector2(1, -1)
 scale = Vector2(0.5, 0.5)
 color = Color(0.14902, 0.14902, 0.14902, 1)
 polygon = PackedVector2Array(-31, 19, -6, 9, -7, 31, 6, 11, 18, 28, 28, 0, 7, -8, 9, -22, -8, -23, -26, -24, -35, -4, -34, 15)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_l4v8k")
+animation = &"Buche"

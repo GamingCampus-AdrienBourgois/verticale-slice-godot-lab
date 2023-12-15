@@ -19,27 +19,35 @@ public partial class computer : StaticBody2D
 	CollisionShape2D collision = null;
 	Sprite2D sprite = null;
 
+	AnimatedSprite2D animatedsprite = null;
+	[Export]
+	string anim;
 	AudioStreamPlayer audio = null;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+
+		animatedsprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+
+
 		audio = GetNode<AudioStreamPlayer>("Audio");
 		sprite = GetNode<Sprite2D>("Sprite2D");
 		collision = GetNode<CollisionShape2D>("CollisionShape2D");
 		collision.Disabled = false;
 		if (Opened == false){
-			sprite.Modulate = NotOpenedColor;
+		 	animatedsprite.Play(anim+"OFF");
 		}
 		else {
-			sprite.Modulate = OpenedColor;
+			animatedsprite.Play(anim+"_ON");
 		}
 	}
 
 	public void ComputerOpenedChange(){
 		if (Opened == true){
 			Opened = false;
-			this.Modulate = NotOpenedColor;
+			//this.Modulate = NotOpenedColor;
+			animatedsprite.Play(anim+"_OFF");
 			audio.Play();
 			EmitSignal("ComputerChanged");
 		}

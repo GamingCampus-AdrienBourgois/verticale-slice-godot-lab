@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://db20a5ijr88h5"]
+[gd_scene load_steps=4 format=3 uid="uid://db20a5ijr88h5"]
 
 [ext_resource type="Script" path="res://Scripts/Components/Fruit.cs" id="1_5p0rq"]
+[ext_resource type="Texture2D" uid="uid://crl4ynhj6elrh" path="res://assets/fruits.png" id="2_r0o18"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c6stl"]
-radius = 31.0644
+radius = 22.0
 
 [node name="Fruit" type="CharacterBody2D" groups=["Fruit", "Pickable"]]
 script = ExtResource("1_5p0rq")
@@ -12,7 +13,16 @@ script = ExtResource("1_5p0rq")
 shape = SubResource("CircleShape2D_c6stl")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
 color = Color(1, 0.490196, 0, 1)
 polygon = PackedVector2Array(-1, 23, -12, 18, -21, 7, -22, -3, -17, -13, -4, -19, 11, -17, 20, -6, 22, 7, 13, 13, 4, 20)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_r0o18")
+hframes = 39
+vframes = 6

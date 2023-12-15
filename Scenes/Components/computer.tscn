@@ -1,11 +1,87 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfv0qhjvvqket"]
+[gd_scene load_steps=13 format=3 uid="uid://bfv0qhjvvqket"]
 
 [ext_resource type="Texture2D" uid="uid://bnmkl1gwaqahx" path="res://icon.svg" id="1_d0d42"]
 [ext_resource type="Script" path="res://Scripts/Components/computer.cs" id="1_hnjmo"]
 [ext_resource type="AudioStream" uid="uid://bgp0resytrc0j" path="res://assets/Imports/Sound_Effects/OFFPc2.wav" id="3_qpbn4"]
+[ext_resource type="Texture2D" uid="uid://cjdvukkev0oyi" path="res://assets/pc_sprites.png" id="4_cpkrd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ywko"]
 size = Vector2(30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4q75x"]
+atlas = ExtResource("4_cpkrd")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86y7g"]
+atlas = ExtResource("4_cpkrd")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mejoo"]
+atlas = ExtResource("4_cpkrd")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebtal"]
+atlas = ExtResource("4_cpkrd")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlck8"]
+atlas = ExtResource("4_cpkrd")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sjyyy"]
+atlas = ExtResource("4_cpkrd")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3avfd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4q75x")
+}],
+"loop": true,
+"name": &"Left_OFF",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_86y7g")
+}],
+"loop": true,
+"name": &"Left_ON",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mejoo")
+}],
+"loop": true,
+"name": &"Right_OFF",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ebtal")
+}],
+"loop": true,
+"name": &"Right_ON",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlck8")
+}],
+"loop": true,
+"name": &"Top_OFF",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sjyyy")
+}],
+"loop": true,
+"name": &"Top_ON",
+"speed": 5.0
+}]
 
 [node name="StaticBody2D" type="StaticBody2D" groups=["PC"]]
 script = ExtResource("1_hnjmo")
@@ -14,6 +90,7 @@ script = ExtResource("1_hnjmo")
 shape = SubResource("RectangleShape2D_0ywko")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 modulate = Color(1, 0, 1, 1)
 texture_filter = 1
 position = Vector2(1.19209e-07, 0)
@@ -23,3 +100,8 @@ texture = ExtResource("1_d0d42")
 [node name="Audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_qpbn4")
 volume_db = -10.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_3avfd")
+animation = &"Right_OFF"
