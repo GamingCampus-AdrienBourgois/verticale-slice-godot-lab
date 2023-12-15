@@ -1,15 +1,76 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4l34yx2ih016"]
+[gd_scene load_steps=9 format=3 uid="uid://c4l34yx2ih016"]
+
+[ext_resource type="Script" path="res://Scripts/Components/Object_to_fix.cs" id="1_df1u4"]
+[ext_resource type="Texture2D" uid="uid://dq8phybk1rk6f" path="res://assets/tileset_loopout_deco_v2.png" id="1_erp3m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6p58k"]
-size = Vector2(22, 24)
+size = Vector2(22, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3l1o"]
+atlas = ExtResource("1_erp3m")
+region = Rect2(128, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nylbw"]
+atlas = ExtResource("1_erp3m")
+region = Rect2(160, 0, 16, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sr6yv"]
+atlas = ExtResource("1_erp3m")
+region = Rect2(144, 0, 18, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rbdg5"]
+atlas = ExtResource("1_erp3m")
+region = Rect2(112, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_247u6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3l1o")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nylbw")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sr6yv")
+}],
+"loop": true,
+"name": &"Right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rbdg5")
+}],
+"loop": true,
+"name": &"Up",
+"speed": 5.0
+}]
 
 [node name="ObjectToFix" type="CharacterBody2D" groups=["ObjectFix", "Pickable"]]
+script = ExtResource("1_df1u4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_6p58k")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
 position = Vector2(1, 0)
 color = Color(0.380392, 0.380392, 0.380392, 1)
 polygon = PackedVector2Array(-7, 10, -2, 10, -2, 1, 5, 1, 5, 10, 10, 10, 10, -10, 4, -10, 4, -3, -7, -3)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_247u6")
+animation = &"Down"

@@ -36,7 +36,7 @@ public partial class computer : StaticBody2D
 		collision = GetNode<CollisionShape2D>("CollisionShape2D");
 		collision.Disabled = false;
 		if (Opened == false){
-		 	animatedsprite.Play(anim+"OFF");
+		 	animatedsprite.Play(anim+"_OFF");
 		}
 		else {
 			animatedsprite.Play(anim+"_ON");

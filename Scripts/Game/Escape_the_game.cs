@@ -14,6 +14,9 @@ public partial class Escape_the_game : Control
 	[Export]
 	float TimeAll = 10;
 
+	[Signal]
+	public delegate void EscapedEventHandler();
+
 	Vector2 selected = new Vector2(0,0);
 
 	int EscapeSolved = 0;
@@ -25,7 +28,7 @@ public partial class Escape_the_game : Control
 	// Faire un truc qui reprends ce code, mais color white que les cases autour
 	// Des balles à éviter et survivre un max, on se déplace avec les touches et les cubes
 
-	public override void _Ready()
+	public void Start()
 	{
 		AddChild(new Timer
 		{
@@ -38,7 +41,6 @@ public partial class Escape_the_game : Control
 		TimerAll.Connect(Timer.SignalName.Timeout,new Callable(this,"TimeRanOut"));
 		// i.Connect("script_changed",new Callable(this,"Tp_entered"));
 		//global = GetParent().GetNode<Global>("Global");
-		SceneTransition = GetParent().GetNode<Scene_transition>("SceneTransition");
 		
 		label = GetNode<Label>("Label");
 		
@@ -52,25 +54,31 @@ public partial class Escape_the_game : Control
 		InitMap();
 		CreateLab();
 	}
+
+
 	
 	public override void _Input(InputEvent @event)
 	{
-		Vector2 AncientSelec = selected;
-		// Mettre que si il appuie sur une touche ça enlève le rouge
-		if(@event.IsActionPressed("Up")){selected.X -= 1;}
-		else if(@event.IsActionPressed("Down")){selected.X += 1;}
-		else if(@event.IsActionPressed("Right")){selected.Y += 1;}
-		else if(@event.IsActionPressed("Left")){selected.Y -= 1;}
-		if(selected.X < 0 || selected.Y < 0 || selected.X > height-1 || selected.Y > width-1)
+		// player.inputOnFocus = false;
+		if(GetParent().GetParent().GetNode<CanvasLayer>("Game_escape").Visible == true)
 		{
-			selected = AncientSelec;
+			Vector2 AncientSelec = selected;
+			// Mettre que si il appuie sur une touche ça enlève le rouge
+			if(@event.IsActionPressed("Up")){selected.X -= 1;}
+			else if(@event.IsActionPressed("Down")){selected.X += 1;}
+			else if(@event.IsActionPressed("Right")){selected.Y += 1;}
+			else if(@event.IsActionPressed("Left")){selected.Y -= 1;}
+			if(selected.X < 0 || selected.Y < 0 || selected.X > height-1 || selected.Y > width-1)
+			{
+				selected = AncientSelec;
+			}
+			ToColor(AncientSelec,Colors.White);
+			ToColor(selected,Colors.Blue);
 		}
-		ToColor(AncientSelec,Colors.White);
-		ToColor(selected,Colors.Blue);
 	}
 	//SceneTransition.Call("changeScene",_scenePath); si il foire et va sur une case rouge
 	
-	private void ToColor(Godot.Vector2 thing, Color color)
+	private void ToColor(Vector2 thing, Color color)
 	{
 		var hbox_to = vbox.GetChild((int)thing.X);
 		var childHbox = hbox_to.GetChild((int)thing.Y);
@@ -83,6 +91,10 @@ public partial class Escape_the_game : Control
 		else if(temp.Color == Colors.Green)
 		{
 			EscapeSolved++;
+			if(EscapeSolved >= 3)
+			{
+				EmitSignal("Escaped");
+			}
 			CreateLab();
 		}
 		else if (temp.Color != Colors.Green && temp.Color != Colors.Red)
@@ -136,7 +148,8 @@ public partial class Escape_the_game : Control
 		{
 			Color = Colors.Black,
 			LayoutMode = 1,
-			AnchorsPreset = 15
+			AnchorsPreset = 15,
+			Modulate = new Color(0,0,0,0.1f)
 		});
 
 		AddChild(new VBoxContainer
@@ -167,6 +180,9 @@ public partial class Escape_the_game : Control
 
 	private void TimeRanOut()
 	{
-		SceneTransition.Call("changeScene",this,true);
+		CreateLab();
+		EscapeSolved = 0;
+		GD.Print("WTF");
+		CreateLab();
 	}
 }

@@ -90,7 +90,6 @@ script = ExtResource("1_hnjmo")
 shape = SubResource("RectangleShape2D_0ywko")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
 modulate = Color(1, 0, 1, 1)
 texture_filter = 1
 position = Vector2(1.19209e-07, 0)
@@ -104,4 +103,4 @@ volume_db = -10.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_3avfd")
-animation = &"Right_OFF"
+animation = &"Top_OFF"

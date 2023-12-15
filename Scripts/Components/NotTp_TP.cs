@@ -3,9 +3,17 @@ using System;
 
 public partial class NotTp_TP : Area2D
 {
+	Escape_the_game game_escape = null;
+	CanvasLayer game_escape_hud = null;
+	Player player = null;
+	bool already = false;
+	float AncientSpeed;
 	public override void _Ready()
 	{
+		player = GetParent().GetParent().GetNode<Player>("Player");
 		Connect(Area2D.SignalName.BodyEntered,new Callable(this,"OnBody"));
+		game_escape = GetParent().GetNode("Game_escape").GetNode<Escape_the_game>("EscapeTheGame");
+		game_escape_hud = GetParent().GetNode<CanvasLayer>("Game_escape");
 	}
 	private void OnBody(Node2D body)
 	{
@@ -13,13 +21,25 @@ public partial class NotTp_TP : Area2D
 		{
 			if(Name == "In")
 			{
-				body.GlobalPosition = GetParent().GetNode("Out").GetNode<Node2D>("Marker2D").GlobalPosition;
+				game_escape_hud.Visible = true;
+				player.inputOnFocus = true;
+				game_escape.Connect("Escaped",new Callable(this,"OnEscaped"));
+				game_escape.Start();
+				GD.Print("Hello");
+				already = true;
 			}
 			if(Name == "Out")
 			{
 				body.GlobalPosition = GetParent().GetNode("In").GetNode<Node2D>("Marker2D").GlobalPosition;
 			}
 		}
-
+	}
+	
+	private void OnEscaped()
+	{
+		player.GlobalPosition = GetParent().GetNode("Out").GetNode<Node2D>("Marker2D").GlobalPosition;
+		game_escape_hud.QueueFree();
+		//player.Speed = AncientSpeed;
+		player.inputOnFocus = false;
 	}
 }
