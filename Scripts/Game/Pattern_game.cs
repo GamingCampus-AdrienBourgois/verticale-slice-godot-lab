@@ -55,6 +55,39 @@ public partial class Pattern_game : Control
 		ToColor(selected,new Color(158,177,228));
 	}
 
+	public void Start()
+	{
+		//Random rnd = new Random();
+		//for (int i = 0; i < width/10; i++)
+		//{
+		//	ToSelect.Add(new Godot.Vector2(rnd.Next(0,height-1),rnd.Next(0,width-1)));
+		//	GD.Print(ToSelect[i]);
+		//}
+		// ToSelect.Add(new Godot.Vector2(2,2));
+		// ToSelect.Add(new Godot.Vector2(1,3));
+		
+		vbox = GetNode("Vbox");
+
+		for (int i = 0; i < height; i++)
+		{
+			var Hbox = new HBoxContainer();
+			vbox.AddChild(Hbox);
+		}
+		foreach(Node x in vbox.GetChildren())
+		{
+			for (int i = 0; i < width; i++)
+			{
+				var colorRect = new ColorRect
+				{
+					CustomMinimumSize = new Godot.Vector2(50, 50)
+				};
+				x.AddChild(colorRect);
+			}
+		}
+		ToColor(selected,new Color(158,177,228));
+	}
+
+
 	public override void _Input(InputEvent @event)
 	{
 		bool Confirm = true;
@@ -118,6 +151,8 @@ public partial class Pattern_game : Control
 		ColorRect temp = (ColorRect)childHbox;
 		temp.Color = color;
 	}
+
+
 
 
 }

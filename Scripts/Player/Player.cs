@@ -38,7 +38,8 @@ public partial class Player : CharacterBody2D
 	}
 
 
-
+	// Les anims : Direction_Run
+	// Direction_Arm_Run, Direction_Arm, Direction
 	public override void _Process(double delta)
 	{
 		Godot.Vector2 velocity = Velocity; // En gd script y a pas ça 
@@ -49,17 +50,21 @@ public partial class Player : CharacterBody2D
 		
 			// Faire que si il est sur la glace, gèle les inputs si ça vitesse est au dessus de 100 par ex
 
-			if(Input.IsActionPressed("Up")){
-				ActionPressed(270,90,"Up_Arm","Up");
+			if(Input.IsActionPressed("Up"))
+			{
+				ActionPressed(270,90,"Up_Arm","Up","Up_Arm_Run","Up_Run");
 			}
-			if(Input.IsActionPressed("Down")){
-				ActionPressed(90,270,"Down_Arm","Down");
+			if(Input.IsActionPressed("Down"))
+			{
+				ActionPressed(90,270,"Down_Arm","Down","Down_Arm_Run","Down_Run");
 			}
-			if(Input.IsActionPressed("Right")){
-				ActionPressed(0,0,"Right_Arm","Right");
+			if(Input.IsActionPressed("Right"))
+			{
+				ActionPressed(0,0,"Right_Arm","Right","Right_Arm_Run","Right_Run");
 			}
-			if(Input.IsActionPressed("Left")){
-				ActionPressed(180,180,"Left_Arm","Left");
+			if(Input.IsActionPressed("Left"))
+			{
+				ActionPressed(180,180,"Left_Arm","Left","Left_Arm_Run","Left_Run");
 			}
 			// Si il y a des inputs
 			if (input_direction != Godot.Vector2.Zero && !inputOnFocus)
@@ -70,6 +75,21 @@ public partial class Player : CharacterBody2D
 			// Si il y en a pas
 			else
 			{
+				switch (MarkerArea.RotationDegrees) 
+				{
+					case 270:
+						ActionPressed(270,90,"Up_Arm","Up","Up_Arm_Run","Up_Run");
+						break;
+					case 90:
+						ActionPressed(90,270,"Down_Arm","Down","Down_Arm_Run","Down_Run");
+						break;
+					case 0:
+						ActionPressed(0,0,"Right_Arm","Right","Right_Arm_Run","Right_Run");
+						break;
+					case 180:
+						ActionPressed(180,180,"Left_Arm","Left","Left_Arm_Run","Left_Run");
+						break;
+				}
 				// Flemme de réunir en une ligne
 				velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
 				velocity.Y = Mathf.MoveToward(Velocity.Y, 0, Speed);
@@ -133,26 +153,30 @@ public partial class Player : CharacterBody2D
 		Velocity = velocity;
 		MoveAndSlide();
 
-		//MoveAndSlide(); // Return false ou true si collide
+
 		if(OnIce)
 		{
 			if(Velocity == new Godot.Vector2(0,0)){
 				Godot.Vector2 input_direction = new Godot.Vector2(0,0);
-				if(Input.IsActionPressed("Up")){
+				if(Input.IsActionPressed("Up"))
+				{
 					input_direction = new Godot.Vector2(0,-1);
-					ActionPressed(270,90,"Up_Arm","Up");
+					ActionPressed(270,90,"Up_Arm","Up","Up_Arm_Run","Up_Run");
 				}
-				else if(Input.IsActionPressed("Down")){
+				else if(Input.IsActionPressed("Down"))
+				{
 					input_direction = new Godot.Vector2(0,1);
-					ActionPressed(90,270,"Down_Arm","Down");
+					ActionPressed(90,270,"Down_Arm","Down","Down_Arm_Run","Down_Run");
 				}
-				else if(Input.IsActionPressed("Right")){
+				else if(Input.IsActionPressed("Right"))
+				{
 					input_direction = new Godot.Vector2(1,0);
-					ActionPressed(0,0,"Right_Arm","Right");
+					ActionPressed(0,0,"Right_Arm","Right","Right_Arm_Run","Right_Run");
 				}
-				else if(Input.IsActionPressed("Left")){
+				else if(Input.IsActionPressed("Left"))
+				{
 					input_direction = new Godot.Vector2(-1,0);
-					ActionPressed(180,180,"Left_Arm","Left");
+					ActionPressed(180,180,"Left_Arm","Left","Left_Arm_Run","Left_Run");
 				}
 				if (input_direction != Godot.Vector2.Zero && inputOnFocus == false)
 				{
@@ -233,19 +257,33 @@ public partial class Player : CharacterBody2D
 		code.CheckNewCode();
 	}
 
-	private void ActionPressed(int Rotate1,int Rotate2,string string1,string string2)
+	private void ActionPressed(int Rotate1,int Rotate2,string Idle,string Arm,string ArmRun, string Run)
 	{
 		MarkerArea.RotationDegrees = Rotate1;
 		MarkerObject.RotationDegrees = Rotate2;
 		if (!inputOnFocus)
 		{
-			if(pickedUpItem != null) 
+			if(Velocity != Godot.Vector2.Zero)
 			{
-				animatedSprite.Play(string1);
+				if(pickedUpItem != null) 
+				{
+					animatedSprite.Play(ArmRun);
+				}
+				else
+				{
+					animatedSprite.Play(Run);
+				}
 			}
-			else 
+			else
 			{
-				animatedSprite.Play(string2);
+				if(pickedUpItem != null) 
+				{
+					animatedSprite.Play(Idle);
+				}
+				else
+				{
+					animatedSprite.Play(Arm);
+				}
 			}
 		}
 		
