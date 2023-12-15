@@ -2605,7 +2605,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 6.0
+"speed": 4.0
 }]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nrhup"]
@@ -2685,12 +2685,14 @@ layer_5/tile_data = PackedInt32Array()
 
 [node name="Tp" parent="TP_all" instance=ExtResource("4_12jmb")]
 position = Vector2(121, -78)
+scale = Vector2(2, 2)
 _scenePath = "res://Scenes/Mecanics/Console.tscn"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="TP_all/Tp"]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_sleq2")
-frame_progress = 0.700094
+autoplay = "default"
+frame_progress = 0.00523598
 
 [node name="Tp2" parent="TP_all" instance=ExtResource("4_12jmb")]
 modulate = Color(1, 1, 1, 0)
