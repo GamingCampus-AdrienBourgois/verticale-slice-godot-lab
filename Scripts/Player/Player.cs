@@ -54,15 +54,15 @@ public partial class Player : CharacterBody2D
 			{
 				ActionPressed(270,90,"Up_Arm","Up","Up_Arm_Run","Up_Run");
 			}
-			if(Input.IsActionPressed("Down"))
+			else if(Input.IsActionPressed("Down"))
 			{
 				ActionPressed(90,270,"Down_Arm","Down","Down_Arm_Run","Down_Run");
 			}
-			if(Input.IsActionPressed("Right"))
+			else if(Input.IsActionPressed("Right"))
 			{
 				ActionPressed(0,0,"Right_Arm","Right","Right_Arm_Run","Right_Run");
 			}
-			if(Input.IsActionPressed("Left"))
+			else if(Input.IsActionPressed("Left"))
 			{
 				ActionPressed(180,180,"Left_Arm","Left","Left_Arm_Run","Left_Run");
 			}
