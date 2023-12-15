@@ -3087,92 +3087,76 @@ physics_material_override = SubResource("PhysicsMaterial_nrhup")
 [node name="Doors" type="Node" parent="."]
 
 [node name="Door4" parent="Doors" instance=ExtResource("6_e23jg")]
-visible = false
-position = Vector2(-336, -31)
+position = Vector2(-352, -32)
 rotation = 1.5708
-scale = Vector2(0.5, 0.5)
 Opened = true
 OpenedColor = Color(0.996078, 0.368627, 0.243137, 1)
 NotOpenedColor = Color(1, 1, 1, 1)
+anim_to = 1
 
 [node name="Door5" parent="Doors" instance=ExtResource("6_e23jg")]
-visible = false
-position = Vector2(-176, -31)
+position = Vector2(-192, -32)
 rotation = 1.5708
-scale = Vector2(0.5, 0.5)
 Opened = true
 OpenedColor = Color(0.996078, 0.368627, 0.243137, 1)
 NotOpenedColor = Color(1, 1, 1, 1)
+anim_to = 1
 
 [node name="Door6" parent="Doors" instance=ExtResource("6_e23jg")]
-visible = false
-position = Vector2(-287, 242)
-scale = Vector2(0.5, 0.5)
+position = Vector2(-288, 256)
 Opened = true
 OpenedColor = Color(0.996078, 0.368627, 0.243137, 1)
 NotOpenedColor = Color(1, 1, 1, 1)
 
 [node name="Door7" parent="Doors" instance=ExtResource("6_e23jg")]
-visible = false
-position = Vector2(96, 258)
-scale = Vector2(0.5, 0.5)
+position = Vector2(96, 256)
 Opened = true
 OpenedColor = Color(0.996078, 0.368627, 0.243137, 1)
 NotOpenedColor = Color(1, 1, 1, 1)
 
 [node name="Door8" parent="Doors" instance=ExtResource("6_e23jg")]
-visible = false
-position = Vector2(128, -354)
-scale = Vector2(0.5, 0.5)
+position = Vector2(128, -352)
 Opened = true
 OpenedColor = Color(0.996078, 0.368627, 0.243137, 1)
 NotOpenedColor = Color(1, 1, 1, 1)
 
 [node name="Door9" parent="Doors" instance=ExtResource("6_e23jg")]
-visible = false
-position = Vector2(173, -464)
+position = Vector2(192, -480)
 rotation = 1.5708
-scale = Vector2(0.75, 0.75)
 Opened = true
 OpenedColor = Color(0.996078, 0.368627, 0.243137, 1)
 NotOpenedColor = Color(1, 1, 1, 1)
+anim_to = 1
 
 [node name="Door10" parent="Doors" instance=ExtResource("6_e23jg")]
-visible = false
-position = Vector2(305, -565)
-scale = Vector2(0.75, 0.75)
+position = Vector2(288, -576)
 Opened = true
 OpenedColor = Color(0.996078, 0.368627, 0.243137, 1)
 NotOpenedColor = Color(1, 1, 1, 1)
 
 [node name="Door11" parent="Doors" instance=ExtResource("6_e23jg")]
-visible = false
-position = Vector2(127, -568)
-scale = Vector2(0.5, 0.5)
+position = Vector2(128, -576)
 Opened = true
 OpenedColor = Color(0.996078, 0.368627, 0.243137, 1)
 NotOpenedColor = Color(1, 1, 1, 1)
 
 [node name="Door12" parent="Doors" instance=ExtResource("6_e23jg")]
-visible = false
-position = Vector2(532, -481)
+position = Vector2(576, -480)
 rotation = 1.5708
-scale = Vector2(0.5, 0.5)
 Opened = true
 OpenedColor = Color(0.996078, 0.368627, 0.243137, 1)
 NotOpenedColor = Color(1, 1, 1, 1)
+anim_to = 1
 
 [node name="Door13" parent="Doors" instance=ExtResource("6_e23jg")]
-visible = false
-position = Vector2(530, -158)
+position = Vector2(576, -160)
 rotation = 1.5708
-scale = Vector2(0.5, 0.5)
 Opened = true
 OpenedColor = Color(0.996078, 0.368627, 0.243137, 1)
 NotOpenedColor = Color(1, 1, 1, 1)
+anim_to = 1
 
 [node name="Door16" parent="Doors" instance=ExtResource("6_e23jg")]
-visible = false
 position = Vector2(434, -64)
 rotation = 1.5708
 scale = Vector2(0.5, 0.5)
@@ -3181,43 +3165,37 @@ OpenedColor = Color(0.996078, 0.368627, 0.243137, 1)
 NotOpenedColor = Color(1, 1, 1, 1)
 
 [node name="Door14" parent="Doors" instance=ExtResource("6_e23jg")]
-visible = false
-position = Vector2(528, 128)
+position = Vector2(576, 128)
 rotation = 1.5708
-scale = Vector2(0.5, 0.5)
 Opened = true
 OpenedColor = Color(0.996078, 0.368627, 0.243137, 1)
 NotOpenedColor = Color(1, 1, 1, 1)
+anim_to = 1
 
 [node name="Door15" parent="Doors" instance=ExtResource("6_e23jg")]
-visible = false
-position = Vector2(528, 416)
+position = Vector2(576, 416)
 rotation = 1.5708
-scale = Vector2(0.5, 0.5)
 Opened = true
 OpenedColor = Color(0.996078, 0.368627, 0.243137, 1)
 NotOpenedColor = Color(1, 1, 1, 1)
+anim_to = 1
 
 [node name="IceDoor" type="Node" parent="Doors"]
 
 [node name="Door2" parent="Doors/IceDoor" instance=ExtResource("6_e23jg")]
-visible = false
-position = Vector2(-1025, 241)
+position = Vector2(-1057, 225)
 OpenedColor = Color(0.996078, 0.368627, 0.243137, 1)
 NotOpenedColor = Color(1, 1, 1, 1)
 
 [node name="WireDoors" type="Node" parent="Doors"]
 
 [node name="Door" parent="Doors/WireDoors" instance=ExtResource("6_e23jg")]
-visible = false
-position = Vector2(-669, 239)
+position = Vector2(-672, 225)
 OpenedColor = Color(0.996078, 0.368627, 0.243137, 1)
 NotOpenedColor = Color(1, 1, 1, 1)
 
 [node name="Door3" parent="Doors/WireDoors" instance=ExtResource("6_e23jg")]
-visible = false
-position = Vector2(-511, 993)
-scale = Vector2(0.55, 0.55)
+position = Vector2(-512, 992)
 Opened = true
 OpenedColor = Color(0.996078, 0.368627, 0.243137, 1)
 NotOpenedColor = Color(1, 1, 1, 1)

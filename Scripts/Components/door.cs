@@ -20,30 +20,61 @@ public partial class door : StaticBody2D
 	CollisionShape2D collision = null;
 	Sprite2D sprite = null;
 
+	[Export]
+	int anim_to;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		sprite = GetNode<Sprite2D>("sprite");
+		//sprite = GetNode<Sprite2D>("sprite");
 		collision = GetNode<CollisionShape2D>("CollisionShape2D");
 		collision.Disabled = Opened;
 		if (collision.Disabled == true){
-			sprite.Modulate = NotOpenedColor;
+			//sprite.Modulate = NotOpenedColor;
+			GetNode<Node2D>("Top").Visible = false;
+			GetNode<Node2D>("Right").Visible = false;
 		}
 		else {
-			sprite.Modulate = OpenedColor;
+			if(anim_to == 0)
+			{
+				GetNode<Node2D>("Top").Visible = true;
+				GetNode<Node2D>("Right").Visible = false;
+			}
+			else
+			{
+				GetNode<Node2D>("Right").Visible = true;
+				GetNode<Node2D>("Top").Visible = true;
+			}
+			//sprite.Modulate = OpenedColor;
 		}
 	}
 
 	public void DoorOpenedChange(){
 		if (collision.Disabled == true){
+			if(anim_to == 0)
+			{
+				GetNode<Node2D>("Top").Visible = true;
+			}
+			else
+			{
+				GetNode<Node2D>("Right").Visible = true;
+			}
 			collision.Disabled = false;
 			//sprite.Modulate = NotOpenedColor;
-			sprite.Modulate = OpenedColor;
+			//sprite.Modulate = OpenedColor;
 		}
 		else {
+			if(anim_to == 0)
+			{
+				GetNode<Node2D>("Top").Visible = false;
+			}
+			else
+			{
+				GetNode<Node2D>("Right").Visible = false;
+			}
 			collision.Disabled = true;
 			//sprite.Modulate = OpenedColor;
-			sprite.Modulate = NotOpenedColor;
+			//sprite.Modulate = NotOpenedColor;
 		}
 	}
 }
