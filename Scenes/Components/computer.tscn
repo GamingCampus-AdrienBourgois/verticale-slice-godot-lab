@@ -1,12 +1,21 @@
-[gd_scene load_steps=13 format=3 uid="uid://bfv0qhjvvqket"]
+[gd_scene load_steps=20 format=3 uid="uid://bfv0qhjvvqket"]
 
 [ext_resource type="Texture2D" uid="uid://bnmkl1gwaqahx" path="res://icon.svg" id="1_d0d42"]
 [ext_resource type="Script" path="res://Scripts/Components/computer.cs" id="1_hnjmo"]
 [ext_resource type="AudioStream" uid="uid://bgp0resytrc0j" path="res://assets/Imports/Sound_Effects/OFFPc2.wav" id="3_qpbn4"]
 [ext_resource type="Texture2D" uid="uid://cjdvukkev0oyi" path="res://assets/pc_sprites.png" id="4_cpkrd"]
+[ext_resource type="Texture2D" uid="uid://drlbwm2g58e55" path="res://assets/pc_colors.png" id="4_s4hg0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ywko"]
 size = Vector2(30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58itf"]
+atlas = ExtResource("4_s4hg0")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdjk1"]
+atlas = ExtResource("4_s4hg0")
+region = Rect2(0, 222, 32, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4q75x"]
 atlas = ExtResource("4_cpkrd")
@@ -15,6 +24,18 @@ region = Rect2(32, 32, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_86y7g"]
 atlas = ExtResource("4_cpkrd")
 region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4s38k"]
+atlas = ExtResource("4_s4hg0")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gm1n"]
+atlas = ExtResource("4_s4hg0")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yahmu"]
+atlas = ExtResource("4_s4hg0")
+region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mejoo"]
 atlas = ExtResource("4_cpkrd")
@@ -32,13 +53,33 @@ region = Rect2(0, 32, 32, 32)
 atlas = ExtResource("4_cpkrd")
 region = Rect2(0, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vj1ly"]
+atlas = ExtResource("4_s4hg0")
+region = Rect2(0, 128, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_3avfd"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_58itf")
+}],
+"loop": false,
+"name": &"Blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdjk1")
+}],
+"loop": false,
+"name": &"Green",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_4q75x")
 }],
-"loop": true,
+"loop": false,
 "name": &"Left_OFF",
 "speed": 5.0
 }, {
@@ -46,15 +87,39 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_86y7g")
 }],
-"loop": true,
+"loop": false,
 "name": &"Left_ON",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4s38k")
+}],
+"loop": false,
+"name": &"Orange",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gm1n")
+}],
+"loop": false,
+"name": &"Purple",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yahmu")
+}],
+"loop": false,
+"name": &"Red",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mejoo")
 }],
-"loop": true,
+"loop": false,
 "name": &"Right_OFF",
 "speed": 5.0
 }, {
@@ -62,7 +127,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ebtal")
 }],
-"loop": true,
+"loop": false,
 "name": &"Right_ON",
 "speed": 5.0
 }, {
@@ -70,7 +135,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nlck8")
 }],
-"loop": true,
+"loop": false,
 "name": &"Top_OFF",
 "speed": 5.0
 }, {
@@ -78,8 +143,16 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sjyyy")
 }],
-"loop": true,
+"loop": false,
 "name": &"Top_ON",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vj1ly")
+}],
+"loop": false,
+"name": &"Yellow",
 "speed": 5.0
 }]
 
@@ -103,4 +176,4 @@ volume_db = -10.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_3avfd")
-animation = &"Top_OFF"
+animation = &"Top_ON"
