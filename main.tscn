@@ -1,9 +1,10 @@
-[gd_scene load_steps=158 format=3 uid="uid://degk0tj8lto51"]
+[gd_scene load_steps=159 format=3 uid="uid://degk0tj8lto51"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_8aswi"]
 [ext_resource type="PackedScene" uid="uid://c767xbfu781tp" path="res://Scenes/Player/player.tscn" id="2_cxfpo"]
 [ext_resource type="Texture2D" uid="uid://bnmkl1gwaqahx" path="res://icon.svg" id="3_nd6b6"]
 [ext_resource type="PackedScene" uid="uid://brp75n3p58gce" path="res://Scenes/Components/tp.tscn" id="4_12jmb"]
+[ext_resource type="PackedScene" uid="uid://bp8dcuiu6tjpe" path="res://Scenes/Components/DialogueHUD.tscn" id="4_erx4h"]
 [ext_resource type="PackedScene" uid="uid://c2k0yl2eo71rf" path="res://Scenes/Components/ballon.tscn" id="5_qksr7"]
 [ext_resource type="PackedScene" uid="uid://dchiwu34cy6w2" path="res://Scenes/Components/door.tscn" id="6_e23jg"]
 [ext_resource type="Texture2D" uid="uid://c28kbfkrhn4l3" path="res://assets/tileset_loopout.png" id="6_wo2x4"]
@@ -2651,6 +2652,8 @@ texture = ExtResource("19_p6hmw")
 
 [node name="FixWire" parent="." instance=ExtResource("7_jky4f")]
 position = Vector2(-264, 701)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("4_erx4h")]
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_cxfpo")]
 position = Vector2(89, 114)

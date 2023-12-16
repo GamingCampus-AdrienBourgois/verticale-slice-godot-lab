@@ -34,6 +34,15 @@ window/stretch/aspect="ignore"
 
 project/assembly_name="Loop_Out"
 
+[file_customization]
+
+folder_colors={
+"res://Data/": "yellow",
+"res://Platformer/": "gray",
+"res://Scenes/": "green",
+"res://Scripts/": "red"
+}
+
 [filesystem]
 
 import/blender/enabled=false
