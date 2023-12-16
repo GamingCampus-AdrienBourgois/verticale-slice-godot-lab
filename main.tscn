@@ -2653,7 +2653,7 @@ texture = ExtResource("19_p6hmw")
 [node name="FixWire" parent="." instance=ExtResource("7_jky4f")]
 position = Vector2(-264, 701)
 
-[node name="CanvasLayer" parent="." instance=ExtResource("4_erx4h")]
+[node name="DialogueHUD" parent="." instance=ExtResource("4_erx4h")]
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_cxfpo")]
 position = Vector2(89, 114)

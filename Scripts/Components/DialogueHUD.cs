@@ -6,6 +6,10 @@ using System.ComponentModel.Design;
 
 public partial class DialogueHUD : CanvasLayer
 {
+
+    [Export]
+    public bool Show;
+
     private Label txt_label;
     private AnimationPlayer animation;
     private AudioStreamPlayer audio;
@@ -25,7 +29,15 @@ public partial class DialogueHUD : CanvasLayer
         txt_label = GetNode<Label>("HBoxContainer/ColorRect2/Sprite2D/Label");
         animation = GetNode<AnimationPlayer>("AnimationPlayer");
         audio = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
-        Visible = isShow;
+        if (Show)
+        {
+            Visible = isShow;
+        }
+        else
+        {
+            isShow = false;
+            Visible = isShow;
+        }
         DialogID = LoadDialogID();
 
         dialogueLines = ReadDialogLine(dialogue_file_path);
@@ -40,7 +52,7 @@ public partial class DialogueHUD : CanvasLayer
     public override void _Process(double delta)
     {
         Visible = isShow;
-        if (isShow)
+        if (isShow && Show)
         {
             TextUpdate();
             if (Input.IsActionJustPressed("ui_accept") && !DialogReadyToNext)
