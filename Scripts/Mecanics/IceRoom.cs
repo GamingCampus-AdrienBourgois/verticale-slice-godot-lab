@@ -17,7 +17,7 @@ public partial class IceRoom : Node
 		if(body.IsInGroup("Player"))
 		{
 			GD.Print("Entered");
-			var temp = (Player)player;
+			var temp = (Player)body;
 			temp.OnIce = true;
 		}	
 	}
@@ -27,7 +27,7 @@ public partial class IceRoom : Node
 		if(body.IsInGroup("Player"))
 		{
 			GD.Print("Exited");
-			var temp = (Player)player;
+			var temp = (Player)body;
 			temp.OnIce = false;
 		}
 	}
