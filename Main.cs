@@ -18,6 +18,10 @@ public partial class Main : Node2D
 	private ObjectForFixVert fixvert = null;
 	private Bedroom bedroom = null;
 
+	private Control pauseMenu;
+
+	private bool paused = false;
+
 	public override void _Ready()
 	{
 		coloredpc = GetNode<ColorCode>("ColoredPc");
@@ -27,6 +31,7 @@ public partial class Main : Node2D
 		pedestal = GetNode<Pedestal>("Pedestal");
 		fixvert = GetNode<ObjectForFixVert>("ObjectForFixVert");
 		bedroom = GetNode<Bedroom>("Bedroom");
+		pauseMenu = GetNode<Control>("Pause");
 
 		
 
@@ -37,7 +42,15 @@ public partial class Main : Node2D
 			i.Connect("script_changed",new Callable(this,"Tp_entered"));
 		}
 	}
-	
+
+	public override void _Process(double delta)
+	{
+		if(Input.IsActionJustPressed("Pause"))
+		{
+			PauseMenu();
+		}
+	}
+
 	public void Tp_entered(string _scenePath, Node2D body)
 	{
 		if (body.IsInGroup("Player"))
@@ -58,6 +71,21 @@ public partial class Main : Node2D
 		else {
 			GD.Print("Non_player collision");
 		}
+	}
+
+	public void PauseMenu()
+	{
+		if (paused)
+		{
+			pauseMenu.Hide();
+			Engine.TimeScale = 1;
+		}
+		else 
+		{
+			pauseMenu.Show();
+			Engine.TimeScale = 0;
+		}
+		paused = !paused;
 	}
 }
 

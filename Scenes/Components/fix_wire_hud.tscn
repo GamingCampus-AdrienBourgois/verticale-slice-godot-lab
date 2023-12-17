@@ -19,60 +19,53 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -300.0
-offset_top = -175.0
-offset_right = 300.0
-offset_bottom = 175.0
+offset_left = -299.0
+offset_top = -164.0
+offset_right = 305.0
+offset_bottom = 186.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/h_separation = 500
-theme_override_constants/v_separation = 50
+theme_override_constants/h_separation = 504
+theme_override_constants/v_separation = 56
 columns = 2
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
-custom_minimum_size = Vector2(60, 50)
+custom_minimum_size = Vector2(50, 41)
 layout_mode = 2
 color = Color(0, 0, 1, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="VBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(50, 40)
 layout_mode = 2
-size_flags_horizontal = 8
 color = Color(1, 0, 0, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="VBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(50, 40)
 layout_mode = 2
-size_flags_horizontal = 8
 
 [node name="ColorRect4" type="ColorRect" parent="VBoxContainer"]
-custom_minimum_size = Vector2(60, 50)
+custom_minimum_size = Vector2(50, 40)
 layout_mode = 2
-size_flags_horizontal = 8
 color = Color(0, 0, 1, 1)
 
 [node name="ColorRect5" type="ColorRect" parent="VBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(50, 40)
 layout_mode = 2
-size_flags_horizontal = 8
 color = Color(1, 0, 0, 1)
 
 [node name="ColorRect6" type="ColorRect" parent="VBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(50, 40)
 layout_mode = 2
-size_flags_horizontal = 8
 color = Color(0, 1, 0, 1)
 
 [node name="ColorRect7" type="ColorRect" parent="VBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(50, 40)
 layout_mode = 2
-size_flags_horizontal = 8
 color = Color(0, 1, 0, 1)
 
 [node name="ColorRect8" type="ColorRect" parent="VBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
+custom_minimum_size = Vector2(50, 40)
 layout_mode = 2
-size_flags_horizontal = 8
 
 [node name="Menu_cursor" parent="." instance=ExtResource("2_horgu")]
 offset_left = 139.0
