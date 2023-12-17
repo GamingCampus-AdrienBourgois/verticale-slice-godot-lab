@@ -33,20 +33,23 @@ public partial class DialogueHUD : CanvasLayer
         arrow = GetNode<AnimatedSprite2D>("HBoxContainer/ColorRect2/Sprite2D/Sprite2D");
         if (Show)
         {
-            Visible = isShow;
             arrow.Visible = false;
             DialogID = LoadDialogID();
             dialogueLines = ReadDialogLine(dialogue_file_path);
-            if (DialogID > 7)
+            if (dialogueLines[DialogID] == "END")
             {
-                StartDialogFinish = true;
+                CloseDialog();
             }
+            Visible = isShow;
             if (!hasReset)
             {
                 ResetDialogID();
                 hasReset = true;
                 TextUpdate();
             }
+            GD.Print(dialogueLines[DialogID] + " at ID: " + DialogID);
+            GD.Print(hasReset);
+            
         }
         else
         {
@@ -94,6 +97,7 @@ public partial class DialogueHUD : CanvasLayer
             {
                 ResetDialogID();
                 DialogID = LoadDialogID();
+                TextUpdate();
                 hasAnimationstarted = false;
                 DialogReadyToNext = false;
             }
