@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://l3p7ephvmcpn"
-path="res://.godot/imported/tileset_player_v2.png-b4e88f0e469185a08061c12987d49f26.ctex"
+uid="uid://bm0weqdxtd35x"
+path="res://.godot/imported/caisse.png-7e6b756fbaa9c0412604e9bbdda1d7d3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tileset_player_v2.png"
-dest_files=["res://.godot/imported/tileset_player_v2.png-b4e88f0e469185a08061c12987d49f26.ctex"]
+source_file="res://assets/Components/caisse.png"
+dest_files=["res://.godot/imported/caisse.png-7e6b756fbaa9c0412604e9bbdda1d7d3.ctex"]
 
 [params]
 
