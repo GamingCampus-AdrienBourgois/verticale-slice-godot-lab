@@ -37,28 +37,28 @@ public partial class DialogueHUD : CanvasLayer
         if (Show)
         {
             Visible = isShow;
+            arrow.Visible = false;
+            DialogID = LoadDialogID();
+            dialogueLines = ReadDialogLine(dialogue_file_path);
+
+            if (DialogID > 7)
+            {
+                StartDialogFinish = true;
+            }
+
+            if (!hasReset)
+            {
+                ResetDialogID();
+                hasReset = true;
+                TextUpdate();
+            }
         }
         else
         {
             isShow = false;
             Visible = isShow;
         }
-        arrow.Visible = false;
-        DialogID = LoadDialogID();
 
-        dialogueLines = ReadDialogLine(dialogue_file_path);
-
-        if (DialogID > 7)
-        {
-            StartDialogFinish = true;
-        }
-        
-        if (!hasReset)
-        {
-            ResetDialogID();
-            hasReset = true;
-            TextUpdate();
-        }
     }
 
     public override void _Process(double delta)
