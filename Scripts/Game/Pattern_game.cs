@@ -21,38 +21,41 @@ public partial class Pattern_game : Control
 
 	List<Godot.Vector2> Found = new List<Godot.Vector2>();
 
+	[Signal]
+	public delegate void PatternEventHandler();
+
 	public bool STATE = false;
 
 	public override void _Ready()
 	{
-		Random rnd = new Random();
-		for (int i = 0; i < width/10; i++)
-		{
-			ToSelect.Add(new Godot.Vector2(rnd.Next(0,height-1),rnd.Next(0,width-1)));
-			GD.Print(ToSelect[i]);
-		}
+		// Random rnd = new Random();
+		// for (int i = 0; i < width/10; i++)
+		// {
+		// 	ToSelect.Add(new Godot.Vector2(rnd.Next(0,height-1),rnd.Next(0,width-1)));
+		// 	GD.Print(ToSelect[i]);
+		// }
 		// ToSelect.Add(new Godot.Vector2(2,2));
 		// ToSelect.Add(new Godot.Vector2(1,3));
 		
-		vbox = GetNode("Vbox");
+		// vbox = GetNode("Vbox");
 
-		for (int i = 0; i < height; i++)
-		{
-			var Hbox = new HBoxContainer();
-			vbox.AddChild(Hbox);
-		}
-		foreach(Node x in vbox.GetChildren())
-		{
-			for (int i = 0; i < width; i++)
-			{
-				var colorRect = new ColorRect
-				{
-					CustomMinimumSize = new Godot.Vector2(50, 50)
-				};
-				x.AddChild(colorRect);
-			}
-		}
-		ToColor(selected,new Color(158,177,228));
+		// for (int i = 0; i < height; i++)
+		// {
+		// 	var Hbox = new HBoxContainer();
+		// 	vbox.AddChild(Hbox);
+		// }
+		// foreach(Node x in vbox.GetChildren())
+		// {
+		// 	for (int i = 0; i < width; i++)
+		// 	{
+		// 		var colorRect = new ColorRect
+		// 		{
+		// 			CustomMinimumSize = new Godot.Vector2(50, 50)
+		// 		};
+		// 		x.AddChild(colorRect);
+		// 	}
+		// }
+		// ToColor(selected,new Color(158,177,228));
 	}
 
 	public void Start()
@@ -63,8 +66,11 @@ public partial class Pattern_game : Control
 		//	ToSelect.Add(new Godot.Vector2(rnd.Next(0,height-1),rnd.Next(0,width-1)));
 		//	GD.Print(ToSelect[i]);
 		//}
-		// ToSelect.Add(new Godot.Vector2(2,2));
-		// ToSelect.Add(new Godot.Vector2(1,3));
+		
+		ToSelect.Add(new Godot.Vector2(4,6));
+		ToSelect.Add(new Godot.Vector2(5,6));
+		ToSelect.Add(new Godot.Vector2(7,7));
+		ToSelect.Add(new Godot.Vector2(2,2));
 		
 		vbox = GetNode("Vbox");
 
@@ -90,55 +96,59 @@ public partial class Pattern_game : Control
 
 	public override void _Input(InputEvent @event)
 	{
-		bool Confirm = true;
-		if(Found.Count() == ToSelect.Count())
+		if(GetParent<CanvasLayer>().Visible)
 		{
-			for (int i = 0; i < Found.Count()-1; i++)
+			bool Confirm = true;
+			if(Found.Count() == ToSelect.Count())
 			{
-				if(ToSelect[i] != Found[i])
+				for (int i = 0; i < Found.Count()-1; i++)
 				{
-					Confirm = false;
-					break;
+					if(ToSelect[i] != Found[i])
+					{
+						Confirm = false;
+						break;
+					}
+				}
+				if (Confirm == true)
+				{
+					GD.Print("Resolved");
+					STATE = true;
+					EmitSignal("Pattern");
+					// Envoie sur la salle dans l'espace avec le mec ou dans la room
 				}
 			}
-			if (Confirm == true)
+
+			Godot.Vector2 AncientSelec = selected;
+			// Mettre que si il appuie sur une touche ça enlève le rouge
+			if(@event.IsActionPressed("Up")){selected.X -= 1;}
+			else if(@event.IsActionPressed("Down")){selected.X += 1;}
+			else if(@event.IsActionPressed("Right")){selected.Y += 1;}
+			else if(@event.IsActionPressed("Left")){selected.Y -= 1;}
+			if(selected.X < 0 || selected.Y < 0 || selected.X > height-1 || selected.Y > width-1)
 			{
-				GD.Print("Resolved");
-				STATE = true;
-				// Envoie sur la salle dans l'espace avec le mec ou dans la room
+				selected = AncientSelec;
 			}
-		}
-		
-		Godot.Vector2 AncientSelec = selected;
-		// Mettre que si il appuie sur une touche ça enlève le rouge
-		if(@event.IsActionPressed("Up")){selected.X -= 1;}
-		else if(@event.IsActionPressed("Down")){selected.X += 1;}
-		else if(@event.IsActionPressed("Right")){selected.Y += 1;}
-		else if(@event.IsActionPressed("Left")){selected.Y -= 1;}
-		if(selected.X < 0 || selected.Y < 0 || selected.X > height-1 || selected.Y > width-1)
-		{
-			selected = AncientSelec;
-		}
 
-		ToColor(AncientSelec, new Color(255,255,255));
-		if (Found.Count() > 0)
-		{
-			for (int i = 0; i < Found.Count(); i++)
+			ToColor(AncientSelec, new Color(255,255,255));
+			if (Found.Count() > 0)
 			{
-				ToColor(Found[i],new Color(255,0,0));
+				for (int i = 0; i < Found.Count(); i++)
+				{
+					ToColor(Found[i],new Color(255,0,0));
+				}
 			}
-		}
-		ToColor(selected,new Color(0,0,255));
+			ToColor(selected,new Color(0,0,255));
 
-		
 
-		// GD.Print("selected : ",selected);
-		if (@event.IsActionPressed("Accept"))
-		{
-			GD.Print("OK");
-			ToColor(selected,new Color(255,0,0));
-			if(!Found.Contains(selected)){
-				Found.Add(selected);
+
+			// GD.Print("selected : ",selected);
+			if (@event.IsActionPressed("Accept"))
+			{
+				GD.Print("OK");
+				ToColor(selected,new Color(255,0,0));
+				if(!Found.Contains(selected)){
+					Found.Add(selected);
+				}
 			}
 		}
 	}
