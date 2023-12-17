@@ -1,4 +1,5 @@
 [gd_scene load_steps=160 format=3 uid="uid://degk0tj8lto51"]
+[gd_scene load_steps=160 format=3 uid="uid://degk0tj8lto51"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_8aswi"]
 [ext_resource type="PackedScene" uid="uid://c767xbfu781tp" path="res://Scenes/Player/player.tscn" id="2_cxfpo"]
@@ -41,6 +42,7 @@
 [ext_resource type="PackedScene" uid="uid://lslqnak1qpv1" path="res://Scenes/Components/Note.tscn" id="34_xqgb4"]
 [ext_resource type="PackedScene" uid="uid://e6rpx7730h43" path="res://Scenes/Game/Game_escape_hud.tscn" id="35_kagt3"]
 [ext_resource type="PackedScene" uid="uid://cc24r35u7ajev" path="res://Scenes/Menu/Pause.tscn" id="41_23fqp"]
+[ext_resource type="PackedScene" uid="uid://bbmfj3xbvly5c" path="res://Scenes/Game/PatternGame.tscn" id="41_uev4u"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_k0qkj"]
 tile_data = PackedInt32Array(0, 1441793, 4, 65536, 1572865, 4, 1, 1572865, 4, 65537, 1441793, 4)
@@ -3580,6 +3582,9 @@ position = Vector2(53, 1)
 [node name="Game_escape" parent="NotTp" instance=ExtResource("35_kagt3")]
 visible = false
 
+[node name="PatternGame" parent="NotTp" instance=ExtResource("41_uev4u")]
+visible = false
+
 [node name="Borne" type="Polygon2D" parent="."]
 position = Vector2(3262, -637)
 color = Color(0.25098, 0.25098, 0.25098, 1)
@@ -3590,9 +3595,14 @@ script = SubResource("CSharpScript_usjsu")
 visible = false
 z_index = 1
 
+
+[connection signal="OFF" from="Ice/IceDec1" to="Ice" method="_on_ice_dec_1_off"]
+[connection signal="ON" from="Ice/IceDec1" to="Ice" method="_on_ice_dec_1_on"]
 [connection signal="body_entered" from="Ice/IceDec1" to="Ice/IceDec1" method="_on_body_entered"]
 [connection signal="body_exited" from="Ice/IceDec1" to="Ice/IceDec1" method="_on_body_exited"]
-[connection signal="body_entered" from="Ice/Player_detect" to="Ice/Player_detect" method="_on_body_entered"]
+[connection signal="ON" from="Ice/Player_detect" to="Ice" method="_on_player_detect_on"]
+[connection signal="body_entered" from="Ice/Player_detect" to="Ice/IceDec1" method="_on_player_detect_body_entered"]
+[connection signal="body_exited" from="Ice/Player_detect" to="Ice/IceDec1" method="_on_player_detect_body_exited"]
 [connection signal="body_entered" from="Bedroom/Areas/BedArea" to="Bedroom/Areas/BedArea" method="_on_body_entered"]
 [connection signal="body_exited" from="Bedroom/Areas/BedArea" to="Bedroom/Areas/BedArea" method="_on_body_exited"]
 [connection signal="body_entered" from="Bedroom/Areas/BedArea2" to="Bedroom/Areas/BedArea2" method="_on_body_entered"]

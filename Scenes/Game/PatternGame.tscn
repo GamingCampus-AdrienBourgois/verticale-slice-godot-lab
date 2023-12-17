@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbmfj3xbvly5c"]
+
+[ext_resource type="PackedScene" uid="uid://bsvwk380ndi4g" path="res://Scenes/Game/Pattern_game.tscn" id="1_hayqe"]
+
+[node name="PatternGame" type="CanvasLayer"]
+
+[node name="Pattern_game" parent="." instance=ExtResource("1_hayqe")]
