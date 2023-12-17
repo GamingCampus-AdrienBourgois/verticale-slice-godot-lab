@@ -2675,7 +2675,6 @@ texture = ExtResource("19_p6hmw")
 position = Vector2(-264, 701)
 
 [node name="DialogueHUD" parent="." instance=ExtResource("4_erx4h")]
-Show = false
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_cxfpo")]
 position = Vector2(89, 114)

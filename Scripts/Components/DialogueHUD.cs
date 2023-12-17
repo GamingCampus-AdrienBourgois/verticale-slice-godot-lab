@@ -1,8 +1,5 @@
 using Godot;
-using Microsoft.VisualBasic;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 
 public partial class DialogueHUD : CanvasLayer
 {
@@ -40,12 +37,10 @@ public partial class DialogueHUD : CanvasLayer
             arrow.Visible = false;
             DialogID = LoadDialogID();
             dialogueLines = ReadDialogLine(dialogue_file_path);
-
             if (DialogID > 7)
             {
                 StartDialogFinish = true;
             }
-
             if (!hasReset)
             {
                 ResetDialogID();
@@ -178,15 +173,14 @@ public partial class DialogueHUD : CanvasLayer
     public int LoadDialogID()
     {
         using var file = FileAccess.Open(save_file_path, FileAccess.ModeFlags.Read);
-        string content = file.GetLine();
-
-        if (content != null)
+        if (file == null)
         {
-            return content.ToInt();
+            return 0;
         }
-        else 
-        { 
-            return 0; 
+        else
+        {
+            string content = file.GetLine();
+            return content.ToInt();
         }
     }
 
