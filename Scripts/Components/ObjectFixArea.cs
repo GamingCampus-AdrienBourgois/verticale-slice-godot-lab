@@ -35,7 +35,7 @@ public partial class ObjectFixArea : Area2D
 
 	private void _on_body_entered(Node2D body)
 	{
-		//GD.Print(body.Name);
+		GD.Print(body.Name);
 		EmitSignal("ON",this,body);
 	}
 
