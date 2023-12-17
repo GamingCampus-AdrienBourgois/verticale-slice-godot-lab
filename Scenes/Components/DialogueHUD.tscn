@@ -1,9 +1,109 @@
-[gd_scene load_steps=9 format=3 uid="uid://bp8dcuiu6tjpe"]
+[gd_scene load_steps=24 format=3 uid="uid://bp8dcuiu6tjpe"]
 
 [ext_resource type="Script" path="res://Scripts/Components/DialogueHUD.cs" id="1_d15d8"]
 [ext_resource type="Texture2D" uid="uid://rl6f8kqe8xam" path="res://assets/Components/DialogueCharacterHUD.png" id="1_n470i"]
 [ext_resource type="Texture2D" uid="uid://ddhc2ra5n7rr5" path="res://assets/Components/DialogueTxtBG.png" id="2_evjdg"]
+[ext_resource type="Texture2D" uid="uid://csmnodqpybuf4" path="res://assets/Components/DialogueArrow.png" id="4_ujtx6"]
 [ext_resource type="AudioStream" uid="uid://cql7dqsq4s7n8" path="res://assets/Imports/Sound_Effects/sound_Dialogue.wav" id="4_vjgn3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_his0n"]
+atlas = ExtResource("4_ujtx6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jglo2"]
+atlas = ExtResource("4_ujtx6")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqjd8"]
+atlas = ExtResource("4_ujtx6")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qaeeg"]
+atlas = ExtResource("4_ujtx6")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k68di"]
+atlas = ExtResource("4_ujtx6")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_miypk"]
+atlas = ExtResource("4_ujtx6")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_36niv"]
+atlas = ExtResource("4_ujtx6")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_so26l"]
+atlas = ExtResource("4_ujtx6")
+region = Rect2(0, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7eyfa"]
+atlas = ExtResource("4_ujtx6")
+region = Rect2(0, 256, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6hya"]
+atlas = ExtResource("4_ujtx6")
+region = Rect2(0, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrtkv"]
+atlas = ExtResource("4_ujtx6")
+region = Rect2(0, 320, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8d7pp"]
+atlas = ExtResource("4_ujtx6")
+region = Rect2(0, 352, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8ws3"]
+atlas = ExtResource("4_ujtx6")
+region = Rect2(0, 384, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kxewh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_his0n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jglo2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqjd8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qaeeg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k68di")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_miypk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_36niv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_so26l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7eyfa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6hya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrtkv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8d7pp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8ws3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 40.0
+}]
 
 [sub_resource type="Animation" id="Animation_hnmks"]
 resource_name = "Dialogue"
@@ -60,6 +160,30 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HBoxContainer/ColorRect2/Sprite2D/Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(860, 160)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HBoxContainer/ColorRect2/Sprite2D/Sprite2D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_xbkoa"]
 resource_name = "Skip"
@@ -98,6 +222,7 @@ _data = {
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_d15d8")
+Show = true
 
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
 anchors_preset = 15
@@ -151,10 +276,18 @@ offset_bottom = 16.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "Hi do you like poutreAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-autowrap_mode = 1
+autowrap_mode = 2
 clip_text = true
 visible_characters = 0
 visible_ratio = 0.0
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="HBoxContainer/ColorRect2/Sprite2D"]
+texture_filter = 1
+position = Vector2(860, 160)
+sprite_frames = SubResource("SpriteFrames_kxewh")
+autoplay = "default"
+frame_progress = 0.868937
+centered = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_vjgn3")

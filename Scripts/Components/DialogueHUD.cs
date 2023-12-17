@@ -8,17 +8,20 @@ public partial class DialogueHUD : CanvasLayer
 {
 
     [Export]
-    public bool Show;
+    public new bool Show;
 
     private Label txt_label;
     private AnimationPlayer animation;
     private AudioStreamPlayer audio;
+    private Player player;
+    private AnimatedSprite2D arrow;
 
     private int DialogID = 0;
     private bool isShow = true;
     private bool hasReset = false;
     private bool hasAnimationstarted = false;
     private bool DialogReadyToNext = false;
+    private bool StartDialogFinish = false;
 
     private string save_file_path = "user://Data/SavedData.dat";
     private string dialogue_file_path = "res://Data/Dialogue.txt";
@@ -29,47 +32,70 @@ public partial class DialogueHUD : CanvasLayer
         txt_label = GetNode<Label>("HBoxContainer/ColorRect2/Sprite2D/Label");
         animation = GetNode<AnimationPlayer>("AnimationPlayer");
         audio = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
+        player = GetParent().GetNode<Player>("Player");
+        arrow = GetNode<AnimatedSprite2D>("HBoxContainer/ColorRect2/Sprite2D/Sprite2D");
         if (Show)
         {
             Visible = isShow;
+            arrow.Visible = false;
+            DialogID = LoadDialogID();
+            dialogueLines = ReadDialogLine(dialogue_file_path);
+
+            if (DialogID > 7)
+            {
+                StartDialogFinish = true;
+            }
+
+            if (!hasReset)
+            {
+                ResetDialogID();
+                hasReset = true;
+                TextUpdate();
+            }
         }
         else
         {
             isShow = false;
             Visible = isShow;
         }
-        DialogID = LoadDialogID();
 
-        dialogueLines = ReadDialogLine(dialogue_file_path);
-        
-        if (!hasReset)
-        {
-            ResetDialogID();
-            hasReset = true;
-        }
     }
 
     public override void _Process(double delta)
     {
         Visible = isShow;
+        if (player != null)
+        {
+            player.inputOnFocus = isShow;
+        }
         if (isShow && Show)
         {
-            TextUpdate();
-            if (Input.IsActionJustPressed("ui_accept") && !DialogReadyToNext)
-            {
-                DialogReadyToNext = true;
-                animation.Play("Skip");
 
-            }
-            else if (Input.IsActionJustPressed("ui_accept") && DialogReadyToNext)
+            if (DialogReadyToNext)
             {
-                DialogID++;
-                SaveDialogID();
-                hasAnimationstarted = false;
-                DialogReadyToNext = false;
+                arrow.Visible = true;
+                if (Input.IsActionJustPressed("ui_accept"))
+                {
+                    DialogID++;
+                    TextUpdate();
+                    CheckNextDialog();
+                    SaveDialogID();
+                    hasAnimationstarted = false;
+                    DialogReadyToNext = false;
+
+                }
+            }
+            else if (!DialogReadyToNext)
+            {
+                arrow.Visible = false;
+                if (Input.IsActionJustPressed("ui_accept"))
+                {
+                    DialogReadyToNext = true;
+                    animation.Play("Skip");
+                }
             }
 
-            if (Input.IsActionJustPressed("ui_cancel")) // A retirer une fois les dialog fini
+            if (Input.IsActionJustPressed("ui_cancel")) // A retirer une fois les dialogues finis
             {
                 ResetDialogID();
                 DialogID = LoadDialogID();
@@ -79,9 +105,23 @@ public partial class DialogueHUD : CanvasLayer
         }
     }
 
-    public void OnAnimationPlayerFinished()
+    private void CheckNextDialog()
     {
-        if (!DialogReadyToNext)
+        if (txt_label.Text == "END")
+        {
+            CloseDialog();
+        }
+    }
+
+    private void CloseDialog()
+    {
+        isShow = false;
+        Visible = isShow;
+    }
+
+    public void OnAnimationPlayerFinished(string anim_name)
+    {
+        if (anim_name == "Dialogue")
         {
             DialogReadyToNext = true;
         }
@@ -94,7 +134,7 @@ public partial class DialogueHUD : CanvasLayer
         {
             hasAnimationstarted = true;
         }
-        if (!hasAnimationstarted)
+        if (!hasAnimationstarted && txt_label.Text != "END")
         {
             animation.Play("Dialogue");
         }
