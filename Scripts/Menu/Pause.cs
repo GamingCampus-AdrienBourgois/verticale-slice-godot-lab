@@ -1,31 +1,88 @@
-using Godot;
-using System;
+// using Godot;
+// using System;
 
 
-public partial class Pause : Control
-{
-	private bool paused = false;
+// public partial class Pause : Control
+// {
+// 	private int SelectedIndex = 0;
+// 	private Scene_transition SceneTransition = null;
+// 	private bool paused = false;
 
-	public override void _Process(double delta)
-	{
-		if(Input.IsActionPressed("Pause"))
-		{
+// 	public override void _Ready()
+// 	{
+// 		paused = GetParent().GetParent<Main>().paused;
+// 		SceneTransition = GetParent().GetNode<Scene_transition>("SceneTransition");
+// 	}
+
+// 	public override void _Input(InputEvent @event)
+// 	{
+// 		if(!paused)
+// 		{
+// 			if(Input.IsActionPressed("ui_right"))
+// 			{
+// 				ChangeSelecInd(+1);
+// 			}
+// 			if(Input.IsActionPressed("ui_left"))
+// 			{
+// 				ChangeSelecInd(-1);
+// 			}
+// 			if(Input.IsActionPressed("ui_up"))
+// 			{
+// 				ChangeSelecInd(-1);
+// 			}
+// 			if(Input.IsActionPressed("ui_down"))
+// 			{
+// 				ChangeSelecInd(+1);
+// 			}
+// 			if (Input.IsActionPressed("ui_accept"))
+// 			{
+// 				//Mettre un switch mais jsp la syntaxe
+// 				if (SelectedIndex == 0)
+// 				{
+// 					GetParent().GetParent<Main>().PauseMenu();
+// 				}
+// 				else if(SelectedIndex == 1)
+// 				{
+// 					SceneTransition.Call("changeScene","Scenes/Menu/Input_settings.tscn",false);
+// 				}
+// 				else if(SelectedIndex == 2)
+// 				{
+// 					GetTree().Quit();
+// 				}
+// 			}
+
+// 			ChangeColor();
+// 		}
+// 	}
+
+// 	private void ChangeSelecInd(int i){
+// 		SelectedIndex += i; 
+// 		if(SelectedIndex < 0)
+// 		{
+// 			SelectedIndex = 2;
+// 		}
+// 		else if (SelectedIndex > 2)
+// 		{
+// 			SelectedIndex = 0;
 			
-		}
-	}
+// 		}
+// 	}
 
-	public void PauseMenu()
-	{
-		if (paused)
-		{
-			this.Hide();
-			Engine.TimeScale = 1;
-		}
-		else 
-		{
-			this.Show();
-			Engine.TimeScale = 0;
-		}
-		paused = !paused;
-	}
-}
+// 	private void ChangeColor(){
+// 		for (int x = 0; x < GetNode<Node>("Container").GetChildren().Count; x++)
+// 		{
+// 			if (x == SelectedIndex)
+// 			{
+// 				GetNode<Node>("Container").GetChild<Godot.Label>(x).SelfModulate = new Color(255, 0, 0);
+// 			}
+// 			else {
+// 				GetNode<Node>("Container").GetChild<Godot.Label>(x).SelfModulate = new Color(255, 255, 255);
+// 			}
+// 		}
+// 	}
+
+// 	public void UpdatePause()
+// 	{
+// 		paused = GetParent().GetParent<Main>().paused;
+// 	}
+// }

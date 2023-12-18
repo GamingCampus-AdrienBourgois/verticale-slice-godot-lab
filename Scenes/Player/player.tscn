@@ -1,7 +1,7 @@
 [gd_scene load_steps=137 format=3 uid="uid://c767xbfu781tp"]
 
 [ext_resource type="Script" path="res://Scripts/Player/Player.cs" id="1_u3eu4"]
-[ext_resource type="Texture2D" uid="uid://l3p7ephvmcpn" path="res://assets/tileset_player_v2.png" id="2_byfkn"]
+[ext_resource type="Texture2D" uid="uid://d4b77v71weu6e" path="res://assets/tileset_player_v2.png" id="2_byfkn"]
 [ext_resource type="Texture2D" uid="uid://bofybbehxto5o" path="res://assets/Components/light.png" id="4_bujv8"]
 [ext_resource type="Texture2D" uid="uid://darjrcixr2156" path="res://assets/Components/1316-removebg-preview.png" id="4_lkp12"]
 [ext_resource type="PackedScene" uid="uid://dpbjbddrjlt7s" path="res://Scenes/Player/Ui_player.tscn" id="6_ofaw7"]
@@ -1022,7 +1022,6 @@ shape = SubResource("RectangleShape2D_rfhdx")
 position = Vector2(23, 0)
 
 [node name="Light2D" type="PointLight2D" parent="."]
-visible = false
 blend_mode = 2
 range_item_cull_mask = 2
 shadow_enabled = true
@@ -1030,7 +1029,6 @@ shadow_item_cull_mask = 2
 texture = ExtResource("4_lkp12")
 
 [node name="Light2D2" type="PointLight2D" parent="."]
-visible = false
 blend_mode = 2
 shadow_enabled = true
 shadow_item_cull_mask = 2
