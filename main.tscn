@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c767xbfu781tp" path="res://Scenes/Player/player.tscn" id="2_cxfpo"]
 [ext_resource type="Texture2D" uid="uid://bnmkl1gwaqahx" path="res://icon.svg" id="3_nd6b6"]
 [ext_resource type="PackedScene" uid="uid://brp75n3p58gce" path="res://Scenes/Components/tp.tscn" id="4_12jmb"]
+[ext_resource type="PackedScene" uid="uid://bp8dcuiu6tjpe" path="res://Scenes/Components/DialogueHUD.tscn" id="4_erx4h"]
 [ext_resource type="PackedScene" uid="uid://c2k0yl2eo71rf" path="res://Scenes/Components/ballon.tscn" id="5_qksr7"]
 [ext_resource type="PackedScene" uid="uid://dchiwu34cy6w2" path="res://Scenes/Components/door.tscn" id="6_e23jg"]
 [ext_resource type="Script" path="res://Scripts/Menu/Pause.cs" id="6_oln37"]
@@ -40,7 +41,7 @@
 [ext_resource type="Script" path="res://Scripts/Components/NotTp_TP.cs" id="32_s1gam"]
 [ext_resource type="PackedScene" uid="uid://lslqnak1qpv1" path="res://Scenes/Components/Note.tscn" id="34_xqgb4"]
 [ext_resource type="PackedScene" uid="uid://e6rpx7730h43" path="res://Scenes/Game/Game_escape_hud.tscn" id="35_kagt3"]
-[ext_resource type="PackedScene" path="res://Scenes/Game/PatternGame.tscn" id="41_uev4u"]
+[ext_resource type="PackedScene" uid="uid://xoasx78y5lio" path="res://Scenes/Menu/Pause.tscn" id="41_23fqp"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_k0qkj"]
 tile_data = PackedInt32Array(0, 1441793, 4, 65536, 1572865, 4, 1, 1572865, 4, 65537, 1441793, 4)
@@ -2909,73 +2910,59 @@ Opened = false
 
 [node name="PC27" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(-706, 636)
-anim = "Left"
 
 [node name="PC28" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(-706, 752)
 Opened = false
-anim = "Left"
 
 [node name="PC29" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(-707, 861)
 Opened = false
-anim = "Left"
+metadata/_edit_lock_ = true
 
 [node name="PC30" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(-709, 1075)
 Opened = false
-anim = "Left"
 
 [node name="PC31" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(-709, 1117)
 Opened = false
-anim = "Left"
 
 [node name="PC32" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(-710, 1160)
 Opened = false
-anim = "Left"
 
 [node name="PC33" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(-272, 1160)
-anim = "Right"
 
 [node name="PC34" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(-272, 1113)
 Opened = false
-anim = "Right"
 
 [node name="PC35" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(-272, 1072)
-anim = "Right"
 
 [node name="PC36" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(-274, 815)
-anim = "Right"
 
 [node name="PC37" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(-399, 382)
-anim = "Right"
 
 [node name="PC38" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(-400, 424)
 Opened = false
-anim = "Right"
 
 [node name="PC39" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(-400, 474)
 Opened = false
-anim = "Right"
 
 [node name="PC40" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(652, -531)
 OpenedColor = Color(257, 0, 0, 1)
-anim = "Red"
 
 [node name="PC41" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(728, -532)
 OpenedColor = Color(0, 0, 255, 1)
-anim = "Blue"
 
 [node name="PC42" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(828, -533)
@@ -2984,12 +2971,10 @@ Opened = false
 [node name="PC43" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(930, -533)
 OpenedColor = Color(255, 0, 0, 1)
-anim = "Red"
 
 [node name="PC44" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(1029, -531)
 OpenedColor = Color(1, 1, 0, 1)
-anim = "Yellow"
 
 [node name="PC45" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(1125, -532)
@@ -2998,7 +2983,6 @@ Opened = false
 [node name="PC46" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(1202, -533)
 OpenedColor = Color(0, 0, 255, 1)
-anim = "Blue"
 
 [node name="PC47" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(651, -259)
@@ -3008,17 +2992,14 @@ OpenedColor = Color(257, 0, 0, 1)
 [node name="PC48" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(732, -260)
 OpenedColor = Color(1, 1, 0, 1)
-anim = "Yellow"
 
 [node name="PC49" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(830, -259)
 OpenedColor = Color(255, 0, 0, 1)
-anim = "Red"
 
 [node name="PC50" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(933, -258)
 OpenedColor = Color(0, 0, 1, 1)
-anim = "Blue"
 
 [node name="PC51" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(1030, -259)
@@ -3028,12 +3009,10 @@ OpenedColor = Color(1, 1, 0, 1)
 [node name="PC52" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(1127, -258)
 OpenedColor = Color(1, 1, 0, 1)
-anim = "Yellow"
 
 [node name="PC53" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(1204, -259)
 OpenedColor = Color(1, 0, 0, 1)
-anim = "Red"
 
 [node name="PC54" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(660, 32)
@@ -3043,12 +3022,10 @@ OpenedColor = Color(257, 0, 0, 1)
 [node name="PC55" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(737, 32)
 OpenedColor = Color(1, 0, 0, 1)
-anim = "Red"
 
 [node name="PC56" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(834, 31)
 OpenedColor = Color(0, 0, 257, 1)
-anim = "Blue"
 
 [node name="PC57" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(936, 31)
@@ -3058,17 +3035,14 @@ OpenedColor = Color(255, 0, 0, 1)
 [node name="PC58" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(1029, 30)
 OpenedColor = Color(1, 0, 0, 1)
-anim = "Red"
 
 [node name="PC59" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(1126, 32)
 OpenedColor = Color(1, 0, 0, 1)
-anim = "Red"
 
 [node name="PC60" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(1208, 31)
 OpenedColor = Color(1, 1, 0, 1)
-anim = "Yellow"
 
 [node name="ColoredPc" type="Node" parent="."]
 script = ExtResource("13_6wkxx")
@@ -3438,68 +3412,57 @@ position = Vector2(-1264, -303)
 position = Vector2(-996, -149)
 collision_layer = 2
 collision_mask = 2
-anim = 38
 
 [node name="Fruit2" parent="FruitGame/Objects" groups=["Durian"] instance=ExtResource("25_5na4j")]
 position = Vector2(-945, -150)
 collision_layer = 2
 collision_mask = 2
-anim = 38
 
 [node name="Fruit3" parent="FruitGame/Objects" groups=["Durian"] instance=ExtResource("25_5na4j")]
 position = Vector2(-842, -151)
 collision_layer = 2
 collision_mask = 2
-anim = 38
 
 [node name="Fruit4" parent="FruitGame/Objects" instance=ExtResource("25_5na4j")]
 position = Vector2(-787, -150)
 collision_layer = 2
 collision_mask = 2
-anim = 8
 
 [node name="Fruit5" parent="FruitGame/Objects" instance=ExtResource("25_5na4j")]
 position = Vector2(-728, -148)
 collision_layer = 2
 collision_mask = 2
-anim = 27
 
 [node name="Fruit6" parent="FruitGame/Objects" instance=ExtResource("25_5na4j")]
 position = Vector2(-662, -149)
 collision_layer = 2
 collision_mask = 2
-anim = 2
 
 [node name="Fruit7" parent="FruitGame/Objects" instance=ExtResource("25_5na4j")]
 position = Vector2(-603, -150)
 collision_layer = 2
 collision_mask = 2
-anim = 2
 
 [node name="Fruit8" parent="FruitGame/Objects" instance=ExtResource("25_5na4j")]
 position = Vector2(-541, -150)
 collision_layer = 2
 collision_mask = 2
-anim = 32
 
 [node name="Fruit9" parent="FruitGame/Objects" instance=ExtResource("25_5na4j")]
 position = Vector2(-481, -149)
 collision_layer = 2
 collision_mask = 2
-anim = 1
 
 [node name="Fruit10" parent="FruitGame/Objects" instance=ExtResource("25_5na4j")]
 position = Vector2(-418, -148)
 rotation = 3.05342
 collision_layer = 2
 collision_mask = 2
-anim = 19
 
 [node name="Fruit11" parent="FruitGame/Objects" instance=ExtResource("25_5na4j")]
 position = Vector2(-895, -150)
 collision_layer = 2
 collision_mask = 2
-anim = 19
 
 [node name="PC" parent="." instance=ExtResource("10_gflbg")]
 position = Vector2(-295, 138)
@@ -3597,27 +3560,22 @@ anim = "Bousole"
 [node name="Object_Bedrooms2" parent="Bedroom/Objects" instance=ExtResource("29_uguob")]
 position = Vector2(119, 367)
 GroupToAdd = "Victor"
-anim = "Canard"
 
 [node name="Object_Bedrooms3" parent="Bedroom/Objects" instance=ExtResource("29_uguob")]
 position = Vector2(81, 409)
 GroupToAdd = "Lucie"
-anim = "Peluche"
 
 [node name="Object_Bedrooms4" parent="Bedroom/Objects" instance=ExtResource("29_uguob")]
 position = Vector2(124, 421)
 GroupToAdd = "Henry"
-anim = "Slime"
 
 [node name="Object_Bedrooms5" parent="Bedroom/Objects" instance=ExtResource("29_uguob")]
 position = Vector2(62, 461)
 GroupToAdd = "Hugo"
-anim = "Pokeball"
 
 [node name="Object_Bedrooms6" parent="Bedroom/Objects" instance=ExtResource("29_uguob")]
 position = Vector2(117, 467)
 GroupToAdd = "Anthony"
-anim = "Buche"
 
 [node name="Note" type="Node" parent="."]
 
