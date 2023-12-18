@@ -49,7 +49,9 @@ grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="FolderNote/PanelContainer"]
+texture_filter = 1
 position = Vector2(19.5, 19.5)
+scale = Vector2(3, 3)
 texture = ExtResource("2_64upd")
 
 [node name="StickyNote" type="CanvasLayer" parent="."]

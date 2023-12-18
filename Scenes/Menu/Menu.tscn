@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://bjvkp5u6m2w82"]
+[gd_scene load_steps=96 format=3 uid="uid://bjvkp5u6m2w82"]
 
 [ext_resource type="TileSet" uid="uid://cnowwr0gr3n55" path="res://Platformer/scenes/tilemap_platformer.tres" id="1_pk2yg"]
 [ext_resource type="Script" path="res://Scripts/Menu/Menu.cs" id="1_usw8i"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://q4077uamawv5" path="res://Scenes/Menu/Bg.tscn" id="6_ibigr"]
 [ext_resource type="AudioStream" uid="uid://csfmdqv63cvnp" path="res://assets/Imports/Sound_Effects/Select.wav" id="7_7sldn"]
 [ext_resource type="Texture2D" uid="uid://dsouu47ydt66k" path="res://assets/Loopoutlogotitle.png" id="8_7iqmf"]
+[ext_resource type="Texture2D" uid="uid://d4l3oftwpqhoi" path="res://assets/allbuttons.png" id="9_u23o0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i1tf2"]
 atlas = ExtResource("3_qsfbu")
@@ -550,6 +551,87 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_gs2iw"]
+atlas = ExtResource("9_u23o0")
+region = Rect2(0, 0, 112, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ht25"]
+atlas = ExtResource("9_u23o0")
+region = Rect2(0, 32, 112, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ru5mh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gs2iw")
+}],
+"loop": false,
+"name": &"OFF",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ht25")
+}],
+"loop": false,
+"name": &"ON",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3d4xx"]
+atlas = ExtResource("9_u23o0")
+region = Rect2(0, 64, 112, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6uqei"]
+atlas = ExtResource("9_u23o0")
+region = Rect2(0, 96, 112, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nbf5v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3d4xx")
+}],
+"loop": false,
+"name": &"OFF",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6uqei")
+}],
+"loop": false,
+"name": &"ON",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0141x"]
+atlas = ExtResource("9_u23o0")
+region = Rect2(0, 128, 112, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejw6r"]
+atlas = ExtResource("9_u23o0")
+region = Rect2(0, 160, 112, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2abfl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0141x")
+}],
+"loop": false,
+"name": &"OFF",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejw6r")
+}],
+"loop": false,
+"name": &"ON",
+"speed": 5.0
+}]
+
 [node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -560,6 +642,7 @@ grow_vertical = 2
 script = ExtResource("1_usw8i")
 
 [node name="Container" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -603,16 +686,17 @@ text = "Quit
 "
 
 [node name="TileMap" type="TileMap" parent="."]
+modulate = Color(1, 1, 1, 0.490196)
 texture_filter = 1
 scale = Vector2(2, 2)
 tile_set = ExtResource("1_pk2yg")
 format = 2
 layer_0/name = "Ground"
 layer_0/z_index = -1
-layer_0/tile_data = PackedInt32Array(1245197, 524289, 4, 1245198, 524289, 4, 1245199, 524289, 4, 1245200, 524289, 4, 1245201, 524289, 4, 1245202, 524289, 4, 1245203, 524289, 4, 1245204, 524289, 4, 1245205, 524289, 4, 1245206, 524289, 4, 1245207, 524289, 4, 1245208, 524289, 4, 1245209, 524289, 4, 1245210, 524289, 4, 1245211, 589825, 4, 1245196, 458753, 4, 1310747, 589825, 5, 1179674, 786433, 4, 393225, 262145, 1, 327690, 327681, 0, 393226, 327681, 1, 393227, 393217, 1, 262154, 262145, 0, 196618, 262145, 0, 131082, 262145, 0, 10, 196609, 0, 65546, 262145, 0, 1048599, 458753, 1, 1179661, 1, 11, 1179668, 1114113, 0, 1179663, 131073, 11, 1179665, 1179649, 0, 1179672, 1179649, 1, 1114139, 917505, 0, 1179675, 917505, 1, 15, 458753, 12, 65551, 458753, 12, 131087, 458753, 12, 196623, 458753, 12, 262159, 458753, 12, 327695, 458753, 12, 393231, 458753, 13, 393232, 524289, 13, 393233, 524289, 13, 393234, 524289, 13, 786432, 524289, 13, 786434, 589825, 13, 786433, 524289, 13, 720898, 589825, 12, 655362, 589825, 12, 589826, 589825, 12, 524290, 589825, 12, 458754, 589825, 12, 393218, 589825, 12, 327682, 589825, 11, 327681, 524289, 11, 327680, 524289, 11, 1048589, 1, 9, 1114125, 1, 10, 1048590, 65537, 9, 1048591, 131073, 9, 1114127, 131073, 10, 1310732, 458753, 5, 458761, 262145, 2, 458762, 327681, 2, 458763, 393217, 2, 1310733, 524289, 5, 1310734, 524289, 5, 1310735, 524289, 5, 1310736, 524289, 5, 1310737, 524289, 5, 1310738, 524289, 5, 1310739, 524289, 5, 1310740, 524289, 5, 1310741, 524289, 5, 1310742, 524289, 5, 1310743, 524289, 5, 1310744, 524289, 5, 1310745, 524289, 5, 1310746, 524289, 5, 1048594, 983041, 0, 1114130, 983041, 1, 1179666, 983041, 2, 1179664, 1114113, 0, 393235, 524289, 13, 393236, 589825, 13, 327700, 458753, 12, 262164, 458753, 12, 196628, 458753, 12, 131092, 458753, 12, 65556, 458753, 12, 20, 458753, 12)
+layer_0/tile_data = PackedInt32Array(1245197, 524289, 4, 1245198, 524289, 4, 1245199, 524289, 4, 1245200, 524289, 4, 1245201, 524289, 4, 1245202, 524289, 4, 1245203, 524289, 4, 1245204, 524289, 4, 1245205, 524289, 4, 1245206, 524289, 4, 1245207, 524289, 4, 1245208, 524289, 4, 1245209, 524289, 4, 1245210, 524289, 4, 1245211, 589825, 4, 1245196, 458753, 4, 1310747, 589825, 5, 1179674, 786433, 4, 393225, 262145, 1, 327690, 327681, 0, 393226, 327681, 1, 393227, 393217, 1, 262154, 262145, 0, 196618, 262145, 0, 131082, 262145, 0, 10, 196609, 0, 65546, 262145, 0, 1048599, 458753, 1, 1179661, 1, 11, 1179663, 131073, 11, 1114139, 917505, 0, 1179675, 917505, 1, 1048589, 1, 9, 1114125, 1, 10, 1048590, 65537, 9, 1048591, 131073, 9, 1114127, 131073, 10, 1310732, 458753, 5, 458761, 262145, 2, 458762, 327681, 2, 458763, 393217, 2, 1310733, 524289, 5, 1310734, 524289, 5, 1310735, 524289, 5, 1310736, 524289, 5, 1310737, 524289, 5, 1310738, 524289, 5, 1310739, 524289, 5, 1310740, 524289, 5, 1310741, 524289, 5, 1310742, 524289, 5, 1310743, 524289, 5, 1310744, 524289, 5, 1310745, 524289, 5, 1310746, 524289, 5, 1048594, 983041, 0, 1114130, 983041, 1, 1179666, 983041, 2)
 layer_1/name = "Elements"
 layer_1/z_index = -2
-layer_1/tile_data = PackedInt32Array(1179662, 917505, 2, 327697, 1114113, 2, 589852, 262145, 3, 589853, 327681, 3, 589854, 393217, 3, 524316, 1114113, 2, 458782, 458753, 0, 393246, 327681, 8, 131100, 655361, 16, 131101, 720897, 16, 131102, 786433, 16, 196636, 196609, 805306377, 196637, 196609, 805306377, 131103, 196609, 1342177289, 131099, 196609, 1610612745, 655395, 983041, 9, 720931, 983041, 10, 786467, 983041, 11, 6, 458753, 14, 65542, 458753, 15, 65543, 524289, 15, 3, 458753, 14, 65539, 458753, 15, 4, 524289, 14, 65540, 524289, 15, 0, 458753, 14, 65536, 458753, 15, 1, 524289, 14, 65537, 524289, 15, 7, 524289, 14, 65566, 196609, 9, 65565, 196609, 9, 65564, 196609, 9, 196638, 196609, 805306377, 589859, 524289, 12)
+layer_1/tile_data = PackedInt32Array(655395, 983041, 9, 720931, 983041, 10, 786467, 983041, 11, 589859, 524289, 12)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = -3
@@ -625,6 +709,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.490196)
 texture_filter = 1
 position = Vector2(752, 498)
 scale = Vector2(2, 2)
@@ -633,8 +718,10 @@ autoplay = "default"
 frame_progress = 0.396359
 
 [node name="Sprite2D" parent="." instance=ExtResource("4_ll0u6")]
+modulate = Color(1, 1, 1, 0.490196)
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.321569)
 z_index = -1
 texture_filter = 1
 position = Vector2(246, 414)
@@ -651,6 +738,29 @@ stream = ExtResource("7_7sldn")
 volume_db = -25.0
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(586, 105)
-scale = Vector2(0.7, 0.7)
+position = Vector2(908, 80)
+scale = Vector2(0.533047, 0.5375)
 texture = ExtResource("8_7iqmf")
+
+[node name="Buttons" type="Node2D" parent="."]
+
+[node name="Start" type="AnimatedSprite2D" parent="Buttons"]
+texture_filter = 1
+position = Vector2(570, 234)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ru5mh")
+animation = &"OFF"
+
+[node name="Options" type="AnimatedSprite2D" parent="Buttons"]
+texture_filter = 1
+position = Vector2(570, 325)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_nbf5v")
+animation = &"OFF"
+
+[node name="Quit" type="AnimatedSprite2D" parent="Buttons"]
+texture_filter = 1
+position = Vector2(570, 419)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_2abfl")
+animation = &"OFF"

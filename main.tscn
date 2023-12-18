@@ -1,4 +1,4 @@
-[gd_scene load_steps=161 format=3 uid="uid://degk0tj8lto51"]
+[gd_scene load_steps=164 format=3 uid="uid://degk0tj8lto51"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_8aswi"]
 [ext_resource type="PackedScene" uid="uid://c767xbfu781tp" path="res://Scenes/Player/player.tscn" id="2_cxfpo"]
@@ -40,7 +40,10 @@
 [ext_resource type="Script" path="res://Scripts/Components/NotTp_TP.cs" id="32_s1gam"]
 [ext_resource type="PackedScene" uid="uid://lslqnak1qpv1" path="res://Scenes/Components/Note.tscn" id="34_xqgb4"]
 [ext_resource type="PackedScene" uid="uid://e6rpx7730h43" path="res://Scenes/Game/Game_escape_hud.tscn" id="35_kagt3"]
+[ext_resource type="Texture2D" uid="uid://bg70b33v7eu6k" path="res://assets/Color_wheel.png" id="40_r3o3m"]
 [ext_resource type="PackedScene" uid="uid://xoasx78y5lio" path="res://Scenes/Menu/Pause.tscn" id="41_23fqp"]
+[ext_resource type="Texture2D" uid="uid://bb55j8ht5bwkp" path="res://assets/rune_sheet.png" id="41_cm7it"]
+[ext_resource type="Texture2D" uid="uid://bcm87eis8bol0" path="res://assets/rune_sol.png" id="42_uf1rd"]
 [ext_resource type="PackedScene" uid="uid://bbmfj3xbvly5c" path="res://Scenes/Game/PatternGame.tscn" id="43_rafp6"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_k0qkj"]
@@ -3615,6 +3618,19 @@ anim = "Buche"
 
 [node name="Note2" parent="Note" instance=ExtResource("34_xqgb4")]
 position = Vector2(-76, 198)
+img = ExtResource("40_r3o3m")
+isPickable = true
+text = "Une poutre en bois pointe du doit une poutre de métale"
+
+[node name="Note9" parent="Note" instance=ExtResource("34_xqgb4")]
+position = Vector2(-133, 196)
+img = ExtResource("41_cm7it")
+isPickable = true
+text = "Une poutre en bois pointe du doit une poutre de métale"
+
+[node name="Note10" parent="Note" instance=ExtResource("34_xqgb4")]
+position = Vector2(207, 1042)
+img = ExtResource("42_uf1rd")
 isPickable = true
 text = "Une poutre en bois pointe du doit une poutre de métale"
 
