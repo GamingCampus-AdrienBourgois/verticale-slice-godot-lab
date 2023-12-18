@@ -3328,57 +3328,68 @@ position = Vector2(-1245, -526)
 position = Vector2(-973, -323)
 collision_layer = 2
 collision_mask = 2
+anim = 38
 
 [node name="Fruit2" parent="FruitGame/Objects" groups=["Durian"] instance=ExtResource("25_5na4j")]
 position = Vector2(-915, -325)
 collision_layer = 2
 collision_mask = 2
+anim = 38
 
 [node name="Fruit3" parent="FruitGame/Objects" groups=["Durian"] instance=ExtResource("25_5na4j")]
 position = Vector2(-858, -323)
 collision_layer = 2
 collision_mask = 2
+anim = 38
 
 [node name="Fruit4" parent="FruitGame/Objects" instance=ExtResource("25_5na4j")]
 position = Vector2(-797, -322)
 collision_layer = 2
 collision_mask = 2
+anim = 8
 
 [node name="Fruit5" parent="FruitGame/Objects" instance=ExtResource("25_5na4j")]
 position = Vector2(-732, -321)
 collision_layer = 2
 collision_mask = 2
+anim = 27
 
 [node name="Fruit6" parent="FruitGame/Objects" instance=ExtResource("25_5na4j")]
 position = Vector2(-669, -321)
 collision_layer = 2
 collision_mask = 2
+anim = 2
 
 [node name="Fruit7" parent="FruitGame/Objects" instance=ExtResource("25_5na4j")]
 position = Vector2(-604, -322)
 collision_layer = 2
 collision_mask = 2
+anim = 2
 
 [node name="Fruit8" parent="FruitGame/Objects" instance=ExtResource("25_5na4j")]
 position = Vector2(-545, -324)
 collision_layer = 2
 collision_mask = 2
+anim = 32
 
 [node name="Fruit9" parent="FruitGame/Objects" instance=ExtResource("25_5na4j")]
 position = Vector2(-491, -323)
 collision_layer = 2
 collision_mask = 2
+anim = 1
 
 [node name="Fruit10" parent="FruitGame/Objects" instance=ExtResource("25_5na4j")]
 position = Vector2(-441, -320)
 rotation = 3.05342
 collision_layer = 2
 collision_mask = 2
+anim = 19
 
 [node name="Fruit11" parent="FruitGame/Objects" instance=ExtResource("25_5na4j")]
 position = Vector2(-912, -265)
 collision_layer = 2
 collision_mask = 2
+anim = 19
 
 [node name="PC" parent="." instance=ExtResource("10_gflbg")]
 position = Vector2(-295, 138)
