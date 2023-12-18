@@ -19,6 +19,7 @@ texture = ExtResource("1_ouiyr")
 shape = SubResource("RectangleShape2D_4jqfp")
 
 [node name="Fix_wire_hud" parent="." instance=ExtResource("3_8gbmr")]
+visible = false
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

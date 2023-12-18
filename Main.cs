@@ -18,8 +18,15 @@ public partial class Main : Node2D
 	private ObjectForFixVert fixvert = null;
 	private Bedroom bedroom = null;
 
+	//private Camera2D camera_player = null;
+
+	// private Control pauseMenu;
+
+	// public bool paused = false;
+
 	public override void _Ready()
 	{
+		GetNode("Player").GetNode<Camera2D>("Camera2D").MakeCurrent();
 		coloredpc = GetNode<ColorCode>("ColoredPc");
 		objectForFix = GetNode<ObjectForFix>("ObjectForFix");
 		trashcan = GetNode<Node>("Trashcan_fix").GetNode<Trashcan>("Trashcan");
@@ -27,6 +34,7 @@ public partial class Main : Node2D
 		pedestal = GetNode<Pedestal>("Pedestal");
 		fixvert = GetNode<ObjectForFixVert>("ObjectForFixVert");
 		bedroom = GetNode<Bedroom>("Bedroom");
+		// pauseMenu = GetNode<Control>("PauseCanvas/Pause");
 
 		
 
@@ -37,7 +45,15 @@ public partial class Main : Node2D
 			i.Connect("script_changed",new Callable(this,"Tp_entered"));
 		}
 	}
-	
+
+	public override void _Process(double delta)
+	{
+		// if(Input.IsActionJustPressed("Pause"))
+		// {
+		// 	PauseMenu();
+		// }
+	}
+
 	public void Tp_entered(string _scenePath, Node2D body)
 	{
 		if (body.IsInGroup("Player"))
@@ -59,6 +75,23 @@ public partial class Main : Node2D
 			GD.Print("Non_player collision");
 		}
 	}
+
+	// public void PauseMenu()
+	// {
+	// 	Pause tempPause = (Pause)pauseMenu;
+	// 	if (paused)
+	// 	{
+	// 		pauseMenu.Hide();
+	// 		Engine.TimeScale = 1;
+	// 	}
+	// 	else 
+	// 	{
+	// 		pauseMenu.Show();
+	// 		Engine.TimeScale = 0;
+	// 	}
+	// 	paused = !paused;
+	// 	tempPause.UpdatePause();
+	// }
 }
 
 

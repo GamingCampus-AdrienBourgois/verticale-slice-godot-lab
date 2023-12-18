@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://l3p7ephvmcpn"
-path="res://.godot/imported/tileset_player_v2.png-b4e88f0e469185a08061c12987d49f26.ctex"
+uid="uid://n03fbom8oqv0"
+path="res://.godot/imported/trashubinu.png-97922f6f6f9f2951be4b8492d1274144.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tileset_player_v2.png"
-dest_files=["res://.godot/imported/tileset_player_v2.png-b4e88f0e469185a08061c12987d49f26.ctex"]
+source_file="res://assets/Components/trashubinu.png"
+dest_files=["res://.godot/imported/trashubinu.png-97922f6f6f9f2951be4b8492d1274144.ctex"]
 
 [params]
 

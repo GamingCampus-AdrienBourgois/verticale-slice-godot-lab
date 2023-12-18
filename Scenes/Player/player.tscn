@@ -1022,7 +1022,6 @@ shape = SubResource("RectangleShape2D_rfhdx")
 position = Vector2(23, 0)
 
 [node name="Light2D" type="PointLight2D" parent="."]
-visible = false
 blend_mode = 2
 range_item_cull_mask = 2
 shadow_enabled = true
@@ -1030,10 +1029,11 @@ shadow_item_cull_mask = 2
 texture = ExtResource("4_lkp12")
 
 [node name="Light2D2" type="PointLight2D" parent="."]
-visible = false
 blend_mode = 2
 shadow_enabled = true
+shadow_item_cull_mask = 2
 texture = ExtResource("4_bujv8")
+texture_scale = 1.77
 
 [node name="UI" parent="." instance=ExtResource("6_ofaw7")]
 offset_left = -104.0

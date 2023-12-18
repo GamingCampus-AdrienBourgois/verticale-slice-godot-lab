@@ -72,5 +72,6 @@ polygon = PackedVector2Array(-7, 10, -2, 10, -2, 1, 5, 1, 5, 10, 10, 10, 10, -10
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_247u6")
 animation = &"Down"

@@ -1,13 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://djrmn7u5ni8e1"]
+[gd_scene load_steps=3 format=3 uid="uid://djrmn7u5ni8e1"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_1cpsl"]
-radius = 30.0167
+[ext_resource type="Texture2D" uid="uid://bm0weqdxtd35x" path="res://assets/Components/caisse.png" id="1_ijlsj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgier"]
+size = Vector2(32, 32)
 
 [node name="Crate" type="CharacterBody2D" groups=["Pedestal", "Pickable"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_1cpsl")
+scale = Vector2(1.5, 1.5)
+shape = SubResource("RectangleShape2D_hgier")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color(0.490196, 0.211765, 0.141176, 1)
-polygon = PackedVector2Array(-22, 21, 22, 21, 22, -21, -22, -21)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_ijlsj")

@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://bfv0qhjvvqket"]
+[gd_scene load_steps=21 format=3 uid="uid://bfv0qhjvvqket"]
 
 [ext_resource type="Texture2D" uid="uid://bnmkl1gwaqahx" path="res://icon.svg" id="1_d0d42"]
 [ext_resource type="Script" path="res://Scripts/Components/computer.cs" id="1_hnjmo"]
 [ext_resource type="AudioStream" uid="uid://bgp0resytrc0j" path="res://assets/Imports/Sound_Effects/OFFPc2.wav" id="3_qpbn4"]
 [ext_resource type="Texture2D" uid="uid://cjdvukkev0oyi" path="res://assets/pc_sprites.png" id="4_cpkrd"]
 [ext_resource type="Texture2D" uid="uid://drlbwm2g58e55" path="res://assets/pc_colors.png" id="4_s4hg0"]
+[ext_resource type="Texture2D" uid="uid://b40183714m8vv" path="res://assets/Components/trapeze.png" id="6_uc407"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ywko"]
 size = Vector2(30, 32)
@@ -178,3 +179,11 @@ volume_db = -10.0
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_3avfd")
 animation = &"Top_ON"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(-3, -13)
+scale = Vector2(0.25, 0.25)
+color = Color(0.470588, 0.964706, 1, 1)
+energy = 0.29
+texture = ExtResource("6_uc407")

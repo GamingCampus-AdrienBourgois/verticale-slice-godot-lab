@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://l3p7ephvmcpn"
-path="res://.godot/imported/tileset_player_v2.png-b4e88f0e469185a08061c12987d49f26.ctex"
+uid="uid://cxdpoajvjs2py"
+path="res://.godot/imported/peeled_banana.png-0583d5a49b205c70ac7955ae73d7fe7c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tileset_player_v2.png"
-dest_files=["res://.godot/imported/tileset_player_v2.png-b4e88f0e469185a08061c12987d49f26.ctex"]
+source_file="res://assets/Components/peeled_banana.png"
+dest_files=["res://.godot/imported/peeled_banana.png-0583d5a49b205c70ac7955ae73d7fe7c.ctex"]
 
 [params]
 
