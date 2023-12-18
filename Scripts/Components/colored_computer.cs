@@ -24,11 +24,13 @@ public partial class colored_computer : StaticBody2D
 	// Get la node collision de Computer
 	CollisionShape2D collision = null;
 	Sprite2D sprite = null;
+	AnimatedSprite2D spriteAnim = null;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		sprite = GetNode<Sprite2D>("Sprite2D");
+		spriteAnim = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		collision = GetNode<CollisionShape2D>("CollisionShape2D");
 		collision.Disabled = false;
 		changeScreenColor();
@@ -49,27 +51,36 @@ public partial class colored_computer : StaticBody2D
 		{
 			case 0:
 				sprite.Modulate = NoColor;
+				spriteAnim.Play("Black");
 				break;
 			case 1:
 				sprite.Modulate = RedColor;
+				spriteAnim.Play("Red");
 				break;
 			case 2:
 				sprite.Modulate = OrangeColor;
+				spriteAnim.Play("Orange");
 				break;
 			case 3:
 				sprite.Modulate = YellowColor;
+				spriteAnim.Play("Yellow");
+
 				break;
 			case 4:
 				sprite.Modulate = GreenColor;
+				spriteAnim.Play("Green");
 				break;
 			case 5:
 				sprite.Modulate = BlueColor;
+				spriteAnim.Play("Blue");
 				break;
 			case 6:
 				sprite.Modulate = PurpleColor;
+				spriteAnim.Play("Purple");
 				break;
 			default:
 				sprite.Modulate = NoColor;
+				spriteAnim.Play("Black");
 				break;
 		}
 	}
