@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://bjvkp5u6m2w82"]
+[gd_scene load_steps=86 format=3 uid="uid://bjvkp5u6m2w82"]
 
 [ext_resource type="TileSet" uid="uid://cnowwr0gr3n55" path="res://Platformer/scenes/tilemap_platformer.tres" id="1_pk2yg"]
 [ext_resource type="Script" path="res://Scripts/Menu/Menu.cs" id="1_usw8i"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bk0nhv3b6vxrg" path="res://assets/Imports/Blackhole.png" id="5_ci6hi"]
 [ext_resource type="PackedScene" uid="uid://q4077uamawv5" path="res://Scenes/Menu/Bg.tscn" id="6_ibigr"]
 [ext_resource type="AudioStream" uid="uid://csfmdqv63cvnp" path="res://assets/Imports/Sound_Effects/Select.wav" id="7_7sldn"]
+[ext_resource type="Texture2D" uid="uid://dsouu47ydt66k" path="res://assets/Loopoutlogotitle.png" id="8_7iqmf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i1tf2"]
 atlas = ExtResource("3_qsfbu")
@@ -648,3 +649,8 @@ z_index = -3
 [node name="Audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_7sldn")
 volume_db = -25.0
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(586, 105)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("8_7iqmf")

@@ -20,9 +20,9 @@ public partial class Main : Node2D
 
 	//private Camera2D camera_player = null;
 
-	// private Control pauseMenu;
+	private Control pauseMenu;
 
-	// public bool paused = false;
+	public bool paused = false;
 
 	public override void _Ready()
 	{
@@ -34,7 +34,7 @@ public partial class Main : Node2D
 		pedestal = GetNode<Pedestal>("Pedestal");
 		fixvert = GetNode<ObjectForFixVert>("ObjectForFixVert");
 		bedroom = GetNode<Bedroom>("Bedroom");
-		// pauseMenu = GetNode<Control>("PauseCanvas/Pause");
+		pauseMenu = GetNode<Control>("PauseCanvas/Pause");
 
 		
 
@@ -48,10 +48,10 @@ public partial class Main : Node2D
 
 	public override void _Process(double delta)
 	{
-		// if(Input.IsActionJustPressed("Pause"))
-		// {
-		// 	PauseMenu();
-		// }
+		if(Input.IsActionJustPressed("Pause"))
+		{
+			PauseMenu();
+		}
 	}
 
 	public void Tp_entered(string _scenePath, Node2D body)
@@ -76,22 +76,22 @@ public partial class Main : Node2D
 		}
 	}
 
-	// public void PauseMenu()
-	// {
-	// 	Pause tempPause = (Pause)pauseMenu;
-	// 	if (paused)
-	// 	{
-	// 		pauseMenu.Hide();
-	// 		Engine.TimeScale = 1;
-	// 	}
-	// 	else 
-	// 	{
-	// 		pauseMenu.Show();
-	// 		Engine.TimeScale = 0;
-	// 	}
-	// 	paused = !paused;
-	// 	tempPause.UpdatePause();
-	// }
+	public void PauseMenu()
+	{
+		Pause tempPause = (Pause)pauseMenu;
+		if (paused)
+		{
+			pauseMenu.Hide();
+			Engine.TimeScale = 1;
+		}
+		else 
+		{
+			pauseMenu.Show();
+			Engine.TimeScale = 0;
+		}
+		paused = !paused;
+		tempPause.UpdatePause();
+	}
 }
 
 
