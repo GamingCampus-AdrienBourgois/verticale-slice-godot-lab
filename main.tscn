@@ -39,7 +39,7 @@
 [ext_resource type="Script" path="res://Scripts/Components/NotTp_TP.cs" id="32_s1gam"]
 [ext_resource type="PackedScene" uid="uid://lslqnak1qpv1" path="res://Scenes/Components/Note.tscn" id="34_xqgb4"]
 [ext_resource type="PackedScene" uid="uid://e6rpx7730h43" path="res://Scenes/Game/Game_escape_hud.tscn" id="35_kagt3"]
-[ext_resource type="PackedScene" path="res://Scenes/Game/PatternGame.tscn" id="41_uev4u"]
+[ext_resource type="PackedScene" uid="uid://bbmfj3xbvly5c" path="res://Scenes/Game/PatternGame.tscn" id="41_uev4u"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_k0qkj"]
 tile_data = PackedInt32Array(0, 1441793, 4, 65536, 1572865, 4, 1, 1572865, 4, 65537, 1441793, 4)
