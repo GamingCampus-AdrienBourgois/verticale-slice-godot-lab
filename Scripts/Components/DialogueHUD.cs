@@ -162,7 +162,8 @@ public partial class DialogueHUD : CanvasLayer
 
 	private void TextUpdate()
 	{
-		txt_label.Text = dialogueLines[DialogID];
+        txt_label.VisibleRatio = 0;
+        txt_label.Text = dialogueLines[DialogID];
 		if (animation.IsPlaying())
 		{
 			hasAnimationstarted = true;
@@ -170,6 +171,7 @@ public partial class DialogueHUD : CanvasLayer
 		if (!hasAnimationstarted && txt_label.Text != "END")
 		{
 			animation.Play("Dialogue");
+
 		}
 		
 	}
