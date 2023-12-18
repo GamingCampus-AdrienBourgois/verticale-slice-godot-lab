@@ -72,7 +72,6 @@ public partial class DialogueHUD : CanvasLayer
             dialogueLines.Add("END");
             TextUpdate();
             spaceShipeAnim.Play("Start");
-            GD.Print(spaceShipeAnim.CurrentAnimation);
             await ToSignal(spaceShipeAnim,AnimationPlayer.SignalName.AnimationFinished);
             spaceShipeAnim.Play("Idle");
             //Dialog = true;   
@@ -173,7 +172,6 @@ public partial class DialogueHUD : CanvasLayer
 			animation.Play("Dialogue");
 
 		}
-		
 	}
 
     // private List<string> ReadDialogLine(string path)
