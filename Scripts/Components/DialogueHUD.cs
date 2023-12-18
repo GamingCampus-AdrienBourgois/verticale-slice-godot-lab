@@ -1,17 +1,23 @@
 using Godot;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public partial class DialogueHUD : CanvasLayer
 {
 
     [Export]
     public new bool Show;
+    [Export]
+    public float scrollSpeed;
 
     private Label txt_label;
     private AnimationPlayer animation;
     private AudioStreamPlayer audio;
-    private Player player;
+    // private Player player;
     private AnimatedSprite2D arrow;
+    private Scene_transition SceneTransition = null;
+    private Camera2D camera1;
 
     private int DialogID = 0;
     private bool isShow = true;
@@ -20,36 +26,46 @@ public partial class DialogueHUD : CanvasLayer
     private bool DialogReadyToNext = false;
     private bool StartDialogFinish = false;
 
-    private string save_file_path = "user://Data/SavedData.dat";
-    private string dialogue_file_path = "res://Data/Dialogue.txt";
-    private List<string> dialogueLines;
+    //private string save_file_path = "user://Data/SavedData.dat";
+    //private string dialogue_file_path = "res://Data/Dialogue.txt";
+    private List<string> dialogueLines = new List<string>();
 
     public override void _Ready()
     {
         txt_label = GetNode<Label>("HBoxContainer/ColorRect2/Sprite2D/Label");
         animation = GetNode<AnimationPlayer>("AnimationPlayer");
         audio = GetNode<AudioStreamPlayer>("AudioStreamPlayer");
-        player = GetParent().GetNode<Player>("Player");
+        // player = GetParent().GetNode<Player>("Player");
         arrow = GetNode<AnimatedSprite2D>("HBoxContainer/ColorRect2/Sprite2D/Sprite2D");
+        SceneTransition = GetParent().GetNode<Scene_transition>("SceneTransition");
+        camera1 = GetNode<Camera2D>("Camera2D");
         if (Show)
         {
             arrow.Visible = false;
-            DialogID = LoadDialogID();
-            dialogueLines = ReadDialogLine(dialogue_file_path);
-            if (dialogueLines[DialogID] == "END")
-            {
-                CloseDialog();
-            }
+            // DialogID = LoadDialogID();
+            // dialogueLines = ReadDialogLine(dialogue_file_path);
+            // if (dialogueLines[DialogID] == "END")
+            // {
+            //     CloseDialog();
+            // }
             Visible = isShow;
-            if (!hasReset)
-            {
-                ResetDialogID();
-                hasReset = true;
-                TextUpdate();
-            }
-            GD.Print(dialogueLines[DialogID] + " at ID: " + DialogID);
-            GD.Print(hasReset);
-            
+            // if (!hasReset)
+            // {
+            //     // ResetDialogID();
+            //     hasReset = true;
+            //     TextUpdate();
+            // }
+            // GD.Print(dialogueLines[DialogID] + " at ID: " + DialogID);
+            // GD.Print(hasReset);
+            dialogueLines.Add("Hi, do you hear me?");
+            dialogueLines.Add("Well, I just wanted to make sure you know what to do here as it's your first day here.");
+            dialogueLines.Add("The portal in front of you is broken, Bob set it up wrong.");
+            dialogueLines.Add("If you try to use it in its current state, you'll be dragged back here, along with everything in its proximity.");
+            dialogueLines.Add("You need to find the cause of the interference, so start by looking around, and when you think all is good, go through the portal.");
+            dialogueLines.Add("If you've forgotten something, the portal console will tell you.");
+            dialogueLines.Add("Well, I think I've told you everything.");
+            dialogueLines.Add("END");
+            TextUpdate();
         }
         else
         {
@@ -62,13 +78,13 @@ public partial class DialogueHUD : CanvasLayer
     public override void _Process(double delta)
     {
         Visible = isShow;
-        if (player != null)
-        {
-            player.inputOnFocus = isShow;
-        }
+        // if (player != null)
+        // {
+        //     player.inputOnFocus = isShow;
+        // }
         if (isShow && Show)
         {
-
+            camera1.Position += scrollSpeed * Vector2.Right;
             if (DialogReadyToNext)
             {
                 arrow.Visible = true;
@@ -77,7 +93,7 @@ public partial class DialogueHUD : CanvasLayer
                     DialogID++;
                     TextUpdate();
                     CheckNextDialog();
-                    SaveDialogID();
+                    // SaveDialogID();
                     hasAnimationstarted = false;
                     DialogReadyToNext = false;
 
@@ -95,8 +111,8 @@ public partial class DialogueHUD : CanvasLayer
 
             if (Input.IsActionJustPressed("ui_cancel")) // A retirer une fois les dialogues finis
             {
-                ResetDialogID();
-                DialogID = LoadDialogID();
+                // ResetDialogID();
+                // DialogID = LoadDialogID();
                 TextUpdate();
                 hasAnimationstarted = false;
                 DialogReadyToNext = false;
@@ -104,19 +120,22 @@ public partial class DialogueHUD : CanvasLayer
         }
     }
 
-    private void CheckNextDialog()
+    private async void CheckNextDialog()
     {
         if (txt_label.Text == "END")
         {
-            CloseDialog();
+            txt_label.Text = "";
+            animation.Play("End");
+            await ToSignal(animation, AnimationPlayer.SignalName.AnimationFinished);
+            SceneTransition.Call("changeScene","main.tscn",false);
         }
     }
 
-    private void CloseDialog()
-    {
-        isShow = false;
-        Visible = isShow;
-    }
+    // private void CloseDialog()
+    // {
+    //     isShow = false;
+    //     Visible = isShow;
+    // }
 
     public void OnAnimationPlayerFinished(string anim_name)
     {
@@ -140,22 +159,22 @@ public partial class DialogueHUD : CanvasLayer
         
     }
 
-    private List<string> ReadDialogLine(string path)
-    {
-        List<string> lines = new List<string>();
+    // private List<string> ReadDialogLine(string path)
+    // {
+    //     List<string> lines = new List<string>();
 
-        var file = FileAccess.Open(path, FileAccess.ModeFlags.Read);
+    //     var file = FileAccess.Open(path, FileAccess.ModeFlags.Read);
 
-        while (!file.EofReached())
-        {
-            string line = file.GetLine();
-            lines.Add(line);
-        }
+    //     while (!file.EofReached())
+    //     {
+    //         string line = file.GetLine();
+    //         lines.Add(line);
+    //     }
 
-        file.Close();
+    //     file.Close();
 
-        return lines;
-    }
+    //     return lines;
+    // }
 
     public void ShowDialogHud()
     {
@@ -167,30 +186,36 @@ public partial class DialogueHUD : CanvasLayer
         isShow = false;
     }
 
-    public void SaveDialogID()
-    {
-        using var file = FileAccess.Open(save_file_path, FileAccess.ModeFlags.Write);
-        file.StoreString(DialogID.ToString());
+    // public void SaveDialogID()
+    // {
+    //     using var file = FileAccess.Open(save_file_path, FileAccess.ModeFlags.Write);
+    //     if (file != null)
+    //     {
+    //         file.StoreString(DialogID.ToString());
+    //     }
+    // }
+
+    // public int LoadDialogID()
+    // {
+    //     using var file = FileAccess.Open(save_file_path, FileAccess.ModeFlags.Read);
+    //     if (file == null)
+    //     {
+    //         return 0;
+    //     }
+    //     else
+    //     {
+    //         string content = file.GetLine();
+    //         return content.ToInt();
+    //     }
+    // }
+
+    // public void ResetDialogID()
+    // {
+    //     using var file = FileAccess.Open(save_file_path, FileAccess.ModeFlags.Write);
+    //     if (file != null)
+    //     {
+    //        file.StoreString("0"); 
+    //     }
         
-    }
-
-    public int LoadDialogID()
-    {
-        using var file = FileAccess.Open(save_file_path, FileAccess.ModeFlags.Read);
-        if (file == null)
-        {
-            return 0;
-        }
-        else
-        {
-            string content = file.GetLine();
-            return content.ToInt();
-        }
-    }
-
-    public void ResetDialogID()
-    {
-        using var file = FileAccess.Open(save_file_path, FileAccess.ModeFlags.Write);
-        file.StoreString("0");
-    }
+    // }
 }

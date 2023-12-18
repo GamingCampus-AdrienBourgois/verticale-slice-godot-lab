@@ -1,8 +1,10 @@
-[gd_scene load_steps=24 format=3 uid="uid://bp8dcuiu6tjpe"]
+[gd_scene load_steps=27 format=3 uid="uid://bp8dcuiu6tjpe"]
 
 [ext_resource type="Script" path="res://Scripts/Components/DialogueHUD.cs" id="1_d15d8"]
 [ext_resource type="Texture2D" uid="uid://do4u01fi28614" path="res://assets/Components/Charactertalk-Sheet.png" id="2_3qfht"]
 [ext_resource type="Texture2D" uid="uid://ddhc2ra5n7rr5" path="res://assets/Components/DialogueTxtBG.png" id="2_evjdg"]
+[ext_resource type="Texture2D" uid="uid://djy7ntdx133xf" path="res://assets/Space Background Dialogue.png" id="2_vv1c0"]
+[ext_resource type="FontFile" uid="uid://dox4m0tdho7s7" path="res://assets/Components/monogram-extended.ttf" id="4_tj1c6"]
 [ext_resource type="Texture2D" uid="uid://csmnodqpybuf4" path="res://assets/Components/DialogueArrow.png" id="4_ujtx6"]
 [ext_resource type="AudioStream" uid="uid://cql7dqsq4s7n8" path="res://assets/Imports/Sound_Effects/sound_Dialogue.wav" id="4_vjgn3"]
 
@@ -208,6 +210,18 @@ tracks/4/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HBoxContainer:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_xbkoa"]
 resource_name = "Skip"
@@ -237,9 +251,25 @@ tracks/1/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_h5lfu"]
+resource_name = "End"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_as722"]
 _data = {
 "Dialogue": SubResource("Animation_hnmks"),
+"End": SubResource("Animation_h5lfu"),
 "RESET": SubResource("Animation_as3ta"),
 "Skip": SubResource("Animation_xbkoa")
 }
@@ -247,6 +277,7 @@ _data = {
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_d15d8")
 Show = true
+scrollSpeed = 2.0
 
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
 anchors_preset = 15
@@ -254,6 +285,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1100, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture_filter = 1
+scale = Vector2(1.04727, 1.08)
+texture = ExtResource("2_vv1c0")
+centered = false
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchors_preset = 12
@@ -317,6 +362,8 @@ offset_right = 25.0
 offset_bottom = 16.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_tj1c6")
+theme_override_font_sizes/font_size = 32
 text = "Hi do you like poutreAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 autowrap_mode = 3
 clip_text = true

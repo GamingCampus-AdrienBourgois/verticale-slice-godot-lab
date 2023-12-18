@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://grrcklteqcx4"]
 
 [ext_resource type="Script" path="res://Scripts/Menu/Input_settings.cs" id="1_7xboh"]
-[ext_resource type="PackedScene" uid="uid://dfdud0b304fod" path="res://Scenes/Menu/Input_button.tscn" id="1_e0yfj"]
+[ext_resource type="PackedScene" path="res://Scenes/Menu/Input_button.tscn" id="1_e0yfj"]
 [ext_resource type="TileSet" uid="uid://cnowwr0gr3n55" path="res://Platformer/scenes/tilemap_platformer.tres" id="3_c4hg3"]
 
 [node name="InputSettings" type="Control"]
