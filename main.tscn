@@ -8,11 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://c2k0yl2eo71rf" path="res://Scenes/Components/ballon.tscn" id="5_qksr7"]
 [ext_resource type="PackedScene" uid="uid://dchiwu34cy6w2" path="res://Scenes/Components/door.tscn" id="6_e23jg"]
 [ext_resource type="Texture2D" uid="uid://c28kbfkrhn4l3" path="res://assets/tileset_loopout.png" id="6_wo2x4"]
-[ext_resource type="PackedScene" path="res://Scenes/Components/foot.tscn" id="7_i3pto"]
+[ext_resource type="PackedScene" uid="uid://gfwkjgaxjncs" path="res://Scenes/Components/foot.tscn" id="7_i3pto"]
 [ext_resource type="Texture2D" uid="uid://dq8phybk1rk6f" path="res://assets/tileset_loopout_deco_v2.png" id="7_jg4lx"]
 [ext_resource type="PackedScene" uid="uid://dbei81nyrc6ty" path="res://Scenes/Components/fix_wire.tscn" id="7_jky4f"]
 [ext_resource type="Script" path="res://Scripts/Components/AllPc.cs" id="7_nhoxv"]
-[ext_resource type="PackedScene" path="res://Scenes/Components/particule_foot.tscn" id="8_ayp8k"]
+[ext_resource type="PackedScene" uid="uid://ybvqyqhf23jy" path="res://Scenes/Components/particule_foot.tscn" id="8_ayp8k"]
 [ext_resource type="Texture2D" uid="uid://o8s0jd1ii5x5" path="res://assets/portal_animated.png" id="8_nql7u"]
 [ext_resource type="Texture2D" uid="uid://crlc7hiihufil" path="res://assets/wall_loopout_tileset_v1.png" id="8_xp7cm"]
 [ext_resource type="Texture2D" uid="uid://d1xt5eyouq3fo" path="res://assets/inter_door_glace.png" id="9_n2pei"]
@@ -2795,94 +2795,119 @@ OpenedColor = Color(1, 0, 1, 1)
 
 [node name="PC2" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(669, 200)
+anim = "Top"
 
 [node name="PC3" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(728, 200)
 Opened = false
+anim = "Top"
 
 [node name="PC4" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(1181, 202)
+anim = "Top"
 
 [node name="PC5" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(1245, 203)
 Opened = false
+anim = "Top"
 
 [node name="PC6" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(1306, 203)
 Opened = false
+anim = "Top"
 
 [node name="PC7" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(1301, 509)
 Opened = false
+anim = "Top"
 
 [node name="PC8" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(1250, 509)
 Opened = false
+anim = "Top"
 
 [node name="PC9" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(1202, 508)
+anim = "Top"
 
 [node name="PC10" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(784, 509)
 Opened = false
+anim = "Top"
 
 [node name="PC11" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(720, 509)
+anim = "Top"
 
 [node name="PC12" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(633, -92)
+anim = "Top"
 
 [node name="PC13" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(689, -93)
+anim = "Top"
 
 [node name="PC14" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(742, -92)
 Opened = false
+anim = "Top"
 
 [node name="PC15" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(1184, -82)
 Opened = false
+anim = "Top"
 
 [node name="PC16" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(1242, -82)
 Opened = false
+anim = "Top"
 
 [node name="PC17" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(1305, -82)
 Opened = false
+anim = "Top"
 
 [node name="PC18" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(1288, -372)
 Opened = false
+anim = "Top"
 
 [node name="PC19" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(1227, -373)
 Opened = false
+anim = "Top"
 
 [node name="PC20" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(1169, -372)
+anim = "Top"
 
 [node name="PC21" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(690, -371)
 Opened = false
+anim = "Top"
 
 [node name="PC22" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(634, -370)
+anim = "Top"
 
 [node name="PC23" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(121, -701)
+anim = "Top"
 
 [node name="PC24" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(275, -849)
 Opened = false
+anim = "Top"
 
 [node name="PC25" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(110, -999)
 Opened = false
+anim = "Top"
 
 [node name="PC26" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(-24, -853)
 Opened = false
+anim = "Top"
 
 [node name="PC27" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(-706, 636)
