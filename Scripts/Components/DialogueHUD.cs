@@ -19,12 +19,12 @@ public partial class DialogueHUD : CanvasLayer
     private Scene_transition SceneTransition = null;
     private Camera2D camera1;
 
-    private int DialogID = 0;
-    private bool isShow = true;
-    private bool hasReset = false;
-    private bool hasAnimationstarted = false;
-    private bool DialogReadyToNext = false;
-    private bool StartDialogFinish = false;
+	private int DialogID = 0;
+	private bool isShow = true;
+	private bool hasReset = false;
+	private bool hasAnimationstarted = false;
+	private bool DialogReadyToNext = false;
+	private bool StartDialogFinish = false;
 
     //private string save_file_path = "user://Data/SavedData.dat";
     //private string dialogue_file_path = "res://Data/Dialogue.txt";
@@ -73,7 +73,7 @@ public partial class DialogueHUD : CanvasLayer
             Visible = isShow;
         }
 
-    }
+	}
 
     public override void _Process(double delta)
     {
@@ -97,17 +97,17 @@ public partial class DialogueHUD : CanvasLayer
                     hasAnimationstarted = false;
                     DialogReadyToNext = false;
 
-                }
-            }
-            else if (!DialogReadyToNext)
-            {
-                arrow.Visible = false;
-                if (Input.IsActionJustPressed("ui_accept"))
-                {
-                    DialogReadyToNext = true;
-                    animation.Play("Skip");
-                }
-            }
+				}
+			}
+			else if (!DialogReadyToNext)
+			{
+				arrow.Visible = false;
+				if (Input.IsActionJustPressed("ui_accept"))
+				{
+					DialogReadyToNext = true;
+					animation.Play("Skip");
+				}
+			}
 
             if (Input.IsActionJustPressed("ui_cancel")) // A retirer une fois les dialogues finis
             {
@@ -137,27 +137,27 @@ public partial class DialogueHUD : CanvasLayer
     //     Visible = isShow;
     // }
 
-    public void OnAnimationPlayerFinished(string anim_name)
-    {
-        if (anim_name == "Dialogue")
-        {
-            DialogReadyToNext = true;
-        }
-    }
+	public void OnAnimationPlayerFinished(string anim_name)
+	{
+		if (anim_name == "Dialogue")
+		{
+			DialogReadyToNext = true;
+		}
+	}
 
-    private void TextUpdate()
-    {
-        txt_label.Text = dialogueLines[DialogID];
-        if (animation.IsPlaying())
-        {
-            hasAnimationstarted = true;
-        }
-        if (!hasAnimationstarted && txt_label.Text != "END")
-        {
-            animation.Play("Dialogue");
-        }
-        
-    }
+	private void TextUpdate()
+	{
+		txt_label.Text = dialogueLines[DialogID];
+		if (animation.IsPlaying())
+		{
+			hasAnimationstarted = true;
+		}
+		if (!hasAnimationstarted && txt_label.Text != "END")
+		{
+			animation.Play("Dialogue");
+		}
+		
+	}
 
     // private List<string> ReadDialogLine(string path)
     // {
@@ -176,15 +176,15 @@ public partial class DialogueHUD : CanvasLayer
     //     return lines;
     // }
 
-    public void ShowDialogHud()
-    {
-        isShow = true;
-    }
+	public void ShowDialogHud()
+	{
+		isShow = true;
+	}
 
-    public void HideDialogHud()
-    {
-        isShow = false;
-    }
+	public void HideDialogHud()
+	{
+		isShow = false;
+	}
 
     // public void SaveDialogID()
     // {
