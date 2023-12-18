@@ -37,14 +37,14 @@ public partial class FixWire : Area2D
 		if (!isShow)
 		{
 			isShow = true;
-			player.inputOnFocus = isShow;
+			player.inputOnFocus = true;
 			fixWireHud.Visible = isShow;
 			menuCursor.isWiring = true;
 		}
 		else
 		{
 			isShow = false;
-			player.inputOnFocus = isShow;
+			player.inputOnFocus = false;
 			fixWireHud.Visible = isShow;
 		}
 	}
