@@ -22,7 +22,7 @@ public partial class computer : StaticBody2D
 
 	AnimatedSprite2D animatedsprite = null;
 	[Export]
-	string anim;
+	string anim = "Top";
 	List<string> colors = new List<string>();
 	AudioStreamPlayer audio = null;
 
