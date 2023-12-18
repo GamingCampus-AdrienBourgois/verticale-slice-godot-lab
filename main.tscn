@@ -3482,26 +3482,32 @@ polygon = PackedVector2Array(-282, -4, -32, -4, -28, -207, -283, -207)
 [node name="Object_Bedrooms" parent="Bedroom/Objects" instance=ExtResource("29_uguob")]
 position = Vector2(72, 354)
 GroupToAdd = "Jarod"
+anim = "Bousole"
 
 [node name="Object_Bedrooms2" parent="Bedroom/Objects" instance=ExtResource("29_uguob")]
 position = Vector2(119, 367)
 GroupToAdd = "Victor"
+anim = "Canard"
 
 [node name="Object_Bedrooms3" parent="Bedroom/Objects" instance=ExtResource("29_uguob")]
 position = Vector2(81, 409)
 GroupToAdd = "Lucie"
+anim = "Peluche"
 
 [node name="Object_Bedrooms4" parent="Bedroom/Objects" instance=ExtResource("29_uguob")]
 position = Vector2(124, 421)
 GroupToAdd = "Henry"
+anim = "Slime"
 
 [node name="Object_Bedrooms5" parent="Bedroom/Objects" instance=ExtResource("29_uguob")]
 position = Vector2(62, 461)
 GroupToAdd = "Hugo"
+anim = "Pokeball"
 
 [node name="Object_Bedrooms6" parent="Bedroom/Objects" instance=ExtResource("29_uguob")]
 position = Vector2(117, 467)
 GroupToAdd = "Anthony"
+anim = "Buche"
 
 [node name="Note" type="Node" parent="."]
 
