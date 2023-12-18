@@ -19,6 +19,13 @@ Follow the link for itch.io page (or steam page if there is one) and just downlo
 - Godot
 - C#
 
+## Screenshots
+
+![App Screenshot](https://cdn.discordapp.com/attachments/839161156265312306/1186448538318680174/image.png?ex=6593494e&is=6580d44e&hm=3a9f4c1063bc22661d095e43dcf7238d0cde080554eb968a41ed5f97da50bf29&)
+
+![App Screenshot](https://cdn.discordapp.com/attachments/839161156265312306/1186448801188290572/image.png?ex=6593498d&is=6580d48d&hm=0ce0af7ecf24f707403e83690b3ee9b0c2b6055945fc90ff9d2bfd3a237ea946&)
+
+![App Screenshot](https://cdn.discordapp.com/attachments/839161156265312306/1186448928409927750/image.png?ex=659349ab&is=6580d4ab&hm=4abb55d8e2c72593d42e37c3005d68cdcb35381b416f168a02bc3d3c83c9178b&)
 
 ## 🤼​ Authors
 
