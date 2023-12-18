@@ -56,7 +56,7 @@ public partial class Menu : Control
 			//Mettre un switch mais jsp la syntaxe
 			if (SelectedIndex == 0)
 			{
-				SceneTransition.Call("changeScene","main.tscn",false);
+				SceneTransition.Call("changeScene","Scenes/Components/DialogueHUD.tscn",false);
 			}
 			else if(SelectedIndex == 1)
 			{

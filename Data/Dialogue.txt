@@ -1,8 +1,0 @@
-Hi, do you hear me?
-Well, I just wanted to make sure you know what to do here as it's your first day here.
-The portal in front of you is broken, Bob set it up wrong.
-If you try to use it in its current state, you'll be dragged back here, along with everything in its proximity.
-You need to find the cause of the interference, so start by looking around, and when you think all is good, go through the portal.
-If you've forgotten something, the portal console will tell you.
-Well, I think I've told you everything.
-END

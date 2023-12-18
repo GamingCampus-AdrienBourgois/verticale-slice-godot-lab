@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://cokearix5kfdo"]
 
 [ext_resource type="Script" path="res://Scripts/Menu/Start_game.cs" id="1_2klof"]
-[ext_resource type="Texture2D" uid="uid://6hg7qrysuf0g" path="res://assets/logo_studio.PNG" id="1_awn1u"]
 [ext_resource type="FontFile" uid="uid://dox4m0tdho7s7" path="res://assets/Components/monogram-extended.ttf" id="2_3cpje"]
+[ext_resource type="Texture2D" uid="uid://4p56mb5emcn2" path="res://assets/Components/Logo_Sheet.png" id="2_psnaq"]
 [ext_resource type="Texture2D" uid="uid://cpuqjugh8sff" path="res://assets/loopoutlogo-removebg-preview.png" id="3_8gurd"]
 [ext_resource type="PackedScene" uid="uid://q4077uamawv5" path="res://Scenes/Menu/Bg.tscn" id="5_g2hgr"]
 
@@ -32,10 +32,23 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(594, 568)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_wqjsf"]
 resource_name = "start"
 length = 14.0
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -180,6 +193,18 @@ tracks/11/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Sprite2D:frame")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(3, 4, 4.05, 4.1, 4.15, 4.2, 4.25, 4.3, 4.35, 4.4, 4.45, 4.5, 4.55, 4.6, 4.65, 4.7, 4.75, 4.8, 4.85, 4.9, 4.95, 5, 5.05, 5.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m1mwl"]
 _data = {
@@ -235,9 +260,10 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0)
 position = Vector2(577, 274)
-texture = ExtResource("1_awn1u")
+scale = Vector2(1.625, 1.625)
+texture = ExtResource("2_psnaq")
+vframes = 24
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -260,8 +286,6 @@ grow_vertical = 0
 theme_override_fonts/font = ExtResource("2_3cpje")
 theme_override_font_sizes/font_size = 128
 text = "Présente"
-visible_characters = 0
-visible_ratio = 0.0
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -301,3 +325,4 @@ one_shot = true
 explosiveness = 0.5
 
 [node name="Bg" parent="." instance=ExtResource("5_g2hgr")]
+modulate = Color(1, 1, 1, 1)
