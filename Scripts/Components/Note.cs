@@ -11,6 +11,10 @@ public partial class Note : CharacterBody2D
 	public bool isPickable = false;
 	[Export]
 	public string text;
+	[Export]
+	string anim = "Sign";
+
+	AnimatedSprite2D sprite = null;
 
 	private CanvasLayer FolderNoteHud;
 	private CanvasLayer StickyNoteHud;
@@ -22,11 +26,12 @@ public partial class Note : CharacterBody2D
 
 	public override void _Ready()
 	{
+		sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		FolderNoteHud = GetNode<CanvasLayer>("FolderNote");
 		StickyNoteHud = GetNode<CanvasLayer>("StickyNote");
 		player = GetParent().GetParent().GetNode<Player>("Player");
 		txt_label = StickyNoteHud.GetNode<ColorRect>("ColorRect").GetNode<Label>("Label");
-
+		sprite.Play(anim);
 		if (FolderNoteHud != null )
 		{
 			FolderNoteHud.Visible = isShow;
