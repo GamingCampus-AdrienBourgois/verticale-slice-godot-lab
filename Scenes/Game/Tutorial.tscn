@@ -1,9 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://dwory4ex5bim4"]
+[gd_scene load_steps=19 format=3 uid="uid://dwory4ex5bim4"]
 
 [ext_resource type="Script" path="res://Scripts/Game/Tutorial.cs" id="1_4t1n7"]
 [ext_resource type="TileSet" uid="uid://dmh23mjdjnero" path="res://assets/MainTilemap.tres" id="1_deibl"]
 [ext_resource type="Script" path="res://Scripts/Components/ObjectForFix.cs" id="2_kaxr6"]
+[ext_resource type="FontFile" uid="uid://dox4m0tdho7s7" path="res://assets/Components/monogram-extended.ttf" id="3_gugeu"]
 [ext_resource type="PackedScene" uid="uid://d346r50tima2p" path="res://Scenes/Components/object_fix_area.tscn" id="3_hgpwo"]
+[ext_resource type="Script" path="res://Scripts/Components/CameraUI.cs" id="3_y5mrw"]
 [ext_resource type="PackedScene" uid="uid://c4l34yx2ih016" path="res://Scenes/Components/object_to_fix.tscn" id="4_kvk44"]
 [ext_resource type="PackedScene" uid="uid://c767xbfu781tp" path="res://Scenes/Player/player.tscn" id="5_uhb3l"]
 [ext_resource type="PackedScene" uid="uid://brp75n3p58gce" path="res://Scenes/Components/tp.tscn" id="6_amc15"]
@@ -68,6 +70,29 @@ position = Vector2(334, 299)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(3, 3)
+script = ExtResource("3_y5mrw")
+
+[node name="PanelContainer" type="PanelContainer" parent="Player/Camera2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -107.0
+offset_right = 82.0
+offset_bottom = -91.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 2
+
+[node name="Label" type="Label" parent="Player/Camera2D/PanelContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("3_gugeu")
+text = "Portal : No current message"
+horizontal_alignment = 1
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1

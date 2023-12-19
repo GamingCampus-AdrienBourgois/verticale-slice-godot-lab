@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://degk0tj8lto51"]
+[gd_scene load_steps=53 format=3 uid="uid://degk0tj8lto51"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_8aswi"]
 [ext_resource type="PackedScene" uid="uid://c767xbfu781tp" path="res://Scenes/Player/player.tscn" id="2_cxfpo"]
@@ -6,10 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://di8pp4xoe3vjf" path="res://Scenes/Transitions/Scene_transition.tscn" id="4_o7nr5"]
 [ext_resource type="PackedScene" uid="uid://c2k0yl2eo71rf" path="res://Scenes/Components/ballon.tscn" id="5_qksr7"]
 [ext_resource type="PackedScene" uid="uid://dchiwu34cy6w2" path="res://Scenes/Components/door.tscn" id="6_e23jg"]
+[ext_resource type="Script" path="res://Scripts/Components/CameraUI.cs" id="7_564k3"]
 [ext_resource type="TileSet" uid="uid://dmh23mjdjnero" path="res://assets/MainTilemap.tres" id="7_hcmdi"]
 [ext_resource type="PackedScene" uid="uid://gfwkjgaxjncs" path="res://Scenes/Components/foot.tscn" id="7_i3pto"]
 [ext_resource type="PackedScene" uid="uid://dbei81nyrc6ty" path="res://Scenes/Components/fix_wire.tscn" id="7_jky4f"]
 [ext_resource type="Script" path="res://Scripts/Components/AllPc.cs" id="7_nhoxv"]
+[ext_resource type="FontFile" uid="uid://dox4m0tdho7s7" path="res://assets/Components/monogram-extended.ttf" id="7_niyaj"]
 [ext_resource type="PackedScene" uid="uid://ybvqyqhf23jy" path="res://Scenes/Components/particule_foot.tscn" id="8_ayp8k"]
 [ext_resource type="Texture2D" uid="uid://o8s0jd1ii5x5" path="res://assets/portal_animated.png" id="8_nql7u"]
 [ext_resource type="PackedScene" uid="uid://bfv0qhjvvqket" path="res://Scenes/Components/computer.tscn" id="10_gflbg"]
@@ -149,6 +151,31 @@ position = Vector2(89, 114)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
+script = ExtResource("7_564k3")
+
+[node name="PanelContainer" type="PanelContainer" parent="Player/Camera2D"]
+custom_minimum_size = Vector2(40, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.0
+offset_top = -161.0
+offset_right = 83.0
+offset_bottom = -143.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Player/Camera2D/PanelContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("7_niyaj")
+text = "Portal : No current message"
+horizontal_alignment = 1
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -911,7 +938,6 @@ script = ExtResource("27_558j3")
 Group = "Lucie"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bedroom/Areas/BedArea2"]
-visible = false
 position = Vector2(163, 146)
 polygon = PackedVector2Array(-269, -31, -33, -31, -34, -236, -268, -236)
 

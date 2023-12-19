@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dq8phybk1rk6f" path="res://assets/tileset_loopout_deco_v2.png" id="1_erp3m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6p58k"]
-size = Vector2(22, 32)
+size = Vector2(24, 47)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j3l1o"]
 atlas = ExtResource("1_erp3m")
@@ -61,7 +61,7 @@ animations = [{
 script = ExtResource("1_df1u4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 0)
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_6p58k")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]

@@ -12,10 +12,12 @@ public partial class Menu : Control
 	private Scene_transition SceneTransition = null;
 	private AudioStreamPlayer audio = null;
 	private Node buttons = null;
+	private int MaxIndex = 0;
 
 	public override void _Ready()
 	{
 		//ChangeColor();
+		MaxIndex = GetNode<Node2D>("Buttons").GetChildren().Count() - 1;
 		ChangeAnim();	
 		audio = GetNode<AudioStreamPlayer>("Audio");
 		SceneTransition = GetParent().GetNode<Scene_transition>("SceneTransition");
@@ -68,6 +70,10 @@ public partial class Menu : Control
 			{
 				GetTree().Quit();
 			}
+			else if(SelectedIndex == 3)
+			{
+				SceneTransition.Call("changeScene","Scenes/Game/Tutorial.tscn",false);
+			}
 	   }
 	   GD.Print(SelectedIndex);
 		ChangeAnim();
@@ -83,7 +89,7 @@ public partial class Menu : Control
 		{
 			SelectedIndex = 2;
 		}
-		else if (SelectedIndex > 2)
+		else if (SelectedIndex > MaxIndex)
 		{
 			SelectedIndex = 0;
 			

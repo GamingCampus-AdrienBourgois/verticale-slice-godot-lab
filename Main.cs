@@ -85,7 +85,8 @@ public partial class Main : Node2D
 			};
 			global.List_Level_Bools = LevelBool;
 			global.List_Level_Texts = LevelString;
-			global.Tp = "Scenes/Menu/Credits_normal.tscn";
+			global.TpEnd = "Scenes/Menu/Credits_normal.tscn";
+			global.TpOut = "main.tscn";
 			
 			
 			SceneTransition.Call("changeScene",_scenePath,false); 

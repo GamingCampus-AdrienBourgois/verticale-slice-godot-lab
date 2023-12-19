@@ -27,7 +27,8 @@ public partial class Tutorial : Node2D
 
 			global.List_Level_Bools.Add(FixPattern.STATE);
 			global.List_Level_Texts.Add("A chair not around a table ?");
-			global.Tp = "Scenes/Menu/Menu.tscn";
+			global.TpEnd = "Scenes/Menu/Menu.tscn";
+			global.TpOut = "Scenes/Game/Tutorial.tscn";
 			SceneTransition.Call("changeScene",_scenePath,false);
 		}
 	}

@@ -26,7 +26,7 @@ public partial class Console : Node2D
 
 		List_levels = global.List_Level_Bools;
 		List_levels_texts = global.List_Level_Texts;
-		TpTo = global.Tp;
+		TpTo = global.TpEnd;
 
 
 
@@ -41,19 +41,18 @@ public partial class Console : Node2D
 			if (i == false)
 			{
 				label.Text = List_levels_texts[count];
+				global.Message = label.Text;
 				break;
 			}
 			if(count == List_levels.Count-1)
 			{
 				label.Text = "BIP BIP BIP BIIIIIIIIIIP PORTAL ACTIVATED ";
-				GameFinished = true;	
+				GameFinished = true;
+				break;	
 			}
 			count++;
 		}
 
-	}
-	public override void _Process(double delta)
-	{
 	}
 
 	public override void _Input(InputEvent @event)
@@ -66,7 +65,7 @@ public partial class Console : Node2D
 			}
 			else
 			{
-				SceneTransition.Call("changeScene","main.tscn",false);
+				SceneTransition.Call("changeScene",global.TpOut,false);
 			}
 		}
 	}
