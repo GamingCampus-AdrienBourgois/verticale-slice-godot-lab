@@ -46,7 +46,7 @@
 [ext_resource type="PackedScene" uid="uid://xoasx78y5lio" path="res://Scenes/Menu/Pause.tscn" id="41_23fqp"]
 [ext_resource type="Texture2D" uid="uid://bb55j8ht5bwkp" path="res://assets/rune_sheet.png" id="41_cm7it"]
 [ext_resource type="Texture2D" uid="uid://bcm87eis8bol0" path="res://assets/rune_sol.png" id="42_uf1rd"]
-[ext_resource type="PackedScene" uid="uid://bbmfj3xbvly5c" path="res://Scenes/Game/PatternGame.tscn" id="43_rafp6"]
+[ext_resource type="PackedScene" path="res://Scenes/Game/PatternGame.tscn" id="43_rafp6"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_k0qkj"]
 tile_data = PackedInt32Array(0, 1441793, 4, 65536, 1572865, 4, 1, 1572865, 4, 65537, 1441793, 4)

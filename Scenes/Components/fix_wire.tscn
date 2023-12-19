@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dbei81nyrc6ty"]
 
 [ext_resource type="Script" path="res://Scripts/Components/FixWire.cs" id="1_114hu"]
-[ext_resource type="Texture2D" uid="uid://bnmkl1gwaqahx" path="res://icon.svg" id="1_ouiyr"]
+[ext_resource type="Texture2D" uid="uid://jukhfmpsnyny" path="res://assets/Components/Sprite-0001.png" id="2_35aqp"]
 [ext_resource type="PackedScene" uid="uid://dsre6p0qf37th" path="res://Scenes/Components/fix_wire_hud.tscn" id="3_8gbmr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4jqfp"]
@@ -12,9 +12,10 @@ scale = Vector2(0.3, 0.3)
 script = ExtResource("1_114hu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
 texture_filter = 1
-texture = ExtResource("1_ouiyr")
+position = Vector2(20, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("2_35aqp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_4jqfp")
