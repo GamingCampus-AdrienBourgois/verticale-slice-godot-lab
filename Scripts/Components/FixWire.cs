@@ -51,15 +51,9 @@ public partial class FixWire : Area2D
 
 	public void ShowText()
 	{
-		if (interact)
-		{
-			player.to_label.Text = "E to interact";
-			player.ui_animations.Play("appear");
-		}
-		else if (!interact)
-		{
-			player.ui_animations.PlayBackwards("appear");
-		}
+		player.to_label.Text = "E to interact";
+		player.ui_animations.Play("appear");
+		
 	}
 
 	private void _on_body_entered(Node2D body)
@@ -76,15 +70,21 @@ public partial class FixWire : Area2D
 		if (body.IsInGroup("Player") && !WireIsFinish)
 		{
 			interact = false;
-			ShowText();
+			HideText();
 		}
 
+	}
+
+	private void HideText()
+	{
+		player.ui_animations.PlayBackwards("appear");
 	}
 
 	public void WireIsFix()
 	{
 		ShowWireHud();
-		ShowText();
+		HideText();
+		interact = false;
 		GD.Print("Cable Reparer");
 		// Faire plus propre avec un signal si on veut
 		Node WireDoors = GetParent().GetNode("Doors").GetNode("WireDoors");

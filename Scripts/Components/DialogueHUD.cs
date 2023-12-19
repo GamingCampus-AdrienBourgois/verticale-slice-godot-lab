@@ -31,7 +31,7 @@ public partial class DialogueHUD : CanvasLayer
 
 	//private string save_file_path = "user://Data/SavedData.dat";
 	//private string dialogue_file_path = "res://Data/Dialogue.txt";
-	private List<string> dialogueLines = new List<string>();
+	private List<string> dialogueLines = new();
 
 	public override async void _Ready()
 	{
