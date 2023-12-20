@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://crl4ynhj6elrh" path="res://assets/fruits.png" id="2_r0o18"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_c6stl"]
-radius = 22.0
+radius = 13.0
 
 [node name="Fruit" type="CharacterBody2D" groups=["Fruit", "Pickable"]]
 script = ExtResource("1_5p0rq")
@@ -22,7 +22,7 @@ visible = false
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 texture_filter = 1
-scale = Vector2(2.5, 2.5)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_r0o18")
 hframes = 39
 vframes = 6
