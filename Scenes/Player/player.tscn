@@ -1033,7 +1033,7 @@ blend_mode = 2
 shadow_enabled = true
 shadow_item_cull_mask = 3
 texture = ExtResource("4_bujv8")
-texture_scale = 1.77
+texture_scale = 0.75
 
 [node name="UI" parent="." instance=ExtResource("6_ofaw7")]
 offset_left = -104.0

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmnhrc2lpnm02"]
+
+[ext_resource type="Texture2D" uid="uid://darjrcixr2156" path="res://assets/Components/1316-removebg-preview.png" id="1_8xjh2"]
+[ext_resource type="Script" path="res://Scripts/Components/Light.cs" id="1_oqua4"]
+[ext_resource type="Texture2D" uid="uid://bofybbehxto5o" path="res://assets/Components/light.png" id="1_we5pk"]
+
+[node name="Light" type="Node2D"]
+script = ExtResource("1_oqua4")
+
+[node name="Light2D" type="PointLight2D" parent="."]
+blend_mode = 2
+range_item_cull_mask = 2
+shadow_enabled = true
+shadow_item_cull_mask = 2
+texture = ExtResource("1_8xjh2")
+texture_scale = 0.65
+
+[node name="Light2D2" type="PointLight2D" parent="."]
+blend_mode = 2
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = ExtResource("1_we5pk")
+texture_scale = 0.75

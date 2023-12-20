@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://grrcklteqcx4"]
+[gd_scene load_steps=5 format=3 uid="uid://grrcklteqcx4"]
 
 [ext_resource type="Script" path="res://Scripts/Menu/Input_settings.cs" id="1_7xboh"]
 [ext_resource type="PackedScene" uid="uid://dfdud0b304fod" path="res://Scenes/Menu/Input_button.tscn" id="1_e0yfj"]
 [ext_resource type="TileSet" uid="uid://cnowwr0gr3n55" path="res://Platformer/scenes/tilemap_platformer.tres" id="3_c4hg3"]
+[ext_resource type="FontFile" uid="uid://dox4m0tdho7s7" path="res://assets/Components/monogram-extended.ttf" id="3_lh0ex"]
 
 [node name="InputSettings" type="Control"]
 layout_mode = 3
@@ -62,6 +63,39 @@ layout_mode = 2
 
 [node name="InputButton6" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("1_e0yfj")]
 layout_mode = 2
+
+[node name="Sound" type="PanelContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Sound"]
+layout_mode = 2
+
+[node name="SoundDown" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/Sound/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_lh0ex")
+theme_override_font_sizes/font_size = 64
+text = "-"
+
+[node name="SoundLevel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Sound/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("3_lh0ex")
+theme_override_font_sizes/font_size = 64
+text = "X"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SoundUp" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/Sound/HBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_fonts/font = ExtResource("3_lh0ex")
+theme_override_font_sizes/font_size = 64
+text = "+"
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
