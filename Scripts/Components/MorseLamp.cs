@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public partial class MorseLamp : Sprite2D
 {
- 		private Dictionary<char, string> alphabetMorse = new Dictionary<char, string>
+		private Dictionary<char, string> alphabetMorse = new Dictionary<char, string>
 		{
 			{'A', "01"},
 			{'B', "1000"},
@@ -37,11 +37,13 @@ public partial class MorseLamp : Sprite2D
 	AnimationPlayer animation = null;
 	
 	bool boolTest = false;
+	private string secretCode;
 
 	public override void _Ready()
 	{
+		secretCode = GetParent().GetNode<MorseCodeHud>("MorseCodeHud").SecretCode;
 		animation = GetNode<AnimationPlayer>("AnimationPlayer");
-		MorseCode("PetiteLoutre");
+		MorseCode(secretCode);
 
 	}
 
@@ -57,9 +59,9 @@ public partial class MorseLamp : Sprite2D
 			}
 
 
- 		   	foreach (char number in lettreMorse)
- 		   	{
- 		   		if(number == '1'){
+			foreach (char number in lettreMorse)
+			{
+				if(number == '1'){
 					animation.Play("LongLight");
 				}
 				else
@@ -67,7 +69,7 @@ public partial class MorseLamp : Sprite2D
 					animation.Play("ShortLight");
 				}
 				await ToSignal(animation, AnimationPlayer.SignalName.AnimationFinished);
- 		   	}
+			}
 			animation.Play("LightOff");
 			await ToSignal(animation, AnimationPlayer.SignalName.AnimationFinished);
 		}

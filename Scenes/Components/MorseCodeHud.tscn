@@ -1,0 +1,859 @@
+[gd_scene load_steps=33 format=3 uid="uid://cs86w5tmmkwrn"]
+
+[ext_resource type="Script" path="res://Scripts/Components/MorseCodeHud.cs" id="1_qmvsy"]
+[ext_resource type="Texture2D" uid="uid://ctmj1of441ayc" path="res://assets/Components/reactor_arrow.png" id="2_4elh7"]
+[ext_resource type="Texture2D" uid="uid://dawxukd18d05q" path="res://assets/Components/ReactorHud.png" id="2_w5sa5"]
+[ext_resource type="FontFile" uid="uid://dox4m0tdho7s7" path="res://assets/Components/monogram-extended.ttf" id="3_gp42p"]
+
+[sub_resource type="Animation" id="Animation_11i3o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container/VBoxContainerCenter/HBoxContainer/0/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container/VBoxContainerCenter/HBoxContainer/0/Sprite2D2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_ryuey"]
+resource_name = "pressTop"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container/VBoxContainerCenter/HBoxContainer/0/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_24ala"]
+resource_name = "pressBot"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container/VBoxContainerCenter/HBoxContainer/0/Sprite2D2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dstl1"]
+_data = {
+"RESET": SubResource("Animation_11i3o"),
+"pressBot": SubResource("Animation_24ala"),
+"pressTop": SubResource("Animation_ryuey")
+}
+
+[sub_resource type="Animation" id="Animation_gj1l2"]
+resource_name = "pressTop"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_41tm8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_ihsga"]
+resource_name = "pressBot"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ryr0j"]
+_data = {
+"RESET": SubResource("Animation_41tm8"),
+"pressBot": SubResource("Animation_ihsga"),
+"pressTop": SubResource("Animation_gj1l2")
+}
+
+[sub_resource type="Animation" id="Animation_1wkd0"]
+resource_name = "pressTop"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_u66mf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_s0bdt"]
+resource_name = "pressBot"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dqi5m"]
+_data = {
+"RESET": SubResource("Animation_u66mf"),
+"pressBot": SubResource("Animation_s0bdt"),
+"pressTop": SubResource("Animation_1wkd0")
+}
+
+[sub_resource type="Animation" id="Animation_7l3fp"]
+resource_name = "pressTop"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_s61li"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_ai0yy"]
+resource_name = "pressBot"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dpto7"]
+_data = {
+"RESET": SubResource("Animation_s61li"),
+"pressBot": SubResource("Animation_ai0yy"),
+"pressTop": SubResource("Animation_7l3fp")
+}
+
+[sub_resource type="Animation" id="Animation_l62mu"]
+resource_name = "pressTop"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_kuuli"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_atyfv"]
+resource_name = "pressBot"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oyygn"]
+_data = {
+"RESET": SubResource("Animation_kuuli"),
+"pressBot": SubResource("Animation_atyfv"),
+"pressTop": SubResource("Animation_l62mu")
+}
+
+[sub_resource type="Animation" id="Animation_ruilj"]
+resource_name = "pressTop"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_f5dcc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_ogt0t"]
+resource_name = "pressBot"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ktpcv"]
+_data = {
+"RESET": SubResource("Animation_f5dcc"),
+"pressBot": SubResource("Animation_ogt0t"),
+"pressTop": SubResource("Animation_ruilj")
+}
+
+[sub_resource type="Animation" id="Animation_tekhi"]
+resource_name = "pressTop"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_sskij"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_tlqpd"]
+resource_name = "pressBot"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [3, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fg2c7"]
+_data = {
+"RESET": SubResource("Animation_sskij"),
+"pressBot": SubResource("Animation_tlqpd"),
+"pressTop": SubResource("Animation_tekhi")
+}
+
+[node name="MorseCodeHud" type="CanvasLayer"]
+script = ExtResource("1_qmvsy")
+SecretCode = "Poutres"
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_w5sa5")
+
+[node name="Container" type="Control" parent="."]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainerCenter" type="VBoxContainer" parent="Container"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -265.0
+offset_top = -100.0
+offset_right = 265.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Container/VBoxContainerCenter"]
+custom_minimum_size = Vector2(50, 200)
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="0" type="Label" parent="Container/VBoxContainerCenter/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_gp42p")
+theme_override_font_sizes/font_size = 48
+text = "A"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Container/VBoxContainerCenter/HBoxContainer/0"]
+show_behind_parent = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Container/VBoxContainerCenter/HBoxContainer/0"]
+texture_filter = 1
+texture = ExtResource("2_4elh7")
+centered = false
+offset = Vector2(9, -32)
+hframes = 4
+region_rect = Rect2(0, 0, 80, 55)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Container/VBoxContainerCenter/HBoxContainer/0"]
+texture_filter = 1
+texture = ExtResource("2_4elh7")
+centered = false
+offset = Vector2(9, 50)
+hframes = 4
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Container/VBoxContainerCenter/HBoxContainer/0"]
+root_node = NodePath("../../../../..")
+libraries = {
+"": SubResource("AnimationLibrary_dstl1")
+}
+
+[node name="1" type="Label" parent="Container/VBoxContainerCenter/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_gp42p")
+theme_override_font_sizes/font_size = 48
+text = "A"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Container/VBoxContainerCenter/HBoxContainer/1"]
+show_behind_parent = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Container/VBoxContainerCenter/HBoxContainer/1"]
+texture_filter = 1
+texture = ExtResource("2_4elh7")
+centered = false
+offset = Vector2(9, -32)
+hframes = 4
+region_rect = Rect2(0, 0, 80, 55)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Container/VBoxContainerCenter/HBoxContainer/1"]
+texture_filter = 1
+texture = ExtResource("2_4elh7")
+centered = false
+offset = Vector2(9, 50)
+hframes = 4
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Container/VBoxContainerCenter/HBoxContainer/1"]
+libraries = {
+"": SubResource("AnimationLibrary_ryr0j")
+}
+
+[node name="2" type="Label" parent="Container/VBoxContainerCenter/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_gp42p")
+theme_override_font_sizes/font_size = 48
+text = "A"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Container/VBoxContainerCenter/HBoxContainer/2"]
+show_behind_parent = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Container/VBoxContainerCenter/HBoxContainer/2"]
+texture_filter = 1
+texture = ExtResource("2_4elh7")
+centered = false
+offset = Vector2(9, -32)
+hframes = 4
+region_rect = Rect2(0, 0, 80, 55)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Container/VBoxContainerCenter/HBoxContainer/2"]
+texture_filter = 1
+texture = ExtResource("2_4elh7")
+centered = false
+offset = Vector2(9, 50)
+hframes = 4
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Container/VBoxContainerCenter/HBoxContainer/2"]
+libraries = {
+"": SubResource("AnimationLibrary_dqi5m")
+}
+
+[node name="3" type="Label" parent="Container/VBoxContainerCenter/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_gp42p")
+theme_override_font_sizes/font_size = 48
+text = "A"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Container/VBoxContainerCenter/HBoxContainer/3"]
+show_behind_parent = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Container/VBoxContainerCenter/HBoxContainer/3"]
+texture_filter = 1
+texture = ExtResource("2_4elh7")
+centered = false
+offset = Vector2(9, -32)
+hframes = 4
+region_rect = Rect2(0, 0, 80, 55)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Container/VBoxContainerCenter/HBoxContainer/3"]
+texture_filter = 1
+texture = ExtResource("2_4elh7")
+centered = false
+offset = Vector2(9, 50)
+hframes = 4
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Container/VBoxContainerCenter/HBoxContainer/3"]
+libraries = {
+"": SubResource("AnimationLibrary_dpto7")
+}
+
+[node name="4" type="Label" parent="Container/VBoxContainerCenter/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_gp42p")
+theme_override_font_sizes/font_size = 48
+text = "A"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Container/VBoxContainerCenter/HBoxContainer/4"]
+show_behind_parent = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Container/VBoxContainerCenter/HBoxContainer/4"]
+texture_filter = 1
+texture = ExtResource("2_4elh7")
+centered = false
+offset = Vector2(9, -32)
+hframes = 4
+region_rect = Rect2(0, 0, 80, 55)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Container/VBoxContainerCenter/HBoxContainer/4"]
+texture_filter = 1
+texture = ExtResource("2_4elh7")
+centered = false
+offset = Vector2(9, 50)
+hframes = 4
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Container/VBoxContainerCenter/HBoxContainer/4"]
+libraries = {
+"": SubResource("AnimationLibrary_oyygn")
+}
+
+[node name="5" type="Label" parent="Container/VBoxContainerCenter/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_gp42p")
+theme_override_font_sizes/font_size = 48
+text = "A"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Container/VBoxContainerCenter/HBoxContainer/5"]
+show_behind_parent = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Container/VBoxContainerCenter/HBoxContainer/5"]
+texture_filter = 1
+texture = ExtResource("2_4elh7")
+centered = false
+offset = Vector2(9, -32)
+hframes = 4
+region_rect = Rect2(0, 0, 80, 55)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Container/VBoxContainerCenter/HBoxContainer/5"]
+texture_filter = 1
+texture = ExtResource("2_4elh7")
+centered = false
+offset = Vector2(9, 50)
+hframes = 4
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Container/VBoxContainerCenter/HBoxContainer/5"]
+libraries = {
+"": SubResource("AnimationLibrary_ktpcv")
+}
+
+[node name="6" type="Label" parent="Container/VBoxContainerCenter/HBoxContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_gp42p")
+theme_override_font_sizes/font_size = 48
+text = "A"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="Container/VBoxContainerCenter/HBoxContainer/6"]
+show_behind_parent = true
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Container/VBoxContainerCenter/HBoxContainer/6"]
+texture_filter = 1
+texture = ExtResource("2_4elh7")
+centered = false
+offset = Vector2(9, -32)
+hframes = 4
+region_rect = Rect2(0, 0, 80, 55)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Container/VBoxContainerCenter/HBoxContainer/6"]
+texture_filter = 1
+texture = ExtResource("2_4elh7")
+centered = false
+offset = Vector2(9, 50)
+hframes = 4
+frame = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Container/VBoxContainerCenter/HBoxContainer/6"]
+libraries = {
+"": SubResource("AnimationLibrary_fg2c7")
+}
