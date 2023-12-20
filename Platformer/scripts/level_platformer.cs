@@ -17,7 +17,7 @@ public partial class level_platformer : Node
 	public void Tp_entered(string _scenePath, Node2D body)
 	{
 		if (body.IsInGroup("Player")){
-			SceneTransition.Call("changeScene","main.tscn",false);
+			SceneTransition.Call("changeScene",_scenePath,false);
 		}
 		else {
 			GD.Print("Non_player collision");
