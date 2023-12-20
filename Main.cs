@@ -49,7 +49,7 @@ public partial class Main : Node2D
 
 	public override void _Process(double delta)
 	{
-		if(Input.IsActionJustPressed("Pause"))
+		if(Input.IsActionJustPressed("Pause") && !GetNode<Player>("Player").inputOnFocus)
 		{
 			PauseMenu();
 		}

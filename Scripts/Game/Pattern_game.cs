@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Numerics;
 using System.Threading;
@@ -23,6 +24,9 @@ public partial class Pattern_game : Control
 
 	[Signal]
 	public delegate void PatternEventHandler();
+
+	[Signal]
+	public delegate void DoClearEventHandler();
 
 	public bool STATE = false;
 
@@ -66,9 +70,8 @@ public partial class Pattern_game : Control
 		//	ToSelect.Add(new Godot.Vector2(rnd.Next(0,height-1),rnd.Next(0,width-1)));
 		//	GD.Print(ToSelect[i]);
 		//}
-		
-		ToSelect.Add(new Godot.Vector2(4,6));
-		ToSelect.Add(new Godot.Vector2(5,6));
+		ToSelect.Add(new Godot.Vector2(6,4));
+		ToSelect.Add(new Godot.Vector2(6,5));
 		ToSelect.Add(new Godot.Vector2(7,7));
 		ToSelect.Add(new Godot.Vector2(2,2));
 		
@@ -139,8 +142,6 @@ public partial class Pattern_game : Control
 			}
 			ToColor(selected,new Color(0,0,255));
 
-
-
 			// GD.Print("selected : ",selected);
 			if (@event.IsActionPressed("Accept"))
 			{
@@ -149,6 +150,10 @@ public partial class Pattern_game : Control
 				if(!Found.Contains(selected)){
 					Found.Add(selected);
 				}
+			}
+			if(@event.IsActionPressed("ui_cancel"))
+			{
+				Clear();
 			}
 		}
 	}
@@ -160,6 +165,20 @@ public partial class Pattern_game : Control
 		var childHbox = hbox_to.GetChild((int)thing.Y);
 		ColorRect temp = (ColorRect)childHbox;
 		temp.Color = color;
+	}
+
+	private async void Clear()
+	{
+		//await ToSignal(new Godot.Timer{Autostart = true, WaitTime = 0.1}, Godot.Timer.SignalName.Timeout);
+		await ToSignal(GetTree().CreateTimer(0.1),"timeout");
+		foreach (Node i in  vbox.GetChildren())
+		{
+			i.QueueFree();
+		}
+		ToSelect.Clear();
+		Found.Clear();
+		GetParent<CanvasLayer>().Visible = false;
+		EmitSignal("DoClear");
 	}
 
 
