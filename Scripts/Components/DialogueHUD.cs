@@ -46,6 +46,7 @@ public partial class DialogueHUD : CanvasLayer
 		container = GetNode<HBoxContainer>("HBoxContainer");
 		if (Show)
 		{
+
 			arrow.Visible = false;
 			// DialogID = LoadDialogID();
 			// dialogueLines = ReadDialogLine(dialogue_file_path);
@@ -64,16 +65,17 @@ public partial class DialogueHUD : CanvasLayer
 			// GD.Print(hasReset);
 			dialogueLines.Add("Hi, do you hear me?");
 			dialogueLines.Add("Well, I just wanted to make sure you know what to do here as it's your first day here.");
-			dialogueLines.Add("The portal in front of you is broken, Bob set it up wrong.");
+			dialogueLines.Add("The portal in the midle of the lab is broken, Bob set it up wrong.");
 			dialogueLines.Add("If you try to use it in its current state, you'll be dragged back here, along with everything in its proximity.");
-			dialogueLines.Add("You need to find the cause of the interference, so start by looking around, and when you think all is good, go through the portal.");
+			dialogueLines.Add("You need to find the cause of the interference, so start by looking around, and when you think everythings is good, go through the portal.");
 			dialogueLines.Add("If you've forgotten something, the portal console will tell you.");
 			dialogueLines.Add("Well, I think I've told you everything.");
+			dialogueLines.Add("Good luck!");
 			dialogueLines.Add("END");
-			TextUpdate();
 			spaceShipeAnim.Play("Start");
 			await ToSignal(spaceShipeAnim,AnimationPlayer.SignalName.AnimationFinished);
 			spaceShipeAnim.Play("Idle");
+			TextUpdate();
 			//Dialog = true;   
 			isShow = true;     
 			}
