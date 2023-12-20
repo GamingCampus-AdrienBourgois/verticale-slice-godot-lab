@@ -347,7 +347,7 @@ animations = [{
 }]
 
 [node name="ColoredPC" type="StaticBody2D"]
-scale = Vector2(2, 2)
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_dmoip")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
