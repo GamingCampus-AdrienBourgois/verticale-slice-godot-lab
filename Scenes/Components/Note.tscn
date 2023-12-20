@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://bnmkl1gwaqahx" path="res://icon.svg" id="2_64upd"]
 [ext_resource type="Texture2D" uid="uid://5hha5m3io5ji" path="res://assets/Components/note.png" id="2_lglnp"]
 [ext_resource type="FontFile" uid="uid://dox4m0tdho7s7" path="res://assets/Components/monogram-extended.ttf" id="3_2moxp"]
-[ext_resource type="Texture2D" path="res://assets/sign_sheet.png" id="5_ep6qf"]
-[ext_resource type="Texture2D" uid="uid://bif1wnshtxmu8" path="res://assets/Components/sign_hud.png" id="5_mfb4b"]
+[ext_resource type="Texture2D" uid="uid://i4h3v1uw21k4" path="res://assets/sign_sheet.png" id="5_ep6qf"]
+[ext_resource type="Texture2D" path="res://assets/Components/sign_hud.png" id="5_mfb4b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qd668"]
 size = Vector2(12, 19)
@@ -70,10 +70,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 353.0
-offset_top = 82.0
-offset_right = 393.0
-offset_bottom = 122.0
+offset_left = 408.0
+offset_top = 90.0
+offset_right = 448.0
+offset_bottom = 130.0
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
