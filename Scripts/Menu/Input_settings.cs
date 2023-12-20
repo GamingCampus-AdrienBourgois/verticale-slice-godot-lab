@@ -13,19 +13,28 @@ public partial class Input_settings : Control
 	string action_to_remap = null;
 	Node remapping_button = null;
 	private string[] input_actions = {"Up","Down","Left","Right","Interact","Accept","Use"};
+	AudioStreamPlayer2D audio_global = null;
 
+	Button SoundUp = null;
+	Button SoundDown = null;
+	Label SoundLevel = null;
 
 	PackedScene button_input = ResourceLoader.Load("res://Scenes/Menu/Input_button.tscn") as PackedScene;
 	public override void _Ready()
 	{
+		SoundLevel = GetNode<Label>("PanelContainer/MarginContainer/VBoxContainer/Sound/HBoxContainer/SoundLevel");
+		SoundUp = GetNode<Button>("PanelContainer/MarginContainer/VBoxContainer/Sound/HBoxContainer/SoundUp");
+		SoundDown = GetNode<Button>("PanelContainer/MarginContainer/VBoxContainer/Sound/HBoxContainer/SoundDown");
+		SoundUp.Connect(Button.SignalName.Pressed,new Callable(this,"OnSoundUp"));
+		SoundDown.Connect(Button.SignalName.Pressed,new Callable(this,"OnSoundDown"));
+
+
+		audio_global = GetParent().GetNode<AudioStreamPlayer2D>("BgMusic");
 		SceneTransition = GetParent().GetNode<Scene_transition>("SceneTransition");
 
 		action_list = GetNode("PanelContainer").GetNode("MarginContainer").GetNode("VBoxContainer").GetNode("ScrollContainer").GetNode("ActionList");
 		CreateActionList();
-	}
-
-	public override void _Process(double delta)
-	{
+		SoundLevel.Text = audio_global.VolumeDb.ToString();
 	}
 
 	private void CreateActionList()
@@ -105,6 +114,24 @@ public partial class Input_settings : Control
 		Node label_node = button.FindChild("LabelInput");
 		Label label_button = (Label)label_node;
 		label_button.Text = Event.AsText().TrimSuffix(" (Physical)");
+	}
+
+	private void OnSoundUp()
+	{
+		if(audio_global.VolumeDb < 50)
+		{
+			audio_global.VolumeDb += 5;
+			SoundLevel.Text = audio_global.VolumeDb.ToString();
+		}
+	}
+
+	private void OnSoundDown()
+	{
+		if(audio_global.VolumeDb > -50)
+		{
+			audio_global.VolumeDb -= 5;
+			SoundLevel.Text = audio_global.VolumeDb.ToString();
+		}
 	}
 
 }
