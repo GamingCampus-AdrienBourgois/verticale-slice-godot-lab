@@ -1,24 +1,28 @@
-[gd_scene load_steps=164 format=3 uid="uid://degk0tj8lto51"]
+
+[gd_scene load_steps=169 format=3 uid="uid://degk0tj8lto51"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_8aswi"]
 [ext_resource type="PackedScene" uid="uid://c767xbfu781tp" path="res://Scenes/Player/player.tscn" id="2_cxfpo"]
-[ext_resource type="Texture2D" uid="uid://bnmkl1gwaqahx" path="res://icon.svg" id="3_nd6b6"]
+[ext_resource type="Texture2D" uid="uid://bnmkl1gwaqahx" path="res://icon.svg" id="3_nd6b6"] *
 [ext_resource type="PackedScene" uid="uid://brp75n3p58gce" path="res://Scenes/Components/tp.tscn" id="4_12jmb"]
 [ext_resource type="PackedScene" uid="uid://di8pp4xoe3vjf" path="res://Scenes/Transitions/Scene_transition.tscn" id="4_o7nr5"]
 [ext_resource type="PackedScene" uid="uid://c2k0yl2eo71rf" path="res://Scenes/Components/ballon.tscn" id="5_qksr7"]
 [ext_resource type="PackedScene" uid="uid://dchiwu34cy6w2" path="res://Scenes/Components/door.tscn" id="6_e23jg"]
-[ext_resource type="Texture2D" uid="uid://c28kbfkrhn4l3" path="res://assets/tileset_loopout.png" id="6_wo2x4"]
-[ext_resource type="PackedScene" path="res://Scenes/Components/foot.tscn" id="7_i3pto"]
-[ext_resource type="Texture2D" uid="uid://dq8phybk1rk6f" path="res://assets/tileset_loopout_deco_v2.png" id="7_jg4lx"]
+[ext_resource type="Texture2D" uid="uid://c28kbfkrhn4l3" path="res://assets/tileset_loopout.png" id="6_wo2x4"] *
+[ext_resource type="Script" path="res://Scripts/Components/CameraUI.cs" id="7_564k3"]
+[ext_resource type="TileSet" uid="uid://shg7s3b4bifd" path="res://assets/MainTilemap.tres" id="7_hcmdi"]
+[ext_resource type="PackedScene" uid="uid://gfwkjgaxjncs" path="res://Scenes/Components/foot.tscn" id="7_i3pto"] 
+[ext_resource type="Texture2D" uid="uid://dq8phybk1rk6f" path="res://assets/tileset_loopout_deco_v2.png" id="7_jg4lx"] 
 [ext_resource type="PackedScene" uid="uid://dbei81nyrc6ty" path="res://Scenes/Components/fix_wire.tscn" id="7_jky4f"]
 [ext_resource type="Script" path="res://Scripts/Components/AllPc.cs" id="7_nhoxv"]
-[ext_resource type="PackedScene" path="res://Scenes/Components/particule_foot.tscn" id="8_ayp8k"]
+[ext_resource type="FontFile" uid="uid://dox4m0tdho7s7" path="res://assets/Components/monogram-extended.ttf" id="7_niyaj"]
+[ext_resource type="PackedScene" uid="uid://ybvqyqhf23jy" path="res://Scenes/Components/particule_foot.tscn" id="8_ayp8k"] 
 [ext_resource type="Texture2D" uid="uid://o8s0jd1ii5x5" path="res://assets/portal_animated.png" id="8_nql7u"]
-[ext_resource type="Texture2D" uid="uid://crlc7hiihufil" path="res://assets/wall_loopout_tileset_v1.png" id="8_xp7cm"]
-[ext_resource type="Texture2D" uid="uid://d1xt5eyouq3fo" path="res://assets/inter_door_glace.png" id="9_n2pei"]
+[ext_resource type="Texture2D" uid="uid://crlc7hiihufil" path="res://assets/wall_loopout_tileset_v1.png" id="8_xp7cm"] 
+[ext_resource type="Texture2D" uid="uid://d1xt5eyouq3fo" path="res://assets/inter_door_glace.png" id="9_n2pei"] 
 [ext_resource type="PackedScene" uid="uid://bfv0qhjvvqket" path="res://Scenes/Components/computer.tscn" id="10_gflbg"]
-[ext_resource type="Texture2D" uid="uid://dxtsm5mv2enm3" path="res://assets/monowall_tileset.png" id="10_o2gj3"]
-[ext_resource type="Texture2D" uid="uid://dj47owrshep1l" path="res://assets/window_tileset.png" id="11_ji7qd"]
+[ext_resource type="Texture2D" uid="uid://dxtsm5mv2enm3" path="res://assets/monowall_tileset.png" id="10_o2gj3"] 
+[ext_resource type="Texture2D" uid="uid://dj47owrshep1l" path="res://assets/window_tileset.png" id="11_ji7qd"] 
 [ext_resource type="PackedScene" uid="uid://dji5f8vn6uk02" path="res://Scenes/Components/colored_pc.tscn" id="11_peyc8"]
 [ext_resource type="PackedScene" uid="uid://dsa1ygru0vvxq" path="res://Scenes/Components/banana.tscn" id="12_pv5p6"]
 [ext_resource type="Script" path="res://Scripts/Mecanics/ColorCode.cs" id="13_6wkxx"]
@@ -45,6 +49,7 @@
 [ext_resource type="Texture2D" uid="uid://elj3vgl5jjhu" path="res://assets/Components/runes_note.png" id="41_cyreb"]
 [ext_resource type="Texture2D" uid="uid://baacy5nxx51cg" path="res://assets/Components/rune_code_note.png" id="42_rnowk"]
 [ext_resource type="PackedScene" uid="uid://bbmfj3xbvly5c" path="res://Scenes/Game/PatternGame.tscn" id="43_rafp6"]
+
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_k0qkj"]
 tile_data = PackedInt32Array(0, 1441793, 4, 65536, 1572865, 4, 1, 1572865, 4, 65537, 1441793, 4)
@@ -3063,6 +3068,8 @@ public partial class Borne : Polygon2D
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_8aswi")
+metadata/_edit_vertical_guides_ = [29.0]
+metadata/_edit_horizontal_guides_ = [378.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
@@ -3073,7 +3080,7 @@ scale = Vector2(0.8, 0.8)
 texture = ExtResource("19_p6hmw")
 
 [node name="FixWire" parent="." instance=ExtResource("7_jky4f")]
-position = Vector2(-264, 701)
+position = Vector2(-251, 690)
 
 [node name="PauseCanvas" type="CanvasLayer" parent="."]
 
@@ -3084,15 +3091,40 @@ visible = false
 z_index = 17
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_cxfpo")]
-position = Vector2(89, 114)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
+script = ExtResource("7_564k3")
+
+[node name="PanelContainer" type="PanelContainer" parent="Player/Camera2D"]
+z_index = 20
+custom_minimum_size = Vector2(40, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.0
+offset_top = -161.0
+offset_right = 83.0
+offset_bottom = -143.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="Player/Camera2D/PanelContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("7_niyaj")
+text = "Portal : No current message"
+horizontal_alignment = 1
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
 scale = Vector2(2, 2)
-tile_set = SubResource("TileSet_oi64e")
+tile_set = ExtResource("7_hcmdi")
 format = 2
 layer_0/name = "Ground"
 layer_0/z_index = -2
@@ -3133,19 +3165,99 @@ _scenePath = "res://Platformer/scenes/platformer.tscn"
 [node name="AllPc" type="Node" parent="."]
 script = ExtResource("7_nhoxv")
 
+[node name="PC" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(232, 316)
+OpenedColor = Color(1, 0, 1, 1)
+
+[node name="PC2" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(669, 200)
+
+[node name="PC3" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(728, 200)
+Opened = false
+
+[node name="PC4" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(1181, 202)
+
+[node name="PC5" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(1245, 203)
+Opened = false
+
+[node name="PC6" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(1306, 203)
+Opened = false
+
+[node name="PC7" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(1301, 509)
+Opened = false
+
+[node name="PC8" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(1250, 509)
+Opened = false
+
+[node name="PC9" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(1202, 508)
+
+[node name="PC10" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(784, 509)
+Opened = false
+
+[node name="PC11" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(720, 509)
+
+[node name="PC12" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(633, -92)
+
+[node name="PC13" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(689, -93)
+
+[node name="PC14" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(742, -92)
+Opened = false
+
+[node name="PC15" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(1184, -82)
+Opened = false
+
+[node name="PC16" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(1242, -82)
+Opened = false
+
+[node name="PC17" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(1305, -82)
+Opened = false
+
+[node name="PC18" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(1288, -372)
+Opened = false
+
+[node name="PC19" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(1227, -373)
+Opened = false
+
+[node name="PC20" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(1169, -372)
+
+[node name="PC21" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(690, -371)
+Opened = false
+
+[node name="PC22" parent="AllPc" instance=ExtResource("10_gflbg")]
+position = Vector2(634, -370)
+
 [node name="PC23" parent="AllPc" instance=ExtResource("10_gflbg")]
-position = Vector2(95, -751)
+position = Vector2(97, -721)
 
 [node name="PC24" parent="AllPc" instance=ExtResource("10_gflbg")]
-position = Vector2(241, -897)
+position = Vector2(239, -862)
 Opened = false
 
 [node name="PC25" parent="AllPc" instance=ExtResource("10_gflbg")]
-position = Vector2(96, -1044)
+position = Vector2(97, -1009)
 Opened = false
 
 [node name="PC26" parent="AllPc" instance=ExtResource("10_gflbg")]
-position = Vector2(-51, -898)
+position = Vector2(-48, -868)
 Opened = false
 
 [node name="PC27" parent="AllPc" instance=ExtResource("10_gflbg")]
@@ -3203,95 +3315,95 @@ Opened = false
 anim = "Right"
 
 [node name="PC40" parent="AllPc" instance=ExtResource("10_gflbg")]
-position = Vector2(641, -564)
+position = Vector2(652, -531)
 OpenedColor = Color(257, 0, 0, 1)
 anim = "Red"
 
 [node name="PC41" parent="AllPc" instance=ExtResource("10_gflbg")]
-position = Vector2(769, -564)
+position = Vector2(728, -532)
 OpenedColor = Color(0, 0, 255, 1)
 anim = "Blue"
 
 [node name="PC42" parent="AllPc" instance=ExtResource("10_gflbg")]
-position = Vector2(897, -564)
+position = Vector2(828, -533)
 
 [node name="PC43" parent="AllPc" instance=ExtResource("10_gflbg")]
-position = Vector2(1025, -564)
+position = Vector2(930, -533)
 OpenedColor = Color(255, 0, 0, 1)
 anim = "Red"
 
 [node name="PC44" parent="AllPc" instance=ExtResource("10_gflbg")]
-position = Vector2(1153, -564)
+position = Vector2(1029, -531)
 OpenedColor = Color(1, 1, 0, 1)
 anim = "Yellow"
 
 [node name="PC45" parent="AllPc" instance=ExtResource("10_gflbg")]
-position = Vector2(1280, -564)
+position = Vector2(1125, -532)
 
 [node name="PC46" parent="AllPc" instance=ExtResource("10_gflbg")]
-position = Vector2(1409, -564)
+position = Vector2(1202, -533)
 OpenedColor = Color(0, 0, 255, 1)
 anim = "Blue"
 
 [node name="PC47" parent="AllPc" instance=ExtResource("10_gflbg")]
-position = Vector2(641, -276)
+position = Vector2(651, -259)
 
 [node name="PC48" parent="AllPc" instance=ExtResource("10_gflbg")]
-position = Vector2(769, -276)
+position = Vector2(734, -256)
 OpenedColor = Color(1, 1, 0, 1)
 anim = "Yellow"
 
 [node name="PC49" parent="AllPc" instance=ExtResource("10_gflbg")]
-position = Vector2(897, -276)
+position = Vector2(827, -257)
 OpenedColor = Color(255, 0, 0, 1)
 anim = "Red"
 
 [node name="PC50" parent="AllPc" instance=ExtResource("10_gflbg")]
-position = Vector2(1025, -276)
+position = Vector2(927, -254)
 OpenedColor = Color(0, 0, 1, 1)
 anim = "Blue"
 
 [node name="PC51" parent="AllPc" instance=ExtResource("10_gflbg")]
-position = Vector2(1153, -276)
+position = Vector2(1030, -252)
 
 [node name="PC52" parent="AllPc" instance=ExtResource("10_gflbg")]
-position = Vector2(1281, -276)
+position = Vector2(1133, -250)
 OpenedColor = Color(1, 1, 0, 1)
 anim = "Yellow"
 
 [node name="PC53" parent="AllPc" instance=ExtResource("10_gflbg")]
-position = Vector2(1409, -276)
+position = Vector2(1204, -259)
 OpenedColor = Color(1, 0, 0, 1)
 anim = "Red"
 
 [node name="PC54" parent="AllPc" instance=ExtResource("10_gflbg")]
-position = Vector2(640, 12)
+position = Vector2(660, 32)
 
 [node name="PC55" parent="AllPc" instance=ExtResource("10_gflbg")]
-position = Vector2(769, 12)
+position = Vector2(758, 29)
 OpenedColor = Color(1, 0, 0, 1)
 anim = "Red"
 
 [node name="PC56" parent="AllPc" instance=ExtResource("10_gflbg")]
-position = Vector2(897, 12)
+position = Vector2(842, 32)
 OpenedColor = Color(0, 0, 257, 1)
 anim = "Blue"
 
 [node name="PC57" parent="AllPc" instance=ExtResource("10_gflbg")]
-position = Vector2(1025, 12)
+position = Vector2(939, 31)
 
 [node name="PC58" parent="AllPc" instance=ExtResource("10_gflbg")]
-position = Vector2(1153, 12)
+position = Vector2(1112, 33)
 OpenedColor = Color(1, 0, 0, 1)
 anim = "Red"
 
 [node name="PC59" parent="AllPc" instance=ExtResource("10_gflbg")]
-position = Vector2(1281, 12)
+position = Vector2(1025, 31)
 OpenedColor = Color(1, 0, 0, 1)
 anim = "Red"
 
 [node name="PC60" parent="AllPc" instance=ExtResource("10_gflbg")]
-position = Vector2(1409, 12)
+position = Vector2(1208, 31)
 OpenedColor = Color(1, 1, 0, 1)
 anim = "Yellow"
 
@@ -3299,25 +3411,25 @@ anim = "Yellow"
 script = ExtResource("13_6wkxx")
 
 [node name="ColoredPC1" parent="ColoredPc" groups=["ColoredPC"] instance=ExtResource("11_peyc8")]
-position = Vector2(641, 300)
+position = Vector2(643, 320)
 
 [node name="ColoredPC2" parent="ColoredPc" groups=["ColoredPC"] instance=ExtResource("11_peyc8")]
-position = Vector2(769, 300)
+position = Vector2(763, 320)
 
 [node name="ColoredPC3" parent="ColoredPc" groups=["ColoredPC"] instance=ExtResource("11_peyc8")]
-position = Vector2(897, 300)
+position = Vector2(896, 317)
 
 [node name="ColoredPC4" parent="ColoredPc" groups=["ColoredPC"] instance=ExtResource("11_peyc8")]
-position = Vector2(1025, 300)
+position = Vector2(1024, 320)
 
 [node name="ColoredPC5" parent="ColoredPc" groups=["ColoredPC"] instance=ExtResource("11_peyc8")]
-position = Vector2(1153, 300)
+position = Vector2(1151, 319)
 
 [node name="ColoredPC6" parent="ColoredPc" groups=["ColoredPC"] instance=ExtResource("11_peyc8")]
-position = Vector2(1281, 300)
+position = Vector2(1280, 320)
 
 [node name="ColoredPC7" parent="ColoredPc" groups=["ColoredPC"] instance=ExtResource("11_peyc8")]
-position = Vector2(1409, 300)
+position = Vector2(1409, 320)
 
 [node name="ObjectForFix" type="Node" parent="."]
 script = ExtResource("15_5wljq")
@@ -3741,10 +3853,6 @@ anim = 1
 
 [node name="Fruit10" parent="FruitGame/Objects" instance=ExtResource("25_5na4j")]
 position = Vector2(-820, -20)
-collision_layer = 2
-collision_mask = 2
-anim = 19
-
 [node name="Fruit11" parent="FruitGame/Objects" instance=ExtResource("25_5na4j")]
 position = Vector2(-1262, 142)
 collision_layer = 2
@@ -3873,49 +3981,46 @@ position = Vector2(-76, 198)
 img = ExtResource("40_imgxh")
 isPickable = true
 text = "Une poutre en bois pointe du doit une poutre de métale"
-anim = "Note"
 
 [node name="Note9" parent="Note" instance=ExtResource("34_xqgb4")]
 position = Vector2(-528, 315)
 img = ExtResource("41_cyreb")
 isPickable = true
 text = "Une poutre en bois pointe du doit une poutre de métale"
-anim = "Note"
 
 [node name="Note10" parent="Note" instance=ExtResource("34_xqgb4")]
 position = Vector2(-724, -174)
 img = ExtResource("42_rnowk")
 isPickable = true
 text = "Une poutre en bois pointe du doit une poutre de métale"
-anim = "Note"
 
 [node name="Note3" parent="Note" instance=ExtResource("34_xqgb4")]
-position = Vector2(-97, 277)
+position = Vector2(-155, 368)
 StickyNote = true
 text = "               Victor                      He never leave it behind"
 
 [node name="Note4" parent="Note" instance=ExtResource("34_xqgb4")]
-position = Vector2(-95, 502)
+position = Vector2(-92, 560)
 StickyNote = true
 text = "               Hugo                    Catching beetles was his hobby"
 
 [node name="Note5" parent="Note" instance=ExtResource("34_xqgb4")]
-position = Vector2(-94, 726)
+position = Vector2(-94, 750)
 StickyNote = true
 text = "              Jarod                        He loves exploration"
 
 [node name="Note6" parent="Note" instance=ExtResource("34_xqgb4")]
-position = Vector2(290, 727)
+position = Vector2(328, 759)
 StickyNote = true
 text = "      Anthony                             He thought he was a ninja..."
 
 [node name="Note7" parent="Note" instance=ExtResource("34_xqgb4")]
-position = Vector2(289, 501)
+position = Vector2(305, 540)
 StickyNote = true
 text = "               Henri                       He loves rpg games."
 
 [node name="Note8" parent="Note" instance=ExtResource("34_xqgb4")]
-position = Vector2(290, 278)
+position = Vector2(309, 357)
 StickyNote = true
 text = "               Lucie                    She fought with Hugo to get it"
 
@@ -3950,9 +4055,9 @@ visible = false
 visible = false
 
 [node name="Borne" type="Polygon2D" parent="."]
-position = Vector2(3262, -637)
-color = Color(0.25098, 0.25098, 0.25098, 1)
-polygon = PackedVector2Array(-14, 19, 24, 19, 24, -8, 13, -38, -25, -38, -12, -12)
+position = Vector2(3275, -626)
+color = Color(0.25098, 0.25098, 0.25098, 0)
+polygon = PackedVector2Array(-11, 18, 21, 18, 21, -8, 21, -47, -11, -47, -11, -11)
 script = SubResource("CSharpScript_usjsu")
 
 [connection signal="OFF" from="Ice/IceDec1" to="Ice" method="_on_ice_dec_1_off"]

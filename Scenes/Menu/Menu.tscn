@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://bjvkp5u6m2w82"]
+[gd_scene load_steps=99 format=3 uid="uid://bjvkp5u6m2w82"]
 
 [ext_resource type="TileSet" uid="uid://cnowwr0gr3n55" path="res://Platformer/scenes/tilemap_platformer.tres" id="1_pk2yg"]
 [ext_resource type="Script" path="res://Scripts/Menu/Menu.cs" id="1_usw8i"]
@@ -632,6 +632,33 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ls210"]
+atlas = ExtResource("9_u23o0")
+region = Rect2(0, 192, 112, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opjpd"]
+atlas = ExtResource("9_u23o0")
+region = Rect2(0, 224, 112, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_703vq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ls210")
+}],
+"loop": false,
+"name": &"OFF",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opjpd")
+}],
+"loop": false,
+"name": &"ON",
+"speed": 5.0
+}]
+
 [node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -738,8 +765,8 @@ stream = ExtResource("7_7sldn")
 volume_db = -25.0
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(908, 80)
-scale = Vector2(0.533047, 0.5375)
+position = Vector2(584, 75)
+scale = Vector2(0.7, 0.706)
 texture = ExtResource("8_7iqmf")
 
 [node name="Buttons" type="Node2D" parent="."]
@@ -763,4 +790,11 @@ texture_filter = 1
 position = Vector2(570, 419)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_2abfl")
+animation = &"OFF"
+
+[node name="Tutorial" type="AnimatedSprite2D" parent="Buttons"]
+texture_filter = 1
+position = Vector2(570, 509)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_703vq")
 animation = &"OFF"

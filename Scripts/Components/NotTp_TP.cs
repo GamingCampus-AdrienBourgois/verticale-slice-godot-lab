@@ -32,9 +32,10 @@ public partial class NotTp_TP : Area2D
 				//game_escape.Connect("Escaped",new Callable(this,"OnEscaped"));
 				//game_escape.Start();
 				pattern_game.Connect("Pattern",new Callable(this,"OnPattern"));
+				pattern_game.Connect("DoClear",new Callable(this,"OnClear"));
 				pattern_game.Start();
 				
-				GD.Print("Hello");
+				//GD.Print("Hello");
 				already = true;
 			}
 			if(Name == "Out")
@@ -55,5 +56,11 @@ public partial class NotTp_TP : Area2D
 		player.GlobalPosition = GetParent().GetNode("Out").GetNode<Node2D>("Marker2D").GlobalPosition;
 		pattern_game_hud.QueueFree();
 		player.inputOnFocus = false;
+	}
+	private void OnClear()
+	{
+		player.inputOnFocus = false;
+		pattern_game.Disconnect("Pattern",new Callable(this,"OnPattern"));
+		pattern_game.Disconnect("DoClear",new Callable(this,"OnClear"));
 	}
 }
