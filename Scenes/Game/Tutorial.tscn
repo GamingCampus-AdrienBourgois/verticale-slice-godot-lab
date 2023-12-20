@@ -1,7 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://dwory4ex5bim4"]
+[gd_scene load_steps=19 format=3 uid="uid://fafq2u5oed6m"]
 
 [ext_resource type="Script" path="res://Scripts/Game/Tutorial.cs" id="1_4t1n7"]
-[ext_resource type="TileSet" uid="uid://dmh23mjdjnero" path="res://assets/MainTilemap.tres" id="1_deibl"]
+[ext_resource type="TileSet" uid="uid://shg7s3b4bifd" path="res://assets/MainTilemap.tres" id="1_deibl"]
 [ext_resource type="Script" path="res://Scripts/Components/ObjectForFix.cs" id="2_kaxr6"]
 [ext_resource type="FontFile" uid="uid://dox4m0tdho7s7" path="res://assets/Components/monogram-extended.ttf" id="3_gugeu"]
 [ext_resource type="PackedScene" uid="uid://d346r50tima2p" path="res://Scenes/Components/object_fix_area.tscn" id="3_hgpwo"]
@@ -73,6 +73,7 @@ zoom = Vector2(3, 3)
 script = ExtResource("3_y5mrw")
 
 [node name="PanelContainer" type="PanelContainer" parent="Player/Camera2D"]
+z_index = 20
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5

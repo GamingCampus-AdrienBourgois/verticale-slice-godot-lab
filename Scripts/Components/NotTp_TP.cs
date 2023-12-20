@@ -34,7 +34,7 @@ public partial class NotTp_TP : Area2D
 				pattern_game.Connect("Pattern",new Callable(this,"OnPattern"));
 				pattern_game.Start();
 				
-				GD.Print("Hello");
+				//GD.Print("Hello");
 				already = true;
 			}
 			if(Name == "Out")

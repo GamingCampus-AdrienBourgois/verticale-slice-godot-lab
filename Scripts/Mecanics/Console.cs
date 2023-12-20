@@ -42,15 +42,17 @@ public partial class Console : Node2D
 			{
 				label.Text = List_levels_texts[count];
 				global.Message = label.Text;
+				GD.Print("Still task");
 				break;
 			}
-			if(count == List_levels.Count-1)
+			count++;
+			if(count == List_levels.Count)
 			{
+				GD.Print("Finished");
 				label.Text = "BIP BIP BIP BIIIIIIIIIIP PORTAL ACTIVATED ";
 				GameFinished = true;
 				break;	
 			}
-			count++;
 		}
 
 	}

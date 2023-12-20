@@ -13,7 +13,6 @@ public partial class Player : CharacterBody2D
 
 	[Export]
 	public bool inputOnFocus = false; // Permet de désactiver les mouvements quand le joueur est dans une interface
-	private ColorCode code;
 
 	private Marker2D MarkerObject = null;
 	private Marker2D MarkerArea = null;
@@ -29,7 +28,6 @@ public partial class Player : CharacterBody2D
 		animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		MarkerObject = GetNode("MarkerArea").GetNode<Marker2D>("Object");
 		MarkerArea = GetNode<Marker2D>("MarkerArea");
-		code = GetParent().GetNode<ColorCode>("ColoredPc");
 
 		ui = GetNode<Control>("UI");
 		ui_box = ui.GetNode<HBoxContainer>("Box");
@@ -254,7 +252,7 @@ public partial class Player : CharacterBody2D
 	private void InteractWithColoredComputer(colored_computer interactingObject)
 	{
 		interactingObject.ComputerColorChange();
-		code.CheckNewCode();
+		interactingObject.GetParent<ColorCode>().CheckNewCode();
 	}
 
 	private void ActionPressed(int Rotate1,int Rotate2,string Idle,string Arm,string ArmRun, string Run)

@@ -25,6 +25,11 @@ public partial class Tutorial : Node2D
 			Player temp = (Player)body;
 			temp.Speed = 0;
 
+			// Pas add vu que sinon marche plus
+
+			global.List_Level_Bools.Clear();
+			global.List_Level_Texts.Clear();	
+
 			global.List_Level_Bools.Add(FixPattern.STATE);
 			global.List_Level_Texts.Add("A chair not around a table ?");
 			global.TpEnd = "Scenes/Menu/Menu.tscn";
