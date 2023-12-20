@@ -30,7 +30,7 @@ public partial class Note : CharacterBody2D
 		FolderNoteHud = GetNode<CanvasLayer>("FolderNote");
 		StickyNoteHud = GetNode<CanvasLayer>("StickyNote");
 		player = GetParent().GetParent().GetNode<Player>("Player");
-		txt_label = StickyNoteHud.GetNode<ColorRect>("ColorRect").GetNode<Label>("Label");
+		txt_label = StickyNoteHud.GetNode<Sprite2D>("Sprite2D").GetNode<Label>("Label");
 		sprite.Play(anim);
 		if (FolderNoteHud != null )
 		{

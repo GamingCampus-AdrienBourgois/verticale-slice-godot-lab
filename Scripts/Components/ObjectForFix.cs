@@ -38,7 +38,7 @@ public partial class ObjectForFix : Node
 		if(body.IsInGroup("ObjectFix")) 
 		{
 			Area.Call("FixedChange");
-			GD.Print(Area.Call("GetState")); // Le fait 3 fois jsp
+			//GD.Print(Area.Call("GetState")); // Le fait 3 fois jsp
 			ObjectAlreadyFixed--;
 			STATE = false;
 		}

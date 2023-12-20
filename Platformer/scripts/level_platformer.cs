@@ -12,18 +12,12 @@ public partial class level_platformer : Node
 		{
 			i.Connect("script_changed",new Callable(this,"Tp_entered"));
 		}
-	}
-
-	// Faire un poutit script pour faire varier la speed du player
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
+		// Juste si echap enlève
 	}
 	public void Tp_entered(string _scenePath, Node2D body)
 	{
 		if (body.IsInGroup("Player")){
-			SceneTransition.Call("changeScene","main.tscn",false);
+			SceneTransition.Call("changeScene",_scenePath,false);
 		}
 		else {
 			GD.Print("Non_player collision");

@@ -1,9 +1,85 @@
-[gd_scene load_steps=3 format=3 uid="uid://d346r50tima2p"]
+[gd_scene load_steps=11 format=3 uid="uid://d346r50tima2p"]
 
 [ext_resource type="Script" path="res://Scripts/Components/ObjectFixArea.cs" id="1_e8gd3"]
+[ext_resource type="Texture2D" uid="uid://g3faott0b2ss" path="res://assets/pedestal_area.png" id="2_oj11y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xnawm"]
 radius = 12.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0fx8"]
+atlas = ExtResource("2_oj11y")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8e80"]
+atlas = ExtResource("2_oj11y")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htuo4"]
+atlas = ExtResource("2_oj11y")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8a4q"]
+atlas = ExtResource("2_oj11y")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6rhk"]
+atlas = ExtResource("2_oj11y")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jrn5"]
+atlas = ExtResource("2_oj11y")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b2jws"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0fx8")
+}],
+"loop": true,
+"name": &"Blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8e80")
+}],
+"loop": true,
+"name": &"Green",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htuo4")
+}],
+"loop": true,
+"name": &"Purple",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8a4q")
+}],
+"loop": true,
+"name": &"Red",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6rhk")
+}],
+"loop": true,
+"name": &"White",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jrn5")
+}],
+"loop": true,
+"name": &"Yellow",
+"speed": 5.0
+}]
 
 [node name="ObjectFixArea" type="Area2D"]
 script = ExtResource("1_e8gd3")
@@ -12,7 +88,14 @@ script = ExtResource("1_e8gd3")
 shape = SubResource("CircleShape2D_xnawm")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
 polygon = PackedVector2Array(-8, 9, 8, 9, 8, -9, -8, -9)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2.2, 2.2)
+sprite_frames = SubResource("SpriteFrames_b2jws")
+animation = &"Yellow"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

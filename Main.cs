@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class Main : Node2D
 {
@@ -36,19 +37,29 @@ public partial class Main : Node2D
 		bedroom = GetNode<Bedroom>("Bedroom");
 		pauseMenu = GetNode<Control>("PauseCanvas/Pause");
 
-		
-
 		SceneTransition = GetParent().GetNode<Scene_transition>("SceneTransition");
 		global = GetParent().GetNode<Global>("Global");
 		foreach (Node i in GetNode<Node>("TP_all").GetChildren())
 		{
 			i.Connect("script_changed",new Callable(this,"Tp_entered"));
 		}
+		List<bool> LevelBool = new List<bool>
+		{
+			allpc.STATE,
+			coloredpc.STATE,
+			objectForFix.STATE,
+			trashcan.Full,
+			pedestal.STATE,
+			fixvert.STATE,
+			bedroom.STATE
+		};
+		global.List_Level_Bools = LevelBool;
+			
 	}
 
 	public override void _Process(double delta)
 	{
-		if(Input.IsActionJustPressed("Pause"))
+		if(Input.IsActionJustPressed("Pause") && !GetNode<Player>("Player").inputOnFocus)
 		{
 			PauseMenu();
 		}
@@ -61,13 +72,32 @@ public partial class Main : Node2D
 			Player temp = (Player)body;
 			temp.Speed = 0;
 			// Mettre tout ça dans une node et checker chaque enfant ptet (ptet pas possible vu que faut cast du bon type, ou tous meme class pour le state)
-			if(allpc.STATE == true){ global.Niveau_1 = true; }
-			if(coloredpc.STATE == true){ global.Niveau_2 = true; }
-			if(objectForFix.STATE == true){ global.Niveau_3 = true; }
-			if(trashcan.Full == true){ global.Niveau_4 = true; }
-			if(pedestal.STATE == true) { global.Niveau_5 = true; }
-			if(fixvert.STATE == true) { global.Niveau_6 = true; }
-			if(bedroom.STATE == true) { global.Niveau_7 = true; }
+			
+			List<string> LevelString = new List<string>
+			{
+				"Some people don't turn off their pc...",
+				"Colors means something together... Right ?",
+				"Hmmm... Sometimes things aren't were they're supposed to be.",
+				"Detritus on the floor... Not the best for the company.",
+				"Someone left some crates somewhere...",
+				"2 and 3 on the other side ? Hmmm...",
+				"Everyone wants their favorite item in their bedroom..."
+			};
+			List<bool> LevelBool = new List<bool>
+			{
+				allpc.STATE,
+				coloredpc.STATE,
+				objectForFix.STATE,
+				trashcan.Full,
+				pedestal.STATE,
+				fixvert.STATE,
+				bedroom.STATE
+			};
+			global.List_Level_Bools = LevelBool;
+			global.List_Level_Texts = LevelString;
+			global.TpEnd = "Scenes/Menu/Credits_normal.tscn";
+			global.TpOut = "main.tscn";
+			
 			
 			SceneTransition.Call("changeScene",_scenePath,false); 
 		}
