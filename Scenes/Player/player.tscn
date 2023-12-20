@@ -1019,7 +1019,7 @@ position = Vector2(21.5, 0)
 shape = SubResource("RectangleShape2D_rfhdx")
 
 [node name="Object" type="Marker2D" parent="MarkerArea"]
-position = Vector2(23, 0)
+position = Vector2(30, 0)
 
 [node name="Light2D" type="PointLight2D" parent="."]
 blend_mode = 2
