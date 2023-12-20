@@ -37,14 +37,24 @@ public partial class Main : Node2D
 		bedroom = GetNode<Bedroom>("Bedroom");
 		pauseMenu = GetNode<Control>("PauseCanvas/Pause");
 
-		
-
 		SceneTransition = GetParent().GetNode<Scene_transition>("SceneTransition");
 		global = GetParent().GetNode<Global>("Global");
 		foreach (Node i in GetNode<Node>("TP_all").GetChildren())
 		{
 			i.Connect("script_changed",new Callable(this,"Tp_entered"));
 		}
+		List<bool> LevelBool = new List<bool>
+		{
+			allpc.STATE,
+			coloredpc.STATE,
+			objectForFix.STATE,
+			trashcan.Full,
+			pedestal.STATE,
+			fixvert.STATE,
+			bedroom.STATE
+		};
+		global.List_Level_Bools = LevelBool;
+			
 	}
 
 	public override void _Process(double delta)

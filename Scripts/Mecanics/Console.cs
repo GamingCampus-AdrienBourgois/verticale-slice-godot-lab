@@ -54,6 +54,14 @@ public partial class Console : Node2D
 				break;	
 			}
 		}
+		int countBool = 0;
+		foreach(bool i in List_levels){
+			if (i == true)
+			{
+				countBool++;
+			}
+		}
+		global.LevelFinished = countBool;
 
 	}
 

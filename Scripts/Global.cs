@@ -9,4 +9,5 @@ public partial class Global : Node
 	public string TpOut;
 	public string TpEnd;
 	public string Message = "";
+	public int LevelFinished;
 }

@@ -3,15 +3,19 @@ using System;
 
 public partial class CameraUI : Camera2D
 {
-	public override void _Ready()
+	public override async void _Ready()
 	{
+		Node Container = GetNode("PanelContainer/HBoxContainer");
+		Global global = GetTree().Root.GetNode<Global>("Global");
 		if(GetTree().Root.GetNode<Global>("Global").Message != "")
 		{
-			GetNode<Label>("PanelContainer/Label").Text = "Portal :" + GetTree().Root.GetNode<Global>("Global").Message;
+			Container.GetNode<Label>("Portal").Text = "Portal :" + global.Message;
 		}
 		else	
 		{
-			GetNode<Label>("PanelContainer/Label").Text = "Portal : No current message";
+			Container.GetNode<Label>("Portal").Text = "Portal : No current message";
 		}
+		await ToSignal(GetTree().CreateTimer(0.1),"timeout");
+		Container.GetNode<Label>("Complete").Text = global.LevelFinished + "/" + global.List_Level_Bools.Count;
 	}
 }
