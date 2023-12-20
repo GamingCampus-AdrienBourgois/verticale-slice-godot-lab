@@ -7,6 +7,7 @@ public partial class Player : CharacterBody2D
 	public float Speed = 200.0f;
 	private Node2D pickedUpItem;
 	private NodePath pickeUpItemPath;
+	private int pickeUpItemOrdering;
 	private Node2D item = null;
 	private CollisionShape2D pickedUpItem_collision = null;
 	private AnimatedSprite2D animatedSprite = null;
@@ -54,7 +55,7 @@ public partial class Player : CharacterBody2D
 			}
 			else if(Input.IsActionPressed("Down"))
 			{
-				ActionPressed(90,270,"Down_Arm","Down","Down_Arm_Run","Down_Run");
+				ActionPressed(90,270,"Down_Arm","Down","Down_Arm_Run","Down_Run",5);
 			}
 			else if(Input.IsActionPressed("Right"))
 			{
@@ -79,7 +80,7 @@ public partial class Player : CharacterBody2D
 						ActionPressed(270,90,"Up_Arm","Up","Up_Arm_Run","Up_Run");
 						break;
 					case 90:
-						ActionPressed(90,270,"Down_Arm","Down","Down_Arm_Run","Down_Run");
+						ActionPressed(90,270,"Down_Arm","Down","Down_Arm_Run","Down_Run",5);
 						break;
 					case 0:
 						ActionPressed(0,0,"Right_Arm","Right","Right_Arm_Run","Right_Run");
@@ -164,7 +165,7 @@ public partial class Player : CharacterBody2D
 				else if(Input.IsActionPressed("Down"))
 				{
 					input_direction = new Godot.Vector2(0,1);
-					ActionPressed(90,270,"Down_Arm","Down","Down_Arm_Run","Down_Run");
+					ActionPressed(90,270,"Down_Arm","Down","Down_Arm_Run","Down_Run",5);
 				}
 				else if(Input.IsActionPressed("Right"))
 				{
@@ -196,6 +197,7 @@ public partial class Player : CharacterBody2D
 		MarkerObject.AddChild(objectToPickup);
 		objectToPickup.Position = Godot.Vector2.Zero;
 		pickedUpItem = objectToPickup;
+		pickeUpItemOrdering = pickedUpItem.ZIndex;
 
 		if (objectToPickup.IsInGroup("FolderNote"))
 		{
@@ -211,6 +213,7 @@ public partial class Player : CharacterBody2D
 		MarkerObject.RemoveChild(pickedUpItem);
 		GetNode(pickeUpItemPath).AddChild(pickedUpItem);
 		pickedUpItem.GetNode<CollisionShape2D>("CollisionShape2D").Disabled = false;
+		pickedUpItem.ZIndex = pickeUpItemOrdering;
 		pickedUpItem = null;
 	}
 
@@ -255,12 +258,17 @@ public partial class Player : CharacterBody2D
 		interactingObject.GetParent<ColorCode>().CheckNewCode();
 	}
 
-	private void ActionPressed(int Rotate1,int Rotate2,string Idle,string Arm,string ArmRun, string Run)
+	private void ActionPressed(int Rotate1,int Rotate2,string Idle,string Arm,string ArmRun, string Run, int Ordering = 0)
 	{
 		MarkerArea.RotationDegrees = Rotate1;
 		MarkerObject.RotationDegrees = Rotate2;
 		if (!inputOnFocus)
 		{
+			if(pickedUpItem != null)
+			{
+				GD.Print("Ordering");
+				pickedUpItem.ZIndex = Ordering;
+			}
 			if(Velocity != Godot.Vector2.Zero)
 			{
 				if(pickedUpItem != null) 
