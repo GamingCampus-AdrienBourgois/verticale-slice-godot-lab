@@ -220,7 +220,6 @@ position = Vector2(-247, 685)
 
 [node name="MorseCodeHud" parent="." instance=ExtResource("14_qhg6b")]
 visible = false
-SecretCode = "Aaaaaab"
 
 [node name="PauseCanvas" type="CanvasLayer" parent="."]
 

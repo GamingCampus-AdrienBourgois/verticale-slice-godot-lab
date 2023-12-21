@@ -46,14 +46,14 @@ public partial class MorseCodeHud : CanvasLayer
     {
         if (isShow)
         {
-            //Permet au joueur de changer la lettre du label par la lettre suivante de l'alphabet en appuyant sur la fleche du haut ou du bas
+            //Permet au joueur de changer la lettre du label par la lettre precedente de l'alphabet en appuyant sur la fleche du haut ou du bas
             if (Input.IsActionJustPressed("ui_up"))
             {
-                lettreSuivante();
+                lettrePrecedente();
             }
             else if (Input.IsActionJustPressed("ui_down"))
             {
-                lettrePrecedente();
+                lettreSuivante();
             }
 
             // Permet au joueur de changer de label dans la list des label en appuyant sur la fleche de droite sauf si c'est le dernier label et conserve la lettre deja presente dans le nouveau label
@@ -69,7 +69,7 @@ public partial class MorseCodeHud : CanvasLayer
             }
 
             //Ferme le hud si le joueur appuie sur la touche "E" ou si le code est bon
-            if (Input.IsActionJustPressed("Interact") || CheckCode())
+            if (Input.IsActionJustPressed("ui_cancel") || CheckCode())
             {
                 HideHud();
             }

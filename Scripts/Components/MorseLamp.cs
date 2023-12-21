@@ -77,8 +77,10 @@ public partial class MorseLamp : Sprite2D
 				animation.Play("LightOff");
 				await ToSignal(animation, AnimationPlayer.SignalName.AnimationFinished);
 			}
-			//Attend 3 secondes avant de recommencer
-			await ToSignal(GetTree().CreateTimer(3), "timeout");
+			
+			//Joue l'animation de la fin de sequence
+			animation.Play("EndSequence");
+			await ToSignal(animation, AnimationPlayer.SignalName.AnimationFinished);
 		}
 
 	   
