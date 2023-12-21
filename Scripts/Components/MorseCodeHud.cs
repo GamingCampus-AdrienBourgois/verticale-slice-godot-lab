@@ -7,7 +7,7 @@ public partial class MorseCodeHud : CanvasLayer
     [Export]
     public string SecretCode;
 
-    private bool isShow = false;
+    public bool isShow = false;
 
     private HBoxContainer hBoxContainerCenter;
     private List<Label> labelList = new ();
@@ -24,7 +24,6 @@ public partial class MorseCodeHud : CanvasLayer
 
     public override void _Ready()
     {
-        isShow = true;
         hBoxContainerCenter = GetNode<HBoxContainer>("Container/VBoxContainerCenter/HBoxContainer");
         //Recuperation des labels dans le HBoxContainer
         foreach (Node node in hBoxContainerCenter.GetChildren())
@@ -36,6 +35,8 @@ public partial class MorseCodeHud : CanvasLayer
         }
         HideSprite();
         ShowSprite();
+        currentLetter = labelList[currentLabelIndex].Text[0];
+        Visible = isShow;
 
 
     }
@@ -69,8 +70,7 @@ public partial class MorseCodeHud : CanvasLayer
             //Ferme le hud si le joueur appuie sur la touche "E" ou si le code est bon
             if (Input.IsActionJustPressed("Interact") || CheckCode())
             {
-                isShow = false;
-                Visible = isShow;
+                HideHud();
             }
 
         }
@@ -78,6 +78,23 @@ public partial class MorseCodeHud : CanvasLayer
 
 
     }
+
+    //Affiche le hud et bloque les inputs des deplacements du joueur
+    public void ShowHud()
+    {
+        isShow = true;
+        Visible = isShow;
+        GetParent().GetNode<Player>("Player").inputOnFocus = true;
+    }
+
+    //Cache le hud et debloque les inputs des deplacements du joueur
+    public void HideHud()
+    {
+        isShow = false;
+        Visible = isShow;
+        GetParent().GetNode<Player>("Player").inputOnFocus = false;
+    }
+
 
     //Joue l'animation du sprite2D associer au label actuel
     private void PlayAnimation(string pos)
@@ -119,6 +136,19 @@ public partial class MorseCodeHud : CanvasLayer
         }
     }
 
+    //Debloque le pc
+    private void UnlockAllPc()
+    {
+        foreach (computer node in GetTree().GetNodesInGroup("PC"))
+        {
+            if (node.IsLocked)
+            {
+                node.IsLocked = false;
+                node.ComputerOpenedChange();
+            }
+        }
+    }
+
 
     //Verifie si les lettres des labels sont les memes que le code secret
     private bool CheckCode()
@@ -130,6 +160,8 @@ public partial class MorseCodeHud : CanvasLayer
         }
         if (code == SecretCode.ToUpper())
         {
+            GD.Print("Code bon");
+            UnlockAllPc();
             return true;
         }
         else

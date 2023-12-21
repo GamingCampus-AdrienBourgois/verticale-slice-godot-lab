@@ -32,23 +32,6 @@ tracks/1/keys = {
 "values": [2]
 }
 
-[sub_resource type="Animation" id="Animation_ryuey"]
-resource_name = "pressTop"
-length = 0.15
-step = 0.05
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Container/VBoxContainerCenter/HBoxContainer/0/Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.15),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [1, 0]
-}
-
 [sub_resource type="Animation" id="Animation_24ala"]
 resource_name = "pressBot"
 length = 0.15
@@ -66,21 +49,14 @@ tracks/0/keys = {
 "values": [3, 2]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_dstl1"]
-_data = {
-"RESET": SubResource("Animation_11i3o"),
-"pressBot": SubResource("Animation_24ala"),
-"pressTop": SubResource("Animation_ryuey")
-}
-
-[sub_resource type="Animation" id="Animation_gj1l2"]
+[sub_resource type="Animation" id="Animation_ryuey"]
 resource_name = "pressTop"
 length = 0.15
 step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Container/VBoxContainerCenter/HBoxContainer/0/Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -88,6 +64,13 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dstl1"]
+_data = {
+"RESET": SubResource("Animation_11i3o"),
+"pressBot": SubResource("Animation_24ala"),
+"pressTop": SubResource("Animation_ryuey")
 }
 
 [sub_resource type="Animation" id="Animation_41tm8"]
@@ -134,14 +117,7 @@ tracks/0/keys = {
 "values": [3, 2]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ryr0j"]
-_data = {
-"RESET": SubResource("Animation_41tm8"),
-"pressBot": SubResource("Animation_ihsga"),
-"pressTop": SubResource("Animation_gj1l2")
-}
-
-[sub_resource type="Animation" id="Animation_1wkd0"]
+[sub_resource type="Animation" id="Animation_gj1l2"]
 resource_name = "pressTop"
 length = 0.15
 step = 0.05
@@ -156,6 +132,13 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ryr0j"]
+_data = {
+"RESET": SubResource("Animation_41tm8"),
+"pressBot": SubResource("Animation_ihsga"),
+"pressTop": SubResource("Animation_gj1l2")
 }
 
 [sub_resource type="Animation" id="Animation_u66mf"]
@@ -202,14 +185,7 @@ tracks/0/keys = {
 "values": [3, 2]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_dqi5m"]
-_data = {
-"RESET": SubResource("Animation_u66mf"),
-"pressBot": SubResource("Animation_s0bdt"),
-"pressTop": SubResource("Animation_1wkd0")
-}
-
-[sub_resource type="Animation" id="Animation_7l3fp"]
+[sub_resource type="Animation" id="Animation_1wkd0"]
 resource_name = "pressTop"
 length = 0.15
 step = 0.05
@@ -224,6 +200,13 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dqi5m"]
+_data = {
+"RESET": SubResource("Animation_u66mf"),
+"pressBot": SubResource("Animation_s0bdt"),
+"pressTop": SubResource("Animation_1wkd0")
 }
 
 [sub_resource type="Animation" id="Animation_s61li"]
@@ -270,14 +253,7 @@ tracks/0/keys = {
 "values": [3, 2]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_dpto7"]
-_data = {
-"RESET": SubResource("Animation_s61li"),
-"pressBot": SubResource("Animation_ai0yy"),
-"pressTop": SubResource("Animation_7l3fp")
-}
-
-[sub_resource type="Animation" id="Animation_l62mu"]
+[sub_resource type="Animation" id="Animation_7l3fp"]
 resource_name = "pressTop"
 length = 0.15
 step = 0.05
@@ -292,6 +268,13 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dpto7"]
+_data = {
+"RESET": SubResource("Animation_s61li"),
+"pressBot": SubResource("Animation_ai0yy"),
+"pressTop": SubResource("Animation_7l3fp")
 }
 
 [sub_resource type="Animation" id="Animation_kuuli"]
@@ -338,14 +321,7 @@ tracks/0/keys = {
 "values": [3, 2]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_oyygn"]
-_data = {
-"RESET": SubResource("Animation_kuuli"),
-"pressBot": SubResource("Animation_atyfv"),
-"pressTop": SubResource("Animation_l62mu")
-}
-
-[sub_resource type="Animation" id="Animation_ruilj"]
+[sub_resource type="Animation" id="Animation_l62mu"]
 resource_name = "pressTop"
 length = 0.15
 step = 0.05
@@ -360,6 +336,13 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oyygn"]
+_data = {
+"RESET": SubResource("Animation_kuuli"),
+"pressBot": SubResource("Animation_atyfv"),
+"pressTop": SubResource("Animation_l62mu")
 }
 
 [sub_resource type="Animation" id="Animation_f5dcc"]
@@ -406,14 +389,7 @@ tracks/0/keys = {
 "values": [3, 2]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ktpcv"]
-_data = {
-"RESET": SubResource("Animation_f5dcc"),
-"pressBot": SubResource("Animation_ogt0t"),
-"pressTop": SubResource("Animation_ruilj")
-}
-
-[sub_resource type="Animation" id="Animation_tekhi"]
+[sub_resource type="Animation" id="Animation_ruilj"]
 resource_name = "pressTop"
 length = 0.15
 step = 0.05
@@ -428,6 +404,13 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ktpcv"]
+_data = {
+"RESET": SubResource("Animation_f5dcc"),
+"pressBot": SubResource("Animation_ogt0t"),
+"pressTop": SubResource("Animation_ruilj")
 }
 
 [sub_resource type="Animation" id="Animation_sskij"]
@@ -472,6 +455,23 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [3, 2]
+}
+
+[sub_resource type="Animation" id="Animation_tekhi"]
+resource_name = "pressTop"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fg2c7"]

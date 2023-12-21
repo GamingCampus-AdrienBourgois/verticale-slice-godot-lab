@@ -246,9 +246,13 @@ public partial class Player : CharacterBody2D
 	
 	private void InteractWithComputer(computer interactingObject)
 	{
-		if(interactingObject.Opened == true)
+		if(interactingObject.Opened == true && interactingObject.IsLocked == false)
 		{
 			interactingObject.ComputerOpenedChange();
+		}
+		else if (interactingObject.Opened == true && interactingObject.IsLocked == true)
+		{
+			interactingObject.ShowMorseCodeHud();
 		}
 	}
 

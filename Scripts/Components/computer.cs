@@ -15,6 +15,8 @@ public partial class computer : StaticBody2D
 	Color OpenedColor = new Color(255,0,255);
 	[Export]
 	Color NotOpenedColor = new Color(0,0,0);
+	[Export]
+	public bool IsLocked = false;
 
 	// Get la node collision de Computer
 	CollisionShape2D collision = null;
@@ -44,7 +46,7 @@ public partial class computer : StaticBody2D
 		collision = GetNode<CollisionShape2D>("CollisionShape2D");
 		collision.Disabled = false;
 		if (Opened == false){
-		 	animatedsprite.Play(anim+"_OFF");
+			animatedsprite.Play(anim+"_OFF");
 		}
 		else {
 			if(colors.Contains(anim))
@@ -61,6 +63,7 @@ public partial class computer : StaticBody2D
 	public void ComputerOpenedChange(){
 		if (Opened == true){
 			Opened = false;
+			GD.Print("Computer ferme");
 			if(colors.Contains(anim))
 			{
 				animatedsprite.Play("Top_OFF");
@@ -73,6 +76,11 @@ public partial class computer : StaticBody2D
 			audio.Play();
 			EmitSignal("ComputerChanged");
 		}
+	}
+
+	public void ShowMorseCodeHud()
+	{
+		GetParent().GetParent().GetNode<MorseCodeHud>("MorseCodeHud").ShowHud();
 	}
 }
 
