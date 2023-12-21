@@ -63,7 +63,6 @@ public partial class computer : StaticBody2D
 	public void ComputerOpenedChange(){
 		if (Opened == true){
 			Opened = false;
-			GD.Print("Computer ferme");
 			if(colors.Contains(anim))
 			{
 				animatedsprite.Play("Top_OFF");

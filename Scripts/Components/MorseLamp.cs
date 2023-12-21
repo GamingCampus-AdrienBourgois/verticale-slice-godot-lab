@@ -49,29 +49,36 @@ public partial class MorseLamp : Sprite2D
 
 	private async void MorseCode(string mot)
 	{
-		string lettreMorse = "";
-		foreach(char lettre in mot.ToUpper())
+		//Joue l'animation tant que le secrectCode n'est pas trouve
+		while (GetParent().GetNode<MorseCodeHud>("MorseCodeHud").isCodeFound == false)
 		{
-			//lettre.ToString();
-			if(alphabetMorse.TryGetValue(lettre, out string morse))
+			string lettreMorse = "";
+			foreach (char lettre in mot.ToUpper())
 			{
-				lettreMorse = morse;
-			}
-
-
-			foreach (char number in lettreMorse)
-			{
-				if(number == '1'){
-					animation.Play("LongLight");
-				}
-				else
+				//lettre.ToString();
+				if (alphabetMorse.TryGetValue(lettre, out string morse))
 				{
-					animation.Play("ShortLight");
+					lettreMorse = morse;
 				}
+
+
+				foreach (char number in lettreMorse)
+				{
+					if (number == '1')
+					{
+						animation.Play("LongLight");
+					}
+					else
+					{
+						animation.Play("ShortLight");
+					}
+					await ToSignal(animation, AnimationPlayer.SignalName.AnimationFinished);
+				}
+				animation.Play("LightOff");
 				await ToSignal(animation, AnimationPlayer.SignalName.AnimationFinished);
 			}
-			animation.Play("LightOff");
-			await ToSignal(animation, AnimationPlayer.SignalName.AnimationFinished);
+			//Attend 3 secondes avant de recommencer
+			await ToSignal(GetTree().CreateTimer(3), "timeout");
 		}
 
 	   

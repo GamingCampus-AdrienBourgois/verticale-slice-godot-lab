@@ -8,6 +8,7 @@ public partial class MorseCodeHud : CanvasLayer
     public string SecretCode;
 
     public bool isShow = false;
+    public bool isCodeFound = false;
 
     private HBoxContainer hBoxContainerCenter;
     private List<Label> labelList = new ();
@@ -139,6 +140,7 @@ public partial class MorseCodeHud : CanvasLayer
     //Debloque le pc
     private void UnlockAllPc()
     {
+        isCodeFound = true;
         foreach (computer node in GetTree().GetNodesInGroup("PC"))
         {
             if (node.IsLocked)
@@ -147,6 +149,8 @@ public partial class MorseCodeHud : CanvasLayer
                 node.ComputerOpenedChange();
             }
         }
+        //Cache la lampe morse
+        GetParent().GetNode<Sprite2D>("MorseLamp").Visible = false;
     }
 
 

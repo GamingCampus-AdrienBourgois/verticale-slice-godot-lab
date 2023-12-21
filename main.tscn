@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://degk0tj8lto51"]
+[gd_scene load_steps=65 format=3 uid="uid://degk0tj8lto51"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_8aswi"]
 [ext_resource type="PackedScene" uid="uid://c767xbfu781tp" path="res://Scenes/Player/player.tscn" id="2_cxfpo"]
@@ -44,6 +44,8 @@
 [ext_resource type="Texture2D" uid="uid://elj3vgl5jjhu" path="res://assets/Components/runes_note.png" id="41_cyreb"]
 [ext_resource type="Texture2D" uid="uid://baacy5nxx51cg" path="res://assets/Components/rune_code_note.png" id="42_rnowk"]
 [ext_resource type="PackedScene" uid="uid://bbmfj3xbvly5c" path="res://Scenes/Game/PatternGame.tscn" id="43_rafp6"]
+[ext_resource type="PackedScene" uid="uid://dv8217rmdi8fu" path="res://Scenes/Components/MorseLamp.tscn" id="45_xk3xp"]
+[ext_resource type="Texture2D" uid="uid://dwakfpbecq4rd" path="res://assets/Components/sign.png" id="46_wflye"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nuqah"]
 atlas = ExtResource("8_nql7u")
@@ -1188,6 +1190,13 @@ position = Vector2(3275, -626)
 color = Color(0.25098, 0.25098, 0.25098, 0)
 polygon = PackedVector2Array(-11, 18, 21, 18, 21, -8, 21, -47, -11, -47, -11, -11)
 script = SubResource("CSharpScript_usjsu")
+
+[node name="MorseLamp" parent="." instance=ExtResource("45_xk3xp")]
+z_index = 1
+texture_filter = 1
+position = Vector2(94.5, -832.5)
+scale = Vector2(1.5625, 1.3125)
+texture = ExtResource("46_wflye")
 
 [connection signal="OFF" from="Ice/IceDec1" to="Ice" method="_on_ice_dec_1_off"]
 [connection signal="ON" from="Ice/IceDec1" to="Ice" method="_on_ice_dec_1_on"]

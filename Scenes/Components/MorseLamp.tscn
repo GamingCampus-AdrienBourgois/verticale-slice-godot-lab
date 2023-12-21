@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cry03tk233ltx"]
+[gd_scene load_steps=7 format=3 uid="uid://dv8217rmdi8fu"]
 
 [ext_resource type="Texture2D" uid="uid://bnmkl1gwaqahx" path="res://icon.svg" id="1_6wrx1"]
 [ext_resource type="Script" path="res://Scripts/Components/MorseLamp.cs" id="2_5ea0h"]
