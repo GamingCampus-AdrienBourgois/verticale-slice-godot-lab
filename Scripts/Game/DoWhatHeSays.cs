@@ -5,13 +5,7 @@ using System.Threading;
 
 public partial class DoWhatHeSays : Control
 {
-	[Export]
-	int height = 5;
-	[Export]
-	int width = 8;
-	Node vbox = null;
-	Vector2 selected = new Vector2(0,0);
-	private int Did = 0;
+	private int Did = 1;
 	private bool Action = false;
 	private int Played = 0;
 
@@ -31,23 +25,18 @@ public partial class DoWhatHeSays : Control
 	private bool FailedMovement = false;
 	private Godot.Timer timer = null;
 
+	// Faut imaginer le jeu mdr
+
 	public override void _Ready()
 	{
 		label_niveau = GetNode<Label>("Label2");
 		label = GetNode<Label>("Label");
-		GD.Print("Ready");
 		Init();
 		CreatePattern();
 	}
 
 	private void Init()
 	{
-		// AddChild(new Label
-		// {
-		// 	Name = "Label",
-		// 	AnchorsPreset = 0,
-			
-		// });
 		AddChild(new Godot.Timer
 		{
 			Name = "TimerMovement",
@@ -65,7 +54,8 @@ public partial class DoWhatHeSays : Control
 		FailedPattern = false;
 		Movements.Clear();
 		Played = 0;
-		for(int i = 0; i < Did+1; i++)
+		timer.WaitTime = 2f/Did;
+		for(int i = 0; i < Did; i++)
 		{
 			Movements.Add(MovementsAll[rnd.Next(0,3)]);
 		}		
@@ -88,10 +78,6 @@ public partial class DoWhatHeSays : Control
 				GD.Print("Failed");
 				FailedMovement = false;
 			}
-			// else
-			// {
-
-			// }
 			await ToSignal(GetTree().CreateTimer(1),"timeout");
 			if(Played >= Movements.Count-1)
 			{
@@ -111,8 +97,9 @@ public partial class DoWhatHeSays : Control
 	{
 		//GD.Print("HELLO");
 		FailedMovement = true;
+		Played = -1;
 		await ToSignal(GetTree().CreateTimer(1),"timeout");
-		Did = 0;  
+		Did = 1;  
 		CreatePattern();
 	}
 
