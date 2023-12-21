@@ -31,6 +31,10 @@ public partial class DoWhatHeSays : Control
 	{
 		label_niveau = GetNode<Label>("Label2");
 		label = GetNode<Label>("Label");
+		Start();
+	}
+	private void Start()
+	{
 		Init();
 		CreatePattern();
 	}
