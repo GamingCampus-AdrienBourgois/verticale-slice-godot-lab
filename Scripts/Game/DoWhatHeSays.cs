@@ -80,24 +80,39 @@ public partial class DoWhatHeSays : Control
 			label.Text = Movements[Played];
 			Action = true;
 			timer.Start();
-			await ToSignal(timer,Godot.Timer.SignalName.Timeout);
+			await ToSignal(GetTree().CreateTimer(timer.WaitTime),"timeout");
+			//await ToSignal(timer,Godot.Timer.SignalName.Timeout);
 			Action = false;
 			if(FailedMovement)
 			{
 				GD.Print("Failed");
 				FailedMovement = false;
 			}
+			// else
+			// {
+
+			// }
 			await ToSignal(GetTree().CreateTimer(1),"timeout");
+			if(Played >= Movements.Count-1)
+			{
+				Played = 0;
+				label.Text = "Finished level:"+ Did;
+				Did++;
+				await ToSignal(GetTree().CreateTimer(1),"timeout");
+				CreatePattern();
+			}
 			// Play animation
 			// Wait till end
 			// Turn the value to false, so no more inputs, checks if he did something
 		}
 	}
 
-	private void OnTimeout()
+	private async void OnTimeout()
 	{
-		GD.Print("HELLO");
+		//GD.Print("HELLO");
 		FailedMovement = true;
+		await ToSignal(GetTree().CreateTimer(1),"timeout");
+		Did = 0;  
 		CreatePattern();
 	}
 
@@ -105,25 +120,23 @@ public partial class DoWhatHeSays : Control
     {
 		if(Action)
 		{
-        	if(@event.IsActionPressed(Movements[Played]))
+			//GD.Print(@event.AsText());
+			if(@event.IsActionPressed(MovementsAll[0]) || @event.IsActionPressed(MovementsAll[1]) || @event.IsActionPressed(MovementsAll[2]) || @event.IsActionPressed(MovementsAll[3]) )
 			{
-				GD.Print("Good");
-				label.Text = "Good";
 				Action = false;
-				timer.Stop();
-				if(Played >= Movements.Count-1)
+        		if(@event.IsActionPressed(Movements[Played]))
 				{
-					label.Text = "Finished level:"+Did;
-					Did++;
-					CreatePattern();
+					GD.Print("Good");
+					label.Text = "Good";
+					timer.Stop();
+					Played++;
 				}
-				Played++;
-			}
-			else if (Movements.Contains(@event.ToString()))
-			{
-				GD.Print("Wrong direction");
-				FailedMovement = true;
-				Action = true;
+				else
+				{
+					GD.Print("Wrong");
+					FailedMovement = true;
+					label.Text = "Wrong";
+				}
 			}
 			else 
 			{
@@ -131,53 +144,4 @@ public partial class DoWhatHeSays : Control
 			}
 		}
     }
-
-	// Quand il faut appuyer sur une touche
-	private async void Check()
-	{
-		await ToSignal(GetTree().CreateTimer(1),"timeout");
-		if(selected == new Vector2(0,1))
-		{
-
-		}
-	}
-
-
-
-    private void InitMap()
-	{
-		AddChild(new ColorRect
-		{
-			Color = Colors.Black,
-			LayoutMode = 1,
-			AnchorsPreset = 15,
-			Modulate = new Color(0,0,0,0.1f)
-		});
-
-		AddChild(new VBoxContainer
-		{
-			Name = "Vbox",
-			LayoutMode = 1,
-			AnchorsPreset = 8
-		});
-		vbox = GetNode("Vbox");
-
-		for (int i = 0; i < height; i++)
-		{
-			var Hbox = new HBoxContainer();
-			vbox.AddChild(Hbox);
-		}
-		foreach(Node x in vbox.GetChildren())
-		{
-			for (int i = 0; i < width; i++)
-			{
-				var colorRect = new ColorRect
-				{
-					CustomMinimumSize = new Godot.Vector2(50, 50)
-				};
-				x.AddChild(colorRect);
-			}
-		}
-	}
-
 }
