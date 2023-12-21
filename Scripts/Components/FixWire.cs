@@ -10,10 +10,18 @@ public partial class FixWire : Area2D
 	private bool isShow = false;
 	public bool WireIsFinish = false;
 
+	[Export]
+	string animOpen = null;
+	[Export]
+	string animClosed = null;
+
+	AnimatedSprite2D sprite = null;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-
+		sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		sprite.Play(animClosed);
 		player = GetParent().GetNode<Player>("Player");
 		fixWireHud = GetNode<CanvasLayer>("Fix_wire_hud");
 		menuCursor = fixWireHud.GetNode<MenuCursor>("Menu_cursor");
@@ -88,6 +96,7 @@ public partial class FixWire : Area2D
 		GD.Print("Cable Reparer");
 		// Faire plus propre avec un signal si on veut
 		Node WireDoors = GetParent().GetNode("Doors").GetNode("WireDoors");
+		sprite.Play(animOpen);
 		foreach(door i in WireDoors.GetChildren())
 		{
 			i.DoorOpenedChange();

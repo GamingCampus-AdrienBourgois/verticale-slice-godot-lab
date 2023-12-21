@@ -120,7 +120,7 @@ public partial class Pattern_game : Control
 					// Envoie sur la salle dans l'espace avec le mec ou dans la room
 				}
 			}
-
+			
 			Godot.Vector2 AncientSelec = selected;
 			// Mettre que si il appuie sur une touche ça enlève le rouge
 			if(@event.IsActionPressed("Up")){selected.X -= 1;}

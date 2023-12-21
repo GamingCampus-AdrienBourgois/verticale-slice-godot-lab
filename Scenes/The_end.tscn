@@ -1,10 +1,11 @@
-[gd_scene load_steps=81 format=3 uid="uid://dsrrgguvf83vj"]
+[gd_scene load_steps=89 format=3 uid="uid://dsrrgguvf83vj"]
 
 [ext_resource type="Texture2D" uid="uid://bk0nhv3b6vxrg" path="res://assets/Imports/Blackhole.png" id="1_4q75g"]
 [ext_resource type="Script" path="res://Scripts/The_end.cs" id="1_wima7"]
 [ext_resource type="PackedScene" uid="uid://c767xbfu781tp" path="res://Scenes/Player/player.tscn" id="2_s37aw"]
 [ext_resource type="TileSet" uid="uid://cnowwr0gr3n55" path="res://Platformer/scenes/tilemap_platformer.tres" id="3_ur5cs"]
 [ext_resource type="FontFile" uid="uid://dox4m0tdho7s7" path="res://assets/Components/monogram-extended.ttf" id="4_jhti1"]
+[ext_resource type="Texture2D" uid="uid://ctrsa758midod" path="res://assets/perso_bob.png" id="6_4lhkn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_16o8y"]
 atlas = ExtResource("1_4q75g")
@@ -534,6 +535,56 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dx4ch"]
 size = Vector2(66, 43)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_52oc3"]
+atlas = ExtResource("6_4lhkn")
+region = Rect2(384, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1ndq"]
+atlas = ExtResource("6_4lhkn")
+region = Rect2(416, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oetuc"]
+atlas = ExtResource("6_4lhkn")
+region = Rect2(448, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bho0j"]
+atlas = ExtResource("6_4lhkn")
+region = Rect2(480, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rr1rj"]
+atlas = ExtResource("6_4lhkn")
+region = Rect2(512, 64, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_10hgg"]
+atlas = ExtResource("6_4lhkn")
+region = Rect2(544, 64, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_77hbr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52oc3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1ndq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oetuc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bho0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rr1rj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_10hgg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
 [node name="The_END" type="Node2D"]
 script = ExtResource("1_wima7")
 AllText = PackedStringArray("Cela faisait longtemps que j\'attendais, longtemps ? Je ne sais plus...", "Cela fait du bien de pas se sentir seul", "...", "Je ne pensais pas que tu allais venir ici", "Je voulais rester ici un maximum...", "C\'est magnifique non ? Peut importe le temps que je reste, je suis toujours émerveillé", "Je me doute que tout a une fin non ?", "Tu veux rester regarder avec moi ?", "On ira manger après t\'en fais pas")
@@ -604,8 +655,10 @@ position = Vector2(187, -1)
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_dx4ch")
 
-[node name="Sprite2D" type="Polygon2D" parent="."]
-position = Vector2(186, 0)
-polygon = PackedVector2Array(-32, 21, 34, 21, 34, -22, -32, -22)
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(188, -14)
+sprite_frames = SubResource("SpriteFrames_77hbr")
+frame_progress = 0.317562
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

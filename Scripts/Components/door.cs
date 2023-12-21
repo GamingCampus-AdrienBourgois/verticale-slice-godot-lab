@@ -6,11 +6,21 @@ public partial class door : StaticBody2D
 
 	[Export]
 	bool Opened = false;
+	
+	[Export]
+	bool DoorWithLight = false;
 
 	[Export]
 	Color OpenedColor = new Color(141,94,0);
 	[Export]
 	Color NotOpenedColor = new Color(100,50,0);
+	
+	[Export]
+	string animOpen = null;
+	[Export]
+	string animClosed = null;
+
+	AnimatedSprite2D sprite = null;
 
 	[Signal]
 	public delegate void DoorChangeEventHandler();
@@ -18,7 +28,6 @@ public partial class door : StaticBody2D
 
 	// Get la node collision de door
 	CollisionShape2D collision = null;
-	Sprite2D sprite = null;
 
 	[Export]
 	int anim_to;
@@ -47,10 +56,15 @@ public partial class door : StaticBody2D
 			}
 			//sprite.Modulate = OpenedColor;
 		}
+		if(DoorWithLight){
+			sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+			UpdateAnimLight();
+		}
 	}
 
 	public void DoorOpenedChange(){
 		if (collision.Disabled == true){
+			
 			if(anim_to == 0)
 			{
 				GetNode<Node2D>("Top").Visible = true;
@@ -64,6 +78,7 @@ public partial class door : StaticBody2D
 			//sprite.Modulate = OpenedColor;
 		}
 		else {
+			sprite.Play(animClosed);
 			if(anim_to == 0)
 			{
 				GetNode<Node2D>("Top").Visible = false;
@@ -75,6 +90,19 @@ public partial class door : StaticBody2D
 			collision.Disabled = true;
 			//sprite.Modulate = OpenedColor;
 			//sprite.Modulate = NotOpenedColor;
+		}
+		if(DoorWithLight){
+			UpdateAnimLight();
+		}
+	}
+
+	public void UpdateAnimLight(){
+		if (collision.Disabled == true){
+			sprite.Play(animOpen);
+		}
+		else
+		{
+			sprite.Play(animClosed);
 		}
 	}
 }

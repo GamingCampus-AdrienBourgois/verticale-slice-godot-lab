@@ -18,6 +18,7 @@ public partial class Main : Node2D
 	private Pedestal pedestal = null;
 	private ObjectForFixVert fixvert = null;
 	private Bedroom bedroom = null;
+	private FruitGame fruitgame = null;
 
 	//private Camera2D camera_player = null;
 
@@ -36,6 +37,7 @@ public partial class Main : Node2D
 		fixvert = GetNode<ObjectForFixVert>("ObjectForFixVert");
 		bedroom = GetNode<Bedroom>("Bedroom");
 		pauseMenu = GetNode<Control>("PauseCanvas/Pause");
+		fruitgame = GetNode<FruitGame>("FruitGame");
 
 		SceneTransition = GetParent().GetNode<Scene_transition>("SceneTransition");
 		global = GetParent().GetNode<Global>("Global");
@@ -50,6 +52,7 @@ public partial class Main : Node2D
 			objectForFix.STATE,
 			trashcan.Full,
 			pedestal.STATE,
+			fruitgame.STATE,
 			fixvert.STATE,
 			bedroom.STATE
 		};
@@ -80,6 +83,7 @@ public partial class Main : Node2D
 				"Hmmm... Sometimes things aren't were they're supposed to be.",
 				"Detritus on the floor... Not the best for the company.",
 				"Someone left some crates somewhere...",
+				"Number of caracters mean something ?",
 				"2 and 3 on the other side ? Hmmm...",
 				"Everyone wants their favorite item in their bedroom..."
 			};
@@ -90,6 +94,7 @@ public partial class Main : Node2D
 				objectForFix.STATE,
 				trashcan.Full,
 				pedestal.STATE,
+				fruitgame.STATE,
 				fixvert.STATE,
 				bedroom.STATE
 			};
