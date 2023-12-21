@@ -11,6 +11,9 @@ public partial class ObjectFixArea : Area2D
 	private bool State = false;
 	
 	[Export]
+	private bool haveSprite = true;
+
+	[Export]
 	private string Group;
 
 	//[Export]
@@ -27,8 +30,10 @@ public partial class ObjectFixArea : Area2D
 	public override void _Ready()
 	{
 		//Modulate = ColorThis;
-		sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-		sprite.Play(anim);
+		if(haveSprite){
+			sprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+			sprite.Play(anim);
+		}
 	}
 
 	public void FixedChange(){
