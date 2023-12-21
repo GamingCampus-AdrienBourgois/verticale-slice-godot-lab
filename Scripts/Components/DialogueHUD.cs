@@ -69,6 +69,7 @@ public partial class DialogueHUD : CanvasLayer
 			dialogueLines.Add("You need to find the cause of the interference, so start by looking around, and when you think all is good, go through the portal.");
 			dialogueLines.Add("If you've forgotten something, the portal console will tell you.");
 			dialogueLines.Add("Well, I think I've told you everything.");
+			dialogueLines.Add("Good luck!");
 			dialogueLines.Add("END");
 			TextUpdate();
 			spaceShipeAnim.Play("Start");

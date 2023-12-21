@@ -1,26 +1,88 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbei81nyrc6ty"]
+[gd_scene load_steps=11 format=3 uid="uid://dbei81nyrc6ty"]
 
 [ext_resource type="Script" path="res://Scripts/Components/FixWire.cs" id="1_114hu"]
-[ext_resource type="Texture2D" uid="uid://bnmkl1gwaqahx" path="res://icon.svg" id="1_ouiyr"]
+[ext_resource type="Texture2D" uid="uid://bpadjhcqy82m1" path="res://assets/Components/fix_wire.png" id="2_ui80n"]
 [ext_resource type="PackedScene" uid="uid://dsre6p0qf37th" path="res://Scenes/Components/fix_wire_hud.tscn" id="3_8gbmr"]
+[ext_resource type="Texture2D" uid="uid://dwqjol7c0pdt4" path="res://assets/door_light.png" id="4_xewq6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4jqfp"]
 size = Vector2(128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tnylf"]
+atlas = ExtResource("4_xewq6")
+region = Rect2(32, 48, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uacwb"]
+atlas = ExtResource("4_xewq6")
+region = Rect2(32, 64, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_80or4"]
+atlas = ExtResource("4_xewq6")
+region = Rect2(96, 48, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwf5c"]
+atlas = ExtResource("4_xewq6")
+region = Rect2(96, 64, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dq2tv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tnylf")
+}],
+"loop": true,
+"name": &"red_closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uacwb")
+}],
+"loop": true,
+"name": &"red_open",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_80or4")
+}],
+"loop": true,
+"name": &"yellow_closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwf5c")
+}],
+"loop": true,
+"name": &"yellow_open",
+"speed": 5.0
+}]
 
 [node name="FixWire" type="Area2D" groups=["HudObject"]]
 scale = Vector2(0.3, 0.3)
 script = ExtResource("1_114hu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
 texture_filter = 1
-texture = ExtResource("1_ouiyr")
+rotation = 1.5708
+scale = Vector2(7, 7)
+texture = ExtResource("2_ui80n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_4jqfp")
 
 [node name="Fix_wire_hud" parent="." instance=ExtResource("3_8gbmr")]
 visible = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 8
+texture_filter = 1
+position = Vector2(66.6667, -3.33333)
+rotation = 1.5708
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_dq2tv")
+animation = &"red_closed"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
