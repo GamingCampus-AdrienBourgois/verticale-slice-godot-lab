@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://degk0tj8lto51"]
+[gd_scene load_steps=89 format=3 uid="uid://degk0tj8lto51"]
 
 [ext_resource type="Script" path="res://Main.cs" id="1_8aswi"]
 [ext_resource type="PackedScene" uid="uid://c767xbfu781tp" path="res://Scenes/Player/player.tscn" id="2_cxfpo"]
@@ -38,6 +38,7 @@
 [ext_resource type="Script" path="res://Scripts/Components/NotTp_TP.cs" id="32_s1gam"]
 [ext_resource type="PackedScene" uid="uid://lslqnak1qpv1" path="res://Scenes/Components/Note.tscn" id="34_xqgb4"]
 [ext_resource type="PackedScene" uid="uid://e6rpx7730h43" path="res://Scenes/Game/Game_escape_hud.tscn" id="35_kagt3"]
+[ext_resource type="Texture2D" uid="uid://bmmxhj7tr6mhk" path="res://assets/Components/morse_note.png" id="40_7io03"]
 [ext_resource type="Texture2D" uid="uid://deh1ghtw7s1th" path="res://assets/Components/Color_wheel_hud.png" id="40_imgxh"]
 [ext_resource type="Texture2D" uid="uid://b633dgl5u6u16" path="res://assets/Components/rune_code_note_part2.png" id="40_s2xrs"]
 [ext_resource type="PackedScene" uid="uid://xoasx78y5lio" path="res://Scenes/Menu/Pause.tscn" id="41_23fqp"]
@@ -47,7 +48,7 @@
 [ext_resource type="PackedScene" uid="uid://dv8217rmdi8fu" path="res://Scenes/Components/MorseLamp.tscn" id="45_xk3xp"]
 [ext_resource type="Texture2D" uid="uid://dwakfpbecq4rd" path="res://assets/Components/sign.png" id="46_wflye"]
 [ext_resource type="Texture2D" uid="uid://xpc0tlcq3var" path="res://assets/Components/animated_bathtub_with_duck.png" id="47_j2orh"]
-[ext_resource type="Texture2D" uid="uid://dleetcyrifatl" path="res://assets/Components/animated_cat.png" id="49_kmoir"]
+[ext_resource type="Texture2D" path="res://assets/Components/animated_cat.png" id="49_kmoir"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nuqah"]
 atlas = ExtResource("8_nql7u")
@@ -1242,6 +1243,14 @@ anim = "Note"
 z_index = 8
 position = Vector2(-1004, -132)
 img = ExtResource("40_s2xrs")
+isPickable = true
+text = "Une poutre en bois pointe du doit une poutre de métale"
+anim = "Note"
+
+[node name="Note12" parent="Note" instance=ExtResource("34_xqgb4")]
+z_index = 8
+position = Vector2(388, -414)
+img = ExtResource("40_7io03")
 isPickable = true
 text = "Une poutre en bois pointe du doit une poutre de métale"
 anim = "Note"

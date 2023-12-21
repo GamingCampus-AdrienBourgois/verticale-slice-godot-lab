@@ -18,8 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://c1iaq2ki1k2ct" path="res://assets/left bed.png" id="9_p38b7"]
 [ext_resource type="Texture2D" uid="uid://cbfvm8gww478i" path="res://assets/18_Jail_Black_Shadow_16x16.png" id="10_2cbgy"]
 [ext_resource type="Texture2D" uid="uid://bg70b33v7eu6k" path="res://assets/Color_wheel.png" id="10_3vpj0"]
-[ext_resource type="Texture2D" uid="uid://bwcjlg7qqlwg1" path="res://assets/Modern_Office_Black_Shadow.png" id="11_rvkda"]
-[ext_resource type="Texture2D" uid="uid://c8seujwaxl12p" path="res://assets/8_Gym_Black_Shadow_16x16.png" id="12_gij1p"]
+[ext_resource type="Texture2D" path="res://assets/Modern_Office_Black_Shadow.png" id="11_rvkda"]
+[ext_resource type="Texture2D" path="res://assets/8_Gym_Black_Shadow_16x16.png" id="12_gij1p"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_k0qkj"]
 tile_data = PackedInt32Array(0, 1441793, 4, 65536, 1572865, 4, 1, 1572865, 4, 65537, 1441793, 4)
