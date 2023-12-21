@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://duoqtya2j80y"]
+
+[ext_resource type="Script" path="res://Scripts/Game/DoWhatHeSays.cs" id="1_k4lhb"]
+[ext_resource type="FontFile" uid="uid://dox4m0tdho7s7" path="res://assets/Components/monogram-extended.ttf" id="2_pyr5t"]
+
+[node name="DoWhatHeSays" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_k4lhb")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_pyr5t")
+theme_override_font_sizes/font_size = 64
+text = "Hello"
+
+[node name="Label2" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+offset_right = 120.0
+offset_bottom = 52.0
+theme_override_fonts/font = ExtResource("2_pyr5t")
+theme_override_font_sizes/font_size = 64
+text = "Niveau :0"

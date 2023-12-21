@@ -362,6 +362,7 @@ _data = {
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_d15d8")
 Show = true
+scrollSpeed = 2.0
 
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
 anchors_preset = 15

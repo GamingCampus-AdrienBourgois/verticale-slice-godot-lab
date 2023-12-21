@@ -38,7 +38,6 @@ public partial class FruitGame : Node
 			}
 		}
 	}
-
 	private void FruitOFF(ObjectFixArea Area, Node2D body)
 	{
 		if(Area.IsInGroup("True"))
