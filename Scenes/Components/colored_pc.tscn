@@ -1,8 +1,9 @@
-[gd_scene load_steps=49 format=3 uid="uid://dji5f8vn6uk02"]
+[gd_scene load_steps=50 format=3 uid="uid://dji5f8vn6uk02"]
 
 [ext_resource type="Script" path="res://Scripts/Components/colored_computer.cs" id="1_dmoip"]
 [ext_resource type="Texture2D" uid="uid://bnmkl1gwaqahx" path="res://icon.svg" id="2_fy7gd"]
 [ext_resource type="Texture2D" uid="uid://bu4qt7mkaxfwt" path="res://assets/lamp_anim.png" id="3_wrcwf"]
+[ext_resource type="Texture2D" uid="uid://bofybbehxto5o" path="res://assets/Components/light.png" id="4_qsljc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h631i"]
 size = Vector2(30, 32)
@@ -365,3 +366,8 @@ texture = ExtResource("2_fy7gd")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_fdbsj")
 animation = &"Red"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.49
+texture = ExtResource("4_qsljc")
+texture_scale = 0.3

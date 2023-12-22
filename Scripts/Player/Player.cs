@@ -30,7 +30,7 @@ public partial class Player : CharacterBody2D
 		MarkerObject = GetNode("MarkerArea").GetNode<Marker2D>("Object");
 		MarkerArea = GetNode<Marker2D>("MarkerArea");
 
-		ui = GetNode<Control>("UI");
+		ui = GetNode<Control>("CanvasLayer/UI");
 		ui_box = ui.GetNode<HBoxContainer>("Box");
 		to_label = ui_box.GetNode<Label>("To");
 		ui_animations = ui.GetNode<AnimationPlayer>("Animations");
@@ -204,6 +204,10 @@ public partial class Player : CharacterBody2D
 			to_label.Text = " A to open";
 			ui_animations.Play("appear");
 		}
+		else 
+		{
+			ui_animations.PlayBackwards("appear");
+		}
 
 		item = null;
 	}
@@ -221,12 +225,12 @@ public partial class Player : CharacterBody2D
 	{
 		if (item == null && pickedUpItem == null){
 			if (body.IsInGroup("Pickable")){
-				to_label.Text = "Space to pickup";
+				to_label.Text = " Space to pickup";
 				ui_animations.Play("appear");
 				item = body;
 			}
 			else if (body.IsInGroup("PC") || body.IsInGroup("ColoredPC")){
-				to_label.Text = "E to interact";
+				to_label.Text = " E to interact";
 				ui_animations.Play("appear");
 				item = body;
 			}
@@ -270,7 +274,7 @@ public partial class Player : CharacterBody2D
 		{
 			if(pickedUpItem != null)
 			{
-				GD.Print("Ordering");
+				//GD.Print("Ordering");
 				pickedUpItem.ZIndex = Ordering;
 			}
 			if(Velocity != Godot.Vector2.Zero)

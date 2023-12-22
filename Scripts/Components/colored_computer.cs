@@ -9,7 +9,7 @@ public partial class colored_computer : StaticBody2D
 	[Export]
 	Color RedColor = Color.Color8(255,0,0);
 	[Export]
-	Color OrangeColor = Color.Color8(255,104,0,255);
+	Color OrangeColor = Color.Color8(255,104,0);
 	[Export]
 	Color YellowColor = Color.Color8(255,255,0);
 	[Export]
@@ -26,9 +26,12 @@ public partial class colored_computer : StaticBody2D
 	Sprite2D sprite = null;
 	AnimatedSprite2D spriteAnim = null;
 
+	PointLight2D light = null;
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		light = GetNode<PointLight2D>("PointLight2D");
 		sprite = GetNode<Sprite2D>("Sprite2D");
 		spriteAnim = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		collision = GetNode<CollisionShape2D>("CollisionShape2D");
@@ -50,37 +53,38 @@ public partial class colored_computer : StaticBody2D
 		switch (colorStatus)
 		{
 			case 0:
-				sprite.Modulate = NoColor;
 				spriteAnim.Play("Black");
+				light.Visible = false;
 				break;
 			case 1:
-				sprite.Modulate = RedColor;
+				light.Color = RedColor;
 				spriteAnim.Play("Red");
+				light.Visible = true;
 				break;
 			case 2:
-				sprite.Modulate = OrangeColor;
+				light.Color = OrangeColor;
 				spriteAnim.Play("Orange");
 				break;
 			case 3:
-				sprite.Modulate = YellowColor;
+				light.Color = YellowColor;
 				spriteAnim.Play("Yellow");
 
 				break;
 			case 4:
-				sprite.Modulate = GreenColor;
+				light.Color = GreenColor;
 				spriteAnim.Play("Green");
 				break;
 			case 5:
-				sprite.Modulate = BlueColor;
+				light.Color = BlueColor;
 				spriteAnim.Play("Blue");
 				break;
 			case 6:
-				sprite.Modulate = PurpleColor;
+				light.Color = PurpleColor;
 				spriteAnim.Play("Purple");
 				break;
 			default:
-				sprite.Modulate = NoColor;
 				spriteAnim.Play("Black");
+				light.Visible = false;
 				break;
 		}
 	}

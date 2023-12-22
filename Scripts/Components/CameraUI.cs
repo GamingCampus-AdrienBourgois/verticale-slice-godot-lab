@@ -5,7 +5,7 @@ public partial class CameraUI : Camera2D
 {
 	public override async void _Ready()
 	{
-		Node Container = GetNode("PanelContainer/HBoxContainer");
+		Node Container = GetNode("CanvasLayer/PanelContainer/HBoxContainer");
 		Global global = GetTree().Root.GetNode<Global>("Global");
 		if(GetTree().Root.GetNode<Global>("Global").Message != "")
 		{

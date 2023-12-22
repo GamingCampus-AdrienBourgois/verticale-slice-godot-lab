@@ -40,6 +40,7 @@ public partial class door : StaticBody2D
 		collision.Disabled = Opened;
 		if (collision.Disabled == true){
 			//sprite.Modulate = NotOpenedColor;
+			GetNode<LightOccluder2D>("LightOccluder2D").Visible = false;
 			GetNode<Node2D>("Top").Visible = false;
 			GetNode<Node2D>("Right").Visible = false;
 		}
@@ -54,6 +55,7 @@ public partial class door : StaticBody2D
 				GetNode<Node2D>("Right").Visible = true;
 				GetNode<Node2D>("Top").Visible = true;
 			}
+			GetNode<LightOccluder2D>("LightOccluder2D").Visible = true;
 			//sprite.Modulate = OpenedColor;
 		}
 		if(DoorWithLight){
@@ -74,11 +76,13 @@ public partial class door : StaticBody2D
 				GetNode<Node2D>("Right").Visible = true;
 			}
 			collision.Disabled = false;
+			GetNode<LightOccluder2D>("LightOccluder2D").Visible = true;
 			//sprite.Modulate = NotOpenedColor;
 			//sprite.Modulate = OpenedColor;
 		}
 		else {
 			sprite.Play(animClosed);
+			GetNode<LightOccluder2D>("LightOccluder2D").Visible = false;
 			if(anim_to == 0)
 			{
 				GetNode<Node2D>("Top").Visible = false;

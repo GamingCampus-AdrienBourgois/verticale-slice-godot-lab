@@ -1033,13 +1033,7 @@ blend_mode = 2
 shadow_enabled = true
 shadow_item_cull_mask = 3
 texture = ExtResource("4_bujv8")
-texture_scale = 0.75
-
-[node name="UI" parent="." instance=ExtResource("6_ofaw7")]
-offset_left = -104.0
-offset_top = -65.0
-offset_right = -51.0
-offset_bottom = -65.0
+texture_scale = 1.56
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.254902, 0.254902, 0.254902, 1)
@@ -1049,7 +1043,31 @@ position = Vector2(1, 12)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("4_bujv8")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 22
+offset = Vector2(550, 300)
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 550, 300)
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("6_ofaw7")]
+z_index = 9
+offset_left = -104.0
+offset_top = -68.0
+offset_right = -51.0
+offset_bottom = -68.0
+
+[node name="Press" parent="CanvasLayer/UI/Box" index="0"]
+size_flags_horizontal = 6
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+horizontal_alignment = 1
+
+[node name="To" parent="CanvasLayer/UI/Box" index="1"]
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+horizontal_alignment = 0
+
 [connection signal="body_entered" from="MarkerArea/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="MarkerArea/Area2D" to="." method="_on_area_2d_body_exited"]
 
-[editable path="UI"]
+[editable path="CanvasLayer/UI"]

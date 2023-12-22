@@ -78,9 +78,9 @@ visible = false
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 8
 texture_filter = 1
-position = Vector2(66.6667, -3.33333)
+position = Vector2(63.3333, 1.24298e-11)
 rotation = 1.5708
-scale = Vector2(5, 5)
+scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_dq2tv")
 animation = &"red_closed"
 

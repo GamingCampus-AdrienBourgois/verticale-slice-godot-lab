@@ -65,7 +65,7 @@ public partial class DialogueHUD : CanvasLayer
 			// GD.Print(hasReset);
 			dialogueLines.Add("Hi, do you hear me?");
 			dialogueLines.Add("Well, I just wanted to make sure you know what to do here as it's your first day here.");
-			dialogueLines.Add("The portal in the midle of the lab is broken, Bob set it up wrong.");
+			dialogueLines.Add("The portal in the middle of the lab is broken, Bob set it up wrong.");
 			dialogueLines.Add("If you try to use it in its current state, you'll be dragged back here, along with everything in its proximity.");
 			dialogueLines.Add("You need to find the cause of the interference, so start by looking around, and when you think everythings is good, go through the portal.");
 			dialogueLines.Add("If you've forgotten something, the portal console will tell you.");

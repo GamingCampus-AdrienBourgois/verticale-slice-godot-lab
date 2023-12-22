@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dchiwu34cy6w2"]
+[gd_scene load_steps=8 format=3 uid="uid://dchiwu34cy6w2"]
 
 [ext_resource type="Script" path="res://Scripts/Components/door.cs" id="1_hbbse"]
 [ext_resource type="Texture2D" uid="uid://bnmkl1gwaqahx" path="res://icon.svg" id="1_skpnu"]
@@ -346,6 +346,9 @@ texture = ExtResource("3_c52t2")
 [sub_resource type="TileSet" id="TileSet_tdd6j"]
 sources/0 = SubResource("TileSetAtlasSource_cw1ha")
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_vjyjq"]
+polygon = PackedVector2Array(-34, -7, 34, -7, 34, 6, -34, 6)
+
 [node name="Door" type="StaticBody2D"]
 script = ExtResource("1_hbbse")
 
@@ -373,3 +376,6 @@ scale = Vector2(2, 2)
 tile_set = SubResource("TileSet_tdd6j")
 format = 2
 layer_0/tile_data = PackedInt32Array(-1, 851968, 29, -65536, 720896, 30, 0, 720896, 31, 65535, 851968, 30)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_vjyjq")

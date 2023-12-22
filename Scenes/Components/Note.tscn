@@ -63,6 +63,7 @@ scale = Vector2(1.5, 1.5)
 shape = SubResource("RectangleShape2D_l5mt6")
 
 [node name="FolderNote" type="CanvasLayer" parent="."]
+layer = 40
 
 [node name="PanelContainer" type="PanelContainer" parent="FolderNote"]
 anchors_preset = 8
@@ -84,6 +85,7 @@ scale = Vector2(1.3, 1.3)
 texture = ExtResource("2_64upd")
 
 [node name="StickyNote" type="CanvasLayer" parent="."]
+layer = 40
 visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="StickyNote"]
