@@ -31,7 +31,7 @@ public partial class DoWhatHeSays : Control
 	{
 		label_niveau = GetNode<Label>("Label2");
 		label = GetNode<Label>("Label");
-		Start();
+		Start(); // Pour lancer quand je test sur la scene
 	}
 	private void Start()
 	{

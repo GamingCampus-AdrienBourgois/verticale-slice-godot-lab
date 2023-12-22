@@ -32,10 +32,11 @@ public partial class FixWire : Area2D
 	}
 	
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+	public override async void _Process(double delta)
 	{
 		if (Input.IsActionJustPressed("Interact") && interact && !WireIsFinish)
 		{
+			await ToSignal(GetTree().CreateTimer(0.1),"timeout");
 			ShowWireHud();
 		}
 	}
