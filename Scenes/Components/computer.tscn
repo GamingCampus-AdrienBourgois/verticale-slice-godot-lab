@@ -178,7 +178,7 @@ volume_db = -10.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_3avfd")
-animation = &"Top_ON"
+animation = &"Red"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(-2, -4)

@@ -53,7 +53,7 @@ public partial class computer : StaticBody2D
 		}
 		else {
 			light.Visible = true;
-			light.Modulate = OpenedColor;
+			light.Color = OpenedColor;
 			if(colors.Contains(anim))
 			{
 				animatedsprite.Play(anim);

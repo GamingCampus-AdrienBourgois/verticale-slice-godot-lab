@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dbei81nyrc6ty"]
+[gd_scene load_steps=12 format=3 uid="uid://dbei81nyrc6ty"]
 
 [ext_resource type="Script" path="res://Scripts/Components/FixWire.cs" id="1_114hu"]
 [ext_resource type="Texture2D" uid="uid://jukhfmpsnyny" path="res://assets/Components/Sprite-0001.png" id="2_35aqp"]
 [ext_resource type="PackedScene" uid="uid://dsre6p0qf37th" path="res://Scenes/Components/fix_wire_hud.tscn" id="3_8gbmr"]
 [ext_resource type="Texture2D" uid="uid://dwqjol7c0pdt4" path="res://assets/door_light.png" id="4_xewq6"]
+[ext_resource type="Texture2D" uid="uid://bofybbehxto5o" path="res://assets/Components/light.png" id="5_vq6vc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4jqfp"]
 size = Vector2(128, 128)
@@ -83,6 +84,12 @@ rotation = 1.5708
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_dq2tv")
 animation = &"red_closed"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(36.6667, 0)
+color = Color(1, 0, 0, 1)
+texture = ExtResource("5_vq6vc")
+texture_scale = 0.1
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
