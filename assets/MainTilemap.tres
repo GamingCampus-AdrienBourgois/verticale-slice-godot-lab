@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=160 format=3 uid="uid://shg7s3b4bifd"]
+[gd_resource type="TileSet" load_steps=164 format=3 uid="uid://shg7s3b4bifd"]
 
 [ext_resource type="Texture2D" uid="uid://bnmkl1gwaqahx" path="res://icon.svg" id="1_o3mfd"]
 [ext_resource type="Texture2D" uid="uid://c28kbfkrhn4l3" path="res://assets/tileset_loopout.png" id="2_r0b87"]
@@ -27,6 +27,8 @@
 [ext_resource type="Texture2D" uid="uid://c83hsvu4drcjb" path="res://assets/7_Art_Black_Shadow_16x16.png" id="18_oodrd"]
 [ext_resource type="Texture2D" uid="uid://dyvj0dy6gtagn" path="res://assets/Components/animated_Christmas_tree_lights.png" id="19_gijpc"]
 [ext_resource type="Texture2D" uid="uid://bdmkx64jejaoy" path="res://assets/14_Basement_Black_Shadow_16x16.png" id="20_lqfew"]
+[ext_resource type="Texture2D" uid="uid://chlh4plni4w2g" path="res://assets/Components/animated_control_room_server.png" id="21_ag0cd"]
+[ext_resource type="Texture2D" uid="uid://va64wwm34y8d" path="res://assets/Components/animated_kitchen_microwave.png" id="22_h0we1"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_k0qkj"]
 tile_data = PackedInt32Array(0, 1441793, 4, 65536, 1572865, 4, 1, 1572865, 4, 65537, 1441793, 4)
@@ -23721,6 +23723,55 @@ texture = ExtResource("20_lqfew")
 9:49/0/physics_layer_0/angular_velocity = 0.0
 9:49/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 5, -8, 5, 1, -8, 1)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fjpwl"]
+texture = ExtResource("21_ag0cd")
+0:2/animation_columns = 3
+0:2/animation_frame_0/duration = 1.0
+0:2/animation_frame_1/duration = 1.0
+0:2/animation_frame_2/duration = 1.0
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 4, -8, 4)
+0:1/animation_columns = 3
+0:1/animation_frame_0/duration = 1.0
+0:1/animation_frame_1/duration = 1.0
+0:1/animation_frame_2/duration = 1.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -3, 8, -3, 8, 8, -8, 8)
+0:0/animation_columns = 3
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tvkny"]
+texture = ExtResource("22_h0we1")
+0:0/animation_columns = 6
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/animation_frame_2/duration = 1.0
+0:0/animation_frame_3/duration = 1.0
+0:0/animation_frame_4/duration = 1.0
+0:0/animation_frame_5/duration = 1.0
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:1/animation_columns = 6
+0:1/animation_frame_0/duration = 1.0
+0:1/animation_frame_1/duration = 1.0
+0:1/animation_frame_2/duration = 1.0
+0:1/animation_frame_3/duration = 1.0
+0:1/animation_frame_4/duration = 1.0
+0:1/animation_frame_5/duration = 1.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uf8ch"]
 texture = ExtResource("4_tgk30")
 0:0/0 = 0
@@ -24454,4 +24505,6 @@ sources/23 = SubResource("TileSetAtlasSource_dhrb6")
 sources/24 = SubResource("TileSetAtlasSource_q4nje")
 sources/25 = SubResource("TileSetAtlasSource_6qmnd")
 sources/26 = SubResource("TileSetAtlasSource_wyp7p")
+sources/27 = SubResource("TileSetAtlasSource_fjpwl")
+sources/28 = SubResource("TileSetAtlasSource_tvkny")
 pattern_0 = SubResource("TileMapPattern_k0qkj")
