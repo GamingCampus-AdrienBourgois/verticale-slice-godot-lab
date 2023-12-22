@@ -37,5 +37,5 @@ Follow the link for itch.io page (or steam page if there is one) and just downlo
 
 
 ## 🔗 Links
-[![itch.io](https://th.bing.com/th/id/R.d8f0eb5fb58b666928a5ca9e34455498?rik=vrQPLpHZdPVUPA&pid=ImgRaw&r=0)]([https://shattereddisk.github.io/rickroll/rickroll.mp4](https://cookiekrips.itch.io/loopout)https://cookiekrips.itch.io/loopout)
+[![itch.io](https://th.bing.com/th/id/R.d8f0eb5fb58b666928a5ca9e34455498?rik=vrQPLpHZdPVUPA&pid=ImgRaw&r=0)](https://cookiekrips.itch.io/loopout)
 
