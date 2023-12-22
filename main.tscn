@@ -368,7 +368,7 @@ texture_filter = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_fonts/font = ExtResource("7_niyaj")
-text = "0/7"
+text = "Did : 0/7"
 horizontal_alignment = 1
 
 [node name="TileMap2" type="TileMap" parent="."]
@@ -1208,7 +1208,7 @@ polygon = PackedVector2Array(-269, -31, -33, -31, -34, -236, -268, -236)
 position = Vector2(314, 543)
 script = ExtResource("27_558j3")
 haveSprite = false
-Group = "Henry"
+Group = "Hugo"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bedroom/Areas/BedArea3"]
 position = Vector2(157, 112)
@@ -1218,7 +1218,7 @@ polygon = PackedVector2Array(-481, -166, -685, -165, -685, 38, -480, 38)
 position = Vector2(-104, 543)
 script = ExtResource("27_558j3")
 haveSprite = false
-Group = "Hugo"
+Group = "Henry"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bedroom/Areas/BedArea4"]
 position = Vector2(165, 163)

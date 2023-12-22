@@ -98,6 +98,15 @@ public partial class Main : Node2D
 				fixvert.STATE,
 				bedroom.STATE
 			};
+			GD.Print("all pc : "+allpc.STATE);
+			GD.Print("colored pc : "+coloredpc.STATE);
+			GD.Print("objectforfix : "+objectForFix.STATE);
+			GD.Print("trashcan : "+trashcan.Full);
+			GD.Print("pedestal : "+pedestal.STATE);
+			GD.Print("fruitgame : "+fruitgame.STATE);
+			GD.Print("fixvert : "+fixvert.STATE);
+			GD.Print("bedroom : "+bedroom.STATE);
+
 			global.List_Level_Bools = LevelBool;
 			global.List_Level_Texts = LevelString;
 			global.TpEnd = "Scenes/Menu/Credits_normal.tscn";
