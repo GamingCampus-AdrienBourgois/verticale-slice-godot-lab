@@ -269,7 +269,6 @@ visible = false
 z_index = 17
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("2_cxfpo")]
-position = Vector2(253, -77)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
