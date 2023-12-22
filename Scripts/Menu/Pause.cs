@@ -7,29 +7,29 @@ public partial class Pause : Control
 	private int SelectedIndex = 0;
 	private Scene_transition SceneTransition = null;
 	private bool paused = false;
-
 	public override void _Ready()
 	{
 		paused = GetParent().GetParent<Main>().paused;
+		SceneTransition = GetTree().Root.GetNode<Scene_transition>("SceneTransition");
 	}
 
 	public override void _Input(InputEvent @event)
 	{
 		if(paused)
 		{
-			if(Input.IsActionPressed("ui_right"))
+			if(Input.IsActionPressed("Right"))
 			{
 				ChangeSelecInd(+1);
 			}
-			if(Input.IsActionPressed("ui_left"))
+			if(Input.IsActionPressed("Left"))
 			{
 				ChangeSelecInd(-1);
 			}
-			if(Input.IsActionPressed("ui_up"))
+			if(Input.IsActionPressed("Up"))
 			{
 				ChangeSelecInd(-1);
 			}
-			if(Input.IsActionPressed("ui_down"))
+			if(Input.IsActionPressed("Down"))
 			{
 				ChangeSelecInd(+1);
 			}
@@ -41,6 +41,10 @@ public partial class Pause : Control
 					GetParent().GetParent<Main>().PauseMenu();
 				}
 				else if(SelectedIndex == 1)
+				{
+					GetTree().ChangeSceneToFile("Scenes/Menu/Menu.tscn");
+				}
+				else if(SelectedIndex == 2)
 				{
 					GetTree().Quit();
 				}
@@ -56,7 +60,7 @@ public partial class Pause : Control
 		{
 			SelectedIndex = 1;
 		}
-		else if (SelectedIndex > 1)
+		else if (SelectedIndex > 2)
 		{
 			SelectedIndex = 0;
 			

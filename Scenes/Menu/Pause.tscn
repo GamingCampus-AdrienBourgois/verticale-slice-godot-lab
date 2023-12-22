@@ -585,11 +585,22 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 32
+text = "Menu
+
+"
+
+[node name="Label3" type="Label" parent="Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 32
 text = "Quit
 
 "
 
 [node name="TileMap" type="TileMap" parent="."]
+modulate = Color(1, 1, 1, 0.545098)
 texture_filter = 1
 scale = Vector2(2, 2)
 tile_set = ExtResource("2_i82mq")
@@ -612,6 +623,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.568627)
 texture_filter = 1
 position = Vector2(752, 498)
 scale = Vector2(2, 2)
@@ -619,8 +631,10 @@ sprite_frames = SubResource("SpriteFrames_fgj7v")
 autoplay = "default"
 
 [node name="Sprite2D" parent="." instance=ExtResource("4_wlft5")]
+modulate = Color(1, 1, 1, 0.537255)
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.560784)
 z_index = -1
 texture_filter = 1
 position = Vector2(246, 414)
