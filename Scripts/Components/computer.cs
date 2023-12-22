@@ -12,7 +12,7 @@ public partial class computer : StaticBody2D
 	public bool Opened = true;
 
 	[Export]
-	Color OpenedColor = new Color(255,255,255);
+	Color OpenedColor = Color.Color8(255,255,255);
 	[Export]
 	Color NotOpenedColor = new Color(0,0,0);
 	[Export]

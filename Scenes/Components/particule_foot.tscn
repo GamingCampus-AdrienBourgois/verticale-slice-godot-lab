@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ybvqyqhf23jy"]
+[gd_scene load_steps=5 format=3 uid="uid://dd65aadc5gdd2"]
 
 [ext_resource type="Script" path="res://Scripts/Components/particule_foot.cs" id="1_j7vik"]
 
