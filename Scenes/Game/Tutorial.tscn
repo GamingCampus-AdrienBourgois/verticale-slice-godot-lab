@@ -72,26 +72,32 @@ position = Vector2(706, 547)
 zoom = Vector2(2, 2)
 script = ExtResource("3_y5mrw")
 
-[node name="PanelContainer" type="PanelContainer" parent="Player/Camera2D"]
+[node name="CanvasLayer" type="CanvasLayer" parent="Player/Camera2D"]
+layer = 20
+offset = Vector2(-750, -760)
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, -750, -760)
+
+[node name="PanelContainer" type="PanelContainer" parent="Player/Camera2D/CanvasLayer"]
 z_index = 20
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -157.0
-offset_top = -161.0
-offset_right = 27.0
-offset_bottom = -145.0
+offset_left = -27.0
+offset_top = 62.0
+offset_right = 157.0
+offset_bottom = 78.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.5, 1.5)
 size_flags_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Player/Camera2D/PanelContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Player/Camera2D/CanvasLayer/PanelContainer"]
 layout_mode = 2
 
-[node name="Portal" type="Label" parent="Player/Camera2D/PanelContainer/HBoxContainer"]
+[node name="Portal" type="Label" parent="Player/Camera2D/CanvasLayer/PanelContainer/HBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 1, 0, 1)
@@ -99,7 +105,7 @@ theme_override_fonts/font = ExtResource("3_gugeu")
 text = "Portal : No current message"
 horizontal_alignment = 1
 
-[node name="Complete" type="Label" parent="Player/Camera2D/PanelContainer/HBoxContainer"]
+[node name="Complete" type="Label" parent="Player/Camera2D/CanvasLayer/PanelContainer/HBoxContainer"]
 texture_filter = 1
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 1, 0, 1)

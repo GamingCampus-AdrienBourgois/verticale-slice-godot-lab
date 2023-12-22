@@ -16,6 +16,9 @@ public partial class Tutorial : Node2D
 		{
 			i.Connect("script_changed",new Callable(this,"Tp_entered"));
 		}
+		global.List_Level_Bools.Clear();
+		global.List_Level_Texts.Clear();
+		global.List_Level_Bools.Add(FixPattern.STATE);
 	}
 
 	private void Tp_entered(string _scenePath, Node2D body)

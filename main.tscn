@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dchiwu34cy6w2" path="res://Scenes/Components/door.tscn" id="6_e23jg"]
 [ext_resource type="Script" path="res://Scripts/Components/CameraUI.cs" id="7_564k3"]
 [ext_resource type="TileSet" uid="uid://shg7s3b4bifd" path="res://assets/MainTilemap.tres" id="7_hcmdi"]
-[ext_resource type="PackedScene" path="res://Scenes/Components/foot.tscn" id="7_i3pto"]
+[ext_resource type="PackedScene" uid="uid://gfwkjgaxjncs" path="res://Scenes/Components/foot.tscn" id="7_i3pto"]
 [ext_resource type="PackedScene" uid="uid://dbei81nyrc6ty" path="res://Scenes/Components/fix_wire.tscn" id="7_jky4f"]
 [ext_resource type="Script" path="res://Scripts/Components/AllPc.cs" id="7_nhoxv"]
 [ext_resource type="FontFile" uid="uid://dox4m0tdho7s7" path="res://assets/Components/monogram-extended.ttf" id="7_niyaj"]
@@ -433,7 +433,6 @@ script = ExtResource("7_nhoxv")
 
 [node name="PC23" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(98, -830)
-IsLocked = true
 
 [node name="PC24" parent="AllPc" instance=ExtResource("10_gflbg")]
 position = Vector2(174, -902)
@@ -1161,7 +1160,6 @@ script = ExtResource("26_w0xqu")
 [node name="IceDec1" type="Area2D" parent="Ice"]
 position = Vector2(-1158, 309)
 script = ExtResource("27_558j3")
-haveSprite = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ice/IceDec1"]
 position = Vector2(-29, 2)
@@ -1170,7 +1168,6 @@ polygon = PackedVector2Array(35, -23, -126, -23, -125, 457, 67, 457, 67, 329, 25
 [node name="Player_detect" type="Area2D" parent="Ice"]
 position = Vector2(-1158, 309)
 script = ExtResource("27_558j3")
-haveSprite = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ice/Player_detect"]
 position = Vector2(-21, 32)
@@ -1185,7 +1182,6 @@ script = ExtResource("28_wxtn0")
 [node name="BedArea" type="Area2D" parent="Bedroom/Areas"]
 position = Vector2(-105, 359)
 script = ExtResource("27_558j3")
-haveSprite = false
 Group = "Victor"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bedroom/Areas/BedArea"]
@@ -1195,7 +1191,6 @@ polygon = PackedVector2Array(-61, -1, -63, -204, -267, -205, -266, -1)
 [node name="BedArea2" type="Area2D" parent="Bedroom/Areas"]
 position = Vector2(307, 356)
 script = ExtResource("27_558j3")
-haveSprite = false
 Group = "Lucie"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bedroom/Areas/BedArea2"]
@@ -1205,7 +1200,6 @@ polygon = PackedVector2Array(-269, -31, -33, -31, -34, -236, -268, -236)
 [node name="BedArea3" type="Area2D" parent="Bedroom/Areas"]
 position = Vector2(314, 543)
 script = ExtResource("27_558j3")
-haveSprite = false
 Group = "Henry"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bedroom/Areas/BedArea3"]
@@ -1215,7 +1209,6 @@ polygon = PackedVector2Array(-481, -166, -685, -165, -685, 38, -480, 38)
 [node name="BedArea4" type="Area2D" parent="Bedroom/Areas"]
 position = Vector2(-104, 543)
 script = ExtResource("27_558j3")
-haveSprite = false
 Group = "Hugo"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bedroom/Areas/BedArea4"]
@@ -1225,7 +1218,6 @@ polygon = PackedVector2Array(140, -12, 377, -11, 376, -217, 141, -216)
 [node name="BedArea5" type="Area2D" parent="Bedroom/Areas"]
 position = Vector2(-101, 751)
 script = ExtResource("27_558j3")
-haveSprite = false
 Group = "Jarod"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bedroom/Areas/BedArea5"]
@@ -1235,7 +1227,6 @@ polygon = PackedVector2Array(-65, 22, -272, 21, -272, -183, -65, -182)
 [node name="BedArea6" type="Area2D" parent="Bedroom/Areas"]
 position = Vector2(320, 752)
 script = ExtResource("27_558j3")
-haveSprite = false
 Group = "Anthony"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bedroom/Areas/BedArea6"]
