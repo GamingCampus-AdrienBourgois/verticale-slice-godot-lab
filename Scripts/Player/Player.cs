@@ -229,10 +229,20 @@ public partial class Player : CharacterBody2D
 				ui_animations.Play("appear");
 				item = body;
 			}
-			else if (body.IsInGroup("PC") || body.IsInGroup("ColoredPC")){
+			else if (body.IsInGroup("PC")){
+				computer temp = (computer)body;
+				if(temp.Opened == true)
+				{
+					to_label.Text = " E to interact";
+					ui_animations.Play("appear");
+					item = body;
+				}
+			}
+			else if(body.IsInGroup("ColoredPC"))
+			{
 				to_label.Text = " E to interact";
 				ui_animations.Play("appear");
-				item = body;
+				item = body;	
 			}
 		}
 		
