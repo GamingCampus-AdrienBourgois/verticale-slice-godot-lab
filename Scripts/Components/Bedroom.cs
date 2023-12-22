@@ -23,6 +23,7 @@ public partial class Bedroom : Node
 		{
 			GD.Print("Bon item !");
 			area.Call("FixedChange");
+			GD.Print("body :"+body.Name);
 			BedroomsOK++;
 			if(BedroomsOK >= Bedrooms)
 			{
