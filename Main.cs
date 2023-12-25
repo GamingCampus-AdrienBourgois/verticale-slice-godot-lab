@@ -83,7 +83,7 @@ public partial class Main : Node2D
 				"Hmmm... Sometimes things aren't were they're supposed to be.",
 				"Detritus on the floor... Not the best for the company.",
 				"Someone left some crates somewhere...",
-				"Number of caracters mean something ?",
+				"Number of caracters means something ?",
 				"2 and 3 on the other side ? Hmmm...",
 				"Everyone wants their favorite item in their bedroom..."
 			};

@@ -64,6 +64,7 @@ shape = SubResource("RectangleShape2D_l5mt6")
 
 [node name="FolderNote" type="CanvasLayer" parent="."]
 layer = 40
+visible = false
 
 [node name="PanelContainer" type="PanelContainer" parent="FolderNote"]
 anchors_preset = 8

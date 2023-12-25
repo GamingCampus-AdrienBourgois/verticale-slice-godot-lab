@@ -74,6 +74,7 @@ texture = ExtResource("2_35aqp")
 shape = SubResource("RectangleShape2D_4jqfp")
 
 [node name="Fix_wire_hud" parent="." instance=ExtResource("3_8gbmr")]
+layer = 23
 visible = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

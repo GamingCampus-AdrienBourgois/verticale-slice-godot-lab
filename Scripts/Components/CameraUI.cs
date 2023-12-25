@@ -16,6 +16,6 @@ public partial class CameraUI : Camera2D
 			Container.GetNode<Label>("Portal").Text = "Portal : No current message";
 		}
 		await ToSignal(GetTree().CreateTimer(0.1),"timeout");
-		Container.GetNode<Label>("Complete").Text = "Fixed :"+global.LevelFinished + "/" + global.List_Level_Bools.Count;
+		Container.GetNode<Label>("Complete").Text = "   Fixed :"+global.LevelFinished + "/" + global.List_Level_Bools.Count;
 	}
 }

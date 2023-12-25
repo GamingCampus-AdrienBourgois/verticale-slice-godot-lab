@@ -587,7 +587,7 @@ animations = [{
 
 [node name="The_END" type="Node2D"]
 script = ExtResource("1_wima7")
-AllText = PackedStringArray("Cela faisait longtemps que j\'attendais, longtemps ? Je ne sais plus...", "Cela fait du bien de pas se sentir seul", "...", "Je ne pensais pas que tu allais venir ici", "Je voulais rester ici un maximum...", "C\'est magnifique non ? Peut importe le temps que je reste, je suis toujours émerveillé", "Je me doute que tout a une fin non ?", "Tu veux rester regarder avec moi ?", "On ira manger après t\'en fais pas")
+AllText = PackedStringArray("I\'ve been waiting for a long time... A long time? I don\'t know anymore...", "It\'s nice not to feel lonely.", "...", "I didn\'t think you were going to come here.", "I wanted to stay here as long as possible... It\'s beautiful, isn\'t it?", "No matter how long I stay, I\'m always amazed.", "I guess everything has to come to an end, doesn\'t it?", "Do you want to stay and watch with me?", "We\'ll eat afterwards, don\'t worry.")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -642,6 +642,8 @@ size_flags_vertical = 1
 theme_override_fonts/font = ExtResource("4_jhti1")
 theme_override_font_sizes/font_size = 32
 autowrap_mode = 2
+visible_characters = 0
+visible_ratio = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TextRpg/PanelContainer/SpeakText"]
 libraries = {
@@ -659,6 +661,7 @@ shape = SubResource("RectangleShape2D_dx4ch")
 texture_filter = 1
 position = Vector2(188, -14)
 sprite_frames = SubResource("SpriteFrames_77hbr")
-frame_progress = 0.317562
+autoplay = "default"
+frame_progress = 0.776622
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

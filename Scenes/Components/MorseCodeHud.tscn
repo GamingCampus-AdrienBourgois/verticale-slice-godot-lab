@@ -483,7 +483,7 @@ _data = {
 
 [node name="MorseCodeHud" type="CanvasLayer"]
 script = ExtResource("1_qmvsy")
-SecretCode = "Poutres"
+SecretCode = "Confirm"
 
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
 anchors_preset = 15
