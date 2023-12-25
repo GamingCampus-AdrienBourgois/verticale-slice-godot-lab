@@ -36,11 +36,11 @@ public partial class MenuCursor : TextureRect
 	{
 		Vector2 input = Vector2.Zero;
 
-		if (Input.IsActionJustPressed("ui_up"))
+		if (Input.IsActionJustPressed("Up"))
 		{
 			input.Y -= 1;
 		}
-		if (Input.IsActionJustPressed("ui_down"))
+		if (Input.IsActionJustPressed("Down"))
 		{
 			input.Y += 1;
 		}
@@ -52,14 +52,14 @@ public partial class MenuCursor : TextureRect
 
 		if(isWiring)
 		{
-			if (Input.IsActionJustPressed("ui_accept") && !isWireSelected) 
+			if (Input.IsActionJustPressed("Accept") && !isWireSelected) 
 			{
 				wireSelected.X = cursorIndex;
 				SetCursorFromIndex(cursorIndex + 1);
 				isWireSelected = true;
 
 			}
-			else if (Input.IsActionJustPressed("ui_accept") && isWireSelected)
+			else if (Input.IsActionJustPressed("Accept") && isWireSelected)
 			{
 				wireSelected.Y = cursorIndex;
 				colorMatched = CheckWiresColor(wireSelected);
