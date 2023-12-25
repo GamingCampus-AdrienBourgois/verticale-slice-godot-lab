@@ -1226,7 +1226,6 @@ collision_mask = 2
 anim = 19
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Ice" type="Node" parent="."]
