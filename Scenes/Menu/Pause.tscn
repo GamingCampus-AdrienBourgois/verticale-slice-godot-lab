@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://xoasx78y5lio"]
+[gd_scene load_steps=95 format=3 uid="uid://xoasx78y5lio"]
 
 [ext_resource type="Script" path="res://Scripts/Menu/Pause.cs" id="1_jajvc"]
 [ext_resource type="TileSet" uid="uid://cnowwr0gr3n55" path="res://Platformer/scenes/tilemap_platformer.tres" id="2_i82mq"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bk0nhv3b6vxrg" path="res://assets/Imports/Blackhole.png" id="5_isrcg"]
 [ext_resource type="PackedScene" uid="uid://q4077uamawv5" path="res://Scenes/Menu/Bg.tscn" id="6_e7les"]
 [ext_resource type="AudioStream" uid="uid://csfmdqv63cvnp" path="res://assets/Imports/Sound_Effects/Select.wav" id="7_78myh"]
+[ext_resource type="Texture2D" uid="uid://d4l3oftwpqhoi" path="res://assets/allbuttons.png" id="8_7jgts"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i1tf2"]
 atlas = ExtResource("3_r1jxs")
@@ -549,6 +550,87 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_d5hay"]
+atlas = ExtResource("8_7jgts")
+region = Rect2(0, 320, 112, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lba85"]
+atlas = ExtResource("8_7jgts")
+region = Rect2(0, 352, 112, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1p1iu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d5hay")
+}],
+"loop": false,
+"name": &"OFF",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lba85")
+}],
+"loop": false,
+"name": &"ON",
+"speed": 0.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gshe"]
+atlas = ExtResource("8_7jgts")
+region = Rect2(0, 384, 112, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elglf"]
+atlas = ExtResource("8_7jgts")
+region = Rect2(0, 416, 112, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1jlkp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gshe")
+}],
+"loop": false,
+"name": &"OFF",
+"speed": 0.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elglf")
+}],
+"loop": false,
+"name": &"ON",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0141x"]
+atlas = ExtResource("8_7jgts")
+region = Rect2(0, 128, 112, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejw6r"]
+atlas = ExtResource("8_7jgts")
+region = Rect2(0, 160, 112, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m02gt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0141x")
+}],
+"loop": false,
+"name": &"OFF",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejw6r")
+}],
+"loop": false,
+"name": &"ON",
+"speed": 5.0
+}]
+
 [node name="Pause" type="Control"]
 layout_mode = 3
 anchors_preset = 0
@@ -557,6 +639,7 @@ offset_bottom = 40.0
 script = ExtResource("1_jajvc")
 
 [node name="Container" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -649,3 +732,26 @@ z_index = -3
 [node name="Audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_78myh")
 volume_db = -25.0
+
+[node name="Buttons" type="Node2D" parent="."]
+
+[node name="Resume" type="AnimatedSprite2D" parent="Buttons"]
+texture_filter = 1
+position = Vector2(570, 234)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_1p1iu")
+animation = &"OFF"
+
+[node name="Menu" type="AnimatedSprite2D" parent="Buttons"]
+texture_filter = 1
+position = Vector2(570, 325)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_1jlkp")
+animation = &"OFF"
+
+[node name="Quit" type="AnimatedSprite2D" parent="Buttons"]
+texture_filter = 1
+position = Vector2(570, 419)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_m02gt")
+animation = &"OFF"

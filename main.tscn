@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dchiwu34cy6w2" path="res://Scenes/Components/door.tscn" id="6_e23jg"]
 [ext_resource type="Script" path="res://Scripts/Components/CameraUI.cs" id="7_564k3"]
 [ext_resource type="TileSet" uid="uid://shg7s3b4bifd" path="res://assets/MainTilemap.tres" id="7_hcmdi"]
-[ext_resource type="PackedScene" path="res://Scenes/Components/foot.tscn" id="7_i3pto"]
+[ext_resource type="PackedScene" uid="uid://gfwkjgaxjncs" path="res://Scenes/Components/foot.tscn" id="7_i3pto"]
 [ext_resource type="PackedScene" uid="uid://dbei81nyrc6ty" path="res://Scenes/Components/fix_wire.tscn" id="7_jky4f"]
 [ext_resource type="Script" path="res://Scripts/Components/AllPc.cs" id="7_nhoxv"]
 [ext_resource type="FontFile" uid="uid://dox4m0tdho7s7" path="res://assets/Components/monogram-extended.ttf" id="7_niyaj"]

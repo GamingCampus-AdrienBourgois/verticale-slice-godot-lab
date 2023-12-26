@@ -4,6 +4,8 @@ using System;
 
 public partial class Pause : Control
 {
+	[Signal]
+	public delegate void PauseMenuEventHandler();
 	private int SelectedIndex = 0;
 	private Scene_transition SceneTransition = null;
 	private bool paused = false;
@@ -42,7 +44,8 @@ public partial class Pause : Control
 				}
 				else if(SelectedIndex == 1)
 				{
-					GetTree().ChangeSceneToFile("Scenes/Menu/Menu.tscn");
+					GetParent().GetParent<Main>().PauseMenu();
+					SceneTransition.Call("changeScene","Scenes/Menu/Menu.tscn",false);
 				}
 				else if(SelectedIndex == 2)
 				{
@@ -50,7 +53,7 @@ public partial class Pause : Control
 				}
 			}
 
-			ChangeColor();
+			ChangeAnim();
 		}
 	}
 
@@ -67,16 +70,20 @@ public partial class Pause : Control
 		}
 	}
 
-	private void ChangeColor(){
-		for (int x = 0; x < GetNode<Node>("Container").GetChildren().Count; x++)
+	private void ChangeAnim()
+	{
+		int y = 0;
+		//Possible de faire des sprite2D et de changer la frame, mais si on a des animations ce sera plus opti
+		foreach (AnimatedSprite2D x in GetNode<Node2D>("Buttons").GetChildren())
 		{
-			if (x == SelectedIndex)
+			if (y == SelectedIndex)
 			{
-				GetNode<Node>("Container").GetChild<Godot.Label>(x).SelfModulate = new Color(255, 0, 0);
+				x.Play("ON");
 			}
 			else {
-				GetNode<Node>("Container").GetChild<Godot.Label>(x).SelfModulate = new Color(255, 255, 255);
+				x.Play("OFF");
 			}
+			y++;
 		}
 	}
 

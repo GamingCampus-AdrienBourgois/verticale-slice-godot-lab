@@ -24,7 +24,10 @@ public partial class Scene_transition : CanvasLayer
 		if (GetNode("Animation") != null)
 		{
 			GetNode<AnimationPlayer>("Animation").Play("dissolve");
-			GetNode<AnimationPlayer>("Animation").Connect("AnimationFinish", new Callable(this, "_OnAnimationFinished"));
+			//if(!GetNode<AnimationPlayer>("Animation").IsConnected("AnimationFinish",new Callable(this, "_OnAnimationFinished")))
+			//{
+				GetNode<AnimationPlayer>("Animation").Connect("AnimationFinish", new Callable(this, "_OnAnimationFinished"));
+			//}
 		}
 		else
 		{
@@ -39,6 +42,7 @@ public partial class Scene_transition : CanvasLayer
 		{
 			GetTree().ChangeSceneToFile(Target);
 			GetNode<AnimationPlayer>("Animation").PlayBackwards("dissolve");
+			GD.Print("Disconnected");
 			GetNode<AnimationPlayer>("Animation").Disconnect("AnimationFinish", new Callable(this, "_OnAnimationFinished"));
 		}
 		else
